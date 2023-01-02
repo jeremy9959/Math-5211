@@ -59,7 +59,7 @@ jtd.getTheme = function() {
 
 jtd.setTheme = function(theme) {
   var cssFile = document.querySelector('[rel="stylesheet"]');
-  cssFile.setAttribute('href', '/Math-5210/assets/css/just-the-docs-' + theme + '.css');
+  cssFile.setAttribute('href', '/Math-5211/assets/css/just-the-docs-' + theme + '.css');
 }
 
 // Scroll site-nav to ensure the link to the current page is visible
