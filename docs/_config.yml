@@ -1,0 +1,25 @@
+title: "Abstract Algebra - Graduate Course"
+remote_theme: "pmarsceill/just-the-docs"
+search_enabled: false
+
+domain: jeremy9959.net
+url: https://jeremy9959.net
+baseurl: /Math-5210
+
+mermaid:
+  version: "9.1.6"
+
+aux_links:
+  "Author Home Page":
+    - "//jeremy9959.net"
+  "UConn Math Department":
+    - "//math.uconn.edu"
+
+footer_content: "Copyright &copy; 2021 Jeremy Teitelbaum.  This work is licensed under a <a href=\"http://creativecommons.org/licenses/by-sa/4.0\">Creative Commons Attribution-ShareAlike 4.0 International License.</a>"
+gh_edit_link: false
+
+exclude: 
+- notes/junk/
+- junk/
+
+  
