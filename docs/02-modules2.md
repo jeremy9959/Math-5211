@@ -1,6 +1,6 @@
 ---
 layout: default
-title: More on modules
+title: 2. More on modules
 nav_order: 2.0
 parent: Course Content
 ---

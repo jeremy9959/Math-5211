@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Canonical Forms
+title: 4. Canonical Forms
 nav_order: 4.0
 parent: Course Content
 ---

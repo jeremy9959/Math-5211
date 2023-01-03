@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Modules over PIDs
+title: 3. Modules over PIDs
 nav_order: 3.0
 parent: Course Content
 ---

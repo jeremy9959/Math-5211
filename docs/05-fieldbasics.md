@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Field Theory Basics
+title: 5. Field Theory Basics
 nav_order: 5.0
 parent: Course Content
 ---

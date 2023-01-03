@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Galois Extensions
+title: 7. Galois Extensions
 nav_order: 7.0
 parent: Course Content
 ---
