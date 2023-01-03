@@ -6,3 +6,7 @@ parent: Course Content
 ---
 
 ## Canonical Forms
+
+<div>
+<a href="slides/04-forms.html"> View as slides </a>
+</div>

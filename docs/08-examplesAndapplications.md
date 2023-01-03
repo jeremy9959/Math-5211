@@ -6,3 +6,7 @@ parent: Course Content
 ---
 
 ## Examples and Applications
+
+<div>
+<a href="slides/08-examplesAndapplications.html"> View as slides </a>
+</div>

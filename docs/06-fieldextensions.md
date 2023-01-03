@@ -6,3 +6,7 @@ parent: Course Content
 ---
 
 ## Field Extensions
+
+<div>
+<a href="slides/06-fieldextensions.html"> View as slides </a>
+</div>

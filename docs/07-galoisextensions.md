@@ -6,3 +6,7 @@ parent: Course Content
 ---
 
 ## Galois Extensions
+
+<div>
+<a href="slides/07-galoisextensions.html"> View as slides </a>
+</div>

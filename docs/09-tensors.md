@@ -6,3 +6,7 @@ parent: Course Content
 ---
 
 ## Tensor Products of Modules
+
+<div>
+<a href="slides/09-tensors.html"> View as slides </a>
+</div>

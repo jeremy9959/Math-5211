@@ -6,3 +6,7 @@ parent: Course Content
 ---
 
 ## Applications of the tensor product
+
+<div>
+<a href="slides/11-multilinear.html"> View as slides </a>
+</div>

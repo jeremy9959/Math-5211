@@ -21,5 +21,6 @@ layout: default
 
 If $R$ has a unit element $1$, we also require $1m=m$ for all $m\in M$.
 
-
-[View as slides](slides/01-modules.html)
+<div>
+<a href="slides/01-modules.html"> View as slides </a>
+</div>

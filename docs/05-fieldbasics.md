@@ -6,3 +6,7 @@ parent: Course Content
 ---
 
 ## Basics of field theory
+
+<div>
+<a href="slides/05-fieldbasics.html"> View as slides </a>
+</div>
