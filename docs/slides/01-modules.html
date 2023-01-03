@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+ "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <title>1. Modules</title>
+  <style type="text/css">
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+  </style>
+  <link rel="stylesheet" type="text/css" media="screen, projection, print"
+    href="https://www.w3.org/Talks/Tools/Slidy2/styles/slidy.css" />
+  <script
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js"
+  type="text/javascript"></script>
+  <script src="https://www.w3.org/Talks/Tools/Slidy2/scripts/slidy.js"
+    charset="utf-8" type="text/javascript"></script>
+</head>
+<body>
+<div class="slide titlepage">
+  <h1 class="title">1. Modules</h1>
+</div>
+<div id="modules" class="slide section level2">
+<h1>Modules</h1>
+<ul>
+<li>Modules are to rings as vector spaces are to fields.</li>
+<li>Modules are to rings as sets with group actions are to groups.</li>
+</ul>
+</div>
+<div id="definition-of-left-modules" class="slide section level2">
+<h1>Definition of (left) modules</h1>
+<p><strong>Definition:</strong> Let <span
+class="math inline">\(R\)</span> be a ring (for now, not necessarily
+commutative and not necessarily having a unit). A <em>left <span
+class="math inline">\(R\)</span>-module</em> is an abelian group <span
+class="math inline">\(M\)</span> together with a map <span
+class="math inline">\(R\times M\to M\)</span> (written <span
+class="math inline">\((r,m)\mapsto rm\)</span>) such that:</p>
+<ul>
+<li><span class="math inline">\(r(m_1+m_2)=rm_1+rm_2\)</span></li>
+<li><span class="math inline">\((r_1+r_2)m = r_1 m + r_2 m\)</span></li>
+<li><span class="math inline">\(r_1 (r_2 m) = (r_1 r_2) m\)</span></li>
+</ul>
+<p>If <span class="math inline">\(R\)</span> has a unit element <span
+class="math inline">\(1\)</span>, we also require <span
+class="math inline">\(1m=m\)</span> for all <span
+class="math inline">\(m\in M\)</span>.</p>
+<p><a href="slides/01-modules.html">View as slides</a></p>
+</div>
+</body>
+</html>
