@@ -1,0 +1,197 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+  ignorenonframetext,
+]{beamer}
+\usepackage{pgfpages}
+\setbeamertemplate{caption}[numbered]
+\setbeamertemplate{caption label separator}{: }
+\setbeamercolor{caption name}{fg=normal text.fg}
+\beamertemplatenavigationsymbolsempty
+% Prevent slide breaks in the middle of a paragraph
+\widowpenalties 1 10000
+\raggedbottom
+\setbeamertemplate{part page}{
+  \centering
+  \begin{beamercolorbox}[sep=16pt,center]{part title}
+    \usebeamerfont{part title}\insertpart\par
+  \end{beamercolorbox}
+}
+\setbeamertemplate{section page}{
+  \centering
+  \begin{beamercolorbox}[sep=12pt,center]{part title}
+    \usebeamerfont{section title}\insertsection\par
+  \end{beamercolorbox}
+}
+\setbeamertemplate{subsection page}{
+  \centering
+  \begin{beamercolorbox}[sep=8pt,center]{part title}
+    \usebeamerfont{subsection title}\insertsubsection\par
+  \end{beamercolorbox}
+}
+\AtBeginPart{
+  \frame{\partpage}
+}
+\AtBeginSection{
+  \ifbibliography
+  \else
+    \frame{\sectionpage}
+  \fi
+}
+\AtBeginSubsection{
+  \frame{\subsectionpage}
+}
+\usepackage{amsmath,amssymb}
+\usepackage{lmodern}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\hypersetup{
+  pdftitle={1. Modules},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+\urlstyle{same} % disable monospaced font for URLs
+\newif\ifbibliography
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+\usepackage[all]{xy}
+\input macros.tex
+\ifLuaTeX
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+
+\title{1. Modules}
+\author{}
+\date{}
+
+\begin{document}
+\frame{\titlepage}
+
+\hypertarget{modules}{%
+\subsection{Modules}\label{modules}}
+
+\begin{frame}{Modules}
+\begin{itemize}
+\tightlist
+\item
+  Modules are to rings as vector spaces are to fields.
+\item
+  Modules are to rings as sets with group actions are to groups.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Definition of (left) modules}
+\protect\hypertarget{definition-of-left-modules}{}
+\textbf{Definition:} Let \(R\) be a ring (for now, not necessarily
+commutative and not necessarily having a unit). A \emph{left
+\(R\)-module} is an abelian group \(M\) together with a map
+\(R\times M\to M\) (written \((r,m)\mapsto rm\)) such that:
+
+\begin{itemize}
+\tightlist
+\item
+  \(r(m_1+m_2)=rm_1+rm_2\)
+\item
+  \((r_1+r_2)m = r_1 m + r_2 m\)
+\item
+  \(r_1 (r_2 m) = (r_1 r_2) m\)
+\end{itemize}
+
+If \(R\) has a unit element \(1\), we also require \(1m=m\) for all
+\(m\in M\).
+\end{frame}
+
+\begin{frame}{Right modules}
+\protect\hypertarget{right-modules}{}
+A right module is defined by a map \(M\times R\to M\) and written
+\((m,r)\mapsto mr\) and satisfying the property \[
+(m r_1)r_2 = m(r_1 r_2).
+\]
+
+If \(R\) is not commutative, these really are different, since for a
+left module:
+
+\begin{itemize}
+\tightlist
+\item
+  \(r_1 r_2\) acts by ``first \(r_2\), then \(r_1\)
+\end{itemize}
+
+while for a right module
+
+\begin{itemize}
+\tightlist
+\item
+  \(r_1 r_2\) acts by ``first \(r_1\), then \(r_2\).''
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Left and Right modules}
+\protect\hypertarget{left-and-right-modules}{}
+If \(R\) is commutative, and \(M\) is a left \(R\)-module, then we can
+define a right \(R\) module \(M'\) with the same underlying abelian
+group \(M\) and by defining \(m' r=(r m)'\). This works because
+
+\[
+(m'r_1) r_2 = (r_1 m)'r_2 = (r_2(r_1 m))'=((r_2 r_1)m)' =((r_1 r_2)m)' = m'(r_1 r_2)
+\]
+\end{frame}
+
+\begin{frame}[fragile]{Remarks}
+\protect\hypertarget{remarks}{}
+\begin{block}{Vector spaces}
+\protect\hypertarget{vector-spaces}{}
+If \(R\) is a field, then a left (or right) \(R\)-module is the same as
+a vector space.
+\end{block}
+
+\begin{block}{Another definition}
+\protect\hypertarget{another-definition}{}
+If \(M\) is an abelian group, and \(R\) is a ring, then a left
+\(R\)-module structure on \(M\) is the same as a ring map
+\[R\to \End (M)\]. If \(\phi_r\) is the endomorphism associated to
+\(r\in R\), then \(rm=\phi_{r}(m)\). The associativity comes from
+defining the ring structure on \[\End (M)\] as the usual composition of
+functions: \[
+\phi_{r_1 r_2}=\phi_{r_1}\circ\phi_{r_2}.
+\]
+
+Testing \(\GL(\R)\)
+
+\begin{verbatim}
+<a href="slides/01-modules.html"> View as slides </a>
+\end{verbatim}
+\end{block}
+\end{frame}
+
+\end{document}

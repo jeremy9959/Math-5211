@@ -11,10 +11,8 @@ slides : $(slidefiles)
 beamer: $(beamerfiles)
 
 beamer/%.pdf : %.md
-	pandoc --standalone --mathjax -t beamer $< -o $@
+	head -n -3 $< | pandoc --standalone --mathjax --slide-level=3 -V header-includes="\\usepackage[all]{xy}" -V header-includes="\\input macros.tex" -t beamer -f markdown -o $@
 
-slides/%.html : %.md
-	head -n -3 $< | pandoc --standalone --mathjax  -t slidy -f markdown -o $@
 
 pdfs/%.pdf : %.md
-	pandoc --standalone --mathjax -V header-includes="\\usepackage[all]{xy}" -V include-before="\\input macros.tex" $< -o $@
+	pandoc --standalone --mathjax -V header-includes="\\usepackage[all]{xy}"  -V header-includes="\\input macros.tex" $< -o $@

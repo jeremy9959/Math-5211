@@ -15,6 +15,9 @@ keith/*.aux
 *.cb
 *.cb2
 .*.lb
+*.nav
+*.snm
+*.vrb
 *.fdb_latexmk
 *.synctex.gz
 *.aux

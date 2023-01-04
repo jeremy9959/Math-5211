@@ -20,6 +20,59 @@
   <script
   src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js"
   type="text/javascript"></script>
+  <script type="text/javascript">
+      window.MathJax = {
+        loader: {
+        load: ['[custom]/xypic.js'],
+        paths: {custom: 'https://cdn.jsdelivr.net/gh/sonoisa/XyJax-v3@3.0.1/build/'}
+      },
+        tex: {
+          packages: {'[+]': ['xypic']},
+          tags: "ams",
+          inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+          displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+          processEscapes: true,
+          macros: {
+            Z: "{\\mathbb{Z}}",
+            Zn: ["{\\mathbb{Z}/#1 \\mathbb{Z}}",1],
+            GL: "{\\mathrm{GL}}",
+            lessim: "{\\lesssim}",
+            R: "{\\mathbb{R}}",
+            Q: "{\\mathbb{Q}}",
+            SL: "{\\mathrm{SL}}",
+            PGL: "{\\mathrm{PGL}}",
+            C: "{\\mathbb{C}}",
+            Stab: "{\\mathrm{Stab}}",
+            Aut: "{\\mathrm{Aut}}",
+            End: "{\\mathrm{End}}",
+            isom: "{\\cong}",
+            order: ["{\\lvert#1\\rvert}",1],
+            divides: "{\\vert}",
+            semi: "{\\rtimes}",
+            End: "{\\mathrm{End}}",
+            dim: "{\\mathrm{dim}}",
+            Hom: "{\\mathrm{Hom}}",
+            Pol: "{\\mathrm{Pol}}",
+            D: "{\\mathcal{D}}",
+            span: "{\\mathrm{span}}",
+            norm: ["{\\lVert #1 \\rVert}",1]
+          }
+        }
+      };
+  </script>
+  <script type="text/javascript" id="MathJax-script" async
+    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
+  </script>
+
+  <!-- LaTeX Macros
+
+
+
+  $$\def\GL{\mathrm{GL}}$$
+  $$\def\Zn#1{\mathbb{Z}/#1\mathbb{Z}}$$
+  $$\def\Z{\mathbb{Z}}$$
+  $$\def\gcd#1#2{\mathrm{gcd}(#1,#2)}$$
+  -->
   <script src="https://www.w3.org/Talks/Tools/Slidy2/scripts/slidy.js"
     charset="utf-8" type="text/javascript"></script>
 </head>
@@ -27,14 +80,14 @@
 <div class="slide titlepage">
   <h1 class="title">1. Modules</h1>
 </div>
-<div id="modules" class="slide section level2">
+<div id="modules" class="title-slide slide section level2">
 <h1>Modules</h1>
 <ul>
 <li>Modules are to rings as vector spaces are to fields.</li>
 <li>Modules are to rings as sets with group actions are to groups.</li>
 </ul>
 </div>
-<div id="definition-of-left-modules" class="slide section level2">
+<div id="definition-of-left-modules" class="slide section level3">
 <h1>Definition of (left) modules</h1>
 <p><strong>Definition:</strong> Let <span
 class="math inline">\(R\)</span> be a ring (for now, not necessarily
@@ -52,6 +105,64 @@ class="math inline">\((r,m)\mapsto rm\)</span>) such that:</p>
 class="math inline">\(1\)</span>, we also require <span
 class="math inline">\(1m=m\)</span> for all <span
 class="math inline">\(m\in M\)</span>.</p>
+</div>
+<div id="right-modules" class="slide section level3">
+<h1>Right modules</h1>
+<p>A right module is defined by a map <span
+class="math inline">\(M\times R\to M\)</span> and written <span
+class="math inline">\((m,r)\mapsto mr\)</span> and satisfying the
+property <span class="math display">\[
+(m r_1)r_2 = m(r_1 r_2).
+\]</span></p>
+<p>If <span class="math inline">\(R\)</span> is not commutative, these
+really are different, since for a left module:</p>
+<ul>
+<li><span class="math inline">\(r_1 r_2\)</span> acts by “first <span
+class="math inline">\(r_2\)</span>, then <span
+class="math inline">\(r_1\)</span></li>
+</ul>
+<p>while for a right module</p>
+<ul>
+<li><span class="math inline">\(r_1 r_2\)</span> acts by “first <span
+class="math inline">\(r_1\)</span>, then <span
+class="math inline">\(r_2\)</span>.”</li>
+</ul>
+</div>
+<div id="left-and-right-modules" class="slide section level3">
+<h1>Left and Right modules</h1>
+<p>If <span class="math inline">\(R\)</span> is commutative, and <span
+class="math inline">\(M\)</span> is a left <span
+class="math inline">\(R\)</span>-module, then we can define a right
+<span class="math inline">\(R\)</span> module <span
+class="math inline">\(M&#39;\)</span> with the same underlying abelian
+group <span class="math inline">\(M\)</span> and by defining <span
+class="math inline">\(m&#39; r=(r m)&#39;\)</span>. This works
+because</p>
+<p><span class="math display">\[
+(m&#39;r_1) r_2 = (r_1 m)&#39;r_2 = (r_2(r_1 m))&#39;=((r_2 r_1)m)&#39;
+=((r_1 r_2)m)&#39; = m&#39;(r_1 r_2)
+\]</span></p>
+</div>
+<div id="remarks" class="slide section level3">
+<h1>Remarks</h1>
+<h4 id="vector-spaces">Vector spaces</h4>
+<p>If <span class="math inline">\(R\)</span> is a field, then a left (or
+right) <span class="math inline">\(R\)</span>-module is the same as a
+vector space.</p>
+<h4 id="another-definition">Another definition</h4>
+<p>If <span class="math inline">\(M\)</span> is an abelian group, and
+<span class="math inline">\(R\)</span> is a ring, then a left <span
+class="math inline">\(R\)</span>-module structure on <span
+class="math inline">\(M\)</span> is the same as a ring map</p>
+<p><span class="math display">\[R\to \End (M)\]</span>.</p>
+<p>If <span class="math inline">\(\phi_r\)</span> is the endomorphism
+associated to <span class="math inline">\(r\in R\)</span>, then <span
+class="math inline">\(rm=\phi_{r}(m)\)</span>. The associativity comes
+from defining the ring structure on <span class="math display">\[\End
+(M)\]</span> as the usual composition of functions: <span
+class="math display">\[
+\phi_{r_1 r_2}=\phi_{r_1}\circ\phi_{r_2}.
+\]</span></p>
 </div>
 </body>
 </html>
