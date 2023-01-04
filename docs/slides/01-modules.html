@@ -80,8 +80,12 @@
 <div class="slide titlepage">
   <h1 class="title">1. Modules</h1>
 </div>
-<div id="modules" class="slide section level3">
+<div id="modules" class="title-slide slide section level2">
 <h1>Modules</h1>
+
+</div>
+<div id="how-to-think-of-modules" class="slide section level3">
+<h1>How to think of modules</h1>
 <ul>
 <li>Modules are to rings as vector spaces are to fields.</li>
 <li>Modules are to rings as sets with group actions are to groups.</li>
@@ -154,7 +158,7 @@ vector space.</p>
 <span class="math inline">\(R\)</span> is a ring, then a left <span
 class="math inline">\(R\)</span>-module structure on <span
 class="math inline">\(M\)</span> is the same as a ring map</p>
-<p><span class="math display">\[R\to \End (M)\]</span>.</p>
+<p><span class="math display">\[R\to \End (M).\]</span></p>
 <p>If <span class="math inline">\(\phi_r\)</span> is the endomorphism
 associated to <span class="math inline">\(r\in R\)</span>, then <span
 class="math inline">\(rm=\phi_{r}(m)\)</span>. The associativity comes
@@ -179,6 +183,324 @@ class="math inline">\(R\)</span> is a left module over itself by ring
 multiplication. The (left) ideals of <span
 class="math inline">\(R\)</span> are <em>exactly the left submodules of
 <span class="math inline">\(R\)</span></em>.</p>
+</div>
+
+<div id="essential-examples" class="title-slide slide section level2">
+<h1>Essential examples</h1>
+
+</div>
+<div id="rings-as-modules-over-themselves" class="slide section level3">
+<h1>Rings as modules over themselves</h1>
+<ul>
+<li>Every ring <span class="math inline">\(R\)</span> is a left module
+over itself. The submodules of <span class="math inline">\(R\)</span>
+are the left ideals.<br />
+</li>
+<li><span class="math inline">\(R\)</span> is also a right module over
+itself, with the right ideals being the right submodules.</li>
+</ul>
+<p>If <span class="math inline">\(F\)</span> is a field and <span
+class="math inline">\(n&gt;1\)</span>, let <span
+class="math inline">\(R=M_{n}(F)\)</span> be the <span
+class="math inline">\(n\times n\)</span> matrix ring over <span
+class="math inline">\(F\)</span>. The matrices with arbitrary first
+column and zeros elsewhere form a left ideal <span
+class="math inline">\(J\)</span> and therefore a left submodule of <span
+class="math inline">\(R\)</span> as left <span
+class="math inline">\(R\)</span>-module. But <span
+class="math inline">\(J\)</span> is <em>not</em> a right <span
+class="math inline">\(R\)</span>-submodule.</p>
+<p>A field <span class="math inline">\(F\)</span> is a one-dimensional
+vector space over itself, and a commutative ring <span
+class="math inline">\(R\)</span> is a module (left and right) over
+itself with the ideals of <span class="math inline">\(R\)</span> being
+the submodules.</p>
+</div>
+<div id="free-modules" class="slide section level3">
+<h1>Free modules</h1>
+<p>Let <span class="math inline">\(R\)</span> be a ring with unity and
+let <span class="math inline">\(n\ge 1\)</span> be a positive integer.
+Then</p>
+<p><span class="math display">\[
+R^{n}=\lbrace (r_1,\ldots, r_n) : r_{i}\in R\mathrm{\ for\ }
+i=1,\ldots,n\rbrace
+\]</span></p>
+<p>is an <span class="math inline">\(R\)</span> module with
+componentwise addition and multiplication given by <span
+class="math inline">\(r(r_1,\ldots, r_n)=(rr_1,\ldots,
+rr_n)\)</span>.</p>
+<p>This is called the <em>free <span
+class="math inline">\(R\)</span>-module of rank <span
+class="math inline">\(n\)</span></em>.</p>
+</div>
+<div id="free-modules-and-vector-spaces" class="slide section level3">
+<h1>Free modules and vector spaces</h1>
+<ul>
+<li>If <span class="math inline">\(R\)</span> is a field, the free <span
+class="math inline">\(R\)</span>-module of rank <span
+class="math inline">\(n\)</span> is an <span
+class="math inline">\(n\)</span>-dimensional vector space.</li>
+<li>The submodules of a finite dimensional vector space are all
+subspaces which are copies of <span class="math inline">\(R^{k}\)</span>
+for <span class="math inline">\(k\le n\)</span>.</li>
+<li>For more general <span class="math inline">\(R\)</span> the picture
+is more complicated. Let <span class="math inline">\(R=\Z\)</span> and
+<span class="math inline">\(M=\Z^{2}\)</span>. Then:
+<ul>
+<li><span class="math inline">\(\lbrace (n,0) : n\in \Z\rbrace\)</span>
+is a submodule of <span class="math inline">\(M\)</span> which “looks
+like” a subspace.</li>
+<li><span class="math inline">\(2M=\lbrace (a,b) : a,b\in
+2\Z\rbrace\)</span> is a submodule of <span
+class="math inline">\(M\)</span> which does not.</li>
+</ul></li>
+</ul>
+</div>
+<div id="change-of-rings-restriction-of-scalars"
+class="slide section level3">
+<h1>Change of rings (restriction of scalars)</h1>
+<ul>
+<li>An abelian group <span class="math inline">\(M\)</span> may be an
+<span class="math inline">\(R\)</span> module for different rings <span
+class="math inline">\(R\)</span>. For example:
+<ul>
+<li><span class="math inline">\(\Q\)</span> is a module over <span
+class="math inline">\(\Q\)</span>, where it is a one dimensional vector
+space and its only <span class="math inline">\(\Q\)</span>-submodules
+are <span class="math inline">\(0\)</span> and itself.</li>
+<li><span class="math inline">\(\Q\)</span> is a module over <span
+class="math inline">\(\Z\)</span>, and it has many <span
+class="math inline">\(\Z\)</span>-submodules, such as <span
+class="math inline">\(\Z[1/2]\)</span>.</li>
+</ul></li>
+</ul>
+<p>More generally, if <span class="math inline">\(R\subset S\)</span> is
+a subring, and <span class="math inline">\(M\)</span> is an <span
+class="math inline">\(S\)</span>-module, then it is an <span
+class="math inline">\(R\)</span>-module. This is called <em>restriction
+of scalars</em>.</p>
+</div>
+<div id="z-modules-are-the-same-as-abelian-groups"
+class="slide section level3">
+<h1><span class="math inline">\(\Z\)</span>-modules are the same as
+abelian groups</h1>
+<p>Let <span class="math inline">\(M\)</span> be an abelian group. Then
+it is automatically a <span class="math inline">\(\Z\)</span>-module
+where we define</p>
+<p><span class="math display">\[
+nx=\overbrace{x+x+\cdots+x}^{n}.
+\]</span></p>
+<p>Furthermore, given any <span
+class="math inline">\(\Z\)</span>-module, it must be the case that</p>
+<p><span class="math display">\[
+nx = (\overbrace{1+1+\cdots+1}^{n})x = \overbrace{x+x+\cdots+x}^{n}.
+\]</span></p>
+<p>(Note: this is why we require <span
+class="math inline">\(1x=x\)</span> when <span
+class="math inline">\(R\)</span> is a ring with unity in the module
+axioms).</p>
+<p>Further, submodules of <span class="math inline">\(M\)</span> (as
+<span class="math inline">\(\Z\)</span>-module) are just the subgroups
+of <span class="math inline">\(M\)</span> (as abelian group).</p>
+</div>
+<div id="change-of-rings-quotients" class="slide section level3">
+<h1>Change of rings (quotients)</h1>
+<p>Suppose that <span class="math inline">\(M\)</span> is a left <span
+class="math inline">\(R\)</span> module and <span
+class="math inline">\(I\subset R\)</span> is a two-sided ideal with the
+property that, for all <span class="math inline">\(y\in I\)</span>, and
+all <span class="math inline">\(x\in M\)</span>, we have <span
+class="math inline">\(yx=0\)</span>. In this case we say that <span
+class="math inline">\(I\)</span> annihilates <span
+class="math inline">\(M\)</span> or that <span
+class="math inline">\(IM=0\)</span>.</p>
+<p>With this hypothesis, we may view <span
+class="math inline">\(M\)</span> as an <span
+class="math inline">\(R/I\)</span> module by defining <span
+class="math inline">\((r+I)m=rm\)</span> for any coset representative
+<span class="math inline">\(r+I\in R/I\)</span>. This is well-defined
+since two different coset representatives <span
+class="math inline">\(r,r&#39;\)</span> satisfy <span
+class="math inline">\(r&#39;=r+i\)</span> for some <span
+class="math inline">\(i\in I\)</span> and therefore <span
+class="math inline">\(r&#39;m=(r+i)m=rm\)</span> since <span
+class="math inline">\(im=0\)</span>.</p>
+<p>If <span class="math inline">\(M\)</span> is an abelian group and
+<span class="math inline">\(m\in Z\)</span> is a positive integer such
+that <span class="math inline">\(mM=0\)</span>, then <span
+class="math inline">\(M\)</span> can be viewed as a module over <span
+class="math inline">\(\Zn{m}\)</span> by this process.</p>
+<p>This operation is a special case of a general operation called
+<em>base change</em> that we will study in more detail later.</p>
+</div>
+
+<div id="modules-over-fx" class="title-slide slide section level2">
+<h1>Modules over <span class="math inline">\(F[x]\)</span></h1>
+
+</div>
+<div id="basic-construction" class="slide section level3">
+<h1>Basic construction</h1>
+<p>Let <span class="math inline">\(F\)</span> be a field, let <span
+class="math inline">\(V\)</span> be a vector space over <span
+class="math inline">\(F\)</span>, and let <span
+class="math inline">\(T:V\to V\)</span> be an <span
+class="math inline">\(F\)</span>-linear transformation. Define a
+homomorphism</p>
+<p><span class="math display">\[
+F[x]\to \End(V)
+\]</span></p>
+<p>by sending</p>
+<p><span class="math display">\[x^{k} \mapsto T^{k}=\overbrace{T\circ
+T\circ\cdots\circ T}^{n}.\]</span></p>
+<p>This construction makes <span class="math inline">\(V\)</span> into a
+module for <span class="math inline">\(F[x]\)</span> <em>which depends
+on the choice of the linear transformation <span
+class="math inline">\(T\)</span></em>.</p>
+</div>
+<div id="polynomials-and-linear-transformations"
+class="slide section level3">
+<h1>Polynomials and linear transformations</h1>
+<p>For example let <span class="math inline">\(V=F^{2}\)</span> and let
+<span class="math inline">\(T\)</span> be the linear transformation
+given by the matrix</p>
+<p><span class="math display">\[
+T = \begin{pmatrix} 0 &amp; 1 \\ 1 &amp; 1\end{pmatrix}
+\]</span></p>
+<p>If <span class="math inline">\(e_0\)</span> and <span
+class="math inline">\(e_1\)</span> are the standard basis elements of
+<span class="math inline">\(F^{2}\)</span> then</p>
+<p><span class="math display">\[\begin{aligned}
+Te_0&amp;=&amp;e_1 \\
+T^2e_0=Te_1=e_0+e_1=e_0+Te_0&amp;=&amp;(1+T)e_0\\
+\end{aligned}   
+\]</span></p>
+<p>from which we see that <span
+class="math inline">\((T^2-T-1)e_0=0\)</span> and</p>
+<p><span
+class="math display">\[(T^2-T-1)e_1=(T^2-T-1)Te_0=T(T^2-T-1)e_0=0\]</span></p>
+<p>so the polynomial <span class="math inline">\(x^2-x-1\)</span> is in
+the kernel of the map from <span class="math inline">\(F[x]\to
+\End(V)\)</span>.</p>
+<p>By the base change construction above this means that <span
+class="math inline">\(V\)</span> can be viewed as a module over <span
+class="math inline">\(F[x]/(x^2-x-1)\)</span>.</p>
+</div>
+<div id="characterization-of-fx-modules" class="slide section level3">
+<h1>Characterization of <span class="math inline">\(F[x]\)</span>
+modules</h1>
+<p>We saw above that, given an <span
+class="math inline">\(F\)</span>-vector space <span
+class="math inline">\(V\)</span> with a linear transformation <span
+class="math inline">\(T\)</span>, we get an <span
+class="math inline">\(F[x]\)</span> module where <span
+class="math inline">\(x\)</span> acts on <span
+class="math inline">\(V\)</span> through <span
+class="math inline">\(T\)</span>.</p>
+<p>Conversely, suppose that <span class="math inline">\(M\)</span> is an
+module over <span class="math inline">\(F[x]\)</span>. Then <span
+class="math inline">\(M\)</span> is an <span
+class="math inline">\(F\)</span> vector space (via the restriction of
+scalars from <span class="math inline">\(F[x]\)</span> to <span
+class="math inline">\(F\)</span>). Furthermore, the element <span
+class="math inline">\(x\in F[x]\)</span> acts on <span
+class="math inline">\(M\)</span> as an <span
+class="math inline">\(F\)</span>-linear transformation because that’s
+what the module axioms amount to.</p>
+<p>Therefore there is an equivalence between</p>
+<p><span class="math display">\[
+\lbrace F[x]-\mathrm{modules}\rbrace \Leftrightarrow \lbrace
+\mathrm{vector\ spaces\ }V\mathrm{\ over\ }F\mathrm{\ with\ a\ given\
+linear\ map\ }T:V\to V\rbrace
+\]</span></p>
+</div>
+<div id="submodules-of-fx-modules" class="slide section level3">
+<h1>Submodules of <span class="math inline">\(F[x]\)</span> modules</h1>
+<p>In the correspondence above, a submodule of an <span
+class="math inline">\(F[x]\)</span> module <span
+class="math inline">\(M\)</span> corresponds to a subspace <span
+class="math inline">\(W\subset V\)</span> that is <em>preserved by <span
+class="math inline">\(T\)</span></em>, meaning <span
+class="math inline">\(TW\subset W\)</span>.</p>
+<p>Thus, not all subspaces of <span class="math inline">\(V\)</span>
+correspond to submodules.</p>
+<p>In the example given earlier, the only <span
+class="math inline">\(T\)</span>-stable proper subspace of <span
+class="math inline">\(V\)</span> is the zero subspace.</p>
+<p>If we consider instead the linear map on <span
+class="math inline">\(F^{2}\)</span> satisfying <span
+class="math inline">\(Ue_0=0\)</span> and <span
+class="math inline">\(Ue_1=e_0\)</span>, then the one dimensional
+subspace spanned by <span class="math inline">\(e_0\)</span> is <span
+class="math inline">\(U\)</span>-stable and <span
+class="math inline">\(F^{2}\)</span> viewed as an <span
+class="math inline">\(F[x]\)</span> module via <span
+class="math inline">\(U\)</span> has a submodule corresponding to that
+subspace.</p>
+</div>
+<div id="checking-the-submodule-property" class="slide section level3">
+<h1>Checking the submodule property</h1>
+<p><strong>Proposition:</strong> A subset <span
+class="math inline">\(N\)</span> of a left <span
+class="math inline">\(R\)</span>-module <span
+class="math inline">\(M\)</span> is a submodule if it is nonempty and,
+for all <span class="math inline">\(x,y\in N\)</span> and <span
+class="math inline">\(r\in R\)</span>, we have <span
+class="math inline">\(x+ry\in N\)</span>. Alternatively, if <span
+class="math inline">\(N\)</span> is a subgroup of the abelian group
+<span class="math inline">\(M\)</span> and <span
+class="math inline">\(rN\subset N\)</span> for all <span
+class="math inline">\(r\in R\)</span> then <span
+class="math inline">\(N\)</span> is a submodule.</p>
+</div>
+<div id="algebras" class="slide section level3">
+<h1>Algebras</h1>
+<p><strong>Definition:</strong> Let <span
+class="math inline">\(R\)</span> be a commutative ring with unity. An
+<span class="math inline">\(R\)</span>-algebra is a (not necessarily
+commutative) ring <span class="math inline">\(S\)</span> with a ring
+homomorphism <span class="math inline">\(f:R\to S\)</span> carrying
+<span class="math inline">\(1_R\)</span> to <span
+class="math inline">\(1_S\)</span> such that <span
+class="math inline">\(f(R)\)</span> is in the center of <span
+class="math inline">\(S\)</span>.</p>
+<p>The polynomial ring <span class="math inline">\(F[x]\)</span> is an
+<span class="math inline">\(F\)</span>-algebra, as is the matrix ring
+<span class="math inline">\(M_{n}(F)\)</span> where the homomorphism
+<span class="math inline">\(f:F\to M_{n}(F)\)</span> embeds <span
+class="math inline">\(F\)</span> as the diagonal matrices. More
+generally, any <span class="math inline">\(F\)</span>-algebra <span
+class="math inline">\(A\)</span>, where <span
+class="math inline">\(F\)</span> is a field, contains <span
+class="math inline">\(F\)</span> in its center and the identites of
+<span class="math inline">\(A\)</span> and <span
+class="math inline">\(F\)</span> are the same.</p>
+<p>The ring <span class="math inline">\(\Zn{p}\)</span> is a <span
+class="math inline">\(\Z\)</span>-algebra. In fact any ring <span
+class="math inline">\(S\)</span> with <span
+class="math inline">\(1\)</span> is a <span
+class="math inline">\(\Z\)</span> algebra by the map sending <span
+class="math inline">\(n\in\Z\)</span> to <span class="math inline">\(n
+1_S\)</span>.</p>
+<p>The ring <span class="math inline">\(\Q[x]\)</span> is a <span
+class="math inline">\(\Z[x]\)</span> algebra.</p>
+<p>We typically omit the explicit map <span
+class="math inline">\(f\)</span> and just think of <span
+class="math inline">\(R\)</span> as “contained in” <span
+class="math inline">\(A\)</span>; this can be misleading since <span
+class="math inline">\(f\)</span> doesn’t need to be injective, but it
+works in practice.</p>
+</div>
+<div id="algebra-morphisms" class="slide section level3">
+<h1>Algebra morphisms</h1>
+<p><strong>Definition:</strong> A map of <span
+class="math inline">\(R\)</span>-algebras <span
+class="math inline">\(f:A\to B\)</span> is a ring homomorphism that is
+<span class="math inline">\(R\)</span>-linear in the sense that <span
+class="math inline">\(f(ra)=rf(a)\)</span> for all <span
+class="math inline">\(r\in R\)</span> and <span
+class="math inline">\(a\in A\)</span>.</p>
+<p>Any homomorphism of rings with unity is a <span
+class="math inline">\(\Z\)</span>-algebra morphism.</p>
 </div>
 </body>
 </html>
