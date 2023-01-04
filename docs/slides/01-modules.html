@@ -17,9 +17,6 @@
   </style>
   <link rel="stylesheet" type="text/css" media="screen, projection, print"
     href="https://www.w3.org/Talks/Tools/Slidy2/styles/slidy.css" />
-  <script
-  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js"
-  type="text/javascript"></script>
   <script type="text/javascript">
       window.MathJax = {
         loader: {
@@ -73,6 +70,9 @@
   $$\def\Z{\mathbb{Z}}$$
   $$\def\gcd#1#2{\mathrm{gcd}(#1,#2)}$$
   -->
+  <script
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js"
+  type="text/javascript"></script>
   <script src="https://www.w3.org/Talks/Tools/Slidy2/scripts/slidy.js"
     charset="utf-8" type="text/javascript"></script>
 </head>
@@ -80,7 +80,7 @@
 <div class="slide titlepage">
   <h1 class="title">1. Modules</h1>
 </div>
-<div id="modules" class="title-slide slide section level2">
+<div id="modules" class="slide section level3">
 <h1>Modules</h1>
 <ul>
 <li>Modules are to rings as vector spaces are to fields.</li>
@@ -163,6 +163,22 @@ from defining the ring structure on <span class="math display">\[\End
 class="math display">\[
 \phi_{r_1 r_2}=\phi_{r_1}\circ\phi_{r_2}.
 \]</span></p>
+</div>
+<div id="submodules" class="slide section level3">
+<h1>Submodules</h1>
+<p><strong>Definition:</strong> If <span
+class="math inline">\(M\)</span> is a left <span
+class="math inline">\(R\)</span>-module, then a submodule <span
+class="math inline">\(N\)</span> of <span
+class="math inline">\(M\)</span> is a subgroup with the property that,
+if <span class="math inline">\(n\in N\)</span>, then <span
+class="math inline">\(rn\in N\)</span> for all <span
+class="math inline">\(r\in R\)</span>.</p>
+<p><strong>Observation:</strong> A ring <span
+class="math inline">\(R\)</span> is a left module over itself by ring
+multiplication. The (left) ideals of <span
+class="math inline">\(R\)</span> are <em>exactly the left submodules of
+<span class="math inline">\(R\)</span></em>.</p>
 </div>
 </body>
 </html>

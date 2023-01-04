@@ -58,7 +58,7 @@ If $R$ is a field, then a left (or right) $R$-module is the same as a vector spa
 If $M$ is an abelian group, and $R$ is a ring, then a left $R$-module structure on $M$
 is the same as a ring map 
 
-$$R\to \End (M)$$. 
+$$R\to \End (M).$$
 
 If $\phi_r$ is the endomorphism associated to $r\in R$,
 then $rm=\phi_{r}(m)$.  The associativity comes from defining the ring structure on $$\End (M)$$
@@ -74,5 +74,5 @@ $$
 **Observation:** A ring $R$ is a left module over itself by ring multiplication.  The (left) ideals of $R$ are *exactly the left submodules of $R$*.
 
 <div>
-    <a href="beamer/01-modules.pdf"> View as slides </a>
+    <a href="slides/01-modules.html"> View as slides </a>
 </div>
