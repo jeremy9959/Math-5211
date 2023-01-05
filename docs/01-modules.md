@@ -5,7 +5,7 @@ parent: Course Content
 layout: default
 ---
 
-## Modules
+## Modules: Basics
 ### How to think of modules
 
 - Modules are to rings as vector spaces are to fields.
@@ -143,7 +143,7 @@ since two different coset representatives $r,r'$ satisfy $r'=r+i$ for some $i\in
 
 If $M$ is an abelian group and $m\in Z$ is a positive integer such that $mM=0$, then $M$ can be viewed as a module over $\Zn{m}$ by this process.
 
-This operation is a special case of a general operation called *base change* that we will study in more detail later.
+This operation is a special case of a general operation called *base change* or *extension of scalars* that we will study in more detail later.
 
 ## Modules over $F[x]$
 
@@ -228,7 +228,7 @@ More generally, any $F$-algebra $A$, where $F$ is a field, contains $F$ in its c
 
 The ring $\Zn{p}$ is a $\Z$-algebra. In fact any ring $S$ with $1$ is a $\Z$ algebra by the map sending $n\in\Z$ to $n 1_S$.  
 
-The ring $\Q[x]$ is a $\Z[x]$ algebra.
+The ring $\Q[x]$ is a $\Z[x]$ algebra. 
 
 We typically omit the explicit map $f$ and just think of $R$ as "contained in" $A$; this can be misleading since $f$ doesn't need to be injective, but it works in practice.
 
@@ -238,6 +238,114 @@ We typically omit the explicit map $f$ and just think of $R$ as "contained in" $
 
 Any homomorphism of rings with unity is a $\Z$-algebra morphism.
 
+## Modules Homomorphisms, Quotient Modules, and Mapping Properties
+
+### Module homomorphisms
+
+**Definition:** Let $R$ be a ring and let $M$ and $N$ be (left) $R$-modules. A function $f:M\to N$
+is an $R$-module homomorphism if:
+
+- it is a homomorphism between the abelian group structures on $M$ and $N$
+- it is $R$-linear, meaning $f(rm)=rf(m)$ for all $r\in R$. 
+
+Note that, if $R$ is a field, then $M$ and $N$ are vector spaces and an $R$-module homomorphism is just a linear map.
+
+A module isomorphism is a bijective homomorphism.  
+
+We let $\Hom_{R}(M,N)$ denote the set of $R$-module homomorphisms from $M$ to $N$. 
+
+### Kernels and images
+
+Let $R$ be a ring and let $M$ and $N$ be $R$-modules.  Let $f:M\to N$ be a homomorphism.
+
+- Let $\ker(f)=\lbrace m\in M : f(m)=0\rbrace$ (the *kernel* of $f$).  This is a submodule of $M$.
+- Let $f(M)\subset N$ be the image of $f$.  Then $f(M)$ is a submodule of $N$. 
+
+### Quotient modules
+
+Let $M$ be an $R$ module and let $N\subset M$ be a submodule. 
+
+**Definition:** Let $M/N$ be the quotient abelian group.  Then $M/N$ is an $R$-module where $R$ acts on cosets
+by 
+
+$$
+r(x+N)=rx+N.
+$$
+
+This is called the quotient module of $M$ by $N$. 
+
+The $R$-module structure is well defined because if $x+N=y+N$, then $x=y+n$ for some $n\in N$, and $rx = ry+rn$.  Since $N$
+is a submodule, $rn\in N$ so $rx+N=ry+N$.
+
+Notice that $N$ can be any submodule, there is no "normality" condition like for groups.
+
+There is always a "projection" homomorphism $\pi:M\to M/N$ defined by $\pi(m)=m+N$ which has kernel $N$. 
+
+### Sums of modules
+
+If $A$ and $B$ are submodules of a module $M$, then $A+B$ is the smallest submodule of $M$ containing both $A$ and $B$.
+Alternatively it is:
+
+$$
+A+B=\lbrace a+b : a\in A, b\in B\rbrace
+$$
+
+### Mapping Properties
+
+Let $M$, $N$, and $K$ be $R$ modules, and let $f:M\to K$ be a homomorphism with $N\subset\ker(f)$.  Then
+there is a unique homomorphism $\overline{f}:M/N\to K$ making this diagram commutative:
+
+$$
+\begin{xy}
+\xymatrix {
+M\ar[rd]^{f}\ar[d]^{\pi} &  \\
+M/N\ar[r]_{\overline{f}} & K\\
+}
+\end{xy}
+$$
+
+### Isomorphism theorems
+
+The isomorphism theorems for abelian groups give isomorphism theorems for modules.
+
+- If $f:M\to K$ is a homomorphism, then the map $\overline{f}$ gives an isomorphism between $M/\ker(f)$ and $f(M)\subset K$. 
+- $(M+N)/N$ is isomorphic to $M/(M\cap N)$. 
+- $(M/A)/(N/A)$ is isomorphic to $M/N$. 
+- There is a bijection between the lattice of submodules of $M/N$ and submodules of $M$ containing $N$ given by $K\leftrightarrow K/N$.
+
+The proofs of all of these facts are found by checking that the group isomorphisms respect the action of the ring $R$.
+
+### $\Hom_{R}(M,N)$ 
+
+The set $\Hom_{R}(M,N)$ is an abelian group: $(f+g)(m)=f(m)+g(m)$ and the zero map is the identity.
+
+**If $R$ is commutative** then $\Hom_{R}(M,N)$ is an $R$-module if we set $(rf)$ to be the function $(rf)(m)=r(f(m))=f(rm)$. 
+We need $rf$ to be a module homomorphism, which means we need:
+
+$$
+(rf)(sm)=s(rf)(m).
+$$
+
+This works out ok if $R$ is commutative since 
+
+$$
+(rf)(sm)=f(rsm)=f(srm)=s(f(rm))=s((rf)(m))
+$$
+
+but it fails if $R$ is not commutative. 
+
+### $\Hom_{R}(M,M)$
+
+The set $\Hom_{R}(M,M)$ is a ring with multiplication given by composition.  The identity map gives an identity for this ring. 
+
+**If $R$ is commutative** then, given $r\in R$, we have an element $\phi_r\in\Hom_{R}(M,M)$ given by $\phi_r(m)=rm$.  This is a homomorphism
+because
+
+$$
+\phi_r(sm)=rsm=srm=s\phi_r(m)
+$$
+
+but this fails in general if $R$ is not commutative.  Thus, if $R$ is commutative, $\Hom_{R}(M,M)$ is an $R$-algebra.
 
 
 <div>
