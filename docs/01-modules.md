@@ -347,6 +347,9 @@ $$
 
 but this fails in general if $R$ is not commutative.  Thus, if $R$ is commutative, $\Hom_{R}(M,M)$ is an $R$-algebra.
 
+### More on $\Hom_{R}(M,M)$
+
+If $M=R^{n}$, then $\Hom_{R}(M,M)$ is the ring of $n\times n$ matrices with entries from $R$.
 
 <div>
     <a href="slides/01-modules.html"> View as slides </a>
