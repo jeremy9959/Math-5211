@@ -47,7 +47,8 @@
             Pol: "{\\mathrm{Pol}}",
             D: "{\\mathcal{D}}",
             span: "{\\mathrm{span}}",
-            norm: ["{\\lVert #1 \\rVert}",1]
+            norm: ["{\\lVert #1 \\rVert}",1],
+            Tor: "{\\mathrm{Tor}}",
           }
         }
       };
@@ -261,6 +262,12 @@ r(x+N)=rx+N.
 <p>The <span class="math inline">\(R\)</span>-module structure is well defined because if <span class="math inline">\(x+N=y+N\)</span>, then <span class="math inline">\(x=y+n\)</span> for some <span class="math inline">\(n\in N\)</span>, and <span class="math inline">\(rx = ry+rn\)</span>. Since <span class="math inline">\(N\)</span> is a submodule, <span class="math inline">\(rn\in N\)</span> so <span class="math inline">\(rx+N=ry+N\)</span>.</p>
 <p>Notice that <span class="math inline">\(N\)</span> can be any submodule, there is no “normality” condition like for groups.</p>
 <p>There is always a “projection” homomorphism <span class="math inline">\(\pi:M\to M/N\)</span> defined by <span class="math inline">\(\pi(m)=m+N\)</span> which has kernel <span class="math inline">\(N\)</span>.</p>
+</div><div id="sums-of-modules" class="slide section level3">
+<h1>Sums of modules</h1>
+<p>If <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> are submodules of a module <span class="math inline">\(M\)</span>, then <span class="math inline">\(A+B\)</span> is the smallest submodule of <span class="math inline">\(M\)</span> containing both <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span>. Alternatively it is:</p>
+<p><span class="math display">\[
+A+B=\lbrace a+b : a\in A, b\in B\rbrace
+\]</span></p>
 </div><div id="mapping-properties" class="slide section level3">
 <h1>Mapping Properties</h1>
 <p>Let <span class="math inline">\(M\)</span>, <span class="math inline">\(N\)</span>, and <span class="math inline">\(K\)</span> be <span class="math inline">\(R\)</span> modules, and let <span class="math inline">\(f:M\to K\)</span> be a homomorphism with <span class="math inline">\(N\subset\ker(f)\)</span>. Then there is a unique homomorphism <span class="math inline">\(\overline{f}:M/N\to K\)</span> making this diagram commutative:</p>
@@ -282,6 +289,26 @@ M/N\ar[r]_{\overline{f}} &amp; K\\
 <li>There is a bijection between the lattice of submodules of <span class="math inline">\(M/N\)</span> and submodules of <span class="math inline">\(M\)</span> containing <span class="math inline">\(N\)</span> given by <span class="math inline">\(K\leftrightarrow K/N\)</span>.</li>
 </ul>
 <p>The proofs of all of these facts are found by checking that the group isomorphisms respect the action of the ring <span class="math inline">\(R\)</span>.</p>
+</div><div id="hom_rmn" class="slide section level3">
+<h1><span class="math inline">\(\Hom_{R}(M,N)\)</span></h1>
+<p>The set <span class="math inline">\(\Hom_{R}(M,N)\)</span> is an abelian group: <span class="math inline">\((f+g)(m)=f(m)+g(m)\)</span> and the zero map is the identity.</p>
+<p><strong>If <span class="math inline">\(R\)</span> is commutative</strong> then <span class="math inline">\(\Hom_{R}(M,N)\)</span> is an <span class="math inline">\(R\)</span>-module if we set <span class="math inline">\((rf)\)</span> to be the function <span class="math inline">\((rf)(m)=r(f(m))=f(rm)\)</span>. We need <span class="math inline">\(rf\)</span> to be a module homomorphism, which means we need:</p>
+<p><span class="math display">\[
+(rf)(sm)=s(rf)(m).
+\]</span></p>
+<p>This works out ok if <span class="math inline">\(R\)</span> is commutative since</p>
+<p><span class="math display">\[
+(rf)(sm)=f(rsm)=f(srm)=s(f(rm))=s((rf)(m))
+\]</span></p>
+<p>but it fails if <span class="math inline">\(R\)</span> is not commutative.</p>
+</div><div id="hom_rmm" class="slide section level3">
+<h1><span class="math inline">\(\Hom_{R}(M,M)\)</span></h1>
+<p>The set <span class="math inline">\(\Hom_{R}(M,M)\)</span> is a ring with multiplication given by composition. The identity map gives an identity for this ring.</p>
+<p><strong>If <span class="math inline">\(R\)</span> is commutative</strong> then, given <span class="math inline">\(r\in R\)</span>, we have an element <span class="math inline">\(\phi_r\in\Hom_{R}(M,M)\)</span> given by <span class="math inline">\(\phi_r(m)=rm\)</span>. This is a homomorphism because</p>
+<p><span class="math display">\[
+\phi_r(sm)=rsm=srm=s\phi_r(m)
+\]</span></p>
+<p>but this fails in general if <span class="math inline">\(R\)</span> is not commutative. Thus, if <span class="math inline">\(R\)</span> is commutative, <span class="math inline">\(\Hom_{R}(M,M)\)</span> is an <span class="math inline">\(R\)</span>-algebra.</p>
 </div>
 </body>
 </html>
