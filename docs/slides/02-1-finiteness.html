@@ -1,0 +1,240 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+ "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <title>2A. Finite generation and the Noetherian property</title>
+  <style type="text/css">
+    
+  </style>
+  <link rel="stylesheet" type="text/css" media="screen, projection, print"
+    href="https://www.w3.org/Talks/Tools/Slidy2/styles/slidy.css" />
+  <script type="text/javascript">
+      window.MathJax = {
+        loader: {
+        load: ['[custom]/xypic.js'],
+        paths: {custom: 'https://cdn.jsdelivr.net/gh/sonoisa/XyJax-v3@3.0.1/build/'}
+      },
+        tex: {
+          packages: {'[+]': ['xypic']},
+          tags: "ams",
+          inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+          displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+          processEscapes: true,
+          macros: {
+            Z: "{\\mathbb{Z}}",
+            Zn: ["{\\mathbb{Z}/#1 \\mathbb{Z}}",1],
+            GL: "{\\mathrm{GL}}",
+            lessim: "{\\lesssim}",
+            R: "{\\mathbb{R}}",
+            Q: "{\\mathbb{Q}}",
+            N: "{\\mathbb{N}}",
+            SL: "{\\mathrm{SL}}",
+            PGL: "{\\mathrm{PGL}}",
+            C: "{\\mathbb{C}}",
+            Stab: "{\\mathrm{Stab}}",
+            Aut: "{\\mathrm{Aut}}",
+            End: "{\\mathrm{End}}",
+            isom: "{\\cong}",
+            order: ["{\\lvert#1\\rvert}",1],
+            divides: "{\\vert}",
+            semi: "{\\rtimes}",
+            End: "{\\mathrm{End}}",
+            dim: "{\\mathrm{dim}}",
+            Hom: "{\\mathrm{Hom}}",
+            Pol: "{\\mathrm{Pol}}",
+            D: "{\\mathcal{D}}",
+            span: "{\\mathrm{span}}",
+            norm: ["{\\lVert #1 \\rVert}",1],
+            Tor: "{\\mathrm{Tor}}",
+          }
+        }
+      };
+  </script>
+  <script type="text/javascript" id="MathJax-script" async
+    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
+  </script>
+
+  <!-- LaTeX Macros
+
+
+
+  $$\def\GL{\mathrm{GL}}$$
+  $$\def\Zn#1{\mathbb{Z}/#1\mathbb{Z}}$$
+  $$\def\Z{\mathbb{Z}}$$
+  $$\def\gcd#1#2{\mathrm{gcd}(#1,#2)}$$
+  -->
+  <script
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js"
+  type="text/javascript"></script>
+  <script src="https://www.w3.org/Talks/Tools/Slidy2/scripts/slidy.js"
+    charset="utf-8" type="text/javascript"></script>
+</head>
+<body>
+<div class="slide titlepage">
+  <h1 class="title">2A. Finite generation and the Noetherian
+property</h1>
+</div>
+<div id="finite-generation-and-the-noetherian-property."
+class="title-slide slide section level2">
+<h1>Finite generation and the Noetherian Property.</h1>
+<p>Let <span class="math inline">\(R\)</span> be a ring and <span
+class="math inline">\(M\)</span> a left <span
+class="math inline">\(R\)</span> module. <span
+class="math inline">\(M\)</span> is finitely generated if there are
+finitely many elements <span class="math inline">\(m_1,\ldots, m_k\in
+M\)</span> so that, for any <span class="math inline">\(m\in M\)</span>,
+there are <span class="math inline">\(r_i\in R\)</span>, such that</p>
+<p><span class="math display">\[
+m = \sum_{i=1}^{k} r_{i} m_{i}.
+\]</span></p>
+<p>Equivalently, <span class="math inline">\(M\)</span> is finitely
+generated if, for some <span class="math inline">\(n\ge 0\)</span> in
+<span class="math inline">\(\Z\)</span> there is a surjective <span
+class="math inline">\(R\)</span>-module homomorphism</p>
+<p><span class="math display">\[
+\pi: \oplus_{i=1}^{n} R =R^{n}\to M.
+\]</span></p>
+<p>The images of the basis elements of <span
+class="math inline">\(R^{n}\)</span> give the generating set <span
+class="math inline">\(m_{i}\)</span>.</p>
+<p><strong>Definition:</strong> A module <span
+class="math inline">\(M\)</span> satisfies the <em>ascending chain
+condition</em> if any increasing sequence of submodules <span
+class="math display">\[
+M_{1}\subset M_{2}\subset\cdots\subset M_{k}\subset
+\]</span> eventually stabilizes, meaning that there is an <span
+class="math inline">\(N\)</span> so that <span
+class="math inline">\(M_{i}=M_{j}\)</span> for all <span
+class="math inline">\(i,j\ge N\)</span>.</p>
+<p><strong>Proposition:</strong> The following are equivalent:</p>
+<ol style="list-style-type: decimal">
+<li><span class="math inline">\(M\)</span> satisfies the ascending chain
+condition.</li>
+<li>Every nonempty set of submodules of <span
+class="math inline">\(M\)</span> has a maximal element.</li>
+<li>Every submodule of <span class="math inline">\(M\)</span> is
+finitely generated.</li>
+</ol>
+<p>A module that satisfies these equivalent conditions is called (left)
+<em>Noetherian</em> after <a
+href="https://en.wikipedia.org/wiki/Emmy_Noether">Emmy Noether</a>. A
+ring is Noetherian if it is Noetherian as a left module over itself.
+Since the submodules of a ring are the ideals, a ring is Noetherian if
+every ideal is finitely generated.</p>
+<p><strong>Proof:</strong> Suppose <span
+class="math inline">\(M\)</span> satisfies the ascending chain condition
+and let <span class="math inline">\(\mathcal{M}\)</span> be a nonempty
+collection of submodules of <span class="math inline">\(M\)</span>.
+Every ascending chain in <span
+class="math inline">\(\mathcal{M}\)</span> has a maximal element (that’s
+basically what the chain condition says) and therefore by Zorn’s lemma
+there is a maximal element for <span
+class="math inline">\(\mathcal{M}\)</span>. Now suppose <span
+class="math inline">\(N\)</span> is any submodule of <span
+class="math inline">\(M\)</span>. Let <span
+class="math inline">\(\mathcal{N}\)</span> be the collection of finitely
+generated submodules of <span class="math inline">\(N\)</span>. Since
+the zero module is in <span class="math inline">\(\mathcal{N}\)</span>,
+it is nonempty, so it has a maximal element <span
+class="math inline">\(N&#39;\subset N\)</span>. Choose <span
+class="math inline">\(x\in N\)</span>. Then <span
+class="math inline">\(N&#39;+Rx\)</span> is a finitely generated
+submodule of <span class="math inline">\(N\)</span>, and since <span
+class="math inline">\(N&#39;\)</span> is maximal, we must have <span
+class="math inline">\(N&#39;+Rx=N&#39;\)</span>. This means <span
+class="math inline">\(x\in N&#39;\)</span>. Therefore <span
+class="math inline">\(N=N&#39;\)</span> so <span
+class="math inline">\(N\)</span> is finitely generated. Finally, if
+<span class="math display">\[
+M_1\subset M_2\subset \cdots
+\]</span> is an increasing chain of submodules, their union <span
+class="math inline">\(M_{\infty}\)</span> is a submodule which must be
+finitely generated by, say, <span class="math inline">\(m_1,\ldots,
+m_n\)</span>. Then there is an integer <span
+class="math inline">\(k\)</span> such that <span
+class="math inline">\(M_{k}\)</span> that contains <span
+class="math inline">\(m_1,\ldots, m_n\)</span> so <span
+class="math inline">\(M_{k}=M_{\infty}\)</span> and the increasing chain
+stabilizes at <span class="math inline">\(k\)</span>.</p>
+<p><strong>Proposition:</strong> Any principal ideal domain is
+Noetherian.</p>
+<p><strong>Proof:</strong> Any ideal is generated by one element.</p>
+<p><strong>Proposition:</strong> If <span
+class="math inline">\(M\)</span> is Noetherian, so is any quotient
+module of <span class="math inline">\(M\)</span>.</p>
+<p><strong>Proof:</strong> Suppose <span
+class="math inline">\(N=M/J\)</span> where <span
+class="math inline">\(J\)</span> is a submodule of <span
+class="math inline">\(M\)</span>. If <span
+class="math inline">\(K\subset N\)</span> is a submodule, then by the
+isomorphism theorem <span class="math inline">\(K=K&#39;/J\)</span> for
+some <span class="math inline">\(K&#39;\subset M\)</span> containing
+<span class="math inline">\(J\)</span>. Since <span
+class="math inline">\(M\)</span> is Noetherian, <span
+class="math inline">\(K&#39;\)</span> is finitely generated by, say
+<span class="math inline">\(k_1,\ldots, k_r\)</span> and then the
+corresponding <span class="math inline">\(k_{i}+J\)</span> generate
+<span class="math inline">\(N\)</span>.</p>
+<p><strong>Proposition:</strong> If <span
+class="math inline">\(R\)</span> is Noetherian, so is <span
+class="math inline">\(R^{n}\)</span>.</p>
+<p><strong>Proof:</strong> By induction on <span
+class="math inline">\(n\)</span>. We know the result for <span
+class="math inline">\(n=1\)</span>. Suppose it’s true for <span
+class="math inline">\(R^{n-1}\)</span>. Let <span
+class="math inline">\(M\)</span> be a submodule of <span
+class="math inline">\(R^{n}=R^{n-1}\oplus R\)</span>. Let <span
+class="math inline">\(\pi: M\to R\)</span> be the projection of <span
+class="math inline">\(M\)</span> onto the last component. Then <span
+class="math inline">\(\pi(M)\)</span> is an ideal of <span
+class="math inline">\(R\)</span>, hence finitely generated. If <span
+class="math inline">\(x_1,\ldots,x_k\)</span> generate <span
+class="math inline">\(\pi(M)\)</span>, then we know that each <span
+class="math inline">\(x_i=\pi(m_i)\)</span> for <span
+class="math inline">\(m_i\in M\)</span> and also, for any <span
+class="math inline">\(m\in M\)</span>, we have <span
+class="math display">\[
+\phi(m)=\sum r_i x_i =\phi(\sum r_{i}m_{i}).
+\]</span> This means that any <span class="math inline">\(m\in
+M\)</span> can be written <span
+class="math inline">\(m=m_{0}+\sum_{i=1}^{k} r_{i}m_{i}\)</span> with
+<span class="math inline">\(m_{0}\in \ker(\pi)\subset R^{n-1}\)</span>.
+Since <span class="math inline">\(\ker(\pi)\)</span> is finitely
+generated by induction, this shows that <span
+class="math inline">\(M\)</span> is finitely generated (by the finite
+set of generators for <span class="math inline">\(\ker(M)\)</span>
+together with <span class="math inline">\(m_1,\ldots, m_k\)</span>)</p>
+<p><strong>Proposition:</strong> If <span
+class="math inline">\(R\)</span> is Noetherian, and <span
+class="math inline">\(M\)</span> is a finitely generated <span
+class="math inline">\(R\)</span>-module, then <span
+class="math inline">\(M\)</span> is Noetherian.</p>
+<p><strong>Proof:</strong> In this case <span
+class="math inline">\(M\)</span> is a quotient of <span
+class="math inline">\(R^{n}\)</span>.</p>
+<p><strong>Proposition:</strong> (Hilbert) If <span
+class="math inline">\(R\)</span> is Noetherian, so is <span
+class="math inline">\(R[x]\)</span>. This is called the Hilbert Basis
+Theorem; we won’t prove it. Paul Gordan is alleged to have said of this
+result “This isn’t mathematics, it is theology!” (quite possibly this is
+just a folk tale in mathematics. )</p>
+</div>
+<div id="non-noetherian-rings-and-modules" class="slide section level3">
+<h1>Non-noetherian rings and modules</h1>
+<p>The polynomial ring in countably many variables is not Noetherian.
+The ring of continuous functions on <span
+class="math inline">\(\R\)</span> (or on <span
+class="math inline">\([-1,1]\)</span>) is not Noetherian because you can
+let <span class="math inline">\(M_{i}\)</span> be the space of
+continuous functions which vanish on <span
+class="math inline">\([-1/i,1/i]\)</span> for <span
+class="math inline">\(i=1,\ldots\)</span>. These are ideals in the ring
+and we have <span class="math inline">\(M_{i}\subset M_{i+1}\)</span>
+but the sequence doesn’t stabilize.</p>
+</div>
+</body>
+</html>
