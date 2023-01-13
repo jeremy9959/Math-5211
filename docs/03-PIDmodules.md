@@ -7,6 +7,8 @@ parent: Course Content
 
 ## Modules over Principal Ideal Domains
 
+
+
 <div>
 <a href="slides/03-PIDmodules.html"> View as slides </a>
 </div>
