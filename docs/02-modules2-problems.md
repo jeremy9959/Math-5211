@@ -15,7 +15,24 @@ Prove that if $A$ and $B$ are sets of the same cardinality then $F(A)$ and $F(B)
 
 ### Problem 2
 
-Prove that, if $R$ is commutative, then $R^{n}$ and $R^{m}$ are isomorphic if and only if $n=m$. 
+Prove that, if $R$ is commutative, then $R^{n}$ and $R^{k}$ are isomorphic if and only if $n=k$. 
+
+Strategy:
+
+Assume $f:R^{n}\to R^{k}$ is an isomorphism. 
+
+1. If $R$ is a field, this follows from the fact that the dimension of a vector space is well-defined.
+2. If $R$ is not a field, it has a proper maximal ideal $m$ so that $R/m$ is a field.
+3. $R^{n}/mR^{n}=(R/m)^{n}$.  Any elememt $(mr_1, mr_2,\ldots, mr_n)$ belongs to $m^{n}\subset R^{n}$.  Conversely, if $x=(m_1,\ldots, m_n)\in m^{n}$,
+then $x=m_1 e_1+m_2 e_2 +\cdots+m_n e_n$ where the $e_i$ are the elements of $R^{n}$ with $1$ in position $i$ and $0$ elsewhere. Therefore $mR^{n}=m^{n}$.
+Define a map $\pi_n:R^{n}\to (R/m)^{n}$ that reduces each component mod $m$.  This is an $R$-module homomorphism whose kernel is $m^{n}$.
+4. The composite map $\pi_k\circ f: R^{n}\to R^{k}/mR^{k}$ has $mR^{n}$ in its kernel. 
+5. Suppose that $\pi_k\circ f(x)=0$.  Then $f(x)$ belongs to $mR^{k}$, so write $f(x)=m_1 y_1+\cdot+m_j y_j$ with $y_j\in R^{k}$. Since $f$ is surjective,
+each $y_j=f(x_j)$ and therefore $f(x)=m_1 f(x_1)+\cdots+m_j f(x_j)=f(b)$ where $b\in mR^{n}$.    Since $f$ is injective, we see that $x\in mR^{n}$.
+Thus $\pi_k\circ f$ is surjective and the kernel of $\pi_k\circ f$ is $mR^{n}$.
+6. By the isomorphism theorem, there is a quotient map $\overline{\pi_k\circ f}:R^{n}/mR^{n}\to R^{k}/mR^{k}$ that is an isomorphism. It is also $R/m$ linear -- it's $R$-linear because it's an $R$-module map,
+and $m$ acts like zero.  Therefore it is an
+isomorphism of vector spaces between $(R/m)^{n}$ and $(R/m)^{k}$ and therefore $n=k$.
 
 **Note:** This is false if $R$ is not commutative.  Problem 27 constructs an example. 
 
@@ -31,18 +48,26 @@ let $I$ and $J$ be ideals of $R$.
 
 - Prove that the map $M\to M/IM \times M/JM$ defined by $m\mapsto (m+IM, m+JM)$ is an $R$ module homomorphism
 with kernel $IM\cap JM$.
-- Suppose that $I+J=R$.  Prove thatthe map in the previous part is surjective and its kernel is $IJM$
+- Suppose that $I+J=R$.  Prove that the map in the previous part is surjective and its kernel is $IJM$
 so that
 $$
 M/IJM = M/IM\times M/JM
 $$
 in this case.
 
+This problem is proved in a manner very similar to the situation for rings.  The second part is the interesting one.
+For surjectivity, given $(m_1+IM,m_2+JM)\in M/IM\times M/JM$, we want to find $m$ so that $m-m_1\in IM$ and $m-m_2\in JM.$
+Write $1=i+j$ with $i,j\in R$.  Then $m=im+jm$.  Let $m_1=jm$ and $m_2=im$.  Then $m-m_1=m_2\in iM$ and $m-m_2=m_1\in JM.$
+
+For the second part, suppose $m\in IM\cap JM$. Write $m=im+jm$.  Since $m\in JM$, $im\in IJM$, and since $m\in IM$, $jm\in IJM.$
+Therefore $m\in IJM$.
+
+
 This can be extended by induction to families of ideals $I_1,\ldots, I_k$ that are pairwise relatively prime ($I_i+I_j=R$ for any pair.)
 
 ### Problem 24 (optional)
 
 This problem constructs an infinite direct product of free modules that is not free; in fact it shows that the countable
-direct product of copies of $\Z$ is not free. 
+direct *product* of copies of $\Z$ is not free. 
 
 
