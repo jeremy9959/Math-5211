@@ -232,9 +232,24 @@ over finite collections $\lbrace a_1,\ldots,a_n\rbrace$ of elements of $A$.
 
 Any two free modules on the same set are isomorphic via the module map induced by the identity map on $A$.
 
+## Rank
+
+Let $R$ be an integral domain. 
+
+**Definition:** The rank of an $R$-module is the maximum number of $R$-linear independent elements of $M$.  
+
+**Proposition:** Let $M$ be a free $R$ module of rank $n$. Then any $n+1$ elements of $M$ are linearly dependent.  Thus any submodule of $M$ has rank at most $n$.
+
+**Proof:** Let $m_1,\ldots, m_{n+1}$ be elements of $M$ and let $e_1,\ldots, e_n$ be a basis of $M$. Each $m_{i}$ is an $R$-linear combination
+of the $e_i$.  We can view the $m_i$ as vectors in $F^{n}$ where $F$ is the fraction field of $R$.  They are linearly dependent in $F^{n}$,
+meaning there is a relation
+$$
+\sum f_i m_{i}=0
+$$
+where the $f_i$ are in $F$.  Clearing denominators gives a relation over $R$.
 ## Torsion 
 
-### Definition
+### Torsion Definition
 
 Suppose that $R$ is a ring with unity. 
 
@@ -256,17 +271,12 @@ If $R$ is an integral domain, an $R$-module $M$ is called torsion-free if $\Tor(
 Any free module is torsion-free, but the converse is false.  For example, non-principal ideals in integral domains are not free.
 This follows from the following lemma.
 
-**Lemma:** Let $M$ be a free $R$ module of rank $n$. Then any $n+1$ elements of $M$ are linearly dependent.
 
-**Proof:** Let $m_1,\ldots, m_{n+1}$ be elements of $M$ and let $e_1,\ldots, e_n$ be a basis of $M$. Each $m_{i}$ is an $R$-linear combination
-of the $e_i$.  We can view the $m_i$ as vectors in $F^{n}$ where $F$ is the fraction field of $R$.  They are linearly dependent in $F^{n}$,
-meaning there is a relation
-$$
-\sum f_i m_{i}=0
-$$
-where the $f_i$ are in $F$.  Clearing denominators gives a relation over $R$.
+**Lemma:** An ideal of $R$ is free if and only if it is principal.
 
-**Corollary:** An ideal of $R$ is free if and only if it is principal.
+**Proof:** $R$ is a free module of rank $1$, so a submodule has rank at most $1$; if it has rank $1$, it is a principal ideal.
+
+
 
 
 <div>
