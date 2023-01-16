@@ -215,6 +215,10 @@ indefinitely.
 The only non-constructive part of this "algorithm" is that we invoke the PID property of $R$ so that, given $a,b$ we can find $ax+by=d$ where $d$ is the gcd of $a$ and $b$.  If $R$ is Euclidean,
 this can be done constructively, and so this algorithm can be carried out in practice.
 
+## Uniqueness
+
+Proof of uniqueness is given in DF, Section 12.1 Theorem 9. 
+
 
 <div>
 <a href="slides/03-PIDmodules.html"> View as slides </a>
