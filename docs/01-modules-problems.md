@@ -72,5 +72,4 @@ If $R$ is commutative with $1$, prove that $\Hom_{R}(R,R)$ is isomorphic to $R$.
 
 
 
-Let $R$ be an integral domain ring and $M$ be an $R$-module.  The torsion submodule $\Tor(M)$ is the set of $m\in M$ such that $rm=0$ for some $r\in R$.
 
