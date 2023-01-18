@@ -10,7 +10,7 @@ has_toc: false
 
 ## Notes
 
-- Week 1: Basics of module theory: definition, sub/quotient modules, mapping properties (DF 10.1-10.2). [notes](01-modules.md) [slides](slides/01-modules.html)
+- Week 1: Basics of module theory: definition, sub/quotient modules, mapping properties (DF 10.1-10.2). [notes](01-modules.md) [pdf slides](beamer/01-modules.html)
 - Week 2: [More module theory: sums, products, free modules, decomposition (DF 10.3)](02-modules2.md)
 - Week 3: [Finitely generated modules over PIDs (DF 12.1)](03-PIDmodules.md)
 - Week 4: [Canonical Forms (DF 12.2-12.3)](04-forms.md)

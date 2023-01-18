@@ -57,19 +57,17 @@
   <script type="text/javascript" id="MathJax-script" async
     src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
   </script>
-
+  
   <!-- LaTeX Macros
-
-
-
+  
+  
+  
   $$\def\GL{\mathrm{GL}}$$
   $$\def\Zn#1{\mathbb{Z}/#1\mathbb{Z}}$$
   $$\def\Z{\mathbb{Z}}$$
   $$\def\gcd#1#2{\mathrm{gcd}(#1,#2)}$$
   -->
-  <script
-  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js"
-  type="text/javascript"></script>
+  <script src="/usr/share/javascript/mathjax/MathJax.js?config=TeX-AMS_CHTML-full" type="text/javascript"></script>
   <script src="https://www.w3.org/Talks/Tools/Slidy2/scripts/slidy.js"
     charset="utf-8" type="text/javascript"></script>
 </head>
@@ -77,65 +75,47 @@
 <div class="slide titlepage">
   <h1 class="title">Recommended Problems</h1>
 </div>
-<div id="recommended-problems" class="title-slide slide section level2">
-<h1>Recommended Problems</h1>
-<p>From DF, Section 10.3, p. 356ff. Note that <span
-class="math inline">\(R\)</span> is assumed to have a unit element.</p>
-</div>
-<div id="problem-1" class="slide section level3">
+<div id="recommended-problems" class="title-slide slide section level2"><h1>Recommended Problems</h1></div><div id="problem-1" class="slide section level3">
 <h1>Problem 1</h1>
-<p>Prove that if <span class="math inline">\(A\)</span> and <span
-class="math inline">\(B\)</span> are sets of the same cardinality then
-<span class="math inline">\(F(A)\)</span> and <span
-class="math inline">\(F(B)\)</span> are isomorphic.</p>
-</div>
-<div id="problem-2" class="slide section level3">
+<p>Prove that if <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> are sets of the same cardinality then <span class="math inline">\(F(A)\)</span> and <span class="math inline">\(F(B)\)</span> are isomorphic.</p>
+</div><div id="problem-2" class="slide section level3">
 <h1>Problem 2</h1>
-<p>Prove that, if <span class="math inline">\(R\)</span> is commutative,
-then <span class="math inline">\(R^{n}\)</span> and <span
-class="math inline">\(R^{m}\)</span> are isomorphic if and only if <span
-class="math inline">\(n=m\)</span>.</p>
-<p><strong>Note:</strong> This is false if <span
-class="math inline">\(R\)</span> is not commutative. Problem 27
-constructs an example.</p>
-</div>
-<div id="problem-6" class="slide section level3">
+<p>Prove that, if <span class="math inline">\(R\)</span> is commutative, then <span class="math inline">\(R^{n}\)</span> and <span class="math inline">\(R^{k}\)</span> are isomorphic if and only if <span class="math inline">\(n=k\)</span>.</p>
+<p>Strategy:</p>
+<p>Assume <span class="math inline">\(f:R^{n}\to R^{k}\)</span> is an isomorphism.</p>
+<ol style="list-style-type: decimal">
+<li>If <span class="math inline">\(R\)</span> is a field, this follows from the fact that the dimension of a vector space is well-defined.</li>
+<li>If <span class="math inline">\(R\)</span> is not a field, it has a proper maximal ideal <span class="math inline">\(m\)</span> so that <span class="math inline">\(R/m\)</span> is a field.</li>
+<li><span class="math inline">\(R^{n}/mR^{n}=(R/m)^{n}\)</span>. Any elememt <span class="math inline">\((mr_1, mr_2,\ldots, mr_n)\)</span> belongs to <span class="math inline">\(m^{n}\subset R^{n}\)</span>. Conversely, if <span class="math inline">\(x=(m_1,\ldots, m_n)\in m^{n}\)</span>, then <span class="math inline">\(x=m_1 e_1+m_2 e_2 +\cdots+m_n e_n\)</span> where the <span class="math inline">\(e_i\)</span> are the elements of <span class="math inline">\(R^{n}\)</span> with <span class="math inline">\(1\)</span> in position <span class="math inline">\(i\)</span> and <span class="math inline">\(0\)</span> elsewhere. Therefore <span class="math inline">\(mR^{n}=m^{n}\)</span>. Define a map <span class="math inline">\(\pi_n:R^{n}\to (R/m)^{n}\)</span> that reduces each component mod <span class="math inline">\(m\)</span>. This is an <span class="math inline">\(R\)</span>-module homomorphism whose kernel is <span class="math inline">\(m^{n}\)</span>.</li>
+</ol>
+</div><div id="problem-2-continued" class="slide section level3">
+<h1>Problem 2 continued</h1>
+<ol start="4" style="list-style-type: decimal">
+<li>The composite map <span class="math inline">\(\pi_k\circ f: R^{n}\to R^{k}/mR^{k}\)</span> has <span class="math inline">\(mR^{n}\)</span> in its kernel.</li>
+<li>Suppose that <span class="math inline">\(\pi_k\circ f(x)=0\)</span>. Then <span class="math inline">\(f(x)\)</span> belongs to <span class="math inline">\(mR^{k}\)</span>, so write <span class="math inline">\(f(x)=m_1 y_1+\cdot+m_j y_j\)</span> with <span class="math inline">\(y_j\in R^{k}\)</span>. Since <span class="math inline">\(f\)</span> is surjective, each <span class="math inline">\(y_j=f(x_j)\)</span> and therefore <span class="math inline">\(f(x)=m_1 f(x_1)+\cdots+m_j f(x_j)=f(b)\)</span> where <span class="math inline">\(b\in mR^{n}\)</span>. Since <span class="math inline">\(f\)</span> is injective, we see that <span class="math inline">\(x\in mR^{n}\)</span>. Thus <span class="math inline">\(\pi_k\circ f\)</span> is surjective and the kernel of <span class="math inline">\(\pi_k\circ f\)</span> is <span class="math inline">\(mR^{n}\)</span>.</li>
+<li>By the isomorphism theorem, there is a quotient map <span class="math inline">\(\overline{\pi_k\circ f}:R^{n}/mR^{n}\to R^{k}/mR^{k}\)</span> that is an isomorphism. It is also <span class="math inline">\(R/m\)</span> linear – it’s <span class="math inline">\(R\)</span>-linear because it’s an <span class="math inline">\(R\)</span>-module map, and <span class="math inline">\(m\)</span> acts like zero. Therefore it is an isomorphism of vector spaces between <span class="math inline">\((R/m)^{n}\)</span> and <span class="math inline">\((R/m)^{k}\)</span> and therefore <span class="math inline">\(n=k\)</span>.</li>
+</ol>
+<p><strong>Note:</strong> This is false if <span class="math inline">\(R\)</span> is not commutative. Problem 27 constructs an example.</p>
+</div><div id="problem-6" class="slide section level3">
 <h1>Problem 6</h1>
-<p>Prove that if <span class="math inline">\(M\)</span> is a finitely
-generated <span class="math inline">\(R\)</span>-module generated by
-<span class="math inline">\(n\)</span> elements, then any quotient of
-<span class="math inline">\(M\)</span> can be generated by at most <span
-class="math inline">\(n\)</span> elements. In particular, quotients of
-cyclic modules are cyclic.</p>
-</div>
-<div id="problems-16-and-17" class="slide section level3">
-<h1>Problems 16 and 17</h1>
-<p>These two problems establish the decomposition theorem for modules.
-Let <span class="math inline">\(M\)</span> be a module and let <span
-class="math inline">\(I\)</span> and <span
-class="math inline">\(J\)</span> be ideals of <span
-class="math inline">\(R\)</span>.</p>
+<p>Prove that if <span class="math inline">\(M\)</span> is a finitely generated <span class="math inline">\(R\)</span>-module generated by <span class="math inline">\(n\)</span> elements, then any quotient of <span class="math inline">\(M\)</span> can be generated by at most <span class="math inline">\(n\)</span> elements. In particular, quotients of cyclic modules are cyclic.</p>
+</div><div id="problems-16-and-17-decomposition-theorem" class="slide section level3">
+<h1>Problems 16 and 17: Decomposition Theorem</h1>
+<p>These two problems establish the decomposition theorem for modules. Let <span class="math inline">\(M\)</span> be a module and let <span class="math inline">\(I\)</span> and <span class="math inline">\(J\)</span> be ideals of <span class="math inline">\(R\)</span>.</p>
 <ul>
-<li>Prove that the map <span class="math inline">\(M\to M/IM \times
-M/JM\)</span> defined by <span class="math inline">\(m\mapsto (m+IM,
-m+JM)\)</span> is an <span class="math inline">\(R\)</span> module
-homomorphism with kernel <span class="math inline">\(IM\cap
-JM\)</span>.</li>
-<li>Suppose that <span class="math inline">\(I+J=R\)</span>. Prove
-thatthe map in the previous part is surjective and its kernel is <span
-class="math inline">\(IJM\)</span> so that <span class="math display">\[
+<li>Prove that the map <span class="math inline">\(M\to M/IM \times M/JM\)</span> defined by <span class="math inline">\(m\mapsto (m+IM, m+JM)\)</span> is an <span class="math inline">\(R\)</span> module homomorphism with kernel <span class="math inline">\(IM\cap JM\)</span>.</li>
+<li>Suppose that <span class="math inline">\(I+J=R\)</span>. Prove that the map in the previous part is surjective and its kernel is <span class="math inline">\(IJM\)</span> so that <span class="math display">\[
 M/IJM = M/IM\times M/JM
 \]</span> in this case.</li>
 </ul>
-<p>This can be extended by induction to families of ideals <span
-class="math inline">\(I_1,\ldots, I_k\)</span> that are pairwise
-relatively prime (<span class="math inline">\(I_i+I_j=R\)</span> for any
-pair.)</p>
-</div>
-<div id="problem-24-optional" class="slide section level3">
+</div><div id="decomposition-theorem-continued" class="slide section level3">
+<h1>Decomposition theorem continued</h1>
+<p>This problem is proved in a manner very similar to the situation for rings. The second part is the interesting one. For surjectivity, given <span class="math inline">\((m_1+IM,m_2+JM)\in M/IM\times M/JM\)</span>, we want to find <span class="math inline">\(m\)</span> so that <span class="math inline">\(m-m_1\in IM\)</span> and <span class="math inline">\(m-m_2\in JM.\)</span> Write <span class="math inline">\(1=i+j\)</span> with <span class="math inline">\(i,j\in R\)</span>. Then <span class="math inline">\(m=im+jm\)</span>. Let <span class="math inline">\(m_1=jm\)</span> and <span class="math inline">\(m_2=im\)</span>. Then <span class="math inline">\(m-m_1=m_2\in iM\)</span> and <span class="math inline">\(m-m_2=m_1\in JM.\)</span></p>
+<p>For the second part, suppose <span class="math inline">\(m\in IM\cap JM\)</span>. Write <span class="math inline">\(m=im+jm\)</span>. Since <span class="math inline">\(m\in JM\)</span>, <span class="math inline">\(im\in IJM\)</span>, and since <span class="math inline">\(m\in IM\)</span>, <span class="math inline">\(jm\in IJM.\)</span> Therefore <span class="math inline">\(m\in IJM\)</span>.</p>
+<p>This can be extended by induction to families of ideals <span class="math inline">\(I_1,\ldots, I_k\)</span> that are pairwise relatively prime (<span class="math inline">\(I_i+I_j=R\)</span> for any pair.)</p>
+</div><div id="problem-24-optional" class="slide section level3">
 <h1>Problem 24 (optional)</h1>
-<p>This problem constructs an infinite direct product of free modules
-that is not free; in fact it shows that the countable</p>
+<p>This problem constructs an infinite direct product of free modules that is not free; in fact it shows that the countable direct product of copies of <span class="math inline">\(\Z\)</span> is not free.</p>
 </div>
 </body>
 </html>

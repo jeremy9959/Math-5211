@@ -192,7 +192,7 @@ F[x]\to \End(V)
 <p>This construction makes <span class="math inline">\(V\)</span> into a module for <span class="math inline">\(F[x]\)</span> <em>which depends on the choice of the linear transformation <span class="math inline">\(T\)</span></em>.</p>
 </div><div id="polynomials-and-linear-transformations" class="slide section level3">
 <h1>Polynomials and linear transformations</h1>
-<p>For example let <span class="math inline">\(V=F^{2}\)</span> and let <span class="math inline">\(T\)</span> be the linear transformation given by the matrix</p>
+<p>Let <span class="math inline">\(V=F^{2}\)</span> and let <span class="math inline">\(T\)</span> be the linear transformation given by the matrix</p>
 <p><span class="math display">\[
 T = \begin{pmatrix} 0 &amp; 1 \\ 1 &amp; 1\end{pmatrix}
 \]</span></p>
@@ -202,7 +202,9 @@ Te_0&amp;=&amp;e_1 \\
 T^2e_0=Te_1=e_0+e_1=e_0+Te_0&amp;=&amp;(1+T)e_0\\
 \end{aligned}   
 \]</span></p>
-<p>from which we see that <span class="math inline">\((T^2-T-1)e_0=0\)</span> and</p>
+</div><div id="polynomials-and-linear-transformations-continued" class="slide section level3">
+<h1>Polynomials and linear transformations continued</h1>
+<p>Therefore <span class="math inline">\((T^2-T-1)e_0=0\)</span> and</p>
 <p><span class="math display">\[(T^2-T-1)e_1=(T^2-T-1)Te_0=T(T^2-T-1)e_0=0\]</span></p>
 <p>so the polynomial <span class="math inline">\(x^2-x-1\)</span> is in the kernel of the map from <span class="math inline">\(F[x]\to \End(V)\)</span>.</p>
 <p>By the base change construction above this means that <span class="math inline">\(V\)</span> can be viewed as a module over <span class="math inline">\(F[x]/(x^2-x-1)\)</span>.</p>
@@ -212,7 +214,10 @@ T^2e_0=Te_1=e_0+e_1=e_0+Te_0&amp;=&amp;(1+T)e_0\\
 <p>Conversely, suppose that <span class="math inline">\(M\)</span> is an module over <span class="math inline">\(F[x]\)</span>. Then <span class="math inline">\(M\)</span> is an <span class="math inline">\(F\)</span> vector space (via the restriction of scalars from <span class="math inline">\(F[x]\)</span> to <span class="math inline">\(F\)</span>). Furthermore, the element <span class="math inline">\(x\in F[x]\)</span> acts on <span class="math inline">\(M\)</span> as an <span class="math inline">\(F\)</span>-linear transformation because that’s what the module axioms amount to.</p>
 <p>Therefore there is an equivalence between</p>
 <p><span class="math display">\[
-\lbrace F[x]-\mathrm{modules}\rbrace \Leftrightarrow \lbrace \mathrm{vector\ spaces\ }V\mathrm{\ over\ }F\mathrm{\ with\ a\ given\ linear\ map\ }T:V\to V\rbrace
+\begin{xy}\xymatrix{
+\lbrace F[x]-\mathrm{modules}\rbrace\ar@2{&lt;-&gt;}[d]\\
+\lbrace \mathrm{vector\ spaces\ }V\mathrm{\ over\ }F\mathrm{\ with\ a\ given\ linear\ map\ }T:V\to V\rbrace \\}
+\end{xy}
 \]</span></p>
 </div><div id="submodules-of-fx-modules" class="slide section level3">
 <h1>Submodules of <span class="math inline">\(F[x]\)</span> modules</h1>

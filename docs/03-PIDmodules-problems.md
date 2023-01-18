@@ -19,6 +19,8 @@ Remember that $\Tor(M)=\lbrace m\in M : \exists r\in R, rm=0\rbrace$ and that th
 1. (DF Section 12.1 problem 1) Let $M$ be a module over an integral domain $R$.  Show that the rank of $M$ (the maximal number of linearly independent elements of $M$) is zero. 
 Then show that the rank of $M$ is the same as the rank of $M/\Tor(M)$. 
 
+### More on Torsion and Rank
+
 2. (DF Section 12.1 problem 2) Let $M$ be a module over an integral domain $R$.  
 
     a. Let $x_1,\ldots, x_n$ be a maximal linearly independent set of elements of $M$.  Let $N$
@@ -30,19 +32,25 @@ Then show that the rank of $M$ is the same as the rank of $M/\Tor(M)$.
 
 ### Primary Decomposition
 
-4. (DF Section 12.1 problem 11) Let $R$ be a PID and let $a\in R$ be a nonzero element.  Let $M=R/aR$.  For any prime $p$ of $R$, prove that
+4. (DF Section 12.1 problem 11) Let $R$ be a PID and let $a\in R$ be a nonzero element.  Let $M=R/aR$.  For any prime $p$ of $R$, prove that, if $n$ is the power of $p$ dividing $a$ in $R$, then
 
 $$
-p^{k-1}M/p^{k}=\begin{cases} R/pR & k\le n \\ 0 & k>n\end{cases}
+p^{k-1}M/p^{k}M=\begin{cases} R/pR & k\le n \\ 0 & k>n\end{cases}
 $$
 
-where $n$ is the power of $p$ dividing $a$ in $R$.
+
+
+### More on primary decomposition (uniqueness part of main theorem)
 
 5. (DF Section 12.1 problem 12) Let $R$ be a PID and let $p$ be a prime in $R$.  This problem gives an approach to proving uniqueness of the decomposition into cyclic modules of the form $R/p^{a}R$.
 
     a. Let $M$ be a finitely generated torsion $R$-module. Prove that $p^{k-1}M/p^{k}M$ is isomorphic to $F^{n_{k}}$ where $F$ is the field $R/pR$ and $n_{k}$ is the number
     of elementary divisors of $M$ which are powers of $p^{\alpha}$ with $\alpha\ge k$.
 
+
     b. Suppose $M_1$ and $M_2$ are isomorphic finitely generated torsion $R$-modules. Use part (a) to prove that, for all $k\ge 0$, $M_1$ and $M_2$ have the same number of elementary
-    divisors $p^{\alpha}$ with $\alpha\ge k$. Show that this implies that $M_1$ and $M_2$ have the same set of elementary divisors.    
+    divisors $p^{\alpha}$ with $\alpha\ge k$. Show that this implies that $M_1$ and $M_2$ have the same set of elementary divisors.   
+
+
+
 

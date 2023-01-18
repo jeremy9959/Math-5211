@@ -94,9 +94,17 @@ $$
 
 (Remember that we are thinking of $R$ here as an $R$-module, not a ring.)
 
-The kernel of this map is the set $I=\lbrace r\in R : rm=0\rbrace$.  This is a left ideal since if $rm=0$ then $srm=0$ for all $s\in R$. 
-Since $M$ is cyclic, the map $f$ is surjective.  Therefore
+### Characterization of cyclic modules cont'd
+
+The kernel of the map $f(r)=rm$ is the set $I=\lbrace r\in R : rm=0\rbrace$.  
+
+This is a left ideal since if $rm=0$ then $srm=0$ for all $s\in R$. 
+
+Since $M$ is cyclic, the map $f$ is surjective.  
+
+Therefore
 by the isomorphism theorem $M$ is isomorphic to $R/I$. 
+
 ### More on cyclic modules
 
 Recall that a module $M$ for $F[x]$ is the same as an $F$-vector space $V$ together with a linear map $T:V\to V$.

@@ -164,7 +164,7 @@ This construction makes $V$ into a module for $F[x]$
 
 ### Polynomials and linear transformations
 
-For example let $V=F^{2}$ and let $T$ be the linear transformation given by the matrix
+Let $V=F^{2}$ and let $T$ be the linear transformation given by the matrix
 
 $$
 T = \begin{pmatrix} 0 & 1 \\ 1 & 1\end{pmatrix}
@@ -178,12 +178,13 @@ T^2e_0=Te_1=e_0+e_1=e_0+Te_0&=&(1+T)e_0\\
 \end{aligned}   
 $$  
 
-from which we see that $(T^2-T-1)e_0=0$ and 
+### Polynomials and linear transformations continued
+
+Therefore $(T^2-T-1)e_0=0$ and 
 
 $$(T^2-T-1)e_1=(T^2-T-1)Te_0=T(T^2-T-1)e_0=0$$
 
- so the polynomial $x^2-x-1$
-is in the kernel of the map from $F[x]\to \End(V)$.
+so the polynomial $x^2-x-1$ is in the kernel of the map from $F[x]\to \End(V)$.
 
 By the base change construction above this means that $V$ can be viewed as a module over $F[x]/(x^2-x-1)$. 
 
@@ -199,7 +200,10 @@ that's what the module axioms amount to.
 Therefore there is an equivalence between
 
 $$
-\lbrace F[x]-\mathrm{modules}\rbrace \Leftrightarrow \lbrace \mathrm{vector\ spaces\ }V\mathrm{\ over\ }F\mathrm{\ with\ a\ given\ linear\ map\ }T:V\to V\rbrace
+\begin{xy}\xymatrix{
+\lbrace F[x]-\mathrm{modules}\rbrace\ar@2{<->}[d]\\
+\lbrace \mathrm{vector\ spaces\ }V\mathrm{\ over\ }F\mathrm{\ with\ a\ given\ linear\ map\ }T:V\to V\rbrace \\}
+\end{xy}
 $$
 
 ### Submodules of $F[x]$ modules
