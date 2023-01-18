@@ -10,9 +10,18 @@ has_toc: false
 
 ## Notes
 
-- Week 1: Basics of module theory: definition, sub/quotient modules, mapping properties (DF 10.1-10.2). [notes](01-modules.md) [pdf slides](beamer/01-modules.pdf) [recommended problems](01-modules.problems.pdf)
-- Week 2: [More module theory: sums, products, free modules, decomposition (DF 10.3)](02-modules2.md)
-- Week 3: [Finitely generated modules over PIDs (DF 12.1)](03-PIDmodules.md)
+- Week 1: Basics of module theory: definition, sub/quotient modules, mapping properties (DF 10.1-10.2).     
+    - [notes](01-modules.md) 
+    - [pdf slides](beamer/01-modules.pdf) 
+    - [recommended problems](01-modules-problems.html)
+- Week 2: More module theory: sums, products, free modules, decomposition (DF 10.3)
+    - [notes](02-modules2.md)
+    - [pdf slides](beamer/02-modules2.pdf)
+    - [recommended problems](02-modules2-problems.html)
+- Week 3: Finitely generated modules over PIDs (DF 12.1)
+    - [notes](03-PIDmodules.md)
+    - [pdf slides](beamer/03-PIDmodules.pdf)
+    - [recommended problems](03-PIDmodules-problems.html)
 - Week 4: [Canonical Forms (DF 12.2-12.3)](04-forms.md)
 - Week 5: [Field theory basics: algebraic/transcendental extensions, field degree (DF 13.1-13.2)](05-fieldbasics.md)
 - Week 6: [Field extensions: composites, characteristic polynomial, trace, norm, separability (DF 13.5)](06-fieldextensions.md)
