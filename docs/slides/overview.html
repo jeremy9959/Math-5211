@@ -8,15 +8,66 @@
   <meta name="generator" content="pandoc" />
   <title>Course Content</title>
   <style type="text/css">
-    code{white-space: pre-wrap;}
-    span.smallcaps{font-variant: small-caps;}
-    span.underline{text-decoration: underline;}
-    div.column{display: inline-block; vertical-align: top; width: 50%;}
-    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-    ul.task-list{list-style: none;}
+    
   </style>
   <link rel="stylesheet" type="text/css" media="screen, projection, print"
     href="https://www.w3.org/Talks/Tools/Slidy2/styles/slidy.css" />
+  <script type="text/javascript">
+      window.MathJax = {
+        loader: {
+        load: ['[custom]/xypic.js'],
+        paths: {custom: 'https://cdn.jsdelivr.net/gh/sonoisa/XyJax-v3@3.0.1/build/'}
+      },
+        tex: {
+          packages: {'[+]': ['xypic']},
+          tags: "ams",
+          inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+          displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+          processEscapes: true,
+          macros: {
+            Z: "{\\mathbb{Z}}",
+            Zn: ["{\\mathbb{Z}/#1 \\mathbb{Z}}",1],
+            GL: "{\\mathrm{GL}}",
+            lessim: "{\\lesssim}",
+            R: "{\\mathbb{R}}",
+            Q: "{\\mathbb{Q}}",
+            N: "{\\mathbb{N}}",
+            SL: "{\\mathrm{SL}}",
+            PGL: "{\\mathrm{PGL}}",
+            C: "{\\mathbb{C}}",
+            Stab: "{\\mathrm{Stab}}",
+            Aut: "{\\mathrm{Aut}}",
+            End: "{\\mathrm{End}}",
+            isom: "{\\cong}",
+            order: ["{\\lvert#1\\rvert}",1],
+            divides: "{\\vert}",
+            semi: "{\\rtimes}",
+            End: "{\\mathrm{End}}",
+            dim: "{\\mathrm{dim}}",
+            Hom: "{\\mathrm{Hom}}",
+            Pol: "{\\mathrm{Pol}}",
+            D: "{\\mathcal{D}}",
+            span: "{\\mathrm{span}}",
+            norm: ["{\\lVert #1 \\rVert}",1],
+            Tor: "{\\mathrm{Tor}}",
+            Ann: "{\\mathrm{Ann}}",
+          }
+        }
+      };
+  </script>
+  <script type="text/javascript" id="MathJax-script" async
+    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
+  </script>
+
+  <!-- LaTeX Macros
+
+
+
+  $$\def\GL{\mathrm{GL}}$$
+  $$\def\Zn#1{\mathbb{Z}/#1\mathbb{Z}}$$
+  $$\def\Z{\mathbb{Z}}$$
+  $$\def\gcd#1#2{\mathrm{gcd}(#1,#2)}$$
+  -->
   <script src="https://www.w3.org/Talks/Tools/Slidy2/scripts/slidy.js"
     charset="utf-8" type="text/javascript"></script>
 </head>
@@ -28,16 +79,29 @@
 <h1>Course Outline</h1>
 
 </div>
-<div id="notes" class="slide section level2">
+<div id="notes" class="title-slide slide section level2">
 <h1>Notes</h1>
 <ul>
 <li>Week 1: Basics of module theory: definition, sub/quotient modules,
-mapping properties (DF 10.1-10.2). <a href="01-modules.md">notes</a> <a
-href="slides/01-modules.html">slides</a></li>
-<li>Week 2: <a href="02-modules2.md">More module theory: sums, products,
-free modules, decomposition (DF 10.3)</a></li>
-<li>Week 3: <a href="03-PIDmodules.md">Finitely generated modules over
-PIDs (DF 12.1)</a></li>
+mapping properties (DF 10.1-10.2).
+<ul>
+<li><a href="01-modules.md">notes</a></li>
+<li><a href="beamer/01-modules.pdf">pdf slides</a></li>
+<li><a href="01-modules-problems.html">recommended problems</a></li>
+</ul></li>
+<li>Week 2: More module theory: sums, products, free modules,
+decomposition (DF 10.3)
+<ul>
+<li><a href="02-modules2.md">notes</a></li>
+<li><a href="beamer/02-modules2.pdf">pdf slides</a></li>
+<li><a href="02-modules2-problems.html">recommended problems</a></li>
+</ul></li>
+<li>Week 3: Finitely generated modules over PIDs (DF 12.1)
+<ul>
+<li><a href="03-PIDmodules.md">notes</a></li>
+<li><a href="beamer/03-PIDmodules.pdf">pdf slides</a></li>
+<li><a href="03-PIDmodules-problems.html">recommended problems</a></li>
+</ul></li>
 <li>Week 4: <a href="04-forms.md">Canonical Forms (DF
 12.2-12.3)</a></li>
 <li>Week 5: <a href="05-fieldbasics.md">Field theory basics:
@@ -53,5 +117,6 @@ Examples of Galois Theory</a></li>
 <li>Week 9: <a href="09-tensors.md">Tensor products (DF 10.4)</a></li>
 </ul>
 </div>
+
 </body>
 </html>
