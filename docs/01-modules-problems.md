@@ -27,7 +27,7 @@ Prove that $IM$ is a submodule of $M$.
 Given a ring $R$ and an $R$-module $M$, let
 
 $$
-\Tor(M)=\lbrace m\in M : \exists r\in R, rm=0, r\not=0\rbrace
+\Tor(M)=\lbrace m\in M : \exists r\in R, rm=0, r\not=0 \rbrace
 $$
 
 Prove that, if $R$ is an integral domain, then $\Tor(M)$ is a submodule of $M$. 
