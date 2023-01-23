@@ -49,10 +49,8 @@ Information about the algebra prelim, including past exams, is [available here o
 
 ### Assessment
 
-Grades in this course will be based on:
+Grades in this course will be based on on a series of homework assignments, due roughly every 2-3 weeks. 
 
-- Homework (40%)
-- Two exams (30% each)
 
 ### Disclaimer
 
