@@ -89,7 +89,7 @@ the $\Z$-module $R=\Z+\Z i$ then $(1+i)R$ is generated *over $\Z$* by $1+i$ and 
 **Proof:** Let $m\in M$ generate $M$. Consider the map $f: R\to M$ defined by $f(r)=rm$.  This is a module homomorphism since 
 
 $$
-f(r_1 r_2)=r_1 r_2 m = r_1 (r_2 m) = r_1 f(r_2 m).
+f(r_1 r_2)=r_1 r_2 m = r_1 (r_2 m) = r_1 f(r_2).
 $$ 
 
 (Remember that we are thinking of $R$ here as an $R$-module, not a ring.)

@@ -50,6 +50,7 @@
             span: "{\\mathrm{span}}",
             norm: ["{\\lVert #1 \\rVert}",1],
             Tor: "{\\mathrm{Tor}}",
+            Ann: "{\\mathrm{Ann}}",
           }
         }
       };
@@ -86,7 +87,7 @@ IM = \lbrace \sum_{\mathrm{finite}} a_i m_i : a_i\in I, m_{i}\in M \rbrace
 <h1>Problem 8.</h1>
 <p>Given a ring <span class="math inline">\(R\)</span> and an <span class="math inline">\(R\)</span>-module <span class="math inline">\(M\)</span>, let</p>
 <p><span class="math display">\[
-\Tor(M)=\lbrace m\in M : \exists r\in R, rm=0\rbrace
+\Tor(M)=\lbrace m\in M : \exists r\in R, rm=0, r\not=0 \rbrace
 \]</span></p>
 <p>Prove that, if <span class="math inline">\(R\)</span> is an integral domain, then <span class="math inline">\(\Tor(M)\)</span> is a submodule of <span class="math inline">\(M\)</span>.</p>
 <p>Show that if <span class="math inline">\(R\)</span> is <em>not</em> an integral domain then <span class="math inline">\(\Tor(M)\)</span> need not be a submodule of <span class="math inline">\(M\)</span>.</p>

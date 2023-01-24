@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+ "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <title>Recommended Problems</title>
+  <style type="text/css">
+    
+  </style>
+  <link rel="stylesheet" type="text/css" media="screen, projection, print"
+    href="https://www.w3.org/Talks/Tools/Slidy2/styles/slidy.css" />
+  <script type="text/javascript">
+      window.MathJax = {
+        loader: {
+        load: ['[custom]/xypic.js'],
+        paths: {custom: 'https://cdn.jsdelivr.net/gh/sonoisa/XyJax-v3@3.0.1/build/'}
+      },
+        tex: {
+          packages: {'[+]': ['xypic']},
+          tags: "ams",
+          inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+          displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+          processEscapes: true,
+          macros: {
+            Z: "{\\mathbb{Z}}",
+            Zn: ["{\\mathbb{Z}/#1 \\mathbb{Z}}",1],
+            GL: "{\\mathrm{GL}}",
+            lessim: "{\\lesssim}",
+            R: "{\\mathbb{R}}",
+            Q: "{\\mathbb{Q}}",
+            N: "{\\mathbb{N}}",
+            SL: "{\\mathrm{SL}}",
+            PGL: "{\\mathrm{PGL}}",
+            C: "{\\mathbb{C}}",
+            Stab: "{\\mathrm{Stab}}",
+            Aut: "{\\mathrm{Aut}}",
+            End: "{\\mathrm{End}}",
+            isom: "{\\cong}",
+            order: ["{\\lvert#1\\rvert}",1],
+            divides: "{\\vert}",
+            semi: "{\\rtimes}",
+            End: "{\\mathrm{End}}",
+            dim: "{\\mathrm{dim}}",
+            Hom: "{\\mathrm{Hom}}",
+            Pol: "{\\mathrm{Pol}}",
+            D: "{\\mathcal{D}}",
+            span: "{\\mathrm{span}}",
+            norm: ["{\\lVert #1 \\rVert}",1],
+            Tor: "{\\mathrm{Tor}}",
+            Ann: "{\\mathrm{Ann}}",
+          }
+        }
+      };
+  </script>
+  <script type="text/javascript" id="MathJax-script" async
+    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
+  </script>
+  
+  <!-- LaTeX Macros
+  
+  
+  
+  $$\def\GL{\mathrm{GL}}$$
+  $$\def\Zn#1{\mathbb{Z}/#1\mathbb{Z}}$$
+  $$\def\Z{\mathbb{Z}}$$
+  $$\def\gcd#1#2{\mathrm{gcd}(#1,#2)}$$
+  -->
+  <script src="/usr/share/javascript/mathjax/MathJax.js?config=TeX-AMS_CHTML-full" type="text/javascript"></script>
+  <script src="https://www.w3.org/Talks/Tools/Slidy2/scripts/slidy.js"
+    charset="utf-8" type="text/javascript"></script>
+</head>
+<body>
+<div class="slide titlepage">
+  <h1 class="title">Recommended Problems</h1>
+</div>
+<div id="recommended-problems---rational-normal-form" class="title-slide slide section level2"><h1>Recommended Problems - Rational normal form</h1></div><div id="problem-1-df-problem-4-pg.-488" class="slide section level3">
+<h1>Problem 1 (DF, Problem 4, pg. 488)</h1>
+<p>Prove that two <span class="math inline">\(3\times 3\)</span> polynomials are similar if and only if they have the same characteristic and minimal polynomials. Give an explicit counterexample to this for <span class="math inline">\(4\times 4\)</span> matrices.</p>
+</div><div id="problem-2-df-problem-12m-pg.-489" class="slide section level3">
+<h1>Problem 2 (DF, Problem 12,m pg. 489)</h1>
+<p>Find all similarity classes of <span class="math inline">\(3\times 3\)</span> matrices over <span class="math inline">\(\Z/2\Z\)</span> satisfying <span class="math inline">\(A^6=1\)</span>. Do the same for <span class="math inline">\(4\times 4\)</span> matrices satisfying <span class="math inline">\(B^{20}=1\)</span>.</p>
+</div><div id="problem-3-df-problem-17-p.-489" class="slide section level3">
+<h1>Problem 3 (DF, Problem 17, p. 489)</h1>
+<p>Let <span class="math inline">\(G=\GL_{3}(\mathbf{F}_{2})\)</span>. This group has order <span class="math inline">\((7)(6)(4)=168\)</span>. Find representatives for each of its conjugacy classes.</p>
+</div><div id="problem-4-df-problems-22-25-pg-490" class="slide section level3">
+<h1>Problem 4 (DF Problems 22-25, pg 490)</h1>
+<p>These problems show that if <span class="math inline">\(A\)</span> is an <span class="math inline">\(n\times n\)</span> matrix over <span class="math inline">\(F\)</span>, then the matrix <span class="math inline">\(xI-A\)</span> is the “relation matrix” for the <span class="math inline">\(F[x]\)</span>-module obtained from <span class="math inline">\(F^{n}\)</span> with <span class="math inline">\(x\)</span> acting as <span class="math inline">\(A\)</span>. Consequently, to compute the rational normal form for <span class="math inline">\(A\)</span>, one must use the “smith normal form” algorithm over <span class="math inline">\(F[x]\)</span> on this matrix to find the invariant factors. (Note: Actually the problem uses <span class="math inline">\(xI-A^{\intercal}\)</span> but this is just a question of conventions regarding rows vs. columns and doesn’t really matter).</p>
+</div>
+<div id="recommended-problems---jordan-normal-form" class="title-slide slide section level2"><h1>Recommended Problems - Jordan normal form</h1></div><div id="computations" class="slide section level3">
+<h1>Computations</h1>
+<p>DF Problems 4-16 on pages 499-501 give a whole bunch of numerical examples; try some.</p>
+</div><div id="problem-5-df-problem-22-page-501" class="slide section level3">
+<h1>Problem 5 (DF, Problem 22, page 501)</h1>
+<p>Prove that an <span class="math inline">\(n\times n\)</span> matrix <span class="math inline">\(A\)</span> over <span class="math inline">\(\mathbf{C}\)</span> satisfying <span class="math inline">\(A^3=A\)</span> is diagonalizable. Is this true for any field <span class="math inline">\(F\)</span>?</p>
+</div><div id="problem-6-df-problem-31-pag-502" class="slide section level3">
+<h1>Problem 6 (DF, Problem 31, pag 502)</h1>
+<p>A matrix is nilpotent if <span class="math inline">\(A^n=0\)</span> for some <span class="math inline">\(n\)</span>. Prove that a nilpotent matrix is similar to a block diagonal matrix where each</p>
+</div>
+</body>
+</html>

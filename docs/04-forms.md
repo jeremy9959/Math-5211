@@ -150,7 +150,7 @@ If $A$ and $B$ are similar over $K$, then they are similar over $F$; because the
 The rational normal form comes from the invariant factor version of the fundamental theorem, while the Jordan normal form comes from the elementary divisors version. 
 In other words, we write our module
 $$
-M = \oplus F[x]/(f_1(x)^{e_1}}) \oplus F[x]/(f_2(x)^{e_{2}})\oplus\cdots\oplus F[x]/(f_k(x)^{e_{k}})
+M = \oplus F[x]/(f_1(x)^{e_1}) \oplus F[x]/(f_2(x)^{e_{2}})\oplus\cdots\oplus F[x]/(f_k(x)^{e_{k}})
 $$
 where the $f_i(x)$ are all *monic irreducible* polynomials.  This decomposition is unique up to reordering of the factors. 
 
