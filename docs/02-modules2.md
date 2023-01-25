@@ -89,7 +89,7 @@ the $\Z$-module $R=\Z+\Z i$ then $(1+i)R$ is generated *over $\Z$* by $1+i$ and 
 **Proof:** Let $m\in M$ generate $M$. Consider the map $f: R\to M$ defined by $f(r)=rm$.  This is a module homomorphism since 
 
 $$
-f(r_1 r_2)=r_1 r_2 m = r_1 (r_2 m) = r_1 f(r_2 m).
+f(r_1 r_2)=r_1 r_2 m = r_1 (r_2 m) = r_1 f(r_2c).
 $$ 
 
 (Remember that we are thinking of $R$ here as an $R$-module, not a ring.)
@@ -179,8 +179,8 @@ Notice that, if each $M_{i}$ is countable, then so is $\oplus_{i\in I}M_{i}$, bu
 
 ### Definition
 
-**Definition:** A module $M$ is *free* on a set $A$ of generators if, for every element $m$ of $M$, there are *unique* $r_1,\ldots, r_k$ in $R$
-and $a_1,\ldots, a_k$ in $A$ such that
+**Definition:** A module $M$ is *free* on a set $A$ of generators if, for every nonzero element $m$ of $M$, there are *unique* nonzero $r_1,\ldots, r_k$ in $R$
+and elements $a_1,\ldots, a_k$ in $A$ such that
 
 $$
 m = r_1 a_1 + \cdots + r_k a_k.
@@ -205,8 +205,11 @@ but $r_1$ and $r_2$ are not uniquely determined.  In fact $M$ is not free on any
 
 Any vector space over $F$ is a free $F$-module. 
 
-A principal ideal in a (commutative) ring is a free module, but a non-principal ideal is not.  Consider $(2,1+\sqrt{-5})\subset \Z[\sqrt{-5}]$. We have
-$(3)(2)-(1-\sqrt{-5})(1+\sqrt{-5})=0$ so $0$ doesn't have a unique representation.
+### Rings with nonprincipal ideals. 
+
+A principal ideal in a (commutative) ring is a free module, but a non-principal ideal is not.  Consider $I=(2,1+\sqrt{-5})\subset R=\Z[\sqrt{-5}]$. Choose any
+two elements of this ideal, say $x$ and $y$.  Then $-y\cdot x + x\cdot y=0$ which shows that the map $R\oplus R\to I$ is not injective. On the other hand
+we know that the ideal is not principal.
 
 ### Mapping property
 
