@@ -29,7 +29,7 @@ Otherwise the kernel of this map must be a prime ideal $p\Z$ of $\Z$.  In this c
 
 If $f:F\to E$ is a homomorphism of fields, it is automatically injective (or zero).
 
-The only field maps $f:\Q\to \Q$ and $f:\Zp/\Z\to \Z/p\Z$ are the identity. 
+The only field maps $f:\Q\to \Q$ and $f:\Z/p\Z\to \Z/p\Z$ are the identity. 
 
 ### Extensions
 

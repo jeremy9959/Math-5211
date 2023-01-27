@@ -8,7 +8,7 @@ parent: Course Content
 
 ### Problem 1 (DF, Problem 4, pg. 488)
 
-Prove that two $3\times 3$ polynomials are similar if and only if they have the same characteristic and minimal polynomials. Give
+Prove that two $3\times 3$ matrices over a field $F$ are similar if and only if they have the same characteristic and minimal polynomials. Give
 an explicit counterexample to this for $4\times 4$ matrices. 
 
 ### Problem 2 (DF, Problem 12,m pg. 489)
