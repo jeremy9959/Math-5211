@@ -8,15 +8,67 @@
   <meta name="generator" content="pandoc" />
   <title>5. Field Theory Basics</title>
   <style type="text/css">
-    code{white-space: pre-wrap;}
-    span.smallcaps{font-variant: small-caps;}
-    span.underline{text-decoration: underline;}
-    div.column{display: inline-block; vertical-align: top; width: 50%;}
-    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-    ul.task-list{list-style: none;}
+    
   </style>
   <link rel="stylesheet" type="text/css" media="screen, projection, print"
     href="https://www.w3.org/Talks/Tools/Slidy2/styles/slidy.css" />
+  <script type="text/javascript">
+      window.MathJax = {
+        loader: {
+        load: ['[custom]/xypic.js'],
+        paths: {custom: 'https://cdn.jsdelivr.net/gh/sonoisa/XyJax-v3@3.0.1/build/'}
+      },
+        tex: {
+          packages: {'[+]': ['xypic']},
+          tags: "ams",
+          inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+          displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+          processEscapes: true,
+          macros: {
+            Z: "{\\mathbb{Z}}",
+            Zn: ["{\\mathbb{Z}/#1 \\mathbb{Z}}",1],
+            GL: "{\\mathrm{GL}}",
+            lessim: "{\\lesssim}",
+            R: "{\\mathbb{R}}",
+            Q: "{\\mathbb{Q}}",
+            N: "{\\mathbb{N}}",
+            SL: "{\\mathrm{SL}}",
+            PGL: "{\\mathrm{PGL}}",
+            C: "{\\mathbb{C}}",
+            Stab: "{\\mathrm{Stab}}",
+            Aut: "{\\mathrm{Aut}}",
+            End: "{\\mathrm{End}}",
+            isom: "{\\cong}",
+            order: ["{\\lvert#1\\rvert}",1],
+            divides: "{\\vert}",
+            semi: "{\\rtimes}",
+            End: "{\\mathrm{End}}",
+            dim: "{\\mathrm{dim}}",
+            Hom: "{\\mathrm{Hom}}",
+            Pol: "{\\mathrm{Pol}}",
+            D: "{\\mathcal{D}}",
+            span: "{\\mathrm{span}}",
+            norm: ["{\\lVert #1 \\rVert}",1],
+            Tor: "{\\mathrm{Tor}}",
+            Ann: "{\\mathrm{Ann}}",
+          }
+        }
+      };
+  </script>
+  <script type="text/javascript" id="MathJax-script" async
+    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
+  </script>
+  
+  <!-- LaTeX Macros
+  
+  
+  
+  $$\def\GL{\mathrm{GL}}$$
+  $$\def\Zn#1{\mathbb{Z}/#1\mathbb{Z}}$$
+  $$\def\Z{\mathbb{Z}}$$
+  $$\def\gcd#1#2{\mathrm{gcd}(#1,#2)}$$
+  -->
+  <script src="/usr/share/javascript/mathjax/MathJax.js?config=TeX-AMS_CHTML-full" type="text/javascript"></script>
   <script src="https://www.w3.org/Talks/Tools/Slidy2/scripts/slidy.js"
     charset="utf-8" type="text/javascript"></script>
 </head>
@@ -24,10 +76,50 @@
 <div class="slide titlepage">
   <h1 class="title">5. Field Theory Basics</h1>
 </div>
-<div id="basics-of-field-theory"
-class="title-slide slide section level2">
-<h1>Basics of field theory</h1>
-
+<div id="basics-of-field-theory" class="title-slide slide section level2"><h1>Basics of field theory</h1></div><div id="things-to-remember-from-before." class="slide section level3">
+<h1>Things to remember from before.</h1>
+<p>We already know quite a bit about fields.</p>
+</div><div id="characteristic" class="slide section level3">
+<h1>Characteristic</h1>
+<p>If <span class="math inline">\(F\)</span> is a field, then there is a ring homomorphism <span class="math inline">\(\Z\to F\)</span> sending <span class="math inline">\(1\to 1\)</span>. If this map is injective, then:</p>
+<ul>
+<li>we say <span class="math inline">\(F\)</span> has <em>characteristic zero</em></li>
+<li><span class="math inline">\(F\)</span> contains a copy of the rational numbers</li>
+<li>The field <span class="math inline">\(\Q\)</span> is the <em>prime subfield</em> of <span class="math inline">\(F\)</span>.</li>
+</ul>
+<p>Otherwise the kernel of this map must be a prime ideal <span class="math inline">\(p\Z\)</span> of <span class="math inline">\(\Z\)</span>. In this case:</p>
+<ul>
+<li>we say that <span class="math inline">\(F\)</span> has <em>characteristic <span class="math inline">\(p\)</span></em></li>
+<li><span class="math inline">\(F\)</span> contains a copy of <span class="math inline">\(\Z/p\Z\)</span>.</li>
+<li><span class="math inline">\(\Z/p\Z\)</span> is the <em>prime subfield</em> of <span class="math inline">\(F\)</span>.</li>
+</ul>
+</div><div id="maps" class="slide section level3">
+<h1>Maps</h1>
+<p>If <span class="math inline">\(f:F\to E\)</span> is a homomorphism of fields, it is automatically injective (or zero).</p>
+<p>The only field maps <span class="math inline">\(f:\Q\to \Q\)</span> and <span class="math inline">\(f:\Z/p/Z\to \Z/p\Z\)</span> are the identity.</p>
+</div><div id="extensions" class="slide section level3">
+<h1>Extensions</h1>
+<p>If <span class="math inline">\(F\)</span> is a field, and <span class="math inline">\(F\subset E\)</span> where <span class="math inline">\(E\)</span> is another field, then we call <span class="math inline">\(E\)</span> an extension field of <span class="math inline">\(F\)</span>.</p>
+<p><span class="math inline">\(E\)</span> is automatically a vector space over <span class="math inline">\(F\)</span>. The degree of <span class="math inline">\(E/F\)</span>, written <span class="math inline">\([E:F]\)</span>, is the dimension of <span class="math inline">\(E\)</span> as an <span class="math inline">\(F\)</span>-vector space.</p>
+</div><div id="polynomials-quotient-rings-and-fields" class="slide section level3">
+<h1>Polynomials, quotient rings, and fields</h1>
+<p>We have the division algorithm for polynomials. <span class="math inline">\(F[x]\)</span> is a PID. An ideal is prime iff it is generated by an irreducible polynomial.</p>
+<p>Let <span class="math inline">\(p(x)\)</span> be an irreducible polynomial of degree <span class="math inline">\(d\)</span> over <span class="math inline">\(F\)</span>. Then:</p>
+<ul>
+<li><span class="math inline">\(K=F[x]/(p(x))\)</span> is a field</li>
+<li>It is of degree <span class="math inline">\(d\)</span> over <span class="math inline">\(F\)</span>.</li>
+<li><span class="math inline">\(p(x)\)</span> has a root in <span class="math inline">\(K\)</span> (namely the residue class of <span class="math inline">\(x\)</span>)</li>
+<li>The elements <span class="math inline">\(1,x,\ldots, x^{d-1}\)</span> are a basis for <span class="math inline">\(K/F\)</span>.</li>
+</ul>
+</div><div id="adjoining-roots-of-polynomials" class="slide section level3">
+<h1>Adjoining roots of polynomials</h1>
+<p>If <span class="math inline">\(F\subset K\)</span> is a field extension, and <span class="math inline">\(\alpha\in K\)</span>, then <span class="math inline">\(F(\alpha)\)</span> is the smallest subfield of <span class="math inline">\(K\)</span> containing <span class="math inline">\(F\)</span> and <span class="math inline">\(\alpha\)</span>. Similarly for <span class="math inline">\(F(\alpha_1,\alpha_2,\ldots,\alpha_n)\)</span>.</p>
+<p>If <span class="math inline">\(p(x)\)</span> is irreducible over <span class="math inline">\(F\)</span>, and has a root <span class="math inline">\(\alpha\)</span> in <span class="math inline">\(K\)</span>, then <span class="math inline">\(F(\alpha)\)</span> is isomorphic to <span class="math inline">\(F[x]/p(x)\)</span> via the map <span class="math inline">\(x\mapsto \alpha\)</span>.</p>
+</div><div id="key-theorem" class="slide section level3">
+<h1>Key Theorem</h1>
+<p>Let <span class="math inline">\(K\)</span> be a field extension of <span class="math inline">\(F\)</span> and let <span class="math inline">\(p(x)\)</span> be an irreducible polynomial over <span class="math inline">\(F\)</span>. Suppose <span class="math inline">\(K\)</span> contains two roots <span class="math inline">\(\alpha\)</span> and <span class="math inline">\(\beta\)</span> of <span class="math inline">\(p(x)\)</span>. Then <span class="math inline">\(F(\alpha)\)</span> and <span class="math inline">\(F(\beta)\)</span> are isomorphic via an isomorphism that is the identity on <span class="math inline">\(F\)</span>.</p>
+<p>More generally:</p>
+<p><strong>Theorem:</strong> (See Theorem 8, DF, page 519) Let <span class="math inline">\(\phi:F\to F&#39;\)</span> be an isomorphism of fields. Let <span class="math inline">\(p(x)\)</span> be an irreducible polynomial in <span class="math inline">\(F[x]\)</span> and let <span class="math inline">\(p&#39;(x)\)</span> be the polynomial in <span class="math inline">\(F&#39;[x]\)</span> obtained by applying <span class="math inline">\(\phi\)</span> to the coefficients of <span class="math inline">\(p(x)\)</span>. Let <span class="math inline">\(K\)</span> be an extension of <span class="math inline">\(F\)</span> containing a root <span class="math inline">\(\alpha\)</span> of <span class="math inline">\(p(x)\)</span>, and let <span class="math inline">\(K&#39;\)</span> be an extension of <span class="math inline">\(F&#39;\)</span> containing a root <span class="math inline">\(\beta\)</span> of <span class="math inline">\(p&#39;(x)\)</span>. Then there is an isomorphism <span class="math inline">\(\sigma:F(\alpha)\to F&#39;(\beta)\)</span> such that the restriction of <span class="math inline">\(\sigma\)</span> to <span class="math inline">\(F\)</span> is <span class="math inline">\(\phi\)</span>.</p>
 </div>
 </body>
 </html>

@@ -50,6 +50,7 @@
             span: "{\\mathrm{span}}",
             norm: ["{\\lVert #1 \\rVert}",1],
             Tor: "{\\mathrm{Tor}}",
+            Ann: "{\\mathrm{Ann}}",
           }
         }
       };
@@ -126,7 +127,7 @@ RA = \lbrace r_1 a_1 + \cdots + r_k a_k : r_1,\ldots, r_k\in R, a_1,\ldots, a_k\
 <p><strong>Proposition:</strong> Let <span class="math inline">\(M\)</span> be a cyclic <span class="math inline">\(R\)</span>-module. Then <span class="math inline">\(M\)</span> is isomorphic to <span class="math inline">\(R/I\)</span> where <span class="math inline">\(I\)</span> is a left ideal of <span class="math inline">\(R\)</span>.</p>
 <p><strong>Proof:</strong> Let <span class="math inline">\(m\in M\)</span> generate <span class="math inline">\(M\)</span>. Consider the map <span class="math inline">\(f: R\to M\)</span> defined by <span class="math inline">\(f(r)=rm\)</span>. This is a module homomorphism since</p>
 <p><span class="math display">\[
-f(r_1 r_2)=r_1 r_2 m = r_1 (r_2 m) = r_1 f(r_2 m).
+f(r_1 r_2)=r_1 r_2 m = r_1 (r_2 m) = r_1 f(r_2c).
 \]</span></p>
 <p>(Remember that we are thinking of <span class="math inline">\(R\)</span> here as an <span class="math inline">\(R\)</span>-module, not a ring.)</p>
 </div><div id="characterization-of-cyclic-modules-contd" class="slide section level3">
@@ -183,7 +184,7 @@ M = N_1\oplus N_2\oplus \cdots \oplus N_{k}
 </div>
 <div id="free-modules" class="title-slide slide section level2"><h1>Free Modules</h1></div><div id="definition" class="slide section level3">
 <h1>Definition</h1>
-<p><strong>Definition:</strong> A module <span class="math inline">\(M\)</span> is <em>free</em> on a set <span class="math inline">\(A\)</span> of generators if, for every element <span class="math inline">\(m\)</span> of <span class="math inline">\(M\)</span>, there are <em>unique</em> <span class="math inline">\(r_1,\ldots, r_k\)</span> in <span class="math inline">\(R\)</span> and <span class="math inline">\(a_1,\ldots, a_k\)</span> in <span class="math inline">\(A\)</span> such that</p>
+<p><strong>Definition:</strong> A module <span class="math inline">\(M\)</span> is <em>free</em> on a set <span class="math inline">\(A\)</span> of generators if, for every nonzero element <span class="math inline">\(m\)</span> of <span class="math inline">\(M\)</span>, there are <em>unique</em> nonzero <span class="math inline">\(r_1,\ldots, r_k\)</span> in <span class="math inline">\(R\)</span> and elements <span class="math inline">\(a_1,\ldots, a_k\)</span> in <span class="math inline">\(A\)</span> such that</p>
 <p><span class="math display">\[
 m = r_1 a_1 + \cdots + r_k a_k.
 \]</span></p>
@@ -197,7 +198,9 @@ m = r_1 a_1 + \cdots + r_k a_k.
 <p>defined by <span class="math inline">\((r_1,\ldots, r_n)\mapsto r_1 a_1+\cdots+r_n a_n\)</span> is an isomorphism. So basically <span class="math inline">\(M\)</span> is free on a set <span class="math inline">\(A\)</span> with <span class="math inline">\(n\)</span> elements if and only if it is isomorphic to <span class="math inline">\(R^{n}\)</span>.</p>
 <p>If <span class="math inline">\(R=\Z\)</span>, then <span class="math inline">\(M=\Z/m\Z\oplus \Z/m\Z\)</span> is not free on <span class="math inline">\((1,0)\)</span> and <span class="math inline">\((0,1)\)</span>. Every <span class="math inline">\(m\in M\)</span> is a linear combination <span class="math inline">\(r_1(1,0)+r_2(0,1)\)</span> for <span class="math inline">\(r_1,r_2\in\Z\)</span>, but <span class="math inline">\(r_1\)</span> and <span class="math inline">\(r_2\)</span> are not uniquely determined. In fact <span class="math inline">\(M\)</span> is not free on any set of generators.</p>
 <p>Any vector space over <span class="math inline">\(F\)</span> is a free <span class="math inline">\(F\)</span>-module.</p>
-<p>A principal ideal in a (commutative) ring is a free module, but a non-principal ideal is not. Consider <span class="math inline">\((2,1+\sqrt{-5})\subset \Z[\sqrt{-5}]\)</span>. We have <span class="math inline">\((3)(2)-(1-\sqrt{-5})(1+\sqrt{-5})=0\)</span> so <span class="math inline">\(0\)</span> doesn’t have a unique representation.</p>
+</div><div id="rings-with-nonprincipal-ideals." class="slide section level3">
+<h1>Rings with nonprincipal ideals.</h1>
+<p>A principal ideal in a (commutative) ring is a free module, but a non-principal ideal is not. Consider <span class="math inline">\(I=(2,1+\sqrt{-5})\subset R=\Z[\sqrt{-5}]\)</span>. Choose any two elements of this ideal, say <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span>. Then <span class="math inline">\(-y\cdot x + x\cdot y=0\)</span> which shows that the map <span class="math inline">\(R\oplus R\to I\)</span> is not injective. On the other hand we know that the ideal is not principal.</p>
 </div><div id="mapping-property" class="slide section level3">
 <h1>Mapping property</h1>
 <p>Let <span class="math inline">\(A\)</span> be a set. There exists a module <span class="math inline">\(F(A)\)</span>, called the <em>free module on <span class="math inline">\(A\)</span></em>, which contains <span class="math inline">\(A\)</span> as a subset.<br />
