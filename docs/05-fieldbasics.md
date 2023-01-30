@@ -136,6 +136,23 @@ and $[K:F(\alpha)]$ is smaller than $[K:F]$.  Now choose $\alpha_2$ in $K$ but n
 
 **Corollary:** If $K/F$ is a field extension, the subset of $K$ consisting of algebraic elements over $F$ is a field (called the *algebraic closure of $F$ in $K$*).
 
+### Towers of algebraic extensions are algebraic
+
+**Propositoin:** If $L/K$ is algebraic and $K/F$ is algebraic so is $L/F$.  
+
+**Proof:** Choose $\alpha\in L$.  Then $\alpha$ satisfies a polynomial $f(x)=x^{d}+a_{d-1}x^{d-1}+\cdots+a_{0}$ where the $a_i$ are in $K$.  Therefore $\alpha$ is algebraic
+over $E=F(a_0,a_1,\ldots, a_{d-1})$. But $E/F$ is finitely generated hence finite.  Therefore $[E(\alpha):F]=[E(\alpha):E][E:F]$ is finite.  Thus every element of $L$ is algebraic over $F$.
+
+### Composites
+
+If $K_1$ and $K_2$ are subfields of a field $K$, then $K_1 K_2$ is the smallest subfield of $K$ containing these two fields.  Then $[K_1 K_2:F]$ is divisible
+by both $[K_1:F]$ and $[K_2:F]$ and in addition
+
+$$
+[K_1 K_2:F]\le [K_1:F][K_2:F].
+$$
+
+In particular, if $[K_1:F]$ and $[K_2:F]$ are relatively prime, then $[K_1 K_2:F]=[K_1:F][K_2:F]$.
 
 
 <div>
