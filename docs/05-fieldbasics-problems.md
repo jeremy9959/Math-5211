@@ -35,9 +35,11 @@ is also formally real.
 
 Hint: Choose a counterexample $f(x)$ of minimal degree.  Show that there is a $g(x)$ of odd degree less than the
 degree of $f(x)$, and polynomials $p_{1}(x),\ldots, p_{m}(x)$ such that 
+
 $$
 -1+f(x)g(x) = p_{1}(x)^{2} + ... + p_{m}(x)^{2} .
 $$
+
 Show that $g(x)$ has a root $\beta$ of odd degree over $F$ and $F(\beta)$ is not formally real, contradicting minimality of $f(x)$. 
 
 ### The End
