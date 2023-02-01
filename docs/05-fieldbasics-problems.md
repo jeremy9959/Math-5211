@@ -42,4 +42,4 @@ Show that $g(x)$ has a root $\beta$ of odd degree over $F$ and $F(\beta)$ is not
 
 ### The End
 
-The end is near.
+This is here for no reason.
