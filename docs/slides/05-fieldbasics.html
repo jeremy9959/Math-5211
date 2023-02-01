@@ -158,6 +158,17 @@
 <p><strong>Corollary:</strong> If <span class="math inline">\(\alpha\)</span> and <span class="math inline">\(\beta\)</span> are algebraic over <span class="math inline">\(F\)</span>, so are <span class="math inline">\(\alpha+\beta\)</span>, <span class="math inline">\(\alpha\beta\)</span>, and (if <span class="math inline">\(\beta\not=0\)</span>) <span class="math inline">\(\alpha/\beta\)</span>.</p>
 <p><strong>Proof:</strong> All these elements lie in <span class="math inline">\(F(\alpha,\beta)\)</span> which is finite over <span class="math inline">\(F\)</span>.</p>
 <p><strong>Corollary:</strong> If <span class="math inline">\(K/F\)</span> is a field extension, the subset of <span class="math inline">\(K\)</span> consisting of algebraic elements over <span class="math inline">\(F\)</span> is a field (called the <em>algebraic closure of <span class="math inline">\(F\)</span> in <span class="math inline">\(K\)</span></em>).</p>
+</div><div id="towers-of-algebraic-extensions-are-algebraic" class="slide section level3">
+<h1>Towers of algebraic extensions are algebraic</h1>
+<p><strong>Propositoin:</strong> If <span class="math inline">\(L/K\)</span> is algebraic and <span class="math inline">\(K/F\)</span> is algebraic so is <span class="math inline">\(L/F\)</span>.</p>
+<p><strong>Proof:</strong> Choose <span class="math inline">\(\alpha\in L\)</span>. Then <span class="math inline">\(\alpha\)</span> satisfies a polynomial <span class="math inline">\(f(x)=x^{d}+a_{d-1}x^{d-1}+\cdots+a_{0}\)</span> where the <span class="math inline">\(a_i\)</span> are in <span class="math inline">\(K\)</span>. Therefore <span class="math inline">\(\alpha\)</span> is algebraic over <span class="math inline">\(E=F(a_0,a_1,\ldots, a_{d-1})\)</span>. But <span class="math inline">\(E/F\)</span> is finitely generated hence finite. Therefore <span class="math inline">\([E(\alpha):F]=[E(\alpha):E][E:F]\)</span> is finite. Thus every element of <span class="math inline">\(L\)</span> is algebraic over <span class="math inline">\(F\)</span>.</p>
+</div><div id="composites" class="slide section level3">
+<h1>Composites</h1>
+<p>If <span class="math inline">\(K_1\)</span> and <span class="math inline">\(K_2\)</span> are subfields of a field <span class="math inline">\(K\)</span>, then <span class="math inline">\(K_1 K_2\)</span> is the smallest subfield of <span class="math inline">\(K\)</span> containing these two fields. Then <span class="math inline">\([K_1 K_2:F]\)</span> is divisible by both <span class="math inline">\([K_1:F]\)</span> and <span class="math inline">\([K_2:F]\)</span> and in addition</p>
+<p><span class="math display">\[
+[K_1 K_2:F]\le [K_1:F][K_2:F].
+\]</span></p>
+<p>In particular, if <span class="math inline">\([K_1:F]\)</span> and <span class="math inline">\([K_2:F]\)</span> are relatively prime, then <span class="math inline">\([K_1 K_2:F]=[K_1:F][K_2:F]\)</span>.</p>
 </div>
 </body>
 </html>
