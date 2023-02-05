@@ -64,8 +64,8 @@ This problem is proved in a manner very similar to the situation for rings.  The
 For surjectivity, given $(m_1+IM,m_2+JM)\in M/IM\times M/JM$, we want to find $m$ so that $m-m_1\in IM$ and $m-m_2\in JM.$
 Write $1=i+j$ with $i,j\in R$.  Then $m=im+jm$.  Let $m_1=jm$ and $m_2=im$.  Then $m-m_1=m_2\in iM$ and $m-m_2=m_1\in JM.$
 
-For the second part, suppose $m\in IM\cap JM$. Write $m=im+jm$.  Since $m\in JM$, $im\in IJM$, and since $m\in IM$, $jm\in IJM.$
-Therefore $m\in IJM$.
+For the second part, suppose $m\in IM\cap JM$. Write $m=im+jm$.  Since $m\in JM$, $im\in IJM$, and since $m\in IM$, $jm\in JIM.$
+Therefore $m\in IJM$. <!--Based on my understanding, $jm\in IJM$ if $R$ here is commutative. It is not trivial for me to see $jm\in IJm$ for this problem-->
 
 
 This can be extended by induction to families of ideals $I_1,\ldots, I_k$ that are pairwise relatively prime ($I_i+I_j=R$ for any pair.)
