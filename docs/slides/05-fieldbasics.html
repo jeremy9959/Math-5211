@@ -8,15 +8,67 @@
   <meta name="generator" content="pandoc" />
   <title>5. Field Theory Basics</title>
   <style type="text/css">
-    code{white-space: pre-wrap;}
-    span.smallcaps{font-variant: small-caps;}
-    span.underline{text-decoration: underline;}
-    div.column{display: inline-block; vertical-align: top; width: 50%;}
-    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-    ul.task-list{list-style: none;}
+    
   </style>
   <link rel="stylesheet" type="text/css" media="screen, projection, print"
     href="https://www.w3.org/Talks/Tools/Slidy2/styles/slidy.css" />
+  <script type="text/javascript">
+      window.MathJax = {
+        loader: {
+        load: ['[custom]/xypic.js'],
+        paths: {custom: 'https://cdn.jsdelivr.net/gh/sonoisa/XyJax-v3@3.0.1/build/'}
+      },
+        tex: {
+          packages: {'[+]': ['xypic']},
+          tags: "ams",
+          inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+          displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+          processEscapes: true,
+          macros: {
+            Z: "{\\mathbb{Z}}",
+            Zn: ["{\\mathbb{Z}/#1 \\mathbb{Z}}",1],
+            GL: "{\\mathrm{GL}}",
+            lessim: "{\\lesssim}",
+            R: "{\\mathbb{R}}",
+            Q: "{\\mathbb{Q}}",
+            N: "{\\mathbb{N}}",
+            SL: "{\\mathrm{SL}}",
+            PGL: "{\\mathrm{PGL}}",
+            C: "{\\mathbb{C}}",
+            Stab: "{\\mathrm{Stab}}",
+            Aut: "{\\mathrm{Aut}}",
+            End: "{\\mathrm{End}}",
+            isom: "{\\cong}",
+            order: ["{\\lvert#1\\rvert}",1],
+            divides: "{\\vert}",
+            semi: "{\\rtimes}",
+            End: "{\\mathrm{End}}",
+            dim: "{\\mathrm{dim}}",
+            Hom: "{\\mathrm{Hom}}",
+            Pol: "{\\mathrm{Pol}}",
+            D: "{\\mathcal{D}}",
+            span: "{\\mathrm{span}}",
+            norm: ["{\\lVert #1 \\rVert}",1],
+            Tor: "{\\mathrm{Tor}}",
+            Ann: "{\\mathrm{Ann}}",
+          }
+        }
+      };
+  </script>
+  <script type="text/javascript" id="MathJax-script" async
+    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
+  </script>
+  
+  <!-- LaTeX Macros
+  
+  
+  
+  $$\def\GL{\mathrm{GL}}$$
+  $$\def\Zn#1{\mathbb{Z}/#1\mathbb{Z}}$$
+  $$\def\Z{\mathbb{Z}}$$
+  $$\def\gcd#1#2{\mathrm{gcd}(#1,#2)}$$
+  -->
+  <script src="/usr/share/javascript/mathjax/MathJax.js?config=TeX-AMS_CHTML-full" type="text/javascript"></script>
   <script src="https://www.w3.org/Talks/Tools/Slidy2/scripts/slidy.js"
     charset="utf-8" type="text/javascript"></script>
 </head>
@@ -24,10 +76,99 @@
 <div class="slide titlepage">
   <h1 class="title">5. Field Theory Basics</h1>
 </div>
-<div id="basics-of-field-theory"
-class="title-slide slide section level2">
-<h1>Basics of field theory</h1>
-
+<div id="basics-of-field-theory" class="title-slide slide section level2"><h1>Basics of field theory</h1></div><div id="things-to-remember-from-before." class="slide section level3">
+<h1>Things to remember from before.</h1>
+<p>We already know quite a bit about fields.</p>
+</div><div id="characteristic" class="slide section level3">
+<h1>Characteristic</h1>
+<p>If <span class="math inline">\(F\)</span> is a field, then there is a ring homomorphism <span class="math inline">\(\Z\to F\)</span> sending <span class="math inline">\(1\to 1\)</span>. If this map is injective, then:</p>
+<ul>
+<li>we say <span class="math inline">\(F\)</span> has <em>characteristic zero</em></li>
+<li><span class="math inline">\(F\)</span> contains a copy of the rational numbers</li>
+<li>The field <span class="math inline">\(\Q\)</span> is the <em>prime subfield</em> of <span class="math inline">\(F\)</span>.</li>
+</ul>
+<p>Otherwise the kernel of this map must be a prime ideal <span class="math inline">\(p\Z\)</span> of <span class="math inline">\(\Z\)</span>. In this case:</p>
+<ul>
+<li>we say that <span class="math inline">\(F\)</span> has <em>characteristic <span class="math inline">\(p\)</span></em></li>
+<li><span class="math inline">\(F\)</span> contains a copy of <span class="math inline">\(\Z/p\Z\)</span>.</li>
+<li><span class="math inline">\(\Z/p\Z\)</span> is the <em>prime subfield</em> of <span class="math inline">\(F\)</span>.</li>
+</ul>
+</div><div id="maps" class="slide section level3">
+<h1>Maps</h1>
+<p>If <span class="math inline">\(f:F\to E\)</span> is a homomorphism of fields, it is automatically injective (or zero).</p>
+<p>The only field maps <span class="math inline">\(f:\Q\to \Q\)</span> and <span class="math inline">\(f:\Z/p\Z\to \Z/p\Z\)</span> are the identity.</p>
+</div><div id="extensions" class="slide section level3">
+<h1>Extensions</h1>
+<p>If <span class="math inline">\(F\)</span> is a field, and <span class="math inline">\(F\subset E\)</span> where <span class="math inline">\(E\)</span> is another field, then we call <span class="math inline">\(E\)</span> an extension field of <span class="math inline">\(F\)</span>.</p>
+<p><span class="math inline">\(E\)</span> is automatically a vector space over <span class="math inline">\(F\)</span>. The degree of <span class="math inline">\(E/F\)</span>, written <span class="math inline">\([E:F]\)</span>, is the dimension of <span class="math inline">\(E\)</span> as an <span class="math inline">\(F\)</span>-vector space.</p>
+</div><div id="polynomials-quotient-rings-and-fields" class="slide section level3">
+<h1>Polynomials, quotient rings, and fields</h1>
+<p>We have the division algorithm for polynomials. <span class="math inline">\(F[x]\)</span> is a PID. An ideal is prime iff it is generated by an irreducible polynomial.</p>
+<p>Let <span class="math inline">\(p(x)\)</span> be an irreducible polynomial of degree <span class="math inline">\(d\)</span> over <span class="math inline">\(F\)</span>. Then:</p>
+<ul>
+<li><span class="math inline">\(K=F[x]/(p(x))\)</span> is a field</li>
+<li>It is of degree <span class="math inline">\(d\)</span> over <span class="math inline">\(F\)</span>.</li>
+<li><span class="math inline">\(p(x)\)</span> has a root in <span class="math inline">\(K\)</span> (namely the residue class of <span class="math inline">\(x\)</span>)</li>
+<li>The elements <span class="math inline">\(1,x,\ldots, x^{d-1}\)</span> are a basis for <span class="math inline">\(K/F\)</span>.</li>
+</ul>
+</div><div id="adjoining-roots-of-polynomials" class="slide section level3">
+<h1>Adjoining roots of polynomials</h1>
+<p>If <span class="math inline">\(F\subset K\)</span> is a field extension, and <span class="math inline">\(\alpha\in K\)</span>, then <span class="math inline">\(F(\alpha)\)</span> is the smallest subfield of <span class="math inline">\(K\)</span> containing <span class="math inline">\(F\)</span> and <span class="math inline">\(\alpha\)</span>. Similarly for <span class="math inline">\(F(\alpha_1,\alpha_2,\ldots,\alpha_n)\)</span>.</p>
+<p>If <span class="math inline">\(p(x)\)</span> is irreducible over <span class="math inline">\(F\)</span>, and has a root <span class="math inline">\(\alpha\)</span> in <span class="math inline">\(K\)</span>, then <span class="math inline">\(F(\alpha)\)</span> is isomorphic to <span class="math inline">\(F[x]/p(x)\)</span> via the map <span class="math inline">\(x\mapsto \alpha\)</span>.</p>
+</div><div id="key-theorem" class="slide section level3">
+<h1>Key Theorem</h1>
+<p>Let <span class="math inline">\(K\)</span> be a field extension of <span class="math inline">\(F\)</span> and let <span class="math inline">\(p(x)\)</span> be an irreducible polynomial over <span class="math inline">\(F\)</span>. Suppose <span class="math inline">\(K\)</span> contains two roots <span class="math inline">\(\alpha\)</span> and <span class="math inline">\(\beta\)</span> of <span class="math inline">\(p(x)\)</span>. Then <span class="math inline">\(F(\alpha)\)</span> and <span class="math inline">\(F(\beta)\)</span> are isomorphic via an isomorphism that is the identity on <span class="math inline">\(F\)</span>.</p>
+<p>More generally:</p>
+<p><strong>Theorem:</strong> (See Theorem 8, DF, page 519) Let <span class="math inline">\(\phi:F\to F&#39;\)</span> be an isomorphism of fields. Let <span class="math inline">\(p(x)\)</span> be an irreducible polynomial in <span class="math inline">\(F[x]\)</span> and let <span class="math inline">\(p&#39;(x)\)</span> be the polynomial in <span class="math inline">\(F&#39;[x]\)</span> obtained by applying <span class="math inline">\(\phi\)</span> to the coefficients of <span class="math inline">\(p(x)\)</span>. Let <span class="math inline">\(K\)</span> be an extension of <span class="math inline">\(F\)</span> containing a root <span class="math inline">\(\alpha\)</span> of <span class="math inline">\(p(x)\)</span>, and let <span class="math inline">\(K&#39;\)</span> be an extension of <span class="math inline">\(F&#39;\)</span> containing a root <span class="math inline">\(\beta\)</span> of <span class="math inline">\(p&#39;(x)\)</span>. Then there is an isomorphism <span class="math inline">\(\sigma:F(\alpha)\to F&#39;(\beta)\)</span> such that the restriction of <span class="math inline">\(\sigma\)</span> to <span class="math inline">\(F\)</span> is <span class="math inline">\(\phi\)</span>.</p>
+</div>
+<div id="algebraic-extensions" class="title-slide slide section level2"><h1>Algebraic Extensions</h1></div><div id="definition" class="slide section level3">
+<h1>Definition</h1>
+<p><strong>Definition:</strong> Let <span class="math inline">\(F\subset K\)</span> be a field extension. An element <span class="math inline">\(\alpha\in K\)</span> is <em>algebraic</em> over <span class="math inline">\(F\)</span> if it is the root of a nonzero polynomial in <span class="math inline">\(F[x]\)</span>. Elements that aren’t algebraic are called <em>transcendental.</em></p>
+<p>An extension <span class="math inline">\(K/F\)</span> is algebraic if every element of <span class="math inline">\(K\)</span> is algebraic over <span class="math inline">\(F\)</span>.</p>
+</div><div id="basics" class="slide section level3">
+<h1>Basics</h1>
+<ul>
+<li>If <span class="math inline">\(\alpha\)</span> is algebraic over <span class="math inline">\(F\)</span>, there is unique monic polynomial <span class="math inline">\(m_{\alpha,F}(x)\)</span> of minimal degree with coefficients in <span class="math inline">\(F\)</span> such that <span class="math inline">\(m_{\alpha}(\alpha)=0\)</span>. (This follows from the division algorithm). This polynomial is called the <em>minimal polynomial</em> of <span class="math inline">\(\alpha\)</span> over <span class="math inline">\(F\)</span>. Its degree is the <em>degree</em> of <span class="math inline">\(\alpha\)</span>.</li>
+<li>If <span class="math inline">\(F\subset L\)</span>, then the minimal polynomial <span class="math inline">\(m_{\alpha,L}(x)\in L[x]\)</span> of <span class="math inline">\(\alpha\)</span> over <span class="math inline">\(L\)</span> divides the minimal polynomial <span class="math inline">\(m_{\alpha,F}(x)\)</span>. Again, this follows from the division algorithm for <span class="math inline">\(L[x]\)</span>.</li>
+<li><span class="math inline">\(F(\alpha)\)</span> is isomorphic to <span class="math inline">\(F[x]/m_{\alpha,F}(x)\)</span>; and the degree <span class="math inline">\([F(\alpha):F]\)</span> is the degree of <span class="math inline">\(\alpha\)</span>.</li>
+</ul>
+</div><div id="examples" class="slide section level3">
+<h1>Examples</h1>
+<p>If <span class="math inline">\(n&gt;1\)</span> and <span class="math inline">\(p\)</span> is a prime, then the polynomial <span class="math inline">\(x^{n}-p\)</span> is irreducible over <span class="math inline">\(\Q\)</span>, so <span class="math inline">\(\alpha=\sqrt[n]{p}\)</span> has degree <span class="math inline">\(n\)</span> over <span class="math inline">\(\Q\)</span>.</p>
+<p>The polynomial <span class="math inline">\(x^3-x-1\)</span> is irreducible over <span class="math inline">\(\Q\)</span> and has one real root <span class="math inline">\(\alpha\)</span>. So <span class="math inline">\(\alpha\)</span> has degree <span class="math inline">\(3\)</span> over <span class="math inline">\(\Q\)</span> but degree <span class="math inline">\(1\)</span> over <span class="math inline">\(\R\)</span>.</p>
+</div><div id="finite-extensions-are-algebraic" class="slide section level3">
+<h1>Finite extensions are algebraic</h1>
+<p>Suppose <span class="math inline">\(K/F\)</span> is finite and let <span class="math inline">\(\alpha\)</span> be an element of <span class="math inline">\(K\)</span>. Then there is an <span class="math inline">\(n\)</span> so that the set <span class="math inline">\(1,\alpha,\alpha^2,\ldots, \alpha^{n}\)</span> are linearly dependent over <span class="math inline">\(F\)</span>; so <span class="math inline">\(\alpha\)</span> satisfies a polynomial with <span class="math inline">\(F\)</span> coefficients, and is therefore algebraic.</p>
+<p>As a partial converse, if <span class="math inline">\(F(\alpha)/F\)</span> is finite if and only if <span class="math inline">\(\alpha\)</span> is algebraic. If <span class="math inline">\(\alpha\)</span> is algebraic of degree <span class="math inline">\(d\)</span> over <span class="math inline">\(F\)</span>, <span class="math inline">\(F(\alpha)=F[x]/(m_{\alpha}(x))\)</span> which is finite dimensional (with basis <span class="math inline">\(1,x,x^2,\ldots, x^{d-1}\)</span>.)</p>
+</div>
+<div id="field-degrees" class="title-slide slide section level2"><h1>Field Degrees</h1></div><div id="multiplicativity-of-degrees" class="slide section level3">
+<h1>Multiplicativity of degrees</h1>
+<p><strong>Proposition:</strong> Suppose that <span class="math inline">\(L/F\)</span> and <span class="math inline">\(K/L\)</span> are extensions. Then <span class="math inline">\([K:F]=[K:L][L:F]\)</span>.</p>
+<p><strong>Proof:</strong> If <span class="math inline">\(\alpha_1,\ldots, \alpha_n\)</span> are a basis for <span class="math inline">\(L/F\)</span>, and <span class="math inline">\(\beta_1,\ldots, \beta_k\)</span> are a basis for <span class="math inline">\(K/L\)</span>, then the products <span class="math inline">\(\alpha_{i}\beta_{j}\)</span> are a basis for <span class="math inline">\(K/F\)</span>.</p>
+<p><strong>Corollary:</strong> If <span class="math inline">\(L/F\)</span> is a subfield of <span class="math inline">\(K/F\)</span>, then <span class="math inline">\([L:F]\)</span> divides <span class="math inline">\([K:F]\)</span>.</p>
+</div><div id="finitely-generated-extensions" class="slide section level3">
+<h1>Finitely generated extensions</h1>
+<p>A field <span class="math inline">\(K/F\)</span> is finitely generated if <span class="math inline">\(K=F(\alpha_1,\ldots, \alpha_n)\)</span> for a finite set of <span class="math inline">\(\alpha_{i}\)</span> in <span class="math inline">\(K\)</span>.</p>
+<p><strong>Proposition:</strong> <span class="math inline">\(F(\alpha,\beta)=F(\alpha)(\beta)\)</span>.</p>
+<p><strong>Proof:</strong> <span class="math inline">\(F(\alpha,\beta)\)</span> contains <span class="math inline">\(F(\alpha)\)</span> and also <span class="math inline">\(\beta\)</span>. Therefore <span class="math inline">\(F(\alpha)(\beta)\subset F(\alpha,\beta)\)</span>. On the other hand, since <span class="math inline">\(\alpha\)</span> and <span class="math inline">\(\beta\)</span> are in <span class="math inline">\(F(\alpha)(\beta)\)</span>, we know that <span class="math inline">\(F(\alpha,\beta)\subset F(\alpha)(\beta)\)</span>.</p>
+</div><div id="finite-is-finitely-generated" class="slide section level3">
+<h1>Finite is finitely generated</h1>
+<p><strong>Proposition:</strong> A field <span class="math inline">\(K/F\)</span> is finite if and only if it is finitely generated. If it is generated by <span class="math inline">\(\alpha_1,\ldots, \alpha_k\)</span> then it is of degree at most <span class="math inline">\(n_1 n_2\ldots n_k\)</span> where <span class="math inline">\(n_i\)</span> is the degree of <span class="math inline">\(\alpha_i\)</span> over <span class="math inline">\(F\)</span>.</p>
+<p><strong>Proof:</strong> If it’s finitely generated, then it’s a sequence of extensions <span class="math inline">\(F(\alpha_1,\ldots, \alpha_{s-1})(\alpha_{s})\)</span> each of degree at most <span class="math inline">\(n_i\)</span>. So <span class="math inline">\(K/F\)</span> is finite. Conversely, if <span class="math inline">\(K/F\)</span> is finite (and of degree greater than 1), choose <span class="math inline">\(\alpha_1\in K\)</span> of degree greater than 1. Then <span class="math inline">\(F(\alpha)\subset K\)</span> and <span class="math inline">\([K:F(\alpha)]\)</span> is smaller than <span class="math inline">\([K:F]\)</span>. Now choose <span class="math inline">\(\alpha_2\)</span> in <span class="math inline">\(K\)</span> but not <span class="math inline">\(F(\alpha_1)\)</span>, and so on. This process must terminate.</p>
+<p><strong>Corollary:</strong> If <span class="math inline">\(\alpha\)</span> and <span class="math inline">\(\beta\)</span> are algebraic over <span class="math inline">\(F\)</span>, so are <span class="math inline">\(\alpha+\beta\)</span>, <span class="math inline">\(\alpha\beta\)</span>, and (if <span class="math inline">\(\beta\not=0\)</span>) <span class="math inline">\(\alpha/\beta\)</span>.</p>
+<p><strong>Proof:</strong> All these elements lie in <span class="math inline">\(F(\alpha,\beta)\)</span> which is finite over <span class="math inline">\(F\)</span>.</p>
+<p><strong>Corollary:</strong> If <span class="math inline">\(K/F\)</span> is a field extension, the subset of <span class="math inline">\(K\)</span> consisting of algebraic elements over <span class="math inline">\(F\)</span> is a field (called the <em>algebraic closure of <span class="math inline">\(F\)</span> in <span class="math inline">\(K\)</span></em>).</p>
+</div><div id="towers-of-algebraic-extensions-are-algebraic" class="slide section level3">
+<h1>Towers of algebraic extensions are algebraic</h1>
+<p><strong>Propositoin:</strong> If <span class="math inline">\(L/K\)</span> is algebraic and <span class="math inline">\(K/F\)</span> is algebraic so is <span class="math inline">\(L/F\)</span>.</p>
+<p><strong>Proof:</strong> Choose <span class="math inline">\(\alpha\in L\)</span>. Then <span class="math inline">\(\alpha\)</span> satisfies a polynomial <span class="math inline">\(f(x)=x^{d}+a_{d-1}x^{d-1}+\cdots+a_{0}\)</span> where the <span class="math inline">\(a_i\)</span> are in <span class="math inline">\(K\)</span>. Therefore <span class="math inline">\(\alpha\)</span> is algebraic over <span class="math inline">\(E=F(a_0,a_1,\ldots, a_{d-1})\)</span>. But <span class="math inline">\(E/F\)</span> is finitely generated hence finite. Therefore <span class="math inline">\([E(\alpha):F]=[E(\alpha):E][E:F]\)</span> is finite. Thus every element of <span class="math inline">\(L\)</span> is algebraic over <span class="math inline">\(F\)</span>.</p>
+</div><div id="composites" class="slide section level3">
+<h1>Composites</h1>
+<p>If <span class="math inline">\(K_1\)</span> and <span class="math inline">\(K_2\)</span> are subfields of a field <span class="math inline">\(K\)</span>, then <span class="math inline">\(K_1 K_2\)</span> is the smallest subfield of <span class="math inline">\(K\)</span> containing these two fields. Then <span class="math inline">\([K_1 K_2:F]\)</span> is divisible by both <span class="math inline">\([K_1:F]\)</span> and <span class="math inline">\([K_2:F]\)</span> and in addition</p>
+<p><span class="math display">\[
+[K_1 K_2:F]\le [K_1:F][K_2:F].
+\]</span></p>
+<p>In particular, if <span class="math inline">\([K_1:F]\)</span> and <span class="math inline">\([K_2:F]\)</span> are relatively prime, then <span class="math inline">\([K_1 K_2:F]=[K_1:F][K_2:F]\)</span>.</p>
 </div>
 </body>
 </html>

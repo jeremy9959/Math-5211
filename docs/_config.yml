@@ -14,6 +14,8 @@ aux_links:
     - "//jeremy9959.net"
   "UConn Math Department":
     - "//math.uconn.edu"
+  "GitHub Repo":
+    - "//github.com/jeremy9959/Math-5211"
 
 footer_content: "Copyright &copy; 2022 Jeremy Teitelbaum.  This work is licensed under a <a href=\"http://creativecommons.org/licenses/by-sa/4.0\">Creative Commons Attribution-ShareAlike 4.0 International License.</a>"
 gh_edit_link: false
