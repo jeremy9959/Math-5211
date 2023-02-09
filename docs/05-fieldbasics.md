@@ -100,6 +100,14 @@ As a partial converse, if $F(\alpha)/F$ is finite if and only if $\alpha$ is alg
 is algebraic of degree $d$ over $F$, $F(\alpha)=F[x]/(m_{\alpha}(x))$ which is finite dimensional 
 (with basis $1,x,x^2,\ldots, x^{d-1}$.)
 
+### Algebraic over algebraic is algebraic
+
+**Proposition:** If $K/F$ is algebraic and $L/K$ is algebraic then $L/F$ is algebraic.  
+
+**Proof:** Let $\alpha$ be any element of $L$. It has a minimal polynomial $f(x)=x^{d}+a_{d-1}x^{d-1}+\cdots+a_{0}$ with the
+$a_{i}\in K$.  Therefore $\alpha$ is algebraic over $F(a_0,\ldots, a_{d-1})$.  Since the $a_i$ are in $K$, they are algebraic over $F$,
+and therefore $F(a_0,\ldots, a_{d-1})$ is finite over $F$ and so is $F(\alpha,a_0,\ldots, a_{d-1})$.  Thus $F(\alpha)$ is contained
+in a finite extension of $F$ and so $\alpha$ is algebraic over $F$.   
 
 ## Field Degrees
 
