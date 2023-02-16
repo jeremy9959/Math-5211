@@ -7,70 +7,23 @@ parent: Course Content
 
 ## Field Extensions
 
-### Classical Constructions (Ruler and Compass)
-
-Classical ruler and compass constructions allow one to:
-
-- find the point of intersection of two lines.
-- find the point of intersection of a line and a circle.
-- find the points of intersection of two circles.
-
-### Constructions
-
-If we begin with a line segment of length 1, we can:
-
-- construct a perpendicular, and then construct all integer lengths along that line
-- construct all points with integer coordinates in the plane
-- using similar triangles, construct all points in the plane with rational coordinates
-
-### Extensions
-
-Now suppose we can construct all points with coordinates in a field $F$.  Then:
-
-- intersections of lines joining points of over $F$ meet in points with coordinates in $F$
-- intersections of a line joining two points with coordinates in $F$ with a circle of radius in $F$ yields points in a quadratic extension of $F$.
-- intersections of two circles with radii in $F$ yields points with coordinates in a quadratic extension of $F$.
-
-### Gauss's Theorem on constructibility
-
-**Theorem:** If a line segment of length $\alpha$ is constructible by ruler and compass, then $\alpha$ lies in a field obtained from $\Q$
-by a sequence of quadratic extensions, and $[F(\alpha):F]=2^k$ for some integer $k\ge 0$. 
-
-**Corollary:** One cannot "double the cube" , trisect an angle,  or square the circle.
-
-Here doubling the cube means given a length $\alpha$ construct a length $\beta$ so that the cube with side length $\beta$ has double the volume of the
-cube with side length $\alpha$.  This is impossible because $\sqrt[3]{2}$ does not meet Gauss's criterion.
-
-Squaring the circle means, given $\alpha$,  constructing a length $\beta$ so that a square of side $\beta$ has the same area as a circle of radius $\alpha$.
-This is impossible because $\pi$ is not algebraic (we won't prove this).
-
-Trisecting the angle means constructing an angle with one-third the measure of a given angle $\theta$.  If we can trisect $\theta$, we can construct a length
-of $\cos(\theta/3).$  If $\theta=\pi/3$, then $\theta/3=\pi/9$ or $\beta=\cos 20^{\circ}$.  One can show that, if $u=2\beta$, then
-$$
-u^3-3u-1=0.
-$$
-This polynomial has no rational roots (it is irreducible mod $2$ for example).
-
-A pentagon is constructible because the $\cos(2\pi/5)$ is the root of a quadratic polynomial.  
-
-
 ## Splitting Fields (Normal Extensions)
 
 ### Definition
 
-**Definition:** Let $f(x)\in F[x]$ be a polynomial and let $K/F$ be an extension field. $K$ is called a *splitting field* for $f(x)$ if
+**Definition:** Let $f(x)\in F[x]$ be a polynomial and let $K/F$ be an extension field. $K$ is called a _splitting field_ for $f(x)$ if
 
 - $f$ splits into linear factors in $K$
-- $f$ does *not* split into linear factors over any proper subfield of $K$.
+- $f$ does _not_ split into linear factors over any proper subfield of $K$.
 
 ### Splitting fields exist
 
-**Proposition:** Any polynomial $f(x)\in F[x]$ has a splitting field. 
+**Proposition:** Any polynomial $f(x)\in F[x]$ has a splitting field.
 
-**Proof:** If all irreducible factors of $f(x)$ have degree 1 then $F$ is a splitting field.  Otherwise, let $\alpha$ be a root of
-an irreducible factor of $f$ of degree greater than $1$ and let $F_1=F(\alpha)$.  Write $f(x)=(x-\alpha)f_1(x)$ and, by induction, let
-$E$ be a splitting field for $f_1(x)$ over $F(\alpha)$. Then all the roots of $f(x)$ belong to $E$.  Let $K$ be the subfield of $E$
-generated over $F$ by the roots of $f(x)$.  This is your splitting field.
+**Proof:** If all irreducible factors of $f(x)$ have degree 1 then $F$ is a splitting field. Otherwise, let $\alpha$ be a root of
+an irreducible factor of $f$ of degree greater than $1$ and let $F_1=F(\alpha)$. Write $f(x)=(x-\alpha)f_1(x)$ and, by induction, let
+$E$ be a splitting field for $f_1(x)$ over $F(\alpha)$. Then all the roots of $f(x)$ belong to $E$. Let $K$ be the subfield of $E$
+generated over $F$ by the roots of $f(x)$. This is your splitting field.
 
 **Remark:** Some books say that if $K/F$ is the splitting field over $F$ for a polynomial, then $K$ is called a normal extension.
 
@@ -82,19 +35,129 @@ Proof: It can be obtained by adjoining roots successively of polynomials of degr
 
 ## Examples
 
-1. $f(x)=(x^2-2)(x^2-3).$  Splitting field is $\Q(\sqrt{2},\sqrt{3})$ which has degree 4.  
-2. $f(x)=x^3-2$ which is irreducible by Eisenstein.  Three roots are $\sqrt[3]{2},\omega\sqrt[3]{2},\omega^2\sqrt[3]{2}$ where $\omega=e^{2\pi i/3}$ is a cube
-root of one. Since
-$$
-\omega = \frac{-1+\sqrt{-3}}{2}
-$$
-this field has degree six and contains $\sqrt{-3}$. 
-3. $x^4+4$ "looks irreducible" but it isn't.  It factors as $(x^2+2x+2)(x^2-2x+2)$.  It splits over the field $\Q(i)$ because
-$(\pm 1 \pm i)^2=\pm 2i$ so $(\pm 1 \pm i)^4=-4.$ 
+1. $f(x)=(x^2-2)(x^2-3).$ Splitting field is $\Q(\sqrt{2},\sqrt{3})$ which has degree 4.
+2. $f(x)=x^3-2$ which is irreducible by Eisenstein. Three roots are $\sqrt[3]{2},\omega\sqrt[3]{2},\omega^2\sqrt[3]{2}$ where $\omega=e^{2\pi i/3}$ is a cube
+   root of one. Since
+   $$
+   \omega = \frac{-1+\sqrt{-3}}{2}
+   $$
+   this field has degree six and contains $\sqrt{-3}$.
+3. $x^4+4$ "looks irreducible" but it isn't. It factors as $(x^2+2x+2)(x^2-2x+2)$. It splits over the field $\Q(i)$ because
+   $(\pm 1 \pm i)^2=\pm 2i$ so $(\pm 1 \pm i)^4=-4.$
 4. The splitting field of $x^n-1$ is called the $n^{th}$ cyclotomic field and is generated by $e^{2\pi a/n}$ where $a$ is an integer relatively prime to $n$.
-If $n$ is prime, then $x^p-1$ then it factors as $(x-1)(1+x+\cdots+x^{p-1})$; the second factor is irreducible so that field has degree $p-1$.
-5. The splitting field of  $x^p-2$ has degree $p(p-1)$.
+   If $n$ is prime, then $x^p-1$ then it factors as $(x-1)(1+x+\cdots+x^{p-1})$; the second factor is irreducible so that field has degree $p-1$.
+5. The splitting field of $x^p-2$ has degree $p(p-1)$.
 
+## Uniqueness of splitting fields
+
+### Extensions of isomorphisms
+
+**Theorem:** (DF Theorem 27 p. 541) Let $\phi: F\to F'$ be a field isomorphism. Let $f(x)\in F[x]$ and let $f'(x)\in F'[x]$ be the polynomial
+obtained from $f$ by applying $\phi$ to its coefficients. Let $E/F$ be a splitting field of $f$ and let $E'/F'$ be a splitting field of $f'$.
+Then there is an isomorphism $\sigma:E\to E'$ which makes the following diagram commutative (the vertical arrows are the inclusion maps):
+
+$$
+\begin{xy}\xymatrix{
+E \ar[r]^{\sigma} & E' \\
+F\ar[u]\ar[r]^{\phi} & F'\ar[u] \\
+}
+\end{xy}
+$$
+
+**Corollary:** Any two splitting fields for $f(x)$ are isomorphic via an isomorphism that is the identity on $F$.
+
+### More on extensions
+
+The extension theorem can seem a little mysterious. Let's look more closely at an application.
+
+Let $f(x)=x^3-2$ and let $E/\Q$ be its splitting field (which has degree 6 over $\Q$). Inside this field there are three isomorphic cubic
+extensions: $L_1=\Q(\sqrt[3]{2})$, $L_2=\Q(\omega\sqrt[3]{2})$, and $L_3=\Q(\omega^2\sqrt[3]{2})$ where $\omega=e^{2\pi i/3}$ is a cube root of unity.
+
+$$
+\begin{xy}
+\xymatrix{
+& E & \\
+L_1\ar[ur] & L_2\ar[u] & L_3\ar[ul] \\
+& \Q\ar[ur]\ar[u]\ar[ul] &\\
+}
+\end{xy}
+$$
+
+Now $E$ is a splitting field for $f(x)$ over each of $L_1$, $L_2$, and $L_3$.
+
+### Still more on extensions
+
+We can apply the theorem to (for example) the diagram
+
+$$
+\begin{xy}\xymatrix{
+E \ar[r]^{\sigma} & E \\
+\Q(\sqrt[3]{2})\ar[u]\ar[r]^{\phi} & \Q(\omega\sqrt[3]{2})\ar[u] \\
+}
+\end{xy}
+$$
+
+where $\phi$ is the isomorphism that sends $\sqrt[3]{2}\to\omega\sqrt[3]{2}$ and fixes $\Q$. It follows that there is an automorphism $\sigma$
+of the splitting field that extends $\phi$.
+
+### Automorphisms of splitting fields of irreducibles
+
+In general, if $f(x)$ is an irreducible polynomial over $F$, and $\alpha$ and $\beta$ are two roots of $f(x)$ in its splitting field $E/F$,
+then there is an automorphism $E\to E$ fixing $F$ sending $\alpha$ to $\beta$. In particular the automorphism group of $E$ fixing $F$ permutes
+the roots of $f(x)$ transitively.
+
+### Proof of the extension theorem
+
+The proof is by induction. If all roots of $f(x)$ belong to $F$, then all roots of $f'(x)$ belong to $F'$, and $E=F$ and $E'=F'$ so the
+identity map works. Now suppose we know the result for all $f$ of degree less than $n$ and suppose that $f$ is of degree $n$. Choose an irreducible
+factor $p(x)$ of $f(x)$ of degree at least $2$, and the corresponding factor $p'(x)$ of $f'(x)$. Since $F[x]/p(x)$ is isomorphic to $F'[x]/p'(x)$,
+we have an isomorphism $\\phi': F(\alpha)\to F'(\beta)$ that restricts to $\phi:F\to F'$.
+
+Let $f(x)=(x-\alpha)f_1(x)$ and $f'(x)=(x-\beta)f'_1(x)$. Now $E$ (resp. $E'$) is a splitting field for $f_1$ (resp $f_1'$) and by induction we have an isomorphism
+$\sigma: E\to E'$ that restricts to $\phi':F(\alpha)\to F'(\beta)$. This $\sigma$ also restricts to $\phi:F\to F'$ (since $\phi'$ does).
+
+### Another property of splitting fields
+
+**Proposition:** Let $K/F$ be the splitting field of a polynomial. Then if $g(x)\in F[x]$ is any irreducible polynomial over $F$, and $\alpha\in K$ is a root of $g(x)$, then
+all roots of $g(x)$ belong to $K$. (In other words, if $K/F$ is a splitting field for some polynomial, then any polynomial in $F[x]$ is either irreducible or splits into linear factors
+over $K$.)
+
+**Proof:** Suppose that $K$ is the splitting field of $f(x)\in F[x]$. Suppose that $\alpha\in K$ and let $\beta$ be another root of $g(x)$ and consider the field $K(\beta)$. Then $K(\beta)$ is the splitting field of $f(x)$
+over $F(\beta)$. ($K$ contains all the roots of $f(x)$, and it must contain $\beta$ if it contains $F(\beta)$. ) But then we have the diagram:
+
+$$
+\begin{xy}
+\xymatrix{
+K\ar[r] & K(\beta) \\
+F(\alpha)\ar[u]\ar[r] & F(\beta)\ar[u]\\
+}
+\end{xy}
+$$
+
+The extension theorem tells us that there is an isomorphism from $K$ to $K(\beta)$ carrying $F(\alpha)$ to $F(\beta)$ and fixing the field $F$. Therefore $[K:F]=[K(\beta):F]$.
+But then $[K(\beta):F]=[K(\beta):K][K:F]$. This forces $[K(\beta):K]=1$ so $\beta\in K$.
+
+## Algebraic Closures
+
+### Algebraic closure
+
+**Definition:** A field $F$ is algebraically closed if it has no nontrivial algebraic extensions; in other words,
+if every irreducible polynomial over $F$ has degree $1$.
+
+**Definition:** If $F$ is a field, then $\overline{F}$ is an algebraic closure of $F$ if $\overline{F}/F$ is algebraic and every polynomial in $F[x]$ splits completely in $\overline{F}$.
+
+So notice that the complex numbers are algebraically closed, but they are not an algebraic closure of $\Q$,
+because they contain transcendental elements.
+
+### Algebraic closures are algebraically closed.
+
+**Lemma:** If $\overline{F}$ is an algebraic closure of $F$, then $\overline{F}$ is algebraically closed.
+
+This lemma says that if every polynomial with coefficients in $F$ has a root in $\overline{F}$, then
+every polynomial with coefficients in $\overline{F}$ has a root in $F$.
+
+To prove this, let $f(x)\in\overline{F}[x]$. Let $F_1/F$ be the extension of $F$ generated by the coefficients
+of $f$. Sinc
 
 <div>
 <a href="slides/06-fieldextensions.html"> View as slides </a>
