@@ -168,7 +168,52 @@ is finite over $F_1$. Therefore $f$ has a root in a finite extension of $F$, whi
 
 **Theorem:** If $K/F$ is algebraically closed, then the collection of elements of $K$ that are algebraic over $F$ is an algebraic closure of $F$.
 
-Since $\C$ is algebraically closed, the set of algebraic numbers inside $\C$ is an algebraic closure of $\Q$.
+Since $\C$ is algebraically closed, the set of algebraic numbers inside $\C$ is an algebraic closure of $\Q$. The construction of $\R$ and $\C$
+is primarily by analysis, and the proof that $\C$ is algebraically closed is also analytic -- at least, the usual proof.
+
+## Separability
+
+Separability is a phenomenon that is important when studying polynomials over fields of characteristic $p$.
+
+**Definition:** A polynomial is _separable_ if it has distinct roots, and inseparable if it has repeated roots.
+
+**Proposition:** An irreducible polynomial over a field with characteristic $0$ is separable. It is inseparable over a field with characteristic $p$
+if and only if its derivative is zero.
+
+**Proof:** If $\alpha$ is a repeated root of a polynomial $f(x)$, then $f'(\alpha)=0$ where $f'$ is the "formal derivative" of $f$.
+Conversely, if $\alpha$ is a common root of $f(x)$ and $f'(x)$, then $\alpha$ is a multiple root of $f(x)$.
+This is because of the product rule; on the one hand:
+
+$$
+\frac{d}{dx}((x-a)^r g(x))=r(x-a)^{r-1}g(x)+(x-a)^r g(x)
+$$
+
+so if $a$ is a multiple root, then it is a root of $f'(x)$. On the other hand, if $a$ is a common root of $f(x)$ and $f'(x)$, write
+
+$$
+f(x)=(x-a)g(x)
+$$
+
+so
+
+$$
+f'(x)=(x-a)g'(x)+g(x).
+$$
+
+Since $f'(a)=0$, we have $g(a)=0$ so $g(x)$ is divisible by $(x-a)$.
+
+Now if $f(x)$ is irreducible, then since $f'(x)$ has degree less than $f(x)$, if it is nonzero it is relatively prime to $f(x)$. In characteristic $0$,
+it is automatically nonzero. In characteristic $p$, it could be zero. For example the derivative of $x^p-a$ is zero.
+
+Notice that if a polynomial has derivative zero (over a field of characteristic $p$) it must be a polynomial in $x^p$. From this one can see
+that any irreducible polynomial $f(x)$ over a field with characteristic $p$ is of the form $f_0(x^{p^k})$ for some power of $p$, and $f_0(x)$ is a separable polynomial.
+
+## The Frobenius map
+
+If $F$ is a field of characteristic $p$, then the map $\phi: F\to F$ given by $\phi(x)=x^p$ is a field endomorphism called _the Frobenius map_ or
+_the Frobenius endomorphism_.
+
+If the Frobenius map is surjective, then evey irreducible polynomial over $F$ is separable. Such a field is called _perfect_.
 
 <div>
 <a href="slides/06-fieldextensions.html"> View as slides </a>
