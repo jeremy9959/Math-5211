@@ -140,6 +140,10 @@
 <h1>Finite extensions are algebraic</h1>
 <p>Suppose <span class="math inline">\(K/F\)</span> is finite and let <span class="math inline">\(\alpha\)</span> be an element of <span class="math inline">\(K\)</span>. Then there is an <span class="math inline">\(n\)</span> so that the set <span class="math inline">\(1,\alpha,\alpha^2,\ldots, \alpha^{n}\)</span> are linearly dependent over <span class="math inline">\(F\)</span>; so <span class="math inline">\(\alpha\)</span> satisfies a polynomial with <span class="math inline">\(F\)</span> coefficients, and is therefore algebraic.</p>
 <p>As a partial converse, if <span class="math inline">\(F(\alpha)/F\)</span> is finite if and only if <span class="math inline">\(\alpha\)</span> is algebraic. If <span class="math inline">\(\alpha\)</span> is algebraic of degree <span class="math inline">\(d\)</span> over <span class="math inline">\(F\)</span>, <span class="math inline">\(F(\alpha)=F[x]/(m_{\alpha}(x))\)</span> which is finite dimensional (with basis <span class="math inline">\(1,x,x^2,\ldots, x^{d-1}\)</span>.)</p>
+</div><div id="algebraic-over-algebraic-is-algebraic" class="slide section level3">
+<h1>Algebraic over algebraic is algebraic</h1>
+<p><strong>Proposition:</strong> If <span class="math inline">\(K/F\)</span> is algebraic and <span class="math inline">\(L/K\)</span> is algebraic then <span class="math inline">\(L/F\)</span> is algebraic.</p>
+<p><strong>Proof:</strong> Let <span class="math inline">\(\alpha\)</span> be any element of <span class="math inline">\(L\)</span>. It has a minimal polynomial <span class="math inline">\(f(x)=x^{d}+a_{d-1}x^{d-1}+\cdots+a_{0}\)</span> with the <span class="math inline">\(a_{i}\in K\)</span>. Therefore <span class="math inline">\(\alpha\)</span> is algebraic over <span class="math inline">\(F(a_0,\ldots, a_{d-1})\)</span>. Since the <span class="math inline">\(a_i\)</span> are in <span class="math inline">\(K\)</span>, they are algebraic over <span class="math inline">\(F\)</span>, and therefore <span class="math inline">\(F(a_0,\ldots, a_{d-1})\)</span> is finite over <span class="math inline">\(F\)</span> and so is <span class="math inline">\(F(\alpha,a_0,\ldots, a_{d-1})\)</span>. Thus <span class="math inline">\(F(\alpha)\)</span> is contained in a finite extension of <span class="math inline">\(F\)</span> and so <span class="math inline">\(\alpha\)</span> is algebraic over <span class="math inline">\(F\)</span>.</p>
 </div>
 <div id="field-degrees" class="title-slide slide section level2"><h1>Field Degrees</h1></div><div id="multiplicativity-of-degrees" class="slide section level3">
 <h1>Multiplicativity of degrees</h1>
@@ -169,6 +173,42 @@
 [K_1 K_2:F]\le [K_1:F][K_2:F].
 \]</span></p>
 <p>In particular, if <span class="math inline">\([K_1:F]\)</span> and <span class="math inline">\([K_2:F]\)</span> are relatively prime, then <span class="math inline">\([K_1 K_2:F]=[K_1:F][K_2:F]\)</span>.</p>
+</div><div id="classical-constructions-ruler-and-compass" class="slide section level3">
+<h1>Classical Constructions (Ruler and Compass)</h1>
+<p>Classical ruler and compass constructions allow one to:</p>
+<ul>
+<li>find the point of intersection of two lines.</li>
+<li>find the point of intersection of a line and a circle.</li>
+<li>find the points of intersection of two circles.</li>
+</ul>
+</div><div id="constructions" class="slide section level3">
+<h1>Constructions</h1>
+<p>If we begin with a line segment of length 1, we can:</p>
+<ul>
+<li>construct a perpendicular, and then construct all integer lengths along that line</li>
+<li>construct all points with integer coordinates in the plane</li>
+<li>using similar triangles, construct all points in the plane with rational coordinates</li>
+</ul>
+</div><div id="extensions-1" class="slide section level3">
+<h1>Extensions</h1>
+<p>Now suppose we can construct all points with coordinates in a field <span class="math inline">\(F\)</span>. Then:</p>
+<ul>
+<li>intersections of lines joining points of over <span class="math inline">\(F\)</span> meet in points with coordinates in <span class="math inline">\(F\)</span></li>
+<li>intersections of a line joining two points with coordinates in <span class="math inline">\(F\)</span> with a circle of radius in <span class="math inline">\(F\)</span> yields points in a quadratic extension of <span class="math inline">\(F\)</span>.</li>
+<li>intersections of two circles with radii in <span class="math inline">\(F\)</span> yields points with coordinates in a quadratic extension of <span class="math inline">\(F\)</span>.</li>
+</ul>
+</div><div id="gausss-theorem-on-constructibility" class="slide section level3">
+<h1>Gauss’s Theorem on constructibility</h1>
+<p><strong>Theorem:</strong> If a line segment of length <span class="math inline">\(\alpha\)</span> is constructible by ruler and compass, then <span class="math inline">\(\alpha\)</span> lies in a field obtained from <span class="math inline">\(\Q\)</span> by a sequence of quadratic extensions, and <span class="math inline">\([F(\alpha):F]=2^k\)</span> for some integer <span class="math inline">\(k\ge 0\)</span>.</p>
+<p><strong>Corollary:</strong> One cannot “double the cube” , trisect an angle, or square the circle.</p>
+<p>Here doubling the cube means given a length <span class="math inline">\(\alpha\)</span> construct a length <span class="math inline">\(\beta\)</span> so that the cube with side length <span class="math inline">\(\beta\)</span> has double the volume of the cube with side length <span class="math inline">\(\alpha\)</span>. This is impossible because <span class="math inline">\(\sqrt[3]{2}\)</span> does not meet Gauss’s criterion.</p>
+<p>Squaring the circle means, given <span class="math inline">\(\alpha\)</span>, constructing a length <span class="math inline">\(\beta\)</span> so that a square of side <span class="math inline">\(\beta\)</span> has the same area as a circle of radius <span class="math inline">\(\alpha\)</span>. This is impossible because <span class="math inline">\(\pi\)</span> is not algebraic (we won’t prove this).</p>
+<p>Trisecting the angle means constructing an angle with one-third the measure of a given angle <span class="math inline">\(\theta\)</span>. If we can trisect <span class="math inline">\(\theta\)</span>, we can construct a length of <span class="math inline">\(\cos(\theta/3).\)</span> If <span class="math inline">\(\theta=\pi/3\)</span>, then <span class="math inline">\(\theta/3=\pi/9\)</span> or <span class="math inline">\(\beta=\cos 20^{\circ}\)</span>. One can show that, if <span class="math inline">\(u=2\beta\)</span>, then</p>
+<p><span class="math display">\[
+u^3-3u-1=0.
+\]</span></p>
+<p>This polynomial has no rational roots (it is irreducible mod <span class="math inline">\(2\)</span> for example).</p>
+<p>A pentagon is constructible because the <span class="math inline">\(\cos(2\pi/5)\)</span> is the root of a quadratic polynomial.</p>
 </div>
 </body>
 </html>
