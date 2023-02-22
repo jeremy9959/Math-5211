@@ -3,3 +3,5 @@ ferpa/
 .vscode/
 _site/
 junk/
+Gemfile
+Gemfile.lock

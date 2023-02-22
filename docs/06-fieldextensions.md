@@ -135,7 +135,7 @@ F(\alpha)\ar[u]\ar[r] & F(\beta)\ar[u]\\
 $$
 
 The extension theorem tells us that there is an isomorphism from $K$ to $K(\beta)$ carrying $F(\alpha)$ to $F(\beta)$ and fixing the field $F$. Therefore $[K:F]=[K(\beta):F]$.
-But then $[K(\beta):F]=[K(\beta):K][K:F]$. This forces $[K(\beta):K]=1$ so $\beta\in K$.
+But then $$[K(\beta):F]=[K(\beta):K][K:F].$$ This forces $[K(\beta):K]=1$ so $\beta\in K$.
 
 ## Algebraic Closures
 
