@@ -56,6 +56,35 @@ $$
 
 We conclude that $\psi(d)=\phi(d)$ for all $d$, so $\phi(p^{n}-1)\ge 1$.
 
+### Counting irreducible polynomials mod $p$
+
+How many irreducible polynomials of degree $d$ are there over $F_p$?
+
+Given such a polynomial, you get $d$ elements of the field $F_{p^d}$, all of degree $d$ over $F$.
+
+Conversely, given an element of degree $d$ over $F$ in $F_{p^{d}}$, you get an irreducible polynomial; but there are $d$ elements
+that give the same polynomial.
+
+So the number of irreducible polynomials is
+
+$$
+\frac{\|\lbrace x\in F_{p^{d}} : F(x)=F_{p^{d}}\rbrace\|}{d}
+$$
+
+If $d$ is prime, then an element of $F_{p^{d}}$ is either of degree one or $d$. There are $p$ elements of degree 1, and $p^{d}-p$ of degree $d$.
+So the number of irreducible polynomials of prime degree $d$ is $(p^{d}-p)/d$.
+
+For example, if $p=2$ and $d=5$, there are $6$ irreducible polynomials of degree $5$. They are irreducible factors of $x^{32}-x$ mod $2$. According to wolfram alpha,
+they are:
+
+$$
+\begin{matrix}
+x^5+x^2+1 &  x^5+x^3+1 \\
+x^5+x^3+x^2+x+1 & x^5+x^4+x^2+x+1 \\
+x^5+x^4+x^3+x+1 & x^5+x^4+x^3+x^2+1\\
+\end{matrix}
+$$
+
 ### Cyclotomic Polynomials and roots of unity
 
 We let $\mu_n$ denote the complex roots of the polynomial $x^n-1$. These are called the $n^{th}$ roots of unity.
@@ -86,8 +115,104 @@ $$
 x^{n}-1=\prod_{d|n} \Phi_{d}(x)
 $$
 
-This is because there are $\phi(n)$ primitive roots of unity in $\mu_{n}$ and every $n^{th}$ root of unity is primitive of order $d$ for some $d|n$.
+This is because there are $\phi(n)$ primitive roots of
+unity in $\mu_{n}$ and every $n^{th}$ root of unity is primitive of order $d$ for some $d\vert n$.
 
 ### Cyclotomic polynomials have integer coefficients
 
 **Lemma:** $\Phi_{n}(x)$ is monic and belongs to $\Z[x]$.
+
+**Proof:** The factorization of $x^{n}-1$ in terms of $\Phi_{d}(x)$ gives a recursive algorithm for computing the $\Phi_{d}$.
+Clearly $\Phi_{1}(x)=x-1$ belongs to $\Z[x]$. Suppose that $\Phi_{d}(x)$ is monic and belongs to $\Z[x]$ for all $d<n$. Then
+$x^{n}-1=f(x)\Phi_{n}(x)$ where $f(x)$ is monic with integer coefficients. Then $(x^{n}-1)/f(x)$ is monic with integer coefficients by
+polynomial division (or by Gauss's lemma if you want to be fancier).
+
+### The cyclotomic polynomials are irreducible
+
+**Theorem:** The polynomials $\Phi_{n}(x)$ are irreducible.
+
+**Proof:** We use results about the reduction mod $p$ of $\Phi_{n}(x)$; in some sense this is a number theoretic result.
+
+Suppose that $\Phi_{n}(x)=f(x)g(x)$ where $f(x)$ is irreducible. Let $\zeta$ be a root of $f(x)$. Choose a prime $p$ not dividing $n$. Then
+$\zeta^p$ is again a primitive $n^{th}$ root of unity, and therefore a root of either $f(x)$ or $g(x)$. Suppose it's a root of $g(x)$. Then
+since $g(\zeta^p)=0$ it follows that $\zeta$ is a root of $g(x^p)$. Now $f(x)$ is irreducible, so it is the minimal polynomial for $\zeta$,
+and therefore $f(x)$ divides $g(x^p)$:
+
+$$
+g(x^p)=f(x)h(x)
+$$
+
+Reduce this equation modulo $p$, and we have
+
+$$
+\overline{g}(x^p)=\overline{g}(x)^p=\overline{f}(x)\overline{h}(x).
+$$
+
+Then $\overline{f}(x)$ divides $\overline{g}(x)^p$ which means that $\overline{f}(x)$ and $\overline{g}(x)$ have
+a common factor mod $p$.
+
+Now remember that
+
+$$
+\Phi_{n}(x)=f(x)g(x).
+$$
+
+This tells us that, mod $p$, $\Phi_{n}(x)$ has a multiple root (from the common factor of $f(x)$ and $g(x)$ mod $p$).
+But that would mean that $x^{n}-1$ has a multiple root mod $p$, which can't be true. It's derivative is $nx^{n-1}$ which is not zero mod $p$
+since $p$ does not divide $n$. It follows that $\zeta^p$ must be a root of $f(x)$.
+
+Retracing the argument, we've shown that, if $\zeta$ is a root of the factor $f(x)$, so is $\zeta^p$ for any $p$ not dividing $n$. If $\alpha$
+is any primitive $n^{th}$ root of $1$, then $\alpha=\zeta^a$ for some $a$ relatively prime to $n$. But then $a=p_1\cdots p_k$ where the $p_i$
+are primes not dividing $n$ (not necessarily distinct). It follows that $\alpha=((\zeta^{p_{1}})^{p_{2}})^{\ldots}$ is also a root of $f(x)$.
+In other words, all of the primitive $n^{th}$ roots of one are roots of $f(x)$. That means that $f(x)=\Phi_{n}(x)$ and $g(x)=1$, so $\Phi_{n}(x)$
+is irreducible.
+
+**Corollary:** The field $\Q(\mu_{n})$ has degree $\phi(n)$ over $\Q$.
+
+### The cosine of twenty degrees
+
+In our work on constructibility we claimed that the 60 degree angle could not be trisected because a twenty degree angle is
+not constructible. Now
+
+$$
+2\cos 20^{\circ}=2\cos{2\pi/18}=e^{\pi i/9}+e^{-\pi i/9}.
+$$
+
+Now $e^{\pi i/9}$ is a primitive $18^{th}$ root of one and there are $\phi(18)=6$ such; they are roots of $\Phi_{18}(x)$.
+Now
+
+$$
+x^{18}-1=(x^9-1)(x^9+1)
+$$
+
+but also
+
+$$
+x^{18}-1=\Phi_{1}(x)\Phi_{2}(x)\Phi_{3}(x)\Phi_{6}(x)\Phi_{9}(x)\Phi_{18}(x)
+$$
+
+Now:
+
+$$
+\begin{matrix}
+Phi_{1}(x)=x-1 \\
+\Phi_{2}(x)=x+1 \\
+\Phi_{3}(x)=x^2+x+1 \\
+\Phi_{6}(x)=x^2-x+1 \\
+\end{matrix}
+$$
+
+so some algebra tells us that
+
+$$
+\Phi_{18}(x)=\frac{x^9+1}{x^3+1}=x^6-x^3+1.
+$$
+
+This in turn means that, if $\zeta=e^{\pi i/9}$, then $\zeta^{3}+\zeta^{-3}=1$ (divide $\Phi_{18}$ by $x^3$).
+But
+
+$$
+(\zeta+\zeta^{-1})^3=\zeta^{3}+\zeta^{-3}+3(\zeta+\zeta^{-1})=1+3(\zeta+\zeta^{-1}).
+$$
+
+In other words $2\cos\frac{2\pi/18}=\zeta+\zeta^{-1}$ satisfies the cubic polynomial $x^3-3x-1=0$.
