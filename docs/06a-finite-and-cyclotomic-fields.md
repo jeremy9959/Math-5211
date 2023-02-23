@@ -215,4 +215,4 @@ $$
 (\zeta+\zeta^{-1})^3=\zeta^{3}+\zeta^{-3}+3(\zeta+\zeta^{-1})=1+3(\zeta+\zeta^{-1}).
 $$
 
-In other words $2\cos\frac{2\pi/18}=\zeta+\zeta^{-1}$ satisfies the cubic polynomial $x^3-3x-1=0$.
+In other words $2\cos\frac{2\pi i}{18}=\zeta+\zeta^{-1}$ satisfies the cubic polynomial $x^3-3x-1=0$.
