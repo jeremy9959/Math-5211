@@ -8,15 +8,67 @@
   <meta name="generator" content="pandoc" />
   <title>6. Field Extensions</title>
   <style type="text/css">
-    code{white-space: pre-wrap;}
-    span.smallcaps{font-variant: small-caps;}
-    span.underline{text-decoration: underline;}
-    div.column{display: inline-block; vertical-align: top; width: 50%;}
-    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-    ul.task-list{list-style: none;}
+    
   </style>
   <link rel="stylesheet" type="text/css" media="screen, projection, print"
     href="https://www.w3.org/Talks/Tools/Slidy2/styles/slidy.css" />
+  <script type="text/javascript">
+      window.MathJax = {
+        loader: {
+        load: ['[custom]/xypic.js'],
+        paths: {custom: 'https://cdn.jsdelivr.net/gh/sonoisa/XyJax-v3@3.0.1/build/'}
+      },
+        tex: {
+          packages: {'[+]': ['xypic']},
+          tags: "ams",
+          inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+          displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+          processEscapes: true,
+          macros: {
+            Z: "{\\mathbb{Z}}",
+            Zn: ["{\\mathbb{Z}/#1 \\mathbb{Z}}",1],
+            GL: "{\\mathrm{GL}}",
+            lessim: "{\\lesssim}",
+            R: "{\\mathbb{R}}",
+            Q: "{\\mathbb{Q}}",
+            N: "{\\mathbb{N}}",
+            SL: "{\\mathrm{SL}}",
+            PGL: "{\\mathrm{PGL}}",
+            C: "{\\mathbb{C}}",
+            Stab: "{\\mathrm{Stab}}",
+            Aut: "{\\mathrm{Aut}}",
+            End: "{\\mathrm{End}}",
+            isom: "{\\cong}",
+            order: ["{\\lvert#1\\rvert}",1],
+            divides: "{\\vert}",
+            semi: "{\\rtimes}",
+            End: "{\\mathrm{End}}",
+            dim: "{\\mathrm{dim}}",
+            Hom: "{\\mathrm{Hom}}",
+            Pol: "{\\mathrm{Pol}}",
+            D: "{\\mathcal{D}}",
+            span: "{\\mathrm{span}}",
+            norm: ["{\\lVert #1 \\rVert}",1],
+            Tor: "{\\mathrm{Tor}}",
+            Ann: "{\\mathrm{Ann}}",
+          }
+        }
+      };
+  </script>
+  <script type="text/javascript" id="MathJax-script" async
+    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
+  </script>
+  
+  <!-- LaTeX Macros
+  
+  
+  
+  $$\def\GL{\mathrm{GL}}$$
+  $$\def\Zn#1{\mathbb{Z}/#1\mathbb{Z}}$$
+  $$\def\Z{\mathbb{Z}}$$
+  $$\def\gcd#1#2{\mathrm{gcd}(#1,#2)}$$
+  -->
+  <script src="/usr/share/javascript/mathjax/MathJax.js?config=TeX-AMS_CHTML-full" type="text/javascript"></script>
   <script src="https://www.w3.org/Talks/Tools/Slidy2/scripts/slidy.js"
     charset="utf-8" type="text/javascript"></script>
 </head>
@@ -24,9 +76,100 @@
 <div class="slide titlepage">
   <h1 class="title">6. Field Extensions</h1>
 </div>
-<div id="field-extensions" class="title-slide slide section level2">
-<h1>Field Extensions</h1>
-
+<div id="field-extensions" class="title-slide slide section level2"><h1>Field Extensions</h1></div>
+<div id="splitting-fields-normal-extensions" class="title-slide slide section level2"><h1>Splitting Fields (Normal Extensions)</h1></div><div id="definition" class="slide section level3">
+<h1>Definition</h1>
+<p><strong>Definition:</strong> Let <span class="math inline">\(f(x)\in F[x]\)</span> be a polynomial and let <span class="math inline">\(K/F\)</span> be an extension field. <span class="math inline">\(K\)</span> is called a <em>splitting field</em> for <span class="math inline">\(f(x)\)</span> if</p>
+<ul>
+<li><span class="math inline">\(f\)</span> splits into linear factors in <span class="math inline">\(K\)</span></li>
+<li><span class="math inline">\(f\)</span> does <em>not</em> split into linear factors over any proper subfield of <span class="math inline">\(K\)</span>.</li>
+</ul>
+</div><div id="splitting-fields-exist" class="slide section level3">
+<h1>Splitting fields exist</h1>
+<p><strong>Proposition:</strong> Any polynomial <span class="math inline">\(f(x)\in F[x]\)</span> has a splitting field.</p>
+<p><strong>Proof:</strong> If all irreducible factors of <span class="math inline">\(f(x)\)</span> have degree 1 then <span class="math inline">\(F\)</span> is a splitting field. Otherwise, let <span class="math inline">\(\alpha\)</span> be a root of an irreducible factor of <span class="math inline">\(f\)</span> of degree greater than <span class="math inline">\(1\)</span> and let <span class="math inline">\(F_1=F(\alpha)\)</span>. Write <span class="math inline">\(f(x)=(x-\alpha)f_1(x)\)</span> and, by induction, let <span class="math inline">\(E\)</span> be a splitting field for <span class="math inline">\(f_1(x)\)</span> over <span class="math inline">\(F(\alpha)\)</span>. Then all the roots of <span class="math inline">\(f(x)\)</span> belong to <span class="math inline">\(E\)</span>. Let <span class="math inline">\(K\)</span> be the subfield of <span class="math inline">\(E\)</span> generated over <span class="math inline">\(F\)</span> by the roots of <span class="math inline">\(f(x)\)</span>. This is your splitting field.</p>
+<p><strong>Remark:</strong> Some books say that if <span class="math inline">\(K/F\)</span> is the splitting field over <span class="math inline">\(F\)</span> for a polynomial, then <span class="math inline">\(K\)</span> is called a normal extension.</p>
+</div><div id="degrees-of-splitting-fields" class="slide section level3">
+<h1>Degrees of splitting fields</h1>
+<p><strong>Proposition:</strong> If <span class="math inline">\(f(x)\in F[x]\)</span> has degree <span class="math inline">\(n\)</span> then its splitting field has degree at most <span class="math inline">\(n!\)</span>.</p>
+<p>Proof: It can be obtained by adjoining roots successively of polynomials of degree <span class="math inline">\(n\)</span>, <span class="math inline">\(n-1\)</span>, .</p>
 </div>
+<div id="examples" class="title-slide slide section level2"><h1>Examples</h1></div>
+<div id="uniqueness-of-splitting-fields" class="title-slide slide section level2"><h1>Uniqueness of splitting fields</h1></div><div id="extensions-of-isomorphisms" class="slide section level3">
+<h1>Extensions of isomorphisms</h1>
+<p><strong>Theorem:</strong> (DF Theorem 27 p. 541) Let <span class="math inline">\(\phi: F\to F&#39;\)</span> be a field isomorphism. Let <span class="math inline">\(f(x)\in F[x]\)</span> and let <span class="math inline">\(f&#39;(x)\in F&#39;[x]\)</span> be the polynomial obtained from <span class="math inline">\(f\)</span> by applying <span class="math inline">\(\phi\)</span> to its coefficients. Let <span class="math inline">\(E/F\)</span> be a splitting field of <span class="math inline">\(f\)</span> and let <span class="math inline">\(E&#39;/F&#39;\)</span> be a splitting field of <span class="math inline">\(f&#39;\)</span>. Then there is an isomorphism <span class="math inline">\(\sigma:E\to E&#39;\)</span> which makes the following diagram commutative (the vertical arrows are the inclusion maps):</p>
+<p><span class="math display">\[
+\begin{xy}\xymatrix{
+E \ar[r]^{\sigma} &amp; E&#39; \\
+F\ar[u]\ar[r]^{\phi} &amp; F&#39;\ar[u] \\
+}
+\end{xy}
+\]</span></p>
+<p><strong>Corollary:</strong> Any two splitting fields for <span class="math inline">\(f(x)\)</span> are isomorphic via an isomorphism that is the identity on <span class="math inline">\(F\)</span>.</p>
+</div><div id="more-on-extensions" class="slide section level3">
+<h1>More on extensions</h1>
+<p>The extension theorem can seem a little mysterious. Let’s look more closely at an application.</p>
+<p>Let <span class="math inline">\(f(x)=x^3-2\)</span> and let <span class="math inline">\(E/\Q\)</span> be its splitting field (which has degree 6 over <span class="math inline">\(\Q\)</span>). Inside this field there are three isomorphic cubic extensions: <span class="math inline">\(L_1=\Q(\sqrt[3]{2})\)</span>, <span class="math inline">\(L_2=\Q(\omega\sqrt[3]{2})\)</span>, and <span class="math inline">\(L_3=\Q(\omega^2\sqrt[3]{2})\)</span> where <span class="math inline">\(\omega=e^{2\pi i/3}\)</span> is a cube root of unity.</p>
+<p><span class="math display">\[
+\begin{xy}
+\xymatrix{
+&amp; E &amp; \\
+L_1\ar[ur] &amp; L_2\ar[u] &amp; L_3\ar[ul] \\
+&amp; \Q\ar[ur]\ar[u]\ar[ul] &amp;\\
+}
+\end{xy}
+\]</span></p>
+<p>Now <span class="math inline">\(E\)</span> is a splitting field for <span class="math inline">\(f(x)\)</span> over each of <span class="math inline">\(L_1\)</span>, <span class="math inline">\(L_2\)</span>, and <span class="math inline">\(L_3\)</span>.</p>
+</div><div id="still-more-on-extensions" class="slide section level3">
+<h1>Still more on extensions</h1>
+<p>We can apply the theorem to (for example) the diagram</p>
+<p><span class="math display">\[
+\begin{xy}\xymatrix{
+E \ar[r]^{\sigma} &amp; E \\
+\Q(\sqrt[3]{2})\ar[u]\ar[r]^{\phi} &amp; \Q(\omega\sqrt[3]{2})\ar[u] \\
+}
+\end{xy}
+\]</span></p>
+<p>where <span class="math inline">\(\phi\)</span> is the isomorphism that sends <span class="math inline">\(\sqrt[3]{2}\to\omega\sqrt[3]{2}\)</span> and fixes <span class="math inline">\(\Q\)</span>. It follows that there is an automorphism <span class="math inline">\(\sigma\)</span> of the splitting field that extends <span class="math inline">\(\phi\)</span>.</p>
+</div><div id="automorphisms-of-splitting-fields-of-irreducibles" class="slide section level3">
+<h1>Automorphisms of splitting fields of irreducibles</h1>
+<p>In general, if <span class="math inline">\(f(x)\)</span> is an irreducible polynomial over <span class="math inline">\(F\)</span>, and <span class="math inline">\(\alpha\)</span> and <span class="math inline">\(\beta\)</span> are two roots of <span class="math inline">\(f(x)\)</span> in its splitting field <span class="math inline">\(E/F\)</span>, then there is an automorphism <span class="math inline">\(E\to E\)</span> fixing <span class="math inline">\(F\)</span> sending <span class="math inline">\(\alpha\)</span> to <span class="math inline">\(\beta\)</span>. In particular the automorphism group of <span class="math inline">\(E\)</span> fixing <span class="math inline">\(F\)</span> permutes the roots of <span class="math inline">\(f(x)\)</span> transitively.</p>
+</div><div id="proof-of-the-extension-theorem" class="slide section level3">
+<h1>Proof of the extension theorem</h1>
+<p>The proof is by induction. If all roots of <span class="math inline">\(f(x)\)</span> belong to <span class="math inline">\(F\)</span>, then all roots of <span class="math inline">\(f&#39;(x)\)</span> belong to <span class="math inline">\(F&#39;\)</span>, and <span class="math inline">\(E=F\)</span> and <span class="math inline">\(E&#39;=F&#39;\)</span> so the identity map works. Now suppose we know the result for all <span class="math inline">\(f\)</span> of degree less than <span class="math inline">\(n\)</span> and suppose that <span class="math inline">\(f\)</span> is of degree <span class="math inline">\(n\)</span>. Choose an irreducible factor <span class="math inline">\(p(x)\)</span> of <span class="math inline">\(f(x)\)</span> of degree at least <span class="math inline">\(2\)</span>, and the corresponding factor <span class="math inline">\(p&#39;(x)\)</span> of <span class="math inline">\(f&#39;(x)\)</span>. Since <span class="math inline">\(F[x]/p(x)\)</span> is isomorphic to <span class="math inline">\(F&#39;[x]/p&#39;(x)\)</span>, we have an isomorphism <span class="math inline">\(\\phi&#39;: F(\alpha)\to F&#39;(\beta)\)</span> that restricts to <span class="math inline">\(\phi:F\to F&#39;\)</span>.</p>
+<p>Let <span class="math inline">\(f(x)=(x-\alpha)f_1(x)\)</span> and <span class="math inline">\(f&#39;(x)=(x-\beta)f&#39;_1(x)\)</span>. Now <span class="math inline">\(E\)</span> (resp. <span class="math inline">\(E&#39;\)</span>) is a splitting field for <span class="math inline">\(f_1\)</span> (resp <span class="math inline">\(f_1&#39;\)</span>) and by induction we have an isomorphism <span class="math inline">\(\sigma: E\to E&#39;\)</span> that restricts to <span class="math inline">\(\phi&#39;:F(\alpha)\to F&#39;(\beta)\)</span>. This <span class="math inline">\(\sigma\)</span> also restricts to <span class="math inline">\(\phi:F\to F&#39;\)</span> (since <span class="math inline">\(\phi&#39;\)</span> does).</p>
+</div><div id="another-property-of-splitting-fields" class="slide section level3">
+<h1>Another property of splitting fields</h1>
+<p><strong>Proposition:</strong> Let <span class="math inline">\(K/F\)</span> be the splitting field of a polynomial. Then if <span class="math inline">\(g(x)\in F[x]\)</span> is any irreducible polynomial over <span class="math inline">\(F\)</span>, and <span class="math inline">\(\alpha\in K\)</span> is a root of <span class="math inline">\(g(x)\)</span>, then all roots of <span class="math inline">\(g(x)\)</span> belong to <span class="math inline">\(K\)</span>. (In other words, if <span class="math inline">\(K/F\)</span> is a splitting field for some polynomial, then any polynomial in <span class="math inline">\(F[x]\)</span> is either irreducible or splits into linear factors over <span class="math inline">\(K\)</span>.)</p>
+<p><strong>Proof:</strong> Suppose that <span class="math inline">\(K\)</span> is the splitting field of <span class="math inline">\(f(x)\in F[x]\)</span>. Suppose that <span class="math inline">\(\alpha\in K\)</span> and let <span class="math inline">\(\beta\)</span> be another root of <span class="math inline">\(g(x)\)</span> and consider the field <span class="math inline">\(K(\beta)\)</span>. Then <span class="math inline">\(K(\beta)\)</span> is the splitting field of <span class="math inline">\(f(x)\)</span> over <span class="math inline">\(F(\beta)\)</span>. (<span class="math inline">\(K\)</span> contains all the roots of <span class="math inline">\(f(x)\)</span>, and it must contain <span class="math inline">\(\beta\)</span> if it contains <span class="math inline">\(F(\beta)\)</span>. ) But then we have the diagram:</p>
+<p><span class="math display">\[
+\begin{xy}
+\xymatrix{
+K\ar[r] &amp; K(\beta) \\
+F(\alpha)\ar[u]\ar[r] &amp; F(\beta)\ar[u]\\
+}
+\end{xy}
+\]</span></p>
+<p>The extension theorem tells us that there is an isomorphism from <span class="math inline">\(K\)</span> to <span class="math inline">\(K(\beta)\)</span> carrying <span class="math inline">\(F(\alpha)\)</span> to <span class="math inline">\(F(\beta)\)</span> and fixing the field <span class="math inline">\(F\)</span>. Therefore <span class="math inline">\([K:F]=[K(\beta):F]\)</span>. But then <span class="math inline">\([K(\beta):F]=[K(\beta):K][K:F]\)</span>. This forces <span class="math inline">\([K(\beta):K]=1\)</span> so <span class="math inline">\(\beta\in K\)</span>.</p>
+</div>
+<div id="algebraic-closures" class="title-slide slide section level2"><h1>Algebraic Closures</h1></div><div id="algebraic-closure" class="slide section level3">
+<h1>Algebraic closure</h1>
+<p><strong>Definition:</strong> A field <span class="math inline">\(F\)</span> is algebraically closed if it has no nontrivial algebraic extensions; in other words, if every irreducible polynomial over <span class="math inline">\(F\)</span> has degree <span class="math inline">\(1\)</span>.</p>
+<p><strong>Definition:</strong> If <span class="math inline">\(F\)</span> is a field, then <span class="math inline">\(\overline{F}\)</span> is an algebraic closure of <span class="math inline">\(F\)</span> if <span class="math inline">\(\overline{F}/F\)</span> is algebraic and every polynomial in <span class="math inline">\(F[x]\)</span> splits completely in <span class="math inline">\(\overline{F}\)</span>.</p>
+<p>So notice that the complex numbers are algebraically closed, but they are not an algebraic closure of <span class="math inline">\(\Q\)</span>, because they contain transcendental elements.</p>
+</div><div id="algebraic-closures-are-algebraically-closed." class="slide section level3">
+<h1>Algebraic closures are algebraically closed.</h1>
+<p><strong>Lemma:</strong> If <span class="math inline">\(\overline{F}\)</span> is an algebraic closure of <span class="math inline">\(F\)</span>, then <span class="math inline">\(\overline{F}\)</span> is algebraically closed.</p>
+<p>This lemma says that if every polynomial with coefficients in <span class="math inline">\(F\)</span> has a root in <span class="math inline">\(\overline{F}\)</span>, then every polynomial with coefficients in <span class="math inline">\(\overline{F}\)</span> has a root in <span class="math inline">\(F\)</span>.</p>
+<p>To prove this, let <span class="math inline">\(f(x)\in\overline{F}[x]\)</span>. Let <span class="math inline">\(F_1/F\)</span> be the extension of <span class="math inline">\(F\)</span> generated by the coefficients of <span class="math inline">\(f\)</span>. Since <span class="math inline">\(F_1\)</span> is generated by finitely many algebraic elements, <span class="math inline">\(F_1/F\)</span> is finite and a root <span class="math inline">\(\alpha\)</span> of <span class="math inline">\(f(x)\in F_1[x]\)</span> is finite over <span class="math inline">\(F_1\)</span>. Therefore <span class="math inline">\(f\)</span> has a root in a finite extension of <span class="math inline">\(F\)</span>, which is therefore in <span class="math inline">\(\overline{F}\)</span>.</p>
+</div><div id="every-field-has-an-algebraic-closure" class="slide section level3">
+<h1>Every field has an algebraic closure</h1>
+<p><strong>Theorem:</strong> Given a field <span class="math inline">\(F\)</span>, there exists an algebraically closed field containing <span class="math inline">\(F\)</span>.</p>
+<p><strong>Proof:</strong> See Proposition 30 in DF on p. 544.</p>
+<p><strong>Theorem:</strong> If <span class="math inline">\(K/F\)</span> is algebraically closed, then the collection of elements of <span class="math inline">\(K\)</span> that are algebraic over <span class="math inline">\(F\)</span> is an algebraic closure of <span class="math inline">\(F\)</span>.</p>
+<p>Since <span class="math inline">\(\C\)</span> is algebraically closed, the set of algebraic numbers inside <span class="math inline">\(\C\)</span> is an algebraic closure of <span class="math inline">\(\Q\)</span>. The construction of <span class="math inline">\(\R\)</span> and <span class="math inline">\(\C\)</span> is primarily by analysis, and the proof that <span class="math inline">\(\C\)</span> is algebraically closed is also analytic – at least, the usual proof.</p>
+</div>
+<div id="separability" class="title-slide slide section level2"><h1>Separability</h1></div>
+<div id="the-frobenius-map" class="title-slide slide section level2"><h1>The Frobenius map</h1></div>
 </body>
 </html>
