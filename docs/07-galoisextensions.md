@@ -61,6 +61,21 @@ Further:
 
 ### Overview of the proof
 
+There are two "directions" we need to consider.
+
+1.  Suppose $E/F$ is a separable splitting field extension. Then $\vert\Aut(E/F)\vert=[E:F]$.
+2.  Suppose $E$ is a field and $G$vi is a finite group of automorphisms of $E$. Then the fixed field
+    $E^{G}$ satisfies $[E:E^{G}]=\vert G\vert$ and $E/E^{G}$ is a separable splitting field.
+
+These mean together that:
+
+- if we start with a separable extension $E/F$, compute its automorphism group $\Aut(E/F)$,
+  and then take the fixed field in $E$ of that group, we get a subfield of $E$ that contains $F$ and has $[E:E^{\Aut(E/F)}]=[E:F]$, so $E^{\Aut(E/F)}=F$.
+- if we start with a field $E$ and a group of automorphisms $G$,
+  then $E/E^{G}$ is a separable splitting field extension so $\Aut(E/E^{G})$ has order $[E:E^{G}]=\vert G\vert$. Since $G$ is contained in $\Aut(E/E^{G})$, this means $\Aut(E/E^{G})=G$.
+
+This is the prototype of the Galois correspondence.
+
 <div>
 <a href="slides/07-galoisextensions.html"> View as slides </a>
 </div>
