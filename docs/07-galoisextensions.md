@@ -59,6 +59,8 @@ Further:
 - The fields of eigth and ninth roots of unity.
 - Finite fields.
 
+### Overview of the proof
+
 <div>
 <a href="slides/07-galoisextensions.html"> View as slides </a>
 </div>
