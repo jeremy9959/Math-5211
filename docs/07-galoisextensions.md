@@ -64,7 +64,7 @@ Further:
 There are two "directions" we need to consider.
 
 1.  Suppose $E/F$ is a separable splitting field extension. Then $\vert\Aut(E/F)\vert=[E:F]$.
-2.  Suppose $E$ is a field and $G$vi is a finite group of automorphisms of $E$. Then the fixed field
+2.  Suppose $E$ is a field and $G$ is a finite group of automorphisms of $E$. Then the fixed field
     $E^{G}$ satisfies $[E:E^{G}]=\vert G\vert$ and $E/E^{G}$ is a separable splitting field.
 
 These mean together that:
@@ -75,6 +75,39 @@ These mean together that:
   then $E/E^{G}$ is a separable splitting field extension so $\Aut(E/E^{G})$ has order $[E:E^{G}]=\vert G\vert$. Since $G$ is contained in $\Aut(E/E^{G})$, this means $\Aut(E/E^{G})=G$.
 
 This is the prototype of the Galois correspondence.
+
+### More on the proof - Step 1
+
+The first assertion to consider is that, if $E/F$ is a separable splitting field, then $\vert\Aut(E/F)\vert=[E:F].$
+This is a consequence of the theorem on extension of automorphisms. The proof is by induction.
+Clearly if $E=F$ then $\Aut(E/F)$ is trivial and $[E:F]=1.$ Now suppose we know the result for all separable
+splitting fields of degree less than $n$ and suppose $E/F$ has degree $n.$ Choose an element $\alpha\in E$
+of degree greater than one over $F$ and let $f(x)$ be its minimal polynomial. Let $\beta$ be any other root
+of $f(x)$. Since $E/F$ is a splitting field, $\beta\in E$. Consider the diagram:
+
+$$
+\begin{xy}
+\xymatrix{
+E \ar[r] & E \\
+F(\alpha)\ar[r]\ar[u]&F(\beta)\ar[u] \\
+F\ar[r]\ar[u] & F\ar[u] \\
+}
+\end{xy}
+$$
+
+Since $F(\alpha)$ is isomorphic to $F(\beta)$, the extension theorem says that there is an automorphism of $E$
+carrying $\alpha$ to $\beta$. Since there are $[F(\alpha):F]$ choices of $\beta$, there are $n$ such extensions $\sigma_{\beta}$
+corresponding to the $n$ roots $\beta$ of the minimal polynomial of $\alpha$ over $F$.
+
+Now $E/F(\alpha)$ is still a separable splitting field, so our induction hypothesis
+says that there are $[E:F(\alpha)]$ automorphisms of $E$ fixing $F(\alpha)$. Take any automorphism $\tau$ of $E/F$.
+It carries $\alpha$ to some $\beta$, so $\sigma_{\beta}^{-1}\tau$ fixes $\alpha$ and therefore $\tau=\sigma_{\beta}\phi$ where $\phi\in\Aut(E/F(\alpha))$.
+
+It's not hard to show that this representation is unique, and so
+
+$$
+\vert\Aut(E/F)\vert=\vert\Aut(E/F(\alpha))[F(\alpha):F] = [E:F(\alpha)][F(\alpha):F]=[E:F]
+$$
 
 <div>
 <a href="slides/07-galoisextensions.html"> View as slides </a>
