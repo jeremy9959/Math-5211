@@ -109,6 +109,118 @@ $$
 \vert\Aut(E/F)\vert=\vert\Aut(E/F(\alpha))[F(\alpha):F] = [E:F(\alpha)][F(\alpha):F]=[E:F]
 $$
 
+### More on the proof - Step 2
+
+Now we want to show that, if $G$ is a group of automorphisms of a field $E$, then $E/E^{G}$
+is a separable splitting field of degree $\vert G\vert$. The key tool here is a result known
+as _linear independence of characters_.
+
+**Lemma:** Let $G$ be a group, let $L$ be a field,
+and let $\sigma_1,\ldots, \sigma_n$ be distinct homomorphisms $G\to L^{\times}$. Then the $\sigma_{i}$ are linearly independent over $L$,
+meaning that if $f=\sum_{i=1}^{n} a_{i}\sigma_{i}$ is the zero map for some collection of $a_{i}\in L$,
+then all $a_{i}$ are zero.
+
+**Proof:** Suppose that the $\sigma_{i}$ are dependent. Choose a linear relation of minimal length where all
+the coefficients are nonzero:
+
+$$
+f=\sum a_{i}\sigma_{i} = 0
+$$
+
+Let $h\in G$ such that $\sigma_{1}(h)$ and $\sigma_{n}(h)$ are different. Now $f(g)=0$ for all $g\in G$,
+and also $f(hg)=0$ for all $g\in G$ since it's the same set of elements. Therefore
+
+$$
+k=\sum a_{i}\sigma_{i}(h)\sigma_{i}=0.
+$$
+
+Now $k-\sigma_{n}(h)f$ is also identically zero. The coefficients of $\sigma_{n}$ in $k$ and $f$
+are both $\sigma_{h}(h)a_{n}$ so they cancel. On the other hand, the coefficients of $\sigma_{1}$
+are $a_{1}\sigma_{1}(h)$ and $a_{1}\sigma_{n}(h)$ which are different; so $k-\sigma_{n}(h)f$
+is a relation among the $\sigma_{i}$ of shorter length. Thus the $\sigma_{i}$ are independent.
+
+Notice that if $L$ is a field, $L^{\times}$ is a group and we can restrict an automorphism of $L$
+to $L^{\times}$ to obtain a character $L^{\times}\to L$. Therefore distinct automorphisms of $L$
+are linearly independent over $L$.
+
+### More on the proof - Step 3
+
+Now we want to prove that $[E:E^{G}]=\vert G\vert$. Let's use $F=E^{G}$ to simplify the notation.
+Choose a basis $\alpha_{1},\ldots, \alpha_{n}$ for $E/F$ and let $\sigma_{1},\ldots, \sigma_{m}$ be the elements of $G$. Form $m\times n$ the matrix
+
+$$
+S=\left(\begin{matrix} \sigma_{1}(\alpha_{1}) & \sigma_{1}(\alpha_{2}) & \cdots & \sigma_{1}(\alpha_{n})\\
+                     \sigma_{2}(\alpha_{1})  & \sigma_{2}(\alpha_{2}) & \cdots & \sigma_{2}(\alpha_{n}) \\
+                     \vdots & \vdots & \vdots &\vdots \\
+                     \sigma_{m}(\alpha_{1}) & \sigma_{m}(\alpha_{2}) & \cdots & \sigma_{m}(\alpha_{n}) \\
+                     \end{matrix}\right)
+$$
+
+Let's first look at the row rank of this matrix. Suppose that
+
+$$
+[\beta_1\cdots\beta_m]S = 0.
+$$
+
+It follows that $\sum_{i=1}^{m} \beta_{i}\sigma_{i}(\alpha_{j})=0$ for all $\alpha_j$, and, since the $\alpha_{j}$
+span $E/F$, we condlue
+$\sum_{i=1}^{m}\beta_{i}\sigma_{i}(x)=0$ for all $x\in E$. By linear independence this means that all $\beta_{i}=0$
+and so the row rank of $S$ is $m$.
+
+Now let's look at the column rank. For this, notice that if $\sigma:E\to E$ is an automorphism, then $\sigma(S)$
+(obtained by applying $\sigma$ to each entry of $S$) is obtained from $S$ by rearranging the rows. In other
+words
+
+$$
+\sigma(S)=\Pi(\sigma)S
+$$
+
+where $\Pi(\sigma)$ is an $m\times m$ permutation matrix. Now suppose $\boldsymbol{\beta}=[\beta_{1},\ldots, \beta_{n}]$
+satisfies
+
+$$
+S\boldsymbol{\beta}=S\left[\begin{matrix} \beta_{1} \\ \vdots \\ \beta_{n}\end{matrix}\right]=0.
+$$
+
+Then, for any $\sigma\in G$, we have
+
+$$
+\sigma(S\boldsymbol{\beta})=\sigma(S)\sigma(\boldsymbol{\beta})=\Pi(\sigma)S\boldsymbol{\beta}=0
+$$
+
+In other words, if $\boldsymbol{\beta}$ is in the (left) kernel of $S$, so is $\sigma(\boldsymbol{\beta})$.
+
+Now suppose $\boldsymbol{\beta}$ is nonzero and satisfies $S\boldsymbol{\beta}=0$ and let $y=\sum_{i=1}^{m}\sigma_{i}(\boldsymbol{\beta})$. This is a column vector whose entries are $\sum_{i=1}^{m}\sigma_{i}(\beta_{j})$. These sums are
+all fixed by $G$, since $\sigma(\sum_{i=1}^{m}\sigma_{i}(\beta_{j}))$ is just a permutation of the terms in the sum.
+We can introduce a function $Y:E\to E$ by setting
+
+$$
+Y_j(x)=\sum_{i=1}^{m}\sigma_{i}(x\beta_{j})=\sum_{i=1}^{m}\sigma_{i}(\beta_{j})\sigma_{i}(x).
+$$
+
+Since $\boldsymbol{\beta}$ is nonzero, by linear independence at least one of $Y_{j}$ is nonzero
+so there is an $x\in E$ such that
+
+$$
+\boldsymbol{Y}=\sum_{i=1}^{m}\sigma_{i}(x\boldsymbol{\beta})\not=0
+$$
+
+But $\boldsymbol{Y}$ is in $F^{n}$ and $S\boldsymbol{Y}=0$. This means
+
+$$
+\sigma_{i}(\sum_{j=1}^{n} Y_{j}(x)\alpha_{j})=0
+$$
+
+for all $i$; and since the $Y_{j}(x)\in F$ and the $\alpha_{j}$ are independent we must have $Y_{j}(x)=0$.
+This contradiction means that there cannot be a nonzero $\boldsymbol{\beta}$ with $S\boldsymbol{\beta}=0$.
+We conclude that the column rank of $S$ is $n$.
+
+Since the row and column ranks of a matrix are the same, we have $n=m$.
+
+### More on the proof - Step 4
+
+We finally need to verify that $E/E^{G}$ is a separable splitting field.
+
 <div>
 <a href="slides/07-galoisextensions.html"> View as slides </a>
 </div>
