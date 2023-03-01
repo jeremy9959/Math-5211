@@ -6,7 +6,7 @@
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   <meta http-equiv="Content-Style-Type" content="text/css" />
   <meta name="generator" content="pandoc" />
-  <title>Untitled</title>
+  <title>6A. Finite and Cyclotomic Fields</title>
   <style type="text/css">
     
   </style>
@@ -68,12 +68,128 @@
   $$\def\Z{\mathbb{Z}}$$
   $$\def\gcd#1#2{\mathrm{gcd}(#1,#2)}$$
   -->
+  <script src="/usr/share/javascript/mathjax/MathJax.js?config=TeX-AMS_CHTML-full" type="text/javascript"></script>
   <script src="https://www.w3.org/Talks/Tools/Slidy2/scripts/slidy.js"
     charset="utf-8" type="text/javascript"></script>
 </head>
 <body>
-<div class="slide section level3">
-
+<div class="slide titlepage">
+  <h1 class="title">6A. Finite and Cyclotomic Fields</h1>
+</div>
+<div id="finite-and-cyclotomic-fields" class="title-slide slide section level2"><h1>Finite and Cyclotomic Fields</h1></div><div id="finite-fields-are-perfect" class="slide section level3">
+<h1>Finite fields are perfect</h1>
+<p><strong>Lemma:</strong> Let <span class="math inline">\(F\)</span> be a finite field. Then every element of <span class="math inline">\(F\)</span> is a <span class="math inline">\(p^{th}\)</span> power.</p>
+<p><strong>Proof:</strong> The map <span class="math inline">\(\phi(x)=x^{p}\)</span> is a field homomorphism from <span class="math inline">\(F\)</span> to itself. Since it is injective and <span class="math inline">\(F\)</span> is finite, it is surjective.</p>
+<p><strong>Lemma:</strong> Every irreducible polynomial over <span class="math inline">\(F\)</span> is separable.</p>
+<p><strong>Proof:</strong> If <span class="math inline">\(f(x)\)</span> is irreducible and inseparable, then <span class="math inline">\(f&#39;(x)=0\)</span> so <span class="math inline">\(f(x)=g(x^p)\)</span>. But then <span class="math inline">\(f(x)=g(x)^p\)</span>, contradicting irreducibility.</p>
+</div><div id="existence-and-uniqueness-of-finite-fields" class="slide section level3">
+<h1>Existence and uniqueness of finite fields</h1>
+<p><strong>Proposition:</strong> Let <span class="math inline">\(p\)</span> be a prime. Then there is a unique (up to isomorphism) finite field with <span class="math inline">\(p^n\)</span> elements for every <span class="math inline">\(n\ge 1\)</span>.</p>
+<p><strong>Proof:</strong> If <span class="math inline">\(F\)</span> is a finite field of characteristic <span class="math inline">\(p\)</span>, it is a finite dimensional vector space over <span class="math inline">\(F_p\)</span> so has <span class="math inline">\(p^{n}\)</span> elements where <span class="math inline">\(n=[F:F_p]\)</span>. Consider the splitting field <span class="math inline">\(F\)</span> of the polynomial <span class="math inline">\(x^{p^{n}}-x\)</span> over <span class="math inline">\(F_p\)</span>. It is separable since its derivative is <span class="math inline">\(-1\)</span>. Thus it has <span class="math inline">\(p^{n}\)</span> distinct roots. Notice that, if <span class="math inline">\(\alpha\)</span> and <span class="math inline">\(\beta\)</span> are roots of this polynomial, so are <span class="math inline">\(\alpha\beta\)</span>, <span class="math inline">\(\alpha+\beta\)</span>, and <span class="math inline">\(\alpha^{-1}\)</span>. Thus the <span class="math inline">\(p^{n}\)</span> roots of the polynomial form a field. Thus <span class="math inline">\(F\)</span> is exactly this set of <span class="math inline">\(p^{n}\)</span> roots. Finally, let <span class="math inline">\(F\)</span> be any finite field of characteristic <span class="math inline">\(p\)</span> with <span class="math inline">\(p^{n}\)</span> elements. The nonzero elements of <span class="math inline">\(F\)</span> satisfy <span class="math inline">\(x^{p^{n}-1}-1=0\)</span> since <span class="math inline">\(F^{*}\)</span> is a finite abelian group with <span class="math inline">\(p^{n}-1\)</span> elements. Therefore (including zero) the elements of <span class="math inline">\(F\)</span> are the roots of <span class="math inline">\(x^{p^{n}}-x\)</span> so <span class="math inline">\(F\)</span> is the splitting field of this polynomial. Since splitting fields are unique, all finite fields of order <span class="math inline">\(p^{n}\)</span> are isomorphic.</p>
+<p>We commonly write <span class="math inline">\(F_{p^{d}}\)</span> or <span class="math inline">\(\mathbb{F}_{p^{d}}\)</span> for this unique field with <span class="math inline">\(p^{d}\)</span> elements.</p>
+</div><div id="multiplicative-groups-of-finite-fields-are-cyclic" class="slide section level3">
+<h1>Multiplicative groups of finite fields are cyclic</h1>
+<p>Suppose <span class="math inline">\(F\)</span> has <span class="math inline">\(p^{n}\)</span> elements. Suppose that <span class="math inline">\(d|(p^{n}-1)\)</span> so <span class="math inline">\(x^{d}-1\)</span> divides <span class="math inline">\(x^{p^{n}-1}-1\)</span>. If <span class="math inline">\(F^{\times}\)</span> has an element of order <span class="math inline">\(d\)</span>, it generates a cyclic subgroup of order <span class="math inline">\(d\)</span>, and the elements of that cyclic subgroup are all roots of <span class="math inline">\(x^{d}-1\)</span>. In this case the number of elements of order <span class="math inline">\(d\)</span> is <span class="math inline">\(\phi(d)\)</span>. If <span class="math inline">\(\psi(d)\)</span> is the number of elements of order <span class="math inline">\(d\)</span>, then we see that <span class="math inline">\(\psi(d)\)</span> is either <span class="math inline">\(\phi(d)\)</span> or zero, and in particular is at most <span class="math inline">\(\phi(d)\)</span>.</p>
+<p>Now by Lagrange’s Theorem</p>
+<p><span class="math display">\[
+p^{n}-1=\sum_{d|(p^{n}-1)} \psi(d).
+\]</span></p>
+<p>On the other hand, by counting the elements of order <span class="math inline">\(d\)</span> for each divisor of <span class="math inline">\(p^{n}-1\)</span> in a cyclic group of order <span class="math inline">\(p^{n}-1\)</span>, we have</p>
+<p><span class="math display">\[
+p^{n}-1=\sum_{d|(p^{n}-1)} \phi(d).
+\]</span></p>
+<p>We conclude that <span class="math inline">\(\psi(d)=\phi(d)\)</span> for all <span class="math inline">\(d\)</span>, so <span class="math inline">\(\phi(p^{n}-1)\ge 1\)</span>.</p>
+</div><div id="counting-irreducible-polynomials-mod-p" class="slide section level3">
+<h1>Counting irreducible polynomials mod <span class="math inline">\(p\)</span></h1>
+<p>How many irreducible polynomials of degree <span class="math inline">\(d\)</span> are there over <span class="math inline">\(F_p\)</span>?</p>
+<p>Given such a polynomial, you get <span class="math inline">\(d\)</span> elements of the field <span class="math inline">\(F_{p^d}\)</span>, all of degree <span class="math inline">\(d\)</span> over <span class="math inline">\(F\)</span>.</p>
+<p>Conversely, given an element of degree <span class="math inline">\(d\)</span> over <span class="math inline">\(F\)</span> in <span class="math inline">\(F_{p^{d}}\)</span>, you get an irreducible polynomial; but there are <span class="math inline">\(d\)</span> elements that give the same polynomial.</p>
+<p>So the number of irreducible polynomials is</p>
+<p><span class="math display">\[
+\frac{\|\lbrace x\in F_{p^{d}} : F(x)=F_{p^{d}}\rbrace\|}{d}
+\]</span></p>
+<p>If <span class="math inline">\(d\)</span> is prime, then an element of <span class="math inline">\(F_{p^{d}}\)</span> is either of degree one or <span class="math inline">\(d\)</span>. There are <span class="math inline">\(p\)</span> elements of degree 1, and <span class="math inline">\(p^{d}-p\)</span> of degree <span class="math inline">\(d\)</span>. So the number of irreducible polynomials of prime degree <span class="math inline">\(d\)</span> is <span class="math inline">\((p^{d}-p)/d\)</span>.</p>
+<p>For example, if <span class="math inline">\(p=2\)</span> and <span class="math inline">\(d=5\)</span>, there are <span class="math inline">\(6\)</span> irreducible polynomials of degree <span class="math inline">\(5\)</span>. They are irreducible factors of <span class="math inline">\(x^{32}-x\)</span> mod <span class="math inline">\(2\)</span>. According to wolfram alpha, they are:</p>
+<p><span class="math display">\[
+\begin{matrix}
+x^5+x^2+1 &amp;  x^5+x^3+1 \\
+x^5+x^3+x^2+x+1 &amp; x^5+x^4+x^2+x+1 \\
+x^5+x^4+x^3+x+1 &amp; x^5+x^4+x^3+x^2+1\\
+\end{matrix}
+\]</span></p>
+</div><div id="cyclotomic-polynomials-and-roots-of-unity" class="slide section level3">
+<h1>Cyclotomic Polynomials and roots of unity</h1>
+<p>We let <span class="math inline">\(\mu_n\)</span> denote the complex roots of the polynomial <span class="math inline">\(x^n-1\)</span>. These are called the <span class="math inline">\(n^{th}\)</span> roots of unity. If <span class="math inline">\(\zeta\in\mu_n\)</span>, then</p>
+<p><span class="math display">\[
+\zeta=e^{2\pi i a/n}
+\]</span></p>
+<p>for some integer <span class="math inline">\(a\)</span>.</p>
+<p>The set <span class="math inline">\(\mu_n\)</span> is in fact a cyclic group of order <span class="math inline">\(n\)</span>. Its generators are called the primitive <span class="math inline">\(n^{th}\)</span> roots of unity. If <span class="math inline">\(\zeta\in \mu_n\)</span> is a primitive root of unity then</p>
+<p><span class="math display">\[
+\zeta=e^{2\pi i a/n}
+\]</span></p>
+<p>where <span class="math inline">\((a,n)=1\)</span>.</p>
+</div><div id="the-cyclotomic-polynomials" class="slide section level3">
+<h1>The cyclotomic polynomials</h1>
+<p>The cyclotomic polynomial <span class="math inline">\(\Phi_{n}(x)\)</span> is the polynomial whose roots are the primitive <span class="math inline">\(n^{th}\)</span> roots of unity.</p>
+<p><strong>Lemma:</strong> For all <span class="math inline">\(n\ge 1\)</span>, the degree of <span class="math inline">\(\Phi_{n}(x)\)</span> is <span class="math inline">\(\phi(n)\)</span>, and</p>
+<p><span class="math display">\[
+x^{n}-1=\prod_{d|n} \Phi_{d}(x)
+\]</span></p>
+<p>This is because there are <span class="math inline">\(\phi(n)\)</span> primitive roots of unity in <span class="math inline">\(\mu_{n}\)</span> and every <span class="math inline">\(n^{th}\)</span> root of unity is primitive of order <span class="math inline">\(d\)</span> for some <span class="math inline">\(d\vert n\)</span>.</p>
+</div><div id="cyclotomic-polynomials-have-integer-coefficients" class="slide section level3">
+<h1>Cyclotomic polynomials have integer coefficients</h1>
+<p><strong>Lemma:</strong> <span class="math inline">\(\Phi_{n}(x)\)</span> is monic and belongs to <span class="math inline">\(\Z[x]\)</span>.</p>
+<p><strong>Proof:</strong> The factorization of <span class="math inline">\(x^{n}-1\)</span> in terms of <span class="math inline">\(\Phi_{d}(x)\)</span> gives a recursive algorithm for computing the <span class="math inline">\(\Phi_{d}\)</span>. Clearly <span class="math inline">\(\Phi_{1}(x)=x-1\)</span> belongs to <span class="math inline">\(\Z[x]\)</span>. Suppose that <span class="math inline">\(\Phi_{d}(x)\)</span> is monic and belongs to <span class="math inline">\(\Z[x]\)</span> for all <span class="math inline">\(d&lt;n\)</span>. Then <span class="math inline">\(x^{n}-1=f(x)\Phi_{n}(x)\)</span> where <span class="math inline">\(f(x)\)</span> is monic with integer coefficients. Then <span class="math inline">\((x^{n}-1)/f(x)\)</span> is monic with integer coefficients by polynomial division (or by Gauss’s lemma if you want to be fancier).</p>
+</div><div id="the-cyclotomic-polynomials-are-irreducible" class="slide section level3">
+<h1>The cyclotomic polynomials are irreducible</h1>
+<p><strong>Theorem:</strong> The polynomials <span class="math inline">\(\Phi_{n}(x)\)</span> are irreducible.</p>
+<p><strong>Proof:</strong> We use results about the reduction mod <span class="math inline">\(p\)</span> of <span class="math inline">\(\Phi_{n}(x)\)</span>; in some sense this is a number theoretic result.</p>
+<p>Suppose that <span class="math inline">\(\Phi_{n}(x)=f(x)g(x)\)</span> where <span class="math inline">\(f(x)\)</span> is irreducible. Let <span class="math inline">\(\zeta\)</span> be a root of <span class="math inline">\(f(x)\)</span>. Choose a prime <span class="math inline">\(p\)</span> not dividing <span class="math inline">\(n\)</span>. Then <span class="math inline">\(\zeta^p\)</span> is again a primitive <span class="math inline">\(n^{th}\)</span> root of unity, and therefore a root of either <span class="math inline">\(f(x)\)</span> or <span class="math inline">\(g(x)\)</span>. Suppose it’s a root of <span class="math inline">\(g(x)\)</span>. Then since <span class="math inline">\(g(\zeta^p)=0\)</span> it follows that <span class="math inline">\(\zeta\)</span> is a root of <span class="math inline">\(g(x^p)\)</span>. Now <span class="math inline">\(f(x)\)</span> is irreducible, so it is the minimal polynomial for <span class="math inline">\(\zeta\)</span>, and therefore <span class="math inline">\(f(x)\)</span> divides <span class="math inline">\(g(x^p)\)</span>:</p>
+<p><span class="math display">\[
+g(x^p)=f(x)h(x)
+\]</span></p>
+<p>Reduce this equation modulo <span class="math inline">\(p\)</span>, and we have</p>
+<p><span class="math display">\[
+\overline{g}(x^p)=\overline{g}(x)^p=\overline{f}(x)\overline{h}(x).
+\]</span></p>
+<p>Then <span class="math inline">\(\overline{f}(x)\)</span> divides <span class="math inline">\(\overline{g}(x)^p\)</span> which means that <span class="math inline">\(\overline{f}(x)\)</span> and <span class="math inline">\(\overline{g}(x)\)</span> have a common factor mod <span class="math inline">\(p\)</span>.</p>
+<p>Now remember that</p>
+<p><span class="math display">\[
+\Phi_{n}(x)=f(x)g(x).
+\]</span></p>
+<p>This tells us that, mod <span class="math inline">\(p\)</span>, <span class="math inline">\(\Phi_{n}(x)\)</span> has a multiple root (from the common factor of <span class="math inline">\(f(x)\)</span> and <span class="math inline">\(g(x)\)</span> mod <span class="math inline">\(p\)</span>). But that would mean that <span class="math inline">\(x^{n}-1\)</span> has a multiple root mod <span class="math inline">\(p\)</span>, which can’t be true. It’s derivative is <span class="math inline">\(nx^{n-1}\)</span> which is not zero mod <span class="math inline">\(p\)</span> since <span class="math inline">\(p\)</span> does not divide <span class="math inline">\(n\)</span>. It follows that <span class="math inline">\(\zeta^p\)</span> must be a root of <span class="math inline">\(f(x)\)</span>.</p>
+<p>Retracing the argument, we’ve shown that, if <span class="math inline">\(\zeta\)</span> is a root of the factor <span class="math inline">\(f(x)\)</span>, so is <span class="math inline">\(\zeta^p\)</span> for any <span class="math inline">\(p\)</span> not dividing <span class="math inline">\(n\)</span>. If <span class="math inline">\(\alpha\)</span> is any primitive <span class="math inline">\(n^{th}\)</span> root of <span class="math inline">\(1\)</span>, then <span class="math inline">\(\alpha=\zeta^a\)</span> for some <span class="math inline">\(a\)</span> relatively prime to <span class="math inline">\(n\)</span>. But then <span class="math inline">\(a=p_1\cdots p_k\)</span> where the <span class="math inline">\(p_i\)</span> are primes not dividing <span class="math inline">\(n\)</span> (not necessarily distinct). It follows that <span class="math inline">\(\alpha=((\zeta^{p_{1}})^{p_{2}})^{\ldots}\)</span> is also a root of <span class="math inline">\(f(x)\)</span>. In other words, all of the primitive <span class="math inline">\(n^{th}\)</span> roots of one are roots of <span class="math inline">\(f(x)\)</span>. That means that <span class="math inline">\(f(x)=\Phi_{n}(x)\)</span> and <span class="math inline">\(g(x)=1\)</span>, so <span class="math inline">\(\Phi_{n}(x)\)</span> is irreducible.</p>
+<p><strong>Corollary:</strong> The field <span class="math inline">\(\Q(\mu_{n})\)</span> has degree <span class="math inline">\(\phi(n)\)</span> over <span class="math inline">\(\Q\)</span>.</p>
+</div><div id="the-cosine-of-twenty-degrees" class="slide section level3">
+<h1>The cosine of twenty degrees</h1>
+<p>In our work on constructibility we claimed that the 60 degree angle could not be trisected because a twenty degree angle is not constructible. Now</p>
+<p><span class="math display">\[
+2\cos 20^{\circ}=2\cos{2\pi/18}=e^{\pi i/9}+e^{-\pi i/9}.
+\]</span></p>
+<p>Now <span class="math inline">\(e^{\pi i/9}\)</span> is a primitive <span class="math inline">\(18^{th}\)</span> root of one and there are <span class="math inline">\(\phi(18)=6\)</span> such; they are roots of <span class="math inline">\(\Phi_{18}(x)\)</span>. Now</p>
+<p><span class="math display">\[
+x^{18}-1=(x^9-1)(x^9+1)
+\]</span></p>
+<p>but also</p>
+<p><span class="math display">\[
+x^{18}-1=\Phi_{1}(x)\Phi_{2}(x)\Phi_{3}(x)\Phi_{6}(x)\Phi_{9}(x)\Phi_{18}(x)
+\]</span></p>
+<p>Now:</p>
+<p><span class="math display">\[
+\begin{matrix}
+Phi_{1}(x)=x-1 \\
+\Phi_{2}(x)=x+1 \\
+\Phi_{3}(x)=x^2+x+1 \\
+\Phi_{6}(x)=x^2-x+1 \\
+\end{matrix}
+\]</span></p>
+<p>so some algebra tells us that</p>
+<p><span class="math display">\[
+\Phi_{18}(x)=\frac{x^9+1}{x^3+1}=x^6-x^3+1.
+\]</span></p>
+<p>This in turn means that, if <span class="math inline">\(\zeta=e^{\pi i/9}\)</span>, then <span class="math inline">\(\zeta^{3}+\zeta^{-3}=1\)</span> (divide <span class="math inline">\(\Phi_{18}\)</span> by <span class="math inline">\(x^3\)</span>). But</p>
+<p>$$ (+<sup>{-1})</sup>3=<sup>{3}+</sup>{-3}+3(+<sup>{-1})=1+3(+</sup>{-1}).</p>
 </div>
 </body>
 </html>
