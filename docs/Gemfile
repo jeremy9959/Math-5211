@@ -32,3 +32,4 @@ gem "wdm", "~> 0.1.1", :platforms => [:mingw, :x64_mingw, :mswin]
 gem "nokogiri", ">= 1.13.9"
 gem "commonmarker", ">=0.23.6"
 
+gem "webrick", "~> 1.8"
