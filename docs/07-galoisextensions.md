@@ -219,7 +219,30 @@ Since the row and column ranks of a matrix are the same, we have $n=m$.
 
 ### More on the proof - Step 4
 
-We finally need to verify that $E/E^{G}$ is a separable splitting field.
+We finally need to verify that $E/E^{G}$ is a separable splitting field. First, let $\alpha\in E$ be any element of $E$ with
+minimal polynomial $q(x)$.
+Consider the orbit $\lbrace \alpha_{1},\ldots, \alpha_{k}\rbrace$ of $\alpha$ under the action of $G$. The
+polynomial
+
+$$
+p(x)=\prod_{i=1}^{k}(x-\alpha_{i})
+$$
+
+is fixed by $G$ so has coefficients in $E^{G}$; it also has $\alpha$ as a root so $q(x)$ divides $p(x)$. Therefore all roots of $q(x)$
+belong to $E$. Since every polynomial with coefficients in $E^{G}$ that has a root in $E$ splits in $E$, $E$ is a splitting field over $E^{G}$.
+
+To show separability, let $\beta_{1},\ldots, \beta_{n}$ be a basis for $E/E^{G}$. Let $p_{i}(x)$ be the minimal polynomial of $\beta_{i}$ over $E^{G}$.
+We've shown already that each $p_{i}(x)$ splits completely in $E$. Consider the product $f(x)$ of all the $p_{i}$ and let $f_{1}(x)$ be its square free part
+(that is, the product of its irreducible factors, all to the first power). Then $f_{1}(x)$ is separable and has the $\beta_{i}$ as roots, and therefore $E$
+is the splitting field of the separable polynomial $f_{1}(x)$.
+
+**Definition:** If $\alpha\in E$, the elements $\sigma(\alpha)$, with $\sigma\in G$, are called the conjugates of $\alpha$ (or the Galois conjugates).
+
+### The full proof of the correspondence
+
+See the proof in Dummit and Foote, which basically applies our numerical result that $[E:E^{G}]=\vert G\vert$, the fact that $E/E^{G}$ is a separable splitting field,
+and our existence theorem that, if $E/F$ is a separable
+splitting field, then $\vert\Aut(E/F)\vert =[E:F]$j to obtain the correspondence.
 
 <div>
 <a href="slides/07-galoisextensions.html"> View as slides </a>
