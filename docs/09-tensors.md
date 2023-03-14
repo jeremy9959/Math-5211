@@ -148,6 +148,25 @@ M\times N \ar[r]^{B}\ar[dr]^{f} & M\otimes N\ar[d]^{\overline{f}}\\
 \end{xy}
 $$
 
+### Some examples
+
+Suppose that $R$ is a field and $V$, $W$, are vector spaces over $R$ of dimensions $n$ and $m$ respectively. Let $v_1,\ldots, v_n$ be a basis for $V$ and $w_1,\ldots, w_m$ a basis for $W$.
+If $L$ is another $F$-vector space, then a bilinear map $f:V\times W\to L$
+is determined by its values on all pairs $(v_i,w_j)$. The tensor product $V\otimes W$ is an $F$-vector space and is spanned by the tensors $v_{i}\otimes w_{j}$. Now construct a bilinear map
+$f_{ij}:V\times W\to F$ by setting
+
+$$
+f_{ij}(\sum a_{s}v_{s},\sum b_{s}w_{s})=a_{i}b_{j}.
+$$
+
+By the universal property we have $f_{ij}(v_{r}\otimes w_{s})=0$ unless $r=i$ and $s=j$ in which case it is one. Suppose that
+
+$$
+x=\sum c_{rs}v_{r}\otimes w_{s}=0.
+$$
+
+Then $f_{ij}(x)=c_{ij}=0$ for all pairs $i,j$ and therefore all $c_{rs}=0$; in other words, the $v_{r}\otimes w_{s}$ are linearly independent. Thus $V\otimes W$ is an $nm$ dimensional $F$-vector space.
+
 ### The noncommutative case
 
 Now suppose that $R$ is a noncommutative ring. If $M$ and $N$ are left modules, then we have a problem defining a bilinear map $M\times N\to L$ where $L$ is also a left module. Namely, on the one hand, we would need:
@@ -190,6 +209,34 @@ M\times N \ar[r]^{\iota}\ar[dr]^{f} & M\otimes N\ar[d]^{\phi}\\
 $$
 
 Here the map $M\times N\to M\otimes N$ is the expected one: $(m,n)\mapsto m\otimes n$.
+
+As is always the case, the universal property characterizes the tensor product up to isomorphism.
+
+### Bimodules
+
+Now suppose that $S$ and $R$ are rings with unity and that $M$ is simultaneously a left $S$-module and a right $R$ module, so that $(sm)r=s(mr)$. Such an object $M$ is called
+an $(S,R)$-bimodule.
+
+For example, suppose $R=M_{2}(F)$,
+$S=F$, and $M$ is the space $F^{2}$ viewed as row vectors with $R$ acting on the right as matrix multiplication and $S$ on the left as scalar multiplication.
+
+If $N$ is a left $R$ module, we can form the tensor product $M\otimes_{R}N$ which is an abelian group; but we can furthermore let $S$ act by $s(m\otimes n)=(sm\otimes n)$.
+This makes $M\otimes_{R}N$ into a left $S$-module. (If $N$ is an $(R,S)$-bimodule so that $R$ acts on the left and $S$ on the right, then $M\otimes_{R}N$ is a right $S$-module.)
+
+If $R$ is commutative, and $M$ is a left $R$ module, it is also a right $R$-module via $(mr)=rm$. So it is automatically an $(R,R)$-bimodule. This is how $M\otimes_{R}N$ is automatically
+an $R$-module if $R$ is commutative.
+
+## General Properties
+
+- If $f:M\to M'$ and $g:N\to N'$ are maps of right/left $R$-modules, then $f\otimes g:M\otimes N\to M'\otimes N'$ defined by $(f\otimes g)(m\otimes n)=f(m)\otimes g(n)$ is a well defined group homomorphism.
+  If $M$ and $M'$ are $(S,R)$ bimodules and $f$ and $g$ are $S$-module homomorphismsm then $f\otimes g$ is an $S$-module homomorphism. (If $R$ is commutative all this is automatic). Further, provided
+  everything makes sense, $(f\otimes g)\circ (f'\otimes g')=(f\circ f')\otimes (g\circ g').$
+- the tensor product is associative in the sense that $(M_1\otimes_{R} M_2)\otimes_{T} M_3$ is isomorphic to $M_1\otimes_{R} (M_2\otimes_{T} M_3)$ provided that $M_1$ is a right $R$ module,
+  $M_{2}$ is an $(R,T)$ bimodule, and $M_3$ is a left $T$-module. If $R$ and $T$ are commutative this is automatic.
+- If $R$ is commutative, the tensor product is commutative in the sense that $M\otimes N$ is isomorphic to $N\otimes M$.
+- $(M\oplus M')\otimes N$ is isomorphic to $(M\otimes N)\oplus (M'\otimes N)$ and similarly if $N$ is a direct sum. By induction this extends to finite direct sums. With care it holds for infinite direct sums.
+- If $A$ and $B$ are $R$ algebras where $R$ is commutative, then $A\otimes_{R}B$ is an $R$ algebra with multiplication $(a\otimes b)(a'\otimes b')=(aa')\otimes (bb')$. (remember that an $R$ algebra is a ring in which
+  $R$ is embedded in the center of the ring).
 
 <div>
   <a href="slides/09-tensors.html"> View as slides </a>
