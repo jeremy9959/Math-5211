@@ -8,15 +8,69 @@
   <meta name="generator" content="pandoc" />
   <title>7. Galois Extensions</title>
   <style type="text/css">
-    code{white-space: pre-wrap;}
-    span.smallcaps{font-variant: small-caps;}
-    span.underline{text-decoration: underline;}
-    div.column{display: inline-block; vertical-align: top; width: 50%;}
-    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-    ul.task-list{list-style: none;}
+    
   </style>
   <link rel="stylesheet" type="text/css" media="screen, projection, print"
     href="https://www.w3.org/Talks/Tools/Slidy2/styles/slidy.css" />
+  <script type="text/javascript">
+      window.MathJax = {
+        loader: {
+        load: ['[custom]/xypic.js'],
+        paths: {custom: 'https://cdn.jsdelivr.net/gh/sonoisa/XyJax-v3@3.0.1/build/'}
+      },
+        tex: {
+          packages: {'[+]': ['xypic']},
+          tags: "ams",
+          inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+          displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+          processEscapes: true,
+          macros: {
+            Z: "{\\mathbb{Z}}",
+            Zn: ["{\\mathbb{Z}/#1 \\mathbb{Z}}",1],
+            GL: "{\\mathrm{GL}}",
+            lessim: "{\\lesssim}",
+            R: "{\\mathbb{R}}",
+            Q: "{\\mathbb{Q}}",
+            N: "{\\mathbb{N}}",
+            SL: "{\\mathrm{SL}}",
+            PGL: "{\\mathrm{PGL}}",
+            C: "{\\mathbb{C}}",
+            Stab: "{\\mathrm{Stab}}",
+            Aut: "{\\mathrm{Aut}}",
+            End: "{\\mathrm{End}}",
+            isom: "{\\cong}",
+            order: ["{\\lvert#1\\rvert}",1],
+            divides: "{\\vert}",
+            semi: "{\\rtimes}",
+            End: "{\\mathrm{End}}",
+            dim: "{\\mathrm{dim}}",
+            Hom: "{\\mathrm{Hom}}",
+            Pol: "{\\mathrm{Pol}}",
+            D: "{\\mathcal{D}}",
+            span: "{\\mathrm{span}}",
+            norm: ["{\\lVert #1 \\rVert}",1],
+            Tor: "{\\mathrm{Tor}}",
+            Ann: "{\\mathrm{Ann}}",
+          }
+        }
+      };
+  </script>
+  <script type="text/javascript" id="MathJax-script" async
+    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
+  </script>
+
+  <!-- LaTeX Macros
+
+
+
+  $$\def\GL{\mathrm{GL}}$$
+  $$\def\Zn#1{\mathbb{Z}/#1\mathbb{Z}}$$
+  $$\def\Z{\mathbb{Z}}$$
+  $$\def\gcd#1#2{\mathrm{gcd}(#1,#2)}$$
+  -->
+  <script
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js"
+  type="text/javascript"></script>
   <script src="https://www.w3.org/Talks/Tools/Slidy2/scripts/slidy.js"
     charset="utf-8" type="text/javascript"></script>
 </head>
@@ -27,6 +81,422 @@
 <div id="galois-extensions" class="title-slide slide section level2">
 <h1>Galois Extensions</h1>
 
+</div>
+<div id="automorphisms" class="slide section level3">
+<h1>Automorphisms</h1>
+<p>Let <span class="math inline">\(K/F\)</span> be an extension fields
+and let <span class="math inline">\(\Aut(K/F)\)</span> be the group of
+field homomorphisms <span class="math inline">\(\sigma: K\to K\)</span>
+which are the identity when restricted to <span
+class="math inline">\(F\)</span>.</p>
+<p>Some basics:</p>
+<ul>
+<li>If <span class="math inline">\(\alpha\in K\)</span> is algebraic
+over <span class="math inline">\(F\)</span> with minimal polynomial
+<span class="math inline">\(p(x)\)</span> over <span
+class="math inline">\(F\)</span>, then <span
+class="math inline">\(\sigma(\alpha)\)</span> is also a root of <span
+class="math inline">\(p(x)\)</span>.</li>
+<li>If <span class="math inline">\(H\subset\Aut(K/F)\)</span> is a
+subgroup, then the set <span class="math inline">\(K^{H}=\lbrace x\in K
+: \sigma(x)=x\forall \sigma\in H\rbrace\)</span> is a subfield of <span
+class="math inline">\(K\)</span>.</li>
+<li>If <span class="math inline">\(H_1\subset H_2\)</span> are subgroups
+of <span class="math inline">\(\Aut(K/F)\)</span>, then <span
+class="math inline">\(K^{H_{2}}\subset K^{H_{1}}\)</span>.</li>
+</ul>
+</div>
+<div id="galois-extensions-1" class="slide section level3">
+<h1>Galois Extensions</h1>
+<p><strong>Proposition:</strong> Let <span
+class="math inline">\(E/F\)</span> be the splitting field over <span
+class="math inline">\(F\)</span> of some polynomial <span
+class="math inline">\(f(x)\in F[x]\)</span>. Then</p>
+<p><span class="math display">\[
+\vert \Aut(E/F)\vert\le [E:F].
+\]</span></p>
+<p>If <span class="math inline">\(f(x)\)</span> is separable, then this
+is an equality.</p>
+<p><strong>Definition:</strong> <span class="math inline">\(E/F\)</span>
+is called a Galois extension if <span
+class="math inline">\(\vert\Aut(E/F)\vert=[E:F]\)</span>. In this case
+the automorphism group is called the <em>Galois group</em> of the
+extension.</p>
+<p>Proposition 5 says that separable splitting fields are Galois
+extensions.</p>
+</div>
+<div id="the-galois-correspondence" class="slide section level3">
+<h1>The Galois correspondence</h1>
+<p>Let <span class="math inline">\(E/F\)</span> be a Galois extension
+with Galois group <span class="math inline">\(G\)</span>. Then there is
+a bijective (inclusion reversing) correspondence between:</p>
+<ul>
+<li>subfields <span class="math inline">\(L\)</span> of <span
+class="math inline">\(E\)</span> containing <span
+class="math inline">\(F\)</span></li>
+<li>subgroups of <span class="math inline">\(G\)</span></li>
+</ul>
+<p>The correspondence is given by <span class="math inline">\(H\to
+E^{H}\)</span> for <span class="math inline">\(H\subset G\)</span> in
+one direction, and <span class="math inline">\(L\to \Aut(E/L)\subset
+G\)</span> in the other direction.</p>
+<p>Further:</p>
+<ul>
+<li>If <span class="math inline">\(L=E^{H}\)</span> then <span
+class="math inline">\(E/L\)</span> is Galois with group <span
+class="math inline">\(H\)</span>.</li>
+<li>If <span class="math inline">\(L=E^{H}\)</span> then <span
+class="math inline">\([E:L]=\vert H\vert\)</span> so <span
+class="math inline">\(E\)</span> is Galois over <span
+class="math inline">\(L\)</span>.</li>
+<li>If <span class="math inline">\(L\)</span> is a subfield of <span
+class="math inline">\(E\)</span> containing <span
+class="math inline">\(F\)</span>, then <span
+class="math inline">\(\vert\Aut(E/L)\vert=[E:L]\)</span> so <span
+class="math inline">\(E\)</span> is Galois over <span
+class="math inline">\(L\)</span>.</li>
+<li>The fixed field <span class="math inline">\(L=E^{H}\)</span> is
+Galois over <span class="math inline">\(F\)</span> if and only if <span
+class="math inline">\(H\)</span> is a normal subgroup of <span
+class="math inline">\(G\)</span>, and in that case <span
+class="math inline">\(\Aut(L/F)=G/H\)</span>.</li>
+</ul>
+</div>
+<div id="some-examples" class="slide section level3">
+<h1>Some examples</h1>
+<ul>
+<li>Quadratic extensions</li>
+<li><span class="math inline">\(\Q(\sqrt{2},\sqrt{3})\)</span>.</li>
+<li>The splitting field of <span class="math inline">\(x^3-2\)</span>
+over <span class="math inline">\(\Q\)</span>.</li>
+<li>The splitting field of <span class="math inline">\(x^4-2\)</span>
+over <span class="math inline">\(\Q\)</span>.</li>
+<li>The field <span class="math inline">\(\Q(\zeta_p)\)</span> where
+<span class="math inline">\(\zeta_p\)</span> is a <span
+class="math inline">\(p^{th}\)</span> root of unity.</li>
+<li>The fields of eigth and ninth roots of unity.</li>
+<li>Finite fields.</li>
+</ul>
+</div>
+<div id="overview-of-the-proof" class="slide section level3">
+<h1>Overview of the proof</h1>
+<p>There are two “directions” we need to consider.</p>
+<ol style="list-style-type: decimal">
+<li>Suppose <span class="math inline">\(E/F\)</span> is a separable
+splitting field extension. Then <span
+class="math inline">\(\vert\Aut(E/F)\vert=[E:F]\)</span>.</li>
+<li>Suppose <span class="math inline">\(E\)</span> is a field and <span
+class="math inline">\(G\)</span> is a finite group of automorphisms of
+<span class="math inline">\(E\)</span>. Then the fixed field <span
+class="math inline">\(E^{G}\)</span> satisfies <span
+class="math inline">\([E:E^{G}]=\vert G\vert\)</span> and <span
+class="math inline">\(E/E^{G}\)</span> is a separable splitting
+field.</li>
+</ol>
+<p>These mean together that:</p>
+<ul>
+<li>if we start with a separable extension <span
+class="math inline">\(E/F\)</span>, compute its automorphism group <span
+class="math inline">\(\Aut(E/F)\)</span>, and then take the fixed field
+in <span class="math inline">\(E\)</span> of that group, we get a
+subfield of <span class="math inline">\(E\)</span> that contains <span
+class="math inline">\(F\)</span> and has <span
+class="math inline">\([E:E^{\Aut(E/F)}]=[E:F]\)</span>, so <span
+class="math inline">\(E^{\Aut(E/F)}=F\)</span>.</li>
+<li>if we start with a field <span class="math inline">\(E\)</span> and
+a group of automorphisms <span class="math inline">\(G\)</span>, then
+<span class="math inline">\(E/E^{G}\)</span> is a separable splitting
+field extension so <span class="math inline">\(\Aut(E/E^{G})\)</span>
+has order <span class="math inline">\([E:E^{G}]=\vert G\vert\)</span>.
+Since <span class="math inline">\(G\)</span> is contained in <span
+class="math inline">\(\Aut(E/E^{G})\)</span>, this means <span
+class="math inline">\(\Aut(E/E^{G})=G\)</span>.</li>
+</ul>
+<p>This is the prototype of the Galois correspondence.</p>
+</div>
+<div id="more-on-the-proof---step-1" class="slide section level3">
+<h1>More on the proof - Step 1</h1>
+<p>The first assertion to consider is that, if <span
+class="math inline">\(E/F\)</span> is a separable splitting field, then
+<span class="math inline">\(\vert\Aut(E/F)\vert=[E:F].\)</span> This is
+a consequence of the theorem on extension of automorphisms. The proof is
+by induction. Clearly if <span class="math inline">\(E=F\)</span> then
+<span class="math inline">\(\Aut(E/F)\)</span> is trivial and <span
+class="math inline">\([E:F]=1.\)</span> Now suppose we know the result
+for all separable splitting fields of degree less than <span
+class="math inline">\(n\)</span> and suppose <span
+class="math inline">\(E/F\)</span> has degree <span
+class="math inline">\(n.\)</span> Choose an element <span
+class="math inline">\(\alpha\in E\)</span> of degree greater than one
+over <span class="math inline">\(F\)</span> and let <span
+class="math inline">\(f(x)\)</span> be its minimal polynomial. Let <span
+class="math inline">\(\beta\)</span> be any other root of <span
+class="math inline">\(f(x)\)</span>. Since <span
+class="math inline">\(E/F\)</span> is a splitting field, <span
+class="math inline">\(\beta\in E\)</span>. Consider the diagram:</p>
+<p><span class="math display">\[
+\begin{xy}
+\xymatrix{
+E \ar[r] &amp; E \\
+F(\alpha)\ar[r]\ar[u]&amp;F(\beta)\ar[u] \\
+F\ar[r]\ar[u] &amp; F\ar[u] \\
+}
+\end{xy}
+\]</span></p>
+<p>Since <span class="math inline">\(F(\alpha)\)</span> is isomorphic to
+<span class="math inline">\(F(\beta)\)</span>, the extension theorem
+says that there is an automorphism of <span
+class="math inline">\(E\)</span> carrying <span
+class="math inline">\(\alpha\)</span> to <span
+class="math inline">\(\beta\)</span>. Since there are <span
+class="math inline">\([F(\alpha):F]\)</span> choices of <span
+class="math inline">\(\beta\)</span>, there are <span
+class="math inline">\(n\)</span> such extensions <span
+class="math inline">\(\sigma_{\beta}\)</span> corresponding to the <span
+class="math inline">\(n\)</span> roots <span
+class="math inline">\(\beta\)</span> of the minimal polynomial of <span
+class="math inline">\(\alpha\)</span> over <span
+class="math inline">\(F\)</span>.</p>
+<p>Now <span class="math inline">\(E/F(\alpha)\)</span> is still a
+separable splitting field, so our induction hypothesis says that there
+are <span class="math inline">\([E:F(\alpha)]\)</span> automorphisms of
+<span class="math inline">\(E\)</span> fixing <span
+class="math inline">\(F(\alpha)\)</span>. Take any automorphism <span
+class="math inline">\(\tau\)</span> of <span
+class="math inline">\(E/F\)</span>. It carries <span
+class="math inline">\(\alpha\)</span> to some <span
+class="math inline">\(\beta\)</span>, so <span
+class="math inline">\(\sigma_{\beta}^{-1}\tau\)</span> fixes <span
+class="math inline">\(\alpha\)</span> and therefore <span
+class="math inline">\(\tau=\sigma_{\beta}\phi\)</span> where <span
+class="math inline">\(\phi\in\Aut(E/F(\alpha))\)</span>.</p>
+<p>It’s not hard to show that this representation is unique, and so</p>
+<p><span class="math display">\[
+\vert\Aut(E/F)\vert=\vert\Aut(E/F(\alpha))[F(\alpha):F] =
+[E:F(\alpha)][F(\alpha):F]=[E:F]
+\]</span></p>
+</div>
+<div id="more-on-the-proof---step-2" class="slide section level3">
+<h1>More on the proof - Step 2</h1>
+<p>Now we want to show that, if <span class="math inline">\(G\)</span>
+is a group of automorphisms of a field <span
+class="math inline">\(E\)</span>, then <span
+class="math inline">\(E/E^{G}\)</span> is a separable splitting field of
+degree <span class="math inline">\(\vert G\vert\)</span>. The key tool
+here is a result known as <em>linear independence of
+characters</em>.</p>
+<p><strong>Lemma:</strong> Let <span class="math inline">\(G\)</span> be
+a group, let <span class="math inline">\(L\)</span> be a field, and let
+<span class="math inline">\(\sigma_1,\ldots, \sigma_n\)</span> be
+distinct homomorphisms <span class="math inline">\(G\to
+L^{\times}\)</span>. Then the <span
+class="math inline">\(\sigma_{i}\)</span> are linearly independent over
+<span class="math inline">\(L\)</span>, meaning that if <span
+class="math inline">\(f=\sum_{i=1}^{n} a_{i}\sigma_{i}\)</span> is the
+zero map for some collection of <span class="math inline">\(a_{i}\in
+L\)</span>, then all <span class="math inline">\(a_{i}\)</span> are
+zero.</p>
+<p><strong>Proof:</strong> Suppose that the <span
+class="math inline">\(\sigma_{i}\)</span> are dependent. Choose a linear
+relation of minimal length where all the coefficients are nonzero:</p>
+<p><span class="math display">\[
+f=\sum a_{i}\sigma_{i} = 0
+\]</span></p>
+<p>Let <span class="math inline">\(h\in G\)</span> such that <span
+class="math inline">\(\sigma_{1}(h)\)</span> and <span
+class="math inline">\(\sigma_{n}(h)\)</span> are different. Now <span
+class="math inline">\(f(g)=0\)</span> for all <span
+class="math inline">\(g\in G\)</span>, and also <span
+class="math inline">\(f(hg)=0\)</span> for all <span
+class="math inline">\(g\in G\)</span> since it’s the same set of
+elements. Therefore</p>
+<p><span class="math display">\[
+k=\sum a_{i}\sigma_{i}(h)\sigma_{i}=0.
+\]</span></p>
+<p>Now <span class="math inline">\(k-\sigma_{n}(h)f\)</span> is also
+identically zero. The coefficients of <span
+class="math inline">\(\sigma_{n}\)</span> in <span
+class="math inline">\(k\)</span> and <span
+class="math inline">\(f\)</span> are both <span
+class="math inline">\(\sigma_{h}(h)a_{n}\)</span> so they cancel. On the
+other hand, the coefficients of <span
+class="math inline">\(\sigma_{1}\)</span> are <span
+class="math inline">\(a_{1}\sigma_{1}(h)\)</span> and <span
+class="math inline">\(a_{1}\sigma_{n}(h)\)</span> which are different;
+so <span class="math inline">\(k-\sigma_{n}(h)f\)</span> is a relation
+among the <span class="math inline">\(\sigma_{i}\)</span> of shorter
+length. Thus the <span class="math inline">\(\sigma_{i}\)</span> are
+independent.</p>
+<p>Notice that if <span class="math inline">\(L\)</span> is a field,
+<span class="math inline">\(L^{\times}\)</span> is a group and we can
+restrict an automorphism of <span class="math inline">\(L\)</span> to
+<span class="math inline">\(L^{\times}\)</span> to obtain a character
+<span class="math inline">\(L^{\times}\to L\)</span>. Therefore distinct
+automorphisms of <span class="math inline">\(L\)</span> are linearly
+independent over <span class="math inline">\(L\)</span>.</p>
+</div>
+<div id="more-on-the-proof---step-3" class="slide section level3">
+<h1>More on the proof - Step 3</h1>
+<p>Now we want to prove that <span class="math inline">\([E:E^{G}]=\vert
+G\vert\)</span>. Let’s use <span class="math inline">\(F=E^{G}\)</span>
+to simplify the notation. Choose a basis <span
+class="math inline">\(\alpha_{1},\ldots, \alpha_{n}\)</span> for <span
+class="math inline">\(E/F\)</span> and let <span
+class="math inline">\(\sigma_{1},\ldots, \sigma_{m}\)</span> be the
+elements of <span class="math inline">\(G\)</span>. Form <span
+class="math inline">\(m\times n\)</span> the matrix</p>
+<p><span class="math display">\[
+S=\left(\begin{matrix} \sigma_{1}(\alpha_{1}) &amp;
+\sigma_{1}(\alpha_{2}) &amp; \cdots &amp; \sigma_{1}(\alpha_{n})\\
+                     \sigma_{2}(\alpha_{1})  &amp;
+\sigma_{2}(\alpha_{2}) &amp; \cdots &amp; \sigma_{2}(\alpha_{n}) \\
+                     \vdots &amp; \vdots &amp; \vdots &amp;\vdots \\
+                     \sigma_{m}(\alpha_{1}) &amp; \sigma_{m}(\alpha_{2})
+&amp; \cdots &amp; \sigma_{m}(\alpha_{n}) \\
+                     \end{matrix}\right)
+\]</span></p>
+<p>Let’s first look at the row rank of this matrix. Suppose that</p>
+<p><span class="math display">\[
+[\beta_1\cdots\beta_m]S = 0.
+\]</span></p>
+<p>It follows that <span class="math inline">\(\sum_{i=1}^{m}
+\beta_{i}\sigma_{i}(\alpha_{j})=0\)</span> for all <span
+class="math inline">\(\alpha_j\)</span>, and, since the <span
+class="math inline">\(\alpha_{j}\)</span> span <span
+class="math inline">\(E/F\)</span>, we condlue <span
+class="math inline">\(\sum_{i=1}^{m}\beta_{i}\sigma_{i}(x)=0\)</span>
+for all <span class="math inline">\(x\in E\)</span>. By linear
+independence this means that all <span
+class="math inline">\(\beta_{i}=0\)</span> and so the row rank of <span
+class="math inline">\(S\)</span> is <span
+class="math inline">\(m\)</span>.</p>
+<p>Now let’s look at the column rank. For this, notice that if <span
+class="math inline">\(\sigma:E\to E\)</span> is an automorphism, then
+<span class="math inline">\(\sigma(S)\)</span> (obtained by applying
+<span class="math inline">\(\sigma\)</span> to each entry of <span
+class="math inline">\(S\)</span>) is obtained from <span
+class="math inline">\(S\)</span> by rearranging the rows. In other
+words</p>
+<p><span class="math display">\[
+\sigma(S)=\Pi(\sigma)S
+\]</span></p>
+<p>where <span class="math inline">\(\Pi(\sigma)\)</span> is an <span
+class="math inline">\(m\times m\)</span> permutation matrix. Now suppose
+<span class="math inline">\(\boldsymbol{\beta}=[\beta_{1},\ldots,
+\beta_{n}]\)</span> satisfies</p>
+<p><span class="math display">\[
+S\boldsymbol{\beta}=S\left[\begin{matrix} \beta_{1} \\ \vdots \\
+\beta_{n}\end{matrix}\right]=0.
+\]</span></p>
+<p>Then, for any <span class="math inline">\(\sigma\in G\)</span>, we
+have</p>
+<p><span class="math display">\[
+\sigma(S\boldsymbol{\beta})=\sigma(S)\sigma(\boldsymbol{\beta})=\Pi(\sigma)S\boldsymbol{\beta}=0
+\]</span></p>
+<p>In other words, if <span
+class="math inline">\(\boldsymbol{\beta}\)</span> is in the (left)
+kernel of <span class="math inline">\(S\)</span>, so is <span
+class="math inline">\(\sigma(\boldsymbol{\beta})\)</span>.</p>
+<p>Now suppose <span class="math inline">\(\boldsymbol{\beta}\)</span>
+is nonzero and satisfies <span
+class="math inline">\(S\boldsymbol{\beta}=0\)</span> and let <span
+class="math inline">\(y=\sum_{i=1}^{m}\sigma_{i}(\boldsymbol{\beta})\)</span>.
+This is a column vector whose entries are <span
+class="math inline">\(\sum_{i=1}^{m}\sigma_{i}(\beta_{j})\)</span>.
+These sums are all fixed by <span class="math inline">\(G\)</span>,
+since <span
+class="math inline">\(\sigma(\sum_{i=1}^{m}\sigma_{i}(\beta_{j}))\)</span>
+is just a permutation of the terms in the sum. We can introduce a
+function <span class="math inline">\(Y:E\to E\)</span> by setting</p>
+<p><span class="math display">\[
+Y_j(x)=\sum_{i=1}^{m}\sigma_{i}(x\beta_{j})=\sum_{i=1}^{m}\sigma_{i}(\beta_{j})\sigma_{i}(x).
+\]</span></p>
+<p>Since <span class="math inline">\(\boldsymbol{\beta}\)</span> is
+nonzero, by linear independence at least one of <span
+class="math inline">\(Y_{j}\)</span> is nonzero so there is an <span
+class="math inline">\(x\in E\)</span> such that</p>
+<p><span class="math display">\[
+\boldsymbol{Y}=\sum_{i=1}^{m}\sigma_{i}(x\boldsymbol{\beta})\not=0
+\]</span></p>
+<p>But <span class="math inline">\(\boldsymbol{Y}\)</span> is in <span
+class="math inline">\(F^{n}\)</span> and <span
+class="math inline">\(S\boldsymbol{Y}=0\)</span>. This means</p>
+<p><span class="math display">\[
+\sigma_{i}(\sum_{j=1}^{n} Y_{j}(x)\alpha_{j})=0
+\]</span></p>
+<p>for all <span class="math inline">\(i\)</span>; and since the <span
+class="math inline">\(Y_{j}(x)\in F\)</span> and the <span
+class="math inline">\(\alpha_{j}\)</span> are independent we must have
+<span class="math inline">\(Y_{j}(x)=0\)</span>. This contradiction
+means that there cannot be a nonzero <span
+class="math inline">\(\boldsymbol{\beta}\)</span> with <span
+class="math inline">\(S\boldsymbol{\beta}=0\)</span>. We conclude that
+the column rank of <span class="math inline">\(S\)</span> is <span
+class="math inline">\(n\)</span>.</p>
+<p>Since the row and column ranks of a matrix are the same, we have
+<span class="math inline">\(n=m\)</span>.</p>
+</div>
+<div id="more-on-the-proof---step-4" class="slide section level3">
+<h1>More on the proof - Step 4</h1>
+<p>We finally need to verify that <span
+class="math inline">\(E/E^{G}\)</span> is a separable splitting field.
+First, let <span class="math inline">\(\alpha\in E\)</span> be any
+element of <span class="math inline">\(E\)</span> with minimal
+polynomial <span class="math inline">\(q(x)\)</span>. Consider the orbit
+<span class="math inline">\(\lbrace \alpha_{1},\ldots,
+\alpha_{k}\rbrace\)</span> of <span
+class="math inline">\(\alpha\)</span> under the action of <span
+class="math inline">\(G\)</span>. The polynomial</p>
+<p><span class="math display">\[
+p(x)=\prod_{i=1}^{k}(x-\alpha_{i})
+\]</span></p>
+<p>is fixed by <span class="math inline">\(G\)</span> so has
+coefficients in <span class="math inline">\(E^{G}\)</span>; it also has
+<span class="math inline">\(\alpha\)</span> as a root so <span
+class="math inline">\(q(x)\)</span> divides <span
+class="math inline">\(p(x)\)</span>. Therefore all roots of <span
+class="math inline">\(q(x)\)</span> belong to <span
+class="math inline">\(E\)</span>. Since every polynomial with
+coefficients in <span class="math inline">\(E^{G}\)</span> that has a
+root in <span class="math inline">\(E\)</span> splits in <span
+class="math inline">\(E\)</span>, <span class="math inline">\(E\)</span>
+is a splitting field over <span
+class="math inline">\(E^{G}\)</span>.</p>
+<p>To show separability, let <span
+class="math inline">\(\beta_{1},\ldots, \beta_{n}\)</span> be a basis
+for <span class="math inline">\(E/E^{G}\)</span>. Let <span
+class="math inline">\(p_{i}(x)\)</span> be the minimal polynomial of
+<span class="math inline">\(\beta_{i}\)</span> over <span
+class="math inline">\(E^{G}\)</span>. We’ve shown already that each
+<span class="math inline">\(p_{i}(x)\)</span> splits completely in <span
+class="math inline">\(E\)</span>. Consider the product <span
+class="math inline">\(f(x)\)</span> of all the <span
+class="math inline">\(p_{i}\)</span> and let <span
+class="math inline">\(f_{1}(x)\)</span> be its square free part (that
+is, the product of its irreducible factors, all to the first power).
+Then <span class="math inline">\(f_{1}(x)\)</span> is separable and has
+the <span class="math inline">\(\beta_{i}\)</span> as roots, and
+therefore <span class="math inline">\(E\)</span> is the splitting field
+of the separable polynomial <span
+class="math inline">\(f_{1}(x)\)</span>.</p>
+<p><strong>Definition:</strong> If <span class="math inline">\(\alpha\in
+E\)</span>, the elements <span
+class="math inline">\(\sigma(\alpha)\)</span>, with <span
+class="math inline">\(\sigma\in G\)</span>, are called the conjugates of
+<span class="math inline">\(\alpha\)</span> (or the Galois
+conjugates).</p>
+</div>
+<div id="the-full-proof-of-the-correspondence"
+class="slide section level3">
+<h1>The full proof of the correspondence</h1>
+<p>See the proof in Dummit and Foote, which basically applies our
+numerical result that <span class="math inline">\([E:E^{G}]=\vert
+G\vert\)</span>, the fact that <span
+class="math inline">\(E/E^{G}\)</span> is a separable splitting field,
+and our existence theorem that, if <span
+class="math inline">\(E/F\)</span> is a separable splitting field, then
+<span class="math inline">\(\vert\Aut(E/F)\vert =[E:F]\)</span>j to
+obtain the correspondence.</p>
 </div>
 </body>
 </html>
