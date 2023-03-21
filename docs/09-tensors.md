@@ -65,7 +65,7 @@ So the following rules hold:
 
 A typical element of $S\otimes M$ is a _sum_ of the form $\sum_{i=1}^{n} s_{i}\otimes m_{i}$. It is an $S$-module via multiplication by $S$ on the first factor.
 
-We have a map $M\to $S\otimes_{R} M$ given by $m\mapsto 1\otimes m$.
+We have a map $M\to S\otimes_{R} M$ given by $m\mapsto 1\otimes m$.
 
 **Important:** The elements $s\otimes m$ belong to a quotient group and so the representation of an element as a sum of "simple tensors" $s\otimes m$ need not be unique!
 In fact it's quite possible for $s\otimes m$ to be zero.

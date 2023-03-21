@@ -69,10 +69,9 @@ The invariant factors are uniquely determined; and the elementary divisors are u
 
 **Lemma:** The minimal polynomial $m(x)$ of $T$ is the last (the "largest") invariant factor of $T$ acting on $V$; all the invariant factors divide $m(x)$. 
 
-## The Rational normal form
+## The Rational Normal Form 
 
-
-
+The term **"canonical normal form"** is also used to refer to the rational normal form.
 ### The cyclic case
 
 Let's focus our attention for the moment on a cyclic $F[x]$ module of the form $M=F[x]/(f(x))$ where
