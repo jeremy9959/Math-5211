@@ -8,15 +8,67 @@
   <meta name="generator" content="pandoc" />
   <title>8. Galois Theory Examples and Applications</title>
   <style type="text/css">
-    code{white-space: pre-wrap;}
-    span.smallcaps{font-variant: small-caps;}
-    span.underline{text-decoration: underline;}
-    div.column{display: inline-block; vertical-align: top; width: 50%;}
-    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-    ul.task-list{list-style: none;}
+    
   </style>
   <link rel="stylesheet" type="text/css" media="screen, projection, print"
     href="https://www.w3.org/Talks/Tools/Slidy2/styles/slidy.css" />
+  <script type="text/javascript">
+      window.MathJax = {
+        loader: {
+        load: ['[custom]/xypic.js'],
+        paths: {custom: 'https://cdn.jsdelivr.net/gh/sonoisa/XyJax-v3@3.0.1/build/'}
+      },
+        tex: {
+          packages: {'[+]': ['xypic']},
+          tags: "ams",
+          inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+          displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+          processEscapes: true,
+          macros: {
+            Z: "{\\mathbb{Z}}",
+            Zn: ["{\\mathbb{Z}/#1 \\mathbb{Z}}",1],
+            GL: "{\\mathrm{GL}}",
+            lessim: "{\\lesssim}",
+            R: "{\\mathbb{R}}",
+            Q: "{\\mathbb{Q}}",
+            N: "{\\mathbb{N}}",
+            SL: "{\\mathrm{SL}}",
+            PGL: "{\\mathrm{PGL}}",
+            C: "{\\mathbb{C}}",
+            Stab: "{\\mathrm{Stab}}",
+            Aut: "{\\mathrm{Aut}}",
+            End: "{\\mathrm{End}}",
+            isom: "{\\cong}",
+            order: ["{\\lvert#1\\rvert}",1],
+            divides: "{\\vert}",
+            semi: "{\\rtimes}",
+            End: "{\\mathrm{End}}",
+            dim: "{\\mathrm{dim}}",
+            Hom: "{\\mathrm{Hom}}",
+            Pol: "{\\mathrm{Pol}}",
+            D: "{\\mathcal{D}}",
+            span: "{\\mathrm{span}}",
+            norm: ["{\\lVert #1 \\rVert}",1],
+            Tor: "{\\mathrm{Tor}}",
+            Ann: "{\\mathrm{Ann}}",
+          }
+        }
+      };
+  </script>
+  <script type="text/javascript" id="MathJax-script" async
+    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
+  </script>
+  
+  <!-- LaTeX Macros
+  
+  
+  
+  $$\def\GL{\mathrm{GL}}$$
+  $$\def\Zn#1{\mathbb{Z}/#1\mathbb{Z}}$$
+  $$\def\Z{\mathbb{Z}}$$
+  $$\def\gcd#1#2{\mathrm{gcd}(#1,#2)}$$
+  -->
+  <script src="/usr/share/javascript/mathjax/MathJax.js?config=TeX-AMS_CHTML-full" type="text/javascript"></script>
   <script src="https://www.w3.org/Talks/Tools/Slidy2/scripts/slidy.js"
     charset="utf-8" type="text/javascript"></script>
 </head>
@@ -24,10 +76,30 @@
 <div class="slide titlepage">
   <h1 class="title">8. Galois Theory Examples and Applications</h1>
 </div>
-<div id="examples-and-applications"
-class="title-slide slide section level2">
-<h1>Examples and Applications</h1>
-
+<div id="examples-and-applications" class="title-slide slide section level2"><h1>Examples and Applications</h1></div><div id="the-general-polynomial" class="slide section level3">
+<h1>The “general polynomial”</h1>
+<p>The polynomial <span class="math inline">\(F_{n}(T)=(T-x_1)\cdots (T-x_n)\)</span>, where the <span class="math inline">\(x_i\)</span> are indeterminants, is called the general polynomial of degree <span class="math inline">\(n\)</span>. The group <span class="math inline">\(S_{n}\)</span> permutes the <span class="math inline">\(x_{i}\)</span> and acts as automorphisms of the field <span class="math inline">\(E(x_1,\ldots, x_n)\)</span> where <span class="math inline">\(E\)</span> is any field.</p>
+<p>The coefficients of <span class="math inline">\(F_{n}(T)\)</span> are, up to sign, the elementary symmetric functions <span class="math inline">\(s_{i}\)</span> of the roots <span class="math inline">\(x_{i}\)</span>. Therefore the field <span class="math inline">\(E(s_1,\ldots, s_n)\)</span> is contained in the fixed field of <span class="math inline">\(S_{n}\)</span> on <span class="math inline">\(E(x_1,\ldots, x_n)\)</span>. Therefore <span class="math inline">\([E(x_1,\ldots, x_n):E(s_1,\ldots, s_n)]\ge n!\)</span>.</p>
+<p>On the other hand, <span class="math inline">\(E(x_1,\ldots, x_n)\)</span> is the splitting field of <span class="math inline">\(F_{n}(T)\)</span> over <span class="math inline">\(E(s_1,\ldots, s_n)\)</span>. Therefore <span class="math inline">\([E(x_1,\ldots, x_n):E(s_1,\ldots, s_n)]\le n!\)</span>.</p>
+<p>Thus the galois group of this extension is <span class="math inline">\(S_{n}\)</span>.</p>
+<p>In particular any symmetric function in the roots of a polynomial can be written in terms of the coefficients of the polynomial.</p>
+</div><div id="the-discriminant" class="slide section level3">
+<h1>The discriminant</h1>
+<p>The discriminant of a polynomial is the product of the differences of its distinct roots squared:</p>
+<p><span class="math display">\[
+\Delta=\prod_{i&lt;j} (x_{i}-x_{j})^2
+\]</span></p>
+<p>It is a symmetric function of the roots.</p>
+<p>If <span class="math inline">\(\Delta\)</span> is a square, then the galois group of the polynomial is contained in the alternating group.</p>
+</div><div id="solvability-by-radicals" class="slide section level3">
+<h1>Solvability by radicals</h1>
+<p>A radical extension <span class="math inline">\(K/F\)</span> is a field extension that can be constructed by a succession of simple radical extensions where <span class="math inline">\(K_{i+1}=K_{i}(\alpha_{i+1})\)</span> where <span class="math inline">\(\alpha_{i+1}^{n_{i+1}}\in K_{i}\)</span>.</p>
+<p>Notice that any field extension generated by roots of unity is a radical extension.</p>
+<p><strong>Theorem (Kummer):</strong> Suppose that <span class="math inline">\(F\)</span> is a field containing the <span class="math inline">\(n^{th}\)</span> roots of unity where the characteristic of <span class="math inline">\(F\)</span> does not divide <span class="math inline">\(n\)</span>. Then <span class="math inline">\(K/F\)</span> is a cylic galois extension (i.e. has cyclic galois group) of degree <span class="math inline">\(n\)</span> if and only if <span class="math inline">\(K=F(\alpha)\)</span> where <span class="math inline">\(\alpha^{n}\in F\)</span>.</p>
+</div><div id="solvability-by-radicals-1" class="slide section level3">
+<h1>Solvability by radicals</h1>
+<p>A polynomial is “solvable by radicals” (meaning its roots like in a radical extension) if and only if the Galois group is solvable.</p>
+<p>The polynomial <span class="math inline">\(x^5-6x+3\)</span> has Galois group <span class="math inline">\(S_{5}\)</span>.</p>
 </div>
 </body>
 </html>
