@@ -326,20 +326,20 @@ $$
 F: (M\oplus M')\times N \to (M\otimes N)\oplus (M'\otimes N)
 $$
 
-defined by $F((m,m'),n)=(m\otimes n,m'\otimes n)
+defined by $F((m,m'),n)=(m\otimes n,m'\otimes n)$
 
-$$
 and so we have a map
+
 $$
 
 (M\oplus M')\otimes N\to (M\otimes N)\oplus (M'\otimes N).
 
+
 $$
 
 On the other hand we have balanced maps $M\times N\to (M\oplus M')\otimes N$ sending $m\otimes n$ to $(m,0)\otimes n$
-and similarly for $M'\times N$.  These give a map from $M\otimes N\oplus M'\otimes N\to (M\oplus M')\otimes N$
+and similarly for $M'\times N$. These give a map from $M\otimes N\oplus M'\otimes N\to (M\oplus M')\otimes N$
 which is inverse to the map above.
-
 
 ### Tensor product of algebras
 
@@ -349,4 +349,3 @@ $R$ is mapped into the center of the ring).
 <div>
   <a href="slides/09-tensors.html"> View as slides </a>
   </div>
-$$
