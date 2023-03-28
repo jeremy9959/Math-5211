@@ -331,10 +331,7 @@ defined by $F((m,m'),n)=(m\otimes n,m'\otimes n)$
 and so we have a map
 
 $$
-
 (M\oplus M')\otimes N\to (M\otimes N)\oplus (M'\otimes N).
-
-
 $$
 
 On the other hand we have balanced maps $M\times N\to (M\oplus M')\otimes N$ sending $m\otimes n$ to $(m,0)\otimes n$
