@@ -58,19 +58,17 @@
   <script type="text/javascript" id="MathJax-script" async
     src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
   </script>
-
+  
   <!-- LaTeX Macros
-
-
-
+  
+  
+  
   $$\def\GL{\mathrm{GL}}$$
   $$\def\Zn#1{\mathbb{Z}/#1\mathbb{Z}}$$
   $$\def\Z{\mathbb{Z}}$$
   $$\def\gcd#1#2{\mathrm{gcd}(#1,#2)}$$
   -->
-  <script
-  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js"
-  type="text/javascript"></script>
+  <script src="/usr/share/javascript/mathjax/MathJax.js?config=TeX-AMS_CHTML-full" type="text/javascript"></script>
   <script src="https://www.w3.org/Talks/Tools/Slidy2/scripts/slidy.js"
     charset="utf-8" type="text/javascript"></script>
 </head>
@@ -78,303 +76,95 @@
 <div class="slide titlepage">
   <h1 class="title">9. Tensor Products</h1>
 </div>
-<div id="tensor-products-i-extension-of-scalars"
-class="title-slide slide section level2">
-<h1>Tensor Products I: Extension of Scalars</h1>
-
-</div>
-<div id="restriction-of-scalars" class="slide section level3">
+<div id="tensor-products-i-extension-of-scalars" class="title-slide slide section level2"><h1>Tensor Products I: Extension of Scalars</h1></div><div id="restriction-of-scalars" class="slide section level3">
 <h1>Restriction of scalars</h1>
-<p>Suppose <span class="math inline">\(R\)</span> and <span
-class="math inline">\(S\)</span> are rings with unity (but not
-necessarily commutative), that we have ring homomorphism <span
-class="math inline">\(f:R\to S\)</span> and that <span
-class="math inline">\(M\)</span> is an <span
-class="math inline">\(S\)</span> module. Then <span
-class="math inline">\(M\)</span> is an <span
-class="math inline">\(R\)</span> module by “restricting scalars” so that
-<span class="math inline">\(r\cdot m=f(r)m\)</span>.</p>
+<p>Suppose <span class="math inline">\(R\)</span> and <span class="math inline">\(S\)</span> are rings with unity (but not necessarily commutative), that we have ring homomorphism <span class="math inline">\(f:R\to S\)</span> and that <span class="math inline">\(M\)</span> is an <span class="math inline">\(S\)</span> module. Then <span class="math inline">\(M\)</span> is an <span class="math inline">\(R\)</span> module by “restricting scalars” so that <span class="math inline">\(r\cdot m=f(r)m\)</span>.</p>
 <ul>
-<li><p>Any <span class="math inline">\(\R\)</span>-vector space is a
-<span class="math inline">\(\Q\)</span> vector space.</p></li>
-<li><p>Any vector space over <span class="math inline">\(\Z/p\Z\)</span>
-is a module over <span class="math inline">\(\Z\)</span>.</p></li>
-<li><p>There is a ring map <span class="math inline">\(\C\to
-M_{2}(R)\)</span> sending</p>
-<p><span class="math display">\[i\to\left(\begin{matrix} 0 &amp; 1 \\ -1
-&amp; 0\end{matrix}\right)\]</span></p>
-<p>and so any left module over <span
-class="math inline">\(M_{2}(\R)\)</span> can be viewed as a complex
-vector space. There are other elements in <span
-class="math inline">\(M_{2}(\R)\)</span> satisfying <span
-class="math inline">\(x^2+1=0\)</span>, and so there are lots of ways to
-view a left module over <span class="math inline">\(M_{2}(\R)\)</span>
-as a <span class="math inline">\(\C\)</span>-vector space.</p></li>
+<li>Any <span class="math inline">\(\R\)</span>-vector space is a <span class="math inline">\(\Q\)</span> vector space.</li>
+<li>Any vector space over <span class="math inline">\(\Z/p\Z\)</span> is a module over <span class="math inline">\(\Z\)</span>.</li>
+<li><p>There is a ring map <span class="math inline">\(\C\to M_{2}(R)\)</span> sending</p>
+<p><span class="math display">\[i\to\left(\begin{matrix} 0 &amp; 1 \\ -1 &amp; 0\end{matrix}\right)\]</span></p>
+<p>and so any left module over <span class="math inline">\(M_{2}(\R)\)</span> can be viewed as a complex vector space. There are other elements in <span class="math inline">\(M_{2}(\R)\)</span> satisfying <span class="math inline">\(x^2+1=0\)</span>, and so there are lots of ways to view a left module over <span class="math inline">\(M_{2}(\R)\)</span> as a <span class="math inline">\(\C\)</span>-vector space.</p></li>
 </ul>
-</div>
-<div id="extension-of-scalars" class="slide section level3">
+</div><div id="extension-of-scalars" class="slide section level3">
 <h1>Extension of scalars</h1>
-<p>Suppose that <span class="math inline">\(f:R\to S\)</span> is a map
-of rings with unity, and <span class="math inline">\(M\)</span> is an
-<span class="math inline">\(R\)</span>-module. Is there a way to make
-<span class="math inline">\(M\)</span> into an <span
-class="math inline">\(S\)</span>-module? Maybe a better way to say it
-is: can we find a “smallest” <span
-class="math inline">\(S\)</span>-module <span
-class="math inline">\(N\)</span> together with a map <span
-class="math inline">\(M\to N\)</span>?</p>
-<p><strong>Example:</strong> Suppose that <span
-class="math inline">\(V\)</span> is a finite dimensional real vector
-space. Choose a <span class="math inline">\(v_1,\ldots, v_n\)</span> for
-<span class="math inline">\(V\)</span>. So <span
-class="math inline">\(V\)</span> is isomorphic to <span
-class="math inline">\(\R^{n}\)</span> using this basis. So we can think
-of <span class="math inline">\(V\)</span> as inside <span
-class="math inline">\(\C^{n}\)</span>. If we chose a different basis,
-we’d get a different map <span class="math inline">\(V\to
-\C^{n}\)</span>, but the two maps would be related by a change of basis
-transformation so in some sense these are “isomomorphic”.</p>
-</div>
-<div id="extension-of-scalars-more-examples"
-class="slide section level3">
+<p>Suppose that <span class="math inline">\(f:R\to S\)</span> is a map of rings with unity, and <span class="math inline">\(M\)</span> is an <span class="math inline">\(R\)</span>-module. Is there a way to make <span class="math inline">\(M\)</span> into an <span class="math inline">\(S\)</span>-module? Maybe a better way to say it is: can we find a “smallest” <span class="math inline">\(S\)</span>-module <span class="math inline">\(N\)</span> together with a map <span class="math inline">\(M\to N\)</span>?</p>
+<p><strong>Example:</strong> Suppose that <span class="math inline">\(V\)</span> is a finite dimensional real vector space. Choose a <span class="math inline">\(v_1,\ldots, v_n\)</span> for <span class="math inline">\(V\)</span>. So <span class="math inline">\(V\)</span> is isomorphic to <span class="math inline">\(\R^{n}\)</span> using this basis. So we can think of <span class="math inline">\(V\)</span> as inside <span class="math inline">\(\C^{n}\)</span>. If we chose a different basis, we’d get a different map <span class="math inline">\(V\to \C^{n}\)</span>, but the two maps would be related by a change of basis transformation so in some sense these are “isomomorphic”.</p>
+</div><div id="extension-of-scalars-more-examples" class="slide section level3">
 <h1>Extension of scalars (More examples)</h1>
-<p><strong>Example:</strong> Suppose that <span
-class="math inline">\(M\)</span> is an abelian group (hence a <span
-class="math inline">\(\Z\)</span>-module). Can we embed <span
-class="math inline">\(M\)</span> in a <span
-class="math inline">\(\Q\)</span>-module? Sometimes, yes: if <span
-class="math inline">\(M\)</span> is <span
-class="math inline">\(\Z^{n}\)</span> for some <span
-class="math inline">\(n\)</span>, then <span
-class="math inline">\(M\)</span> embeds in <span
-class="math inline">\(\Q^{n}\)</span>. On the other hand if <span
-class="math inline">\(M\)</span> is finite, there are no maps from <span
-class="math inline">\(M\to \Q^{n}\)</span> for any <span
-class="math inline">\(n\)</span>. If <span
-class="math inline">\(M\)</span> is a mixture of free and torsion parts,
-we can embed the free part of <span class="math inline">\(M\)</span> in
-<span class="math inline">\(\Q^{n}\)</span> but not the torsion
-part.</p>
-<p><strong>Example:</strong> If <span class="math inline">\(M\)</span>
-is an abelian group, can we embed <span class="math inline">\(M\)</span>
-into a vector space over <span class="math inline">\(\Z/p\Z\)</span> –
-here the map <span class="math inline">\(R\to S\)</span> is the map
-<span class="math inline">\(\Z\to \Z/p\Z\)</span>? Sometimes yes – if
-<span class="math inline">\(M\)</span> is <span
-class="math inline">\(p\)</span>-torsion, we can do it, but for general
-<span class="math inline">\(M\)</span> no.</p>
-</div>
-<div id="universal-approach" class="slide section level3">
+<p><strong>Example:</strong> Suppose that <span class="math inline">\(M\)</span> is an abelian group (hence a <span class="math inline">\(\Z\)</span>-module). Can we embed <span class="math inline">\(M\)</span> in a <span class="math inline">\(\Q\)</span>-module? Sometimes, yes: if <span class="math inline">\(M\)</span> is <span class="math inline">\(\Z^{n}\)</span> for some <span class="math inline">\(n\)</span>, then <span class="math inline">\(M\)</span> embeds in <span class="math inline">\(\Q^{n}\)</span>. On the other hand if <span class="math inline">\(M\)</span> is finite, there are no maps from <span class="math inline">\(M\to \Q^{n}\)</span> for any <span class="math inline">\(n\)</span>. If <span class="math inline">\(M\)</span> is a mixture of free and torsion parts, we can embed the free part of <span class="math inline">\(M\)</span> in <span class="math inline">\(\Q^{n}\)</span> but not the torsion part.</p>
+<p><strong>Example:</strong> If <span class="math inline">\(M\)</span> is an abelian group, can we embed <span class="math inline">\(M\)</span> into a vector space over <span class="math inline">\(\Z/p\Z\)</span> – here the map <span class="math inline">\(R\to S\)</span> is the map <span class="math inline">\(\Z\to \Z/p\Z\)</span>? Sometimes yes – if <span class="math inline">\(M\)</span> is <span class="math inline">\(p\)</span>-torsion, we can do it, but for general <span class="math inline">\(M\)</span> no.</p>
+</div><div id="universal-approach" class="slide section level3">
 <h1>Universal approach</h1>
-<p>To study this in general we take a (left) <span
-class="math inline">\(R\)</span>-module <span
-class="math inline">\(M\)</span> and a ring map <span
-class="math inline">\(f:R\to S\)</span> and ask: how can we make an
-<span class="math inline">\(S\)</span>-module out of <span
-class="math inline">\(M\)</span> and the map <span
-class="math inline">\(f:R\to S\)</span>?</p>
-<p>An <span class="math inline">\(S\)</span>-module structure on <span
-class="math inline">\(M\)</span> means we need a map</p>
+<p>To study this in general we take a (left) <span class="math inline">\(R\)</span>-module <span class="math inline">\(M\)</span> and a ring map <span class="math inline">\(f:R\to S\)</span> and ask: how can we make an <span class="math inline">\(S\)</span>-module out of <span class="math inline">\(M\)</span> and the map <span class="math inline">\(f:R\to S\)</span>?</p>
+<p>An <span class="math inline">\(S\)</span>-module structure on <span class="math inline">\(M\)</span> means we need a map</p>
 <p><span class="math display">\[
 S\times M\to M
 \]</span></p>
 <p>satisfying the axioms</p>
 <ul>
-<li><span
-class="math inline">\((s,(m_1+m_2))=(s,m_1)+(s,m_2)\)</span></li>
-<li><span
-class="math inline">\((s_1+s_2,m)=(s_1,m)+(s_2,m)\)</span></li>
-<li><span class="math inline">\((sr,m)=(s,rm)\)</span> for <span
-class="math inline">\(r\in R\)</span>.</li>
+<li><span class="math inline">\((s,(m_1+m_2))=(s,m_1)+(s,m_2)\)</span></li>
+<li><span class="math inline">\((s_1+s_2,m)=(s_1,m)+(s_2,m)\)</span></li>
+<li><span class="math inline">\((sr,m)=(s,rm)\)</span> for <span class="math inline">\(r\in R\)</span>.</li>
 </ul>
-</div>
-<div id="extension-of-scalars-via-tensor-product"
-class="slide section level3">
+</div><div id="extension-of-scalars-via-tensor-product" class="slide section level3">
 <h1>Extension of scalars via tensor product</h1>
-<p>Our strategy is to make an abelian group whose elements are pairs
-<span class="math inline">\((s,m)\)</span> modulo the relations above.
-The equivalence classes of this abelian group are written <span
-class="math inline">\(s\otimes m\)</span> (or, in cases where we need
-more context, <span class="math inline">\(s\otimes_{R} m\)</span> or
-even <span class="math inline">\(s\otimes_{f}m\)</span>). THe group
-itself is called <span class="math inline">\(S\otimes_{R} M\)</span>. So
-the following rules hold:</p>
+<p>Our strategy is to make an abelian group whose elements are pairs <span class="math inline">\((s,m)\)</span> modulo the relations above. The equivalence classes of this abelian group are written <span class="math inline">\(s\otimes m\)</span> (or, in cases where we need more context, <span class="math inline">\(s\otimes_{R} m\)</span> or even <span class="math inline">\(s\otimes_{f}m\)</span>). THe group itself is called <span class="math inline">\(S\otimes_{R} M\)</span>. So the following rules hold:</p>
 <ul>
-<li><span class="math inline">\((s_1+s_2)\otimes m=s_1\otimes
-m+s_2\otimes m\)</span>.</li>
-<li><span class="math inline">\(s\otimes (m_1+m_2)=s\otimes m_1 +
-s\otimes m_2\)</span></li>
+<li><span class="math inline">\((s_1+s_2)\otimes m=s_1\otimes m+s_2\otimes m\)</span>.</li>
+<li><span class="math inline">\(s\otimes (m_1+m_2)=s\otimes m_1 + s\otimes m_2\)</span></li>
 <li><span class="math inline">\(sr\otimes m=s\otimes rm\)</span>.</li>
 </ul>
-<p>A typical element of <span class="math inline">\(S\otimes M\)</span>
-is a <em>sum</em> of the form <span class="math inline">\(\sum_{i=1}^{n}
-s_{i}\otimes m_{i}\)</span>. It is an <span
-class="math inline">\(S\)</span>-module via multiplication by <span
-class="math inline">\(S\)</span> on the first factor.</p>
-<p>We have a map <span class="math inline">\(M\to S\otimes_{R}
-M\)</span> given by <span class="math inline">\(m\mapsto 1\otimes
-m\)</span>.</p>
-<p><strong>Important:</strong> The elements <span
-class="math inline">\(s\otimes m\)</span> belong to a quotient group and
-so the representation of an element as a sum of “simple tensors” <span
-class="math inline">\(s\otimes m\)</span> need not be unique! In fact
-it’s quite possible for <span class="math inline">\(s\otimes m\)</span>
-to be zero.</p>
-</div>
-<div id="some-examples" class="slide section level3">
+<p>A typical element of <span class="math inline">\(S\otimes M\)</span> is a <em>sum</em> of the form <span class="math inline">\(\sum_{i=1}^{n} s_{i}\otimes m_{i}\)</span>. It is an <span class="math inline">\(S\)</span>-module via multiplication by <span class="math inline">\(S\)</span> on the first factor.</p>
+<p>We have a map <span class="math inline">\(M\to S\otimes_{R} M\)</span> given by <span class="math inline">\(m\mapsto 1\otimes m\)</span>.</p>
+<p><strong>Important:</strong> The elements <span class="math inline">\(s\otimes m\)</span> belong to a quotient group and so the representation of an element as a sum of “simple tensors” <span class="math inline">\(s\otimes m\)</span> need not be unique! In fact it’s quite possible for <span class="math inline">\(s\otimes m\)</span> to be zero.</p>
+</div><div id="some-examples" class="slide section level3">
 <h1>Some examples</h1>
-<p>Suppose that <span class="math inline">\(M=\Z^{n}\)</span> and <span
-class="math inline">\(R\to S\)</span> is <span
-class="math inline">\(\Z\to \Q\)</span>. Then <span
-class="math inline">\(\Q\otimes M\)</span> consists of sums of elements
-<span class="math inline">\(a\otimes m\)</span>. But <span
-class="math inline">\(a=\frac{x}{y}\)</span> where <span
-class="math inline">\(x\in \Z\)</span>, so we can write <span
-class="math inline">\(a\otimes m=\frac{1}{y}\otimes xm\)</span>. <span
-class="math inline">\(\Q\otimes M\)</span> is isomorphic to <span
-class="math inline">\(\Q^{n}\)</span>.</p>
-<p>Suppose that <span class="math inline">\(M\)</span> is a finite group
-of order <span class="math inline">\(n\)</span>. Then any element of
-<span class="math inline">\(\Q\otimes M\)</span> can be written <span
-class="math inline">\(a\otimes m\)</span> where <span
-class="math inline">\(a\in \Q\)</span>. But <span
-class="math inline">\(a=n(a/n)\)</span>. Therefore</p>
+<p>Suppose that <span class="math inline">\(M=\Z^{n}\)</span> and <span class="math inline">\(R\to S\)</span> is <span class="math inline">\(\Z\to \Q\)</span>. Then <span class="math inline">\(\Q\otimes M\)</span> consists of sums of elements <span class="math inline">\(a\otimes m\)</span>. But <span class="math inline">\(a=\frac{x}{y}\)</span> where <span class="math inline">\(x\in \Z\)</span>, so we can write <span class="math inline">\(a\otimes m=\frac{1}{y}\otimes xm\)</span>. <span class="math inline">\(\Q\otimes M\)</span> is isomorphic to <span class="math inline">\(\Q^{n}\)</span>.</p>
+<p>Suppose that <span class="math inline">\(M\)</span> is a finite group of order <span class="math inline">\(n\)</span>. Then any element of <span class="math inline">\(\Q\otimes M\)</span> can be written <span class="math inline">\(a\otimes m\)</span> where <span class="math inline">\(a\in \Q\)</span>. But <span class="math inline">\(a=n(a/n)\)</span>. Therefore</p>
 <p><span class="math display">\[
 a\otimes m = (a/n)n\otimes m = (a/n)\otimes nm=0
 \]</span></p>
-<p>so <span class="math inline">\(\Q\otimes M\)</span> is the zero
-module.</p>
-</div>
-<div id="the-universal-property" class="slide section level3">
+<p>so <span class="math inline">\(\Q\otimes M\)</span> is the zero module.</p>
+</div><div id="the-universal-property" class="slide section level3">
 <h1>The universal property</h1>
-<p>The idea is that <span class="math inline">\(S\otimes M\)</span> is
-the <em>smallest</em> <span class="math inline">\(S\)</span> module
-containing <span class="math inline">\(M\)</span>, where the action of
-<span class="math inline">\(R\)</span> comes via the map <span
-class="math inline">\(R\to S\)</span>. In other words, if <span
-class="math inline">\(L\)</span> is any other <span
-class="math inline">\(S\)</span> module and there is an <span
-class="math inline">\(R\)</span>-module map <span
-class="math inline">\(f:M\to L\)</span>, then there is a unique <span
-class="math inline">\(S\)</span>-module map <span
-class="math inline">\(\phi:S\otimes M\to L\)</span> so that this
-triangle commutes:</p>
+<p>The idea is that <span class="math inline">\(S\otimes M\)</span> is the <em>smallest</em> <span class="math inline">\(S\)</span> module containing <span class="math inline">\(M\)</span>, where the action of <span class="math inline">\(R\)</span> comes via the map <span class="math inline">\(R\to S\)</span>. In other words, if <span class="math inline">\(L\)</span> is any other <span class="math inline">\(S\)</span> module and there is an <span class="math inline">\(R\)</span>-module map <span class="math inline">\(f:M\to L\)</span>, then there is a unique <span class="math inline">\(S\)</span>-module map <span class="math inline">\(\phi:S\otimes M\to L\)</span> so that this triangle commutes:</p>
 <p><span class="math display">\[
 \begin{xy}
 \xymatrix@=2cm{
-M \ar[r]^{1\mapsto 1\otimes m}\ar[rd]^{f}&amp; S\otimes M\ar[d]^{\phi}
-\\
+M \ar[r]^{1\mapsto 1\otimes m}\ar[rd]^{f}&amp; S\otimes M\ar[d]^{\phi} \\
 &amp; L \\
 }
 \end{xy}
 \]</span></p>
-</div>
-<div id="more-on-the-universal-property" class="slide section level3">
+</div><div id="more-on-the-universal-property" class="slide section level3">
 <h1>More on the universal property</h1>
-<p>If <span class="math inline">\(\iota: M\to S\otimes M\)</span> is the
-map <span class="math inline">\(m\mapsto 1\otimes m\)</span>, then <span
-class="math inline">\(M/\ker(\iota)\)</span> maps injectively in <span
-class="math inline">\(S\otimes M\)</span>. This is the “largest”
-quotient of <span class="math inline">\(M\)</span> which embeds into an
-<span class="math inline">\(S\)</span>-module.</p>
-<p><strong>Example:</strong> Let <span class="math inline">\(G\)</span>
-be a finitely generated abelian group. Then <span
-class="math inline">\(G\)</span> is isomoprhic to <span
-class="math inline">\(\Z^{n}\oplus T\)</span> where <span
-class="math inline">\(T\)</span> is a finite group. If we want to map
-<span class="math inline">\(G\)</span> to a <span
-class="math inline">\(\Q\)</span>-vector space, the kernel has to
-include <span class="math inline">\(T\)</span>. And in fact the kernel
-of <span class="math inline">\(\iota\)</span> is <span
-class="math inline">\(T\)</span>. Further, the <span
-class="math inline">\(\Q\)</span>-dimension of the vector space <span
-class="math inline">\(\Q\otimes G\)</span> is the rank of the free part
-of <span class="math inline">\(G\)</span>.</p>
-</div>
-<div id="more-examples" class="slide section level3">
+<p>If <span class="math inline">\(\iota: M\to S\otimes M\)</span> is the map <span class="math inline">\(m\mapsto 1\otimes m\)</span>, then <span class="math inline">\(M/\ker(\iota)\)</span> maps injectively in <span class="math inline">\(S\otimes M\)</span>. This is the “largest” quotient of <span class="math inline">\(M\)</span> which embeds into an <span class="math inline">\(S\)</span>-module.</p>
+<p><strong>Example:</strong> Let <span class="math inline">\(G\)</span> be a finitely generated abelian group. Then <span class="math inline">\(G\)</span> is isomoprhic to <span class="math inline">\(\Z^{n}\oplus T\)</span> where <span class="math inline">\(T\)</span> is a finite group. If we want to map <span class="math inline">\(G\)</span> to a <span class="math inline">\(\Q\)</span>-vector space, the kernel has to include <span class="math inline">\(T\)</span>. And in fact the kernel of <span class="math inline">\(\iota\)</span> is <span class="math inline">\(T\)</span>. Further, the <span class="math inline">\(\Q\)</span>-dimension of the vector space <span class="math inline">\(\Q\otimes G\)</span> is the rank of the free part of <span class="math inline">\(G\)</span>.</p>
+</div><div id="more-examples" class="slide section level3">
 <h1>More examples</h1>
-<p><strong>Example:</strong> Let <span class="math inline">\(M\)</span>
-be an <span class="math inline">\(R\)</span> module and let <span
-class="math inline">\(f:R\to R/I\)</span> be the quotient map. Then
-<span class="math inline">\(R/I\otimes M\)</span> is isomorphic to <span
-class="math inline">\(M/IM\)</span>. First notice that if <span
-class="math inline">\(x\in IM\)</span>, then <span
-class="math inline">\(1\otimes x=1\otimes im=i\otimes m=0\)</span>, so
-<span class="math inline">\(IM\)</span> is in the kernel of <span
-class="math inline">\(\iota\)</span>. Therefore we have a map <span
-class="math inline">\(M/IM\to R/I\otimes M\)</span>. We have a map in
-the opposite direction <span class="math inline">\(R/I\otimes M\to
-M/IM\)</span> given by <span class="math inline">\((r+I)\otimes m\mapsto
-rm+IM\)</span>. So if <span class="math inline">\(G\)</span> is a finite
-abelian group, then <span class="math inline">\(\Z/p\Z\otimes G\)</span>
-is <span class="math inline">\(G/pG\)</span> which is zero if <span
-class="math inline">\(G\)</span> has no <span
-class="math inline">\(p\)</span>-torsion.</p>
-<p><strong>Example:</strong> If <span class="math inline">\(V\)</span>
-is a vector space over <span class="math inline">\(F\)</span> of
-dimension <span class="math inline">\(n\)</span>, and <span
-class="math inline">\(F\to E\)</span> is a field extension, then <span
-class="math inline">\(E\otimes V\)</span> is an <span
-class="math inline">\(n\)</span>-dimensional vector space over <span
-class="math inline">\(E\)</span>.</p>
+<p><strong>Example:</strong> Let <span class="math inline">\(M\)</span> be an <span class="math inline">\(R\)</span> module and let <span class="math inline">\(f:R\to R/I\)</span> be the quotient map. Then <span class="math inline">\(R/I\otimes M\)</span> is isomorphic to <span class="math inline">\(M/IM\)</span>. First notice that if <span class="math inline">\(x\in IM\)</span>, then <span class="math inline">\(1\otimes x=1\otimes im=i\otimes m=0\)</span>, so <span class="math inline">\(IM\)</span> is in the kernel of <span class="math inline">\(\iota\)</span>. Therefore we have a map <span class="math inline">\(M/IM\to R/I\otimes M\)</span>. We have a map in the opposite direction <span class="math inline">\(R/I\otimes M\to M/IM\)</span> given by <span class="math inline">\((r+I)\otimes m\mapsto rm+IM\)</span>. So if <span class="math inline">\(G\)</span> is a finite abelian group, then <span class="math inline">\(\Z/p\Z\otimes G\)</span> is <span class="math inline">\(G/pG\)</span> which is zero if <span class="math inline">\(G\)</span> has no <span class="math inline">\(p\)</span>-torsion.</p>
+<p><strong>Example:</strong> If <span class="math inline">\(V\)</span> is a vector space over <span class="math inline">\(F\)</span> of dimension <span class="math inline">\(n\)</span>, and <span class="math inline">\(F\to E\)</span> is a field extension, then <span class="math inline">\(E\otimes V\)</span> is an <span class="math inline">\(n\)</span>-dimensional vector space over <span class="math inline">\(E\)</span>.</p>
 </div>
-
-<div id="tensor-products-of-modules"
-class="title-slide slide section level2">
-<h1>Tensor products of modules</h1>
-
-</div>
-<div id="the-commutative-case" class="slide section level3">
+<div id="tensor-products-of-modules" class="title-slide slide section level2"><h1>Tensor products of modules</h1></div><div id="the-commutative-case" class="slide section level3">
 <h1>The commutative case</h1>
-<p>Assume for the moment that <span class="math inline">\(R\)</span> is
-a <em>commutative</em> ring with unity. Suppose that <span
-class="math inline">\(M\)</span> and <span
-class="math inline">\(N\)</span> are <span
-class="math inline">\(R\)</span>-modules. If <span
-class="math inline">\(L\)</span> is yet another <span
-class="math inline">\(R\)</span>-module, a bilinear map</p>
+<p>Assume for the moment that <span class="math inline">\(R\)</span> is a <em>commutative</em> ring with unity. Suppose that <span class="math inline">\(M\)</span> and <span class="math inline">\(N\)</span> are <span class="math inline">\(R\)</span>-modules. If <span class="math inline">\(L\)</span> is yet another <span class="math inline">\(R\)</span>-module, a bilinear map</p>
 <p><span class="math display">\[
 f: M\times N \to L
 \]</span></p>
-<p>is a map that is linear in each variable separately and also
-satisfies <span class="math inline">\(f(rm,n)=f(m,rn)\)</span> for <span
-class="math inline">\(r\in R\)</span>. The tensor product <span
-class="math inline">\(M\otimes_{R} N\)</span> of <span
-class="math inline">\(M\)</span> and <span
-class="math inline">\(N\)</span> is the free abelian group on pairs
-<span class="math inline">\((m,n)\)</span> modulo the relations:</p>
+<p>is a map that is linear in each variable separately and also satisfies <span class="math inline">\(f(rm,n)=f(m,rn)\)</span> for <span class="math inline">\(r\in R\)</span>. The tensor product <span class="math inline">\(M\otimes_{R} N\)</span> of <span class="math inline">\(M\)</span> and <span class="math inline">\(N\)</span> is the free abelian group on pairs <span class="math inline">\((m,n)\)</span> modulo the relations:</p>
 <ul>
-<li><span
-class="math inline">\((m_1+m_2,n)=(m_1,n)+(m_2,n)\)</span></li>
-<li><span
-class="math inline">\((m,n_1+n_2)=(m,n_1)+(m,n_2)\)</span></li>
+<li><span class="math inline">\((m_1+m_2,n)=(m_1,n)+(m_2,n)\)</span></li>
+<li><span class="math inline">\((m,n_1+n_2)=(m,n_1)+(m,n_2)\)</span></li>
 <li><span class="math inline">\((rm, n)=(m,rn)\)</span></li>
 </ul>
-<p>The equivalence class of the pair <span
-class="math inline">\((m,n)\)</span> is written <span
-class="math inline">\(m\otimes n\)</span>. <span
-class="math inline">\(M\otimes N\)</span> is an <span
-class="math inline">\(R\)</span> module via the action <span
-class="math inline">\(r(m\otimes n)=(rm\otimes n)=(m\otimes rn)\)</span>
-and</p>
+<p>The equivalence class of the pair <span class="math inline">\((m,n)\)</span> is written <span class="math inline">\(m\otimes n\)</span>. <span class="math inline">\(M\otimes N\)</span> is an <span class="math inline">\(R\)</span> module via the action <span class="math inline">\(r(m\otimes n)=(rm\otimes n)=(m\otimes rn)\)</span> and</p>
 <p><span class="math display">\[
 r(\sum m_{i}\otimes n_{i})=\sum r(m_{i}\otimes n_{i}).
 \]</span></p>
-</div>
-<div id="universal-property" class="slide section level3">
+</div><div id="universal-property" class="slide section level3">
 <h1>Universal property</h1>
-<p>If <span class="math inline">\(f:M\times N\to L\)</span> is bilinear,
-then we can defined <span class="math inline">\(\overline{f}:M\otimes
-N\to L\)</span> by <span class="math inline">\(\overline{f}(m\otimes
-n)=f(m,n)\)</span>. This is well defined and it converts a bilinear map
-into a module homomorphism. To go in the other direction, there is a map
-<span class="math inline">\(B:M\times N\to M\otimes N\)</span> which is
-bilinear, sending <span class="math inline">\((m,n)\to m\otimes
-n\)</span>. This is the ``universal” bilinear map. The universal
-property says that, if <span class="math inline">\(f:M\times N\to
-L\)</span> is any bilinear map, there is a unique module homomorphism
-<span class="math inline">\(\overline{f}:M\otimes N\to L\)</span> such
-that <span class="math inline">\(\overline{f}B=f.\)</span></p>
+<p>If <span class="math inline">\(f:M\times N\to L\)</span> is bilinear, then we can defined <span class="math inline">\(\overline{f}:M\otimes N\to L\)</span> by <span class="math inline">\(\overline{f}(m\otimes n)=f(m,n)\)</span>. This is well defined and it converts a bilinear map into a module homomorphism. To go in the other direction, there is a map <span class="math inline">\(B:M\times N\to M\otimes N\)</span> which is bilinear, sending <span class="math inline">\((m,n)\to m\otimes n\)</span>. This is the ``universal" bilinear map. The universal property says that, if <span class="math inline">\(f:M\times N\to L\)</span> is any bilinear map, there is a unique module homomorphism <span class="math inline">\(\overline{f}:M\otimes N\to L\)</span> such that <span class="math inline">\(\overline{f}B=f.\)</span></p>
 <p><span class="math display">\[
 \begin{xy}
 \xymatrix{
@@ -383,59 +173,33 @@ M\times N \ar[r]^{B}\ar[dr]^{f} &amp; M\otimes N\ar[d]^{\overline{f}}\\
 }
 \end{xy}
 \]</span></p>
-</div>
-<div id="tensor-product-of-vector-spaces" class="slide section level3">
+</div><div id="tensor-product-of-vector-spaces" class="slide section level3">
 <h1>Tensor product of vector spaces</h1>
-<p>Suppose that <span class="math inline">\(R\)</span> is a field and
-<span class="math inline">\(V\)</span>, <span
-class="math inline">\(W\)</span>, are vector spaces over <span
-class="math inline">\(R\)</span> of dimensions <span
-class="math inline">\(n\)</span> and <span
-class="math inline">\(m\)</span> respectively. Let <span
-class="math inline">\(v_1,\ldots, v_n\)</span> be a basis for <span
-class="math inline">\(V\)</span> and <span
-class="math inline">\(w_1,\ldots, w_m\)</span> a basis for <span
-class="math inline">\(W\)</span>.</p>
-<p>If <span class="math inline">\(L\)</span> is another <span
-class="math inline">\(F\)</span>-vector space, then a bilinear map <span
-class="math inline">\(f:V\times W\to L\)</span> is determined by its
-values on all pairs <span class="math inline">\((v_i,w_j)\)</span>.</p>
-<p>The tensor product <span class="math inline">\(V\otimes W\)</span> is
-an <span class="math inline">\(F\)</span>-vector space and is spanned by
-the tensors <span class="math inline">\(v_{i}\otimes w_{j}\)</span>.</p>
-<p>Now construct a bilinear map <span
-class="math inline">\(f_{ij}:V\times W\to F\)</span> by setting</p>
+<p>Suppose that <span class="math inline">\(R\)</span> is a field and <span class="math inline">\(V\)</span>, <span class="math inline">\(W\)</span>, are vector spaces over <span class="math inline">\(R\)</span> of dimensions <span class="math inline">\(n\)</span> and <span class="math inline">\(m\)</span> respectively. Let <span class="math inline">\(v_1,\ldots, v_n\)</span> be a basis for <span class="math inline">\(V\)</span> and <span class="math inline">\(w_1,\ldots, w_m\)</span> a basis for <span class="math inline">\(W\)</span>.</p>
+<p>If <span class="math inline">\(L\)</span> is another <span class="math inline">\(F\)</span>-vector space, then a bilinear map <span class="math inline">\(f:V\times W\to L\)</span> is determined by its values on all pairs <span class="math inline">\((v_i,w_j)\)</span>.</p>
+<p>The tensor product <span class="math inline">\(V\otimes W\)</span> is an <span class="math inline">\(F\)</span>-vector space and is spanned by the tensors <span class="math inline">\(v_{i}\otimes w_{j}\)</span>.</p>
+<p>Now construct a bilinear map <span class="math inline">\(f_{ij}:V\times W\to F\)</span> by setting</p>
 <p><span class="math display">\[
 f_{ij}(\sum a_{s}v_{s},\sum b_{s}w_{s})=a_{i}b_{j}.
 \]</span></p>
-<p>By the universal property we have <span
-class="math inline">\(f_{ij}(v_{r}\otimes w_{s})=0\)</span> unless <span
-class="math inline">\(r=i\)</span> and <span
-class="math inline">\(s=j\)</span> in which case it is one.</p>
-</div>
-<div id="tensor-product-of-vector-spaces-continued"
-class="slide section level3">
+<p>By the universal property we have <span class="math inline">\(f_{ij}(v_{r}\otimes w_{s})=0\)</span> unless <span class="math inline">\(r=i\)</span> and <span class="math inline">\(s=j\)</span> in which case it is one.</p>
+</div><div id="tensor-product-of-vector-spaces-continued" class="slide section level3">
 <h1>Tensor product of vector spaces continued</h1>
 <p>Suppose that</p>
 <p><span class="math display">\[
 x=\sum c_{rs}v_{r}\otimes w_{s}=0.
 \]</span></p>
-<p>Then <span class="math inline">\(f_{ij}(x)=c_{ij}=0\)</span> for all
-pairs <span class="math inline">\(i,j\)</span> and therefore all <span
-class="math inline">\(c_{rs}=0\)</span>; in other words, the <span
-class="math inline">\(v_{r}\otimes w_{s}\)</span> are linearly
-independent. Thus <span class="math inline">\(V\otimes W\)</span> is an
-<span class="math inline">\(nm\)</span> dimensional <span
-class="math inline">\(F\)</span>-vector space.</p>
-</div>
-<div id="the-noncommutative-case" class="slide section level3">
+<p>Then <span class="math inline">\(f_{ij}(x)=c_{ij}=0\)</span> for all pairs <span class="math inline">\(i,j\)</span> and therefore all <span class="math inline">\(c_{rs}=0\)</span>; in other words, the <span class="math inline">\(v_{r}\otimes w_{s}\)</span> are linearly independent. Thus <span class="math inline">\(V\otimes W\)</span> is an <span class="math inline">\(nm\)</span> dimensional <span class="math inline">\(F\)</span>-vector space.</p>
+</div><div id="endomorphisms" class="slide section level3">
+<h1>Endomorphisms</h1>
+<p>Let <span class="math inline">\(V\)</span> be a vector space and let <span class="math inline">\(V^{\ast}\)</span> be its dual. Then there is an isomorphism</p>
+<p><span class="math display">\[
+V\otimes V^{\ast}\to \End(V)
+\]</span></p>
+<p>where <span class="math inline">\((v\otimes f)(w)=f(w)v\)</span>.</p>
+</div><div id="the-noncommutative-case" class="slide section level3">
 <h1>The noncommutative case</h1>
-<p>Now suppose that <span class="math inline">\(R\)</span> is a
-noncommutative ring. If <span class="math inline">\(M\)</span> and <span
-class="math inline">\(N\)</span> are left modules, then we have a
-problem defining a bilinear map <span class="math inline">\(M\times N\to
-L\)</span> where <span class="math inline">\(L\)</span> is also a left
-module. Namely, on the one hand, we would need:</p>
+<p>Now suppose that <span class="math inline">\(R\)</span> is a noncommutative ring. If <span class="math inline">\(M\)</span> and <span class="math inline">\(N\)</span> are left modules, then we have a problem defining a bilinear map <span class="math inline">\(M\times N\to L\)</span> where <span class="math inline">\(L\)</span> is also a left module. Namely, on the one hand, we would need:</p>
 <p><span class="math display">\[
 f(rsm,n)=rf(sm,n)=f(sm,rn)=sf(m,rn)=f(m,srn)
 \]</span></p>
@@ -443,59 +207,21 @@ f(rsm,n)=rf(sm,n)=f(sm,rn)=sf(m,rn)=f(m,srn)
 <p><span class="math display">\[
 f((rs)m,n)=(rs)f(m,n)=f(m,(rs)n)
 \]</span></p>
-<p>and since <span class="math inline">\(sr\)</span> and <span
-class="math inline">\(rs\)</span> are different we can’t define this
-consistently.</p>
-</div>
-<div id="the-noncommutative-case-continued"
-class="slide section level3">
+<p>and since <span class="math inline">\(sr\)</span> and <span class="math inline">\(rs\)</span> are different we can’t define this consistently.</p>
+</div><div id="the-noncommutative-case-continued" class="slide section level3">
 <h1>The noncommutative case continued</h1>
-<p>In the non-commutative case (with unity) we have to make some
-compromises:</p>
+<p>In the non-commutative case (with unity) we have to make some compromises:</p>
 <ul>
-<li>First, we assume <span class="math inline">\(M\)</span> is a
-<em>right</em> module and <span class="math inline">\(N\)</span> is a
-<em>left</em> module.</li>
-<li>Next, we are only going to construct an <em>abelian group</em>, not
-a module, from <span class="math inline">\(M\)</span> and <span
-class="math inline">\(N\)</span>.</li>
-<li>Finally, we are going to consider maps <span
-class="math inline">\(f:M\times N\to L\)</span>, where <span
-class="math inline">\(L\)</span> is an abelian group, that are
-<em>balanced</em>, meaning that <span
-class="math inline">\(f(mr,n)=f(m,rn)\)</span> for <span
-class="math inline">\(r\in R\)</span>.</li>
+<li>First, we assume <span class="math inline">\(M\)</span> is a <em>right</em> module and <span class="math inline">\(N\)</span> is a <em>left</em> module.</li>
+<li>Next, we are only going to construct an <em>abelian group</em>, not a module, from <span class="math inline">\(M\)</span> and <span class="math inline">\(N\)</span>.</li>
+<li>Finally, we are going to consider maps <span class="math inline">\(f:M\times N\to L\)</span>, where <span class="math inline">\(L\)</span> is an abelian group, that are <em>balanced</em>, meaning that <span class="math inline">\(f(mr,n)=f(m,rn)\)</span> for <span class="math inline">\(r\in R\)</span>.</li>
 </ul>
-<p>We create an abelian group spanned by <span
-class="math inline">\(m\otimes n\)</span> subject to the relations <span
-class="math inline">\(mr\otimes n=m\otimes rn\)</span> together with the
-additivity <span class="math inline">\((m+m&#39;)\otimes n=m\otimes n +
-m&#39;\otimes n\)</span> and similarly for <span
-class="math inline">\(N\)</span>.</p>
-<p>This is the tensor product of the modules <span
-class="math inline">\(M\)</span> and <span
-class="math inline">\(N\)</span> – remember it is an abelian group, NOT
-an <span class="math inline">\(R\)</span>-module in general.</p>
-</div>
-<div id="universal-property-1" class="slide section level3">
+<p>We create an abelian group spanned by <span class="math inline">\(m\otimes n\)</span> subject to the relations <span class="math inline">\(mr\otimes n=m\otimes rn\)</span> together with the additivity <span class="math inline">\((m+m&#39;)\otimes n=m\otimes n + m&#39;\otimes n\)</span> and similarly for <span class="math inline">\(N\)</span>.</p>
+<p>This is the tensor product of the modules <span class="math inline">\(M\)</span> and <span class="math inline">\(N\)</span> – remember it is an abelian group, NOT an <span class="math inline">\(R\)</span>-module in general.</p>
+</div><div id="universal-property-1" class="slide section level3">
 <h1>Universal property</h1>
-<p><span class="math inline">\(M\otimes N\)</span> still satisfies a
-universal property. Call a map <span class="math inline">\(f:M\times
-N\to L\)</span>, where <span class="math inline">\(M\)</span> is a right
-<span class="math inline">\(R\)</span>-module, <span
-class="math inline">\(N\)</span> is a left <span
-class="math inline">\(R\)</span>-module, and <span
-class="math inline">\(L\)</span> is an abelian group, <em>balanced</em>
-if <span class="math inline">\(f\)</span> is additive in <span
-class="math inline">\(M\)</span> and <span
-class="math inline">\(N\)</span> separately and satisfies <span
-class="math inline">\(f(mr,n)=f(m,rn)\)</span> for all <span
-class="math inline">\(r\in R\)</span>.</p>
-<p>Then given such a balanced map from <span
-class="math inline">\(M\times N\)</span> to <span
-class="math inline">\(L\)</span>, there is a unique map of abelian
-groups <span class="math inline">\(\phi : M\otimes N\to L\)</span> such
-that the following diagram commutes.</p>
+<p><span class="math inline">\(M\otimes N\)</span> still satisfies a universal property. Call a map <span class="math inline">\(f:M\times N\to L\)</span>, where <span class="math inline">\(M\)</span> is a right <span class="math inline">\(R\)</span>-module, <span class="math inline">\(N\)</span> is a left <span class="math inline">\(R\)</span>-module, and <span class="math inline">\(L\)</span> is an abelian group, <em>balanced</em> if <span class="math inline">\(f\)</span> is additive in <span class="math inline">\(M\)</span> and <span class="math inline">\(N\)</span> separately and satisfies <span class="math inline">\(f(mr,n)=f(m,rn)\)</span> for all <span class="math inline">\(r\in R\)</span>.</p>
+<p>Then given such a balanced map from <span class="math inline">\(M\times N\)</span> to <span class="math inline">\(L\)</span>, there is a unique map of abelian groups <span class="math inline">\(\phi : M\otimes N\to L\)</span> such that the following diagram commutes.</p>
 <p><span class="math display">\[
 \begin{xy}
 \xymatrix{
@@ -504,147 +230,66 @@ M\times N \ar[r]^{\iota}\ar[dr]^{f} &amp; M\otimes N\ar[d]^{\phi}\\
 }
 \end{xy}
 \]</span></p>
-<p>Here the map <span class="math inline">\(M\times N\to M\otimes
-N\)</span> is the expected one: <span class="math inline">\((m,n)\mapsto
-m\otimes n\)</span>.</p>
-<p>As is always the case, the universal property characterizes the
-tensor product up to isomorphism.</p>
-</div>
-<div id="bimodules" class="slide section level3">
+<p>Here the map <span class="math inline">\(M\times N\to M\otimes N\)</span> is the expected one: <span class="math inline">\((m,n)\mapsto m\otimes n\)</span>.</p>
+<p>As is always the case, the universal property characterizes the tensor product up to isomorphism.</p>
+</div><div id="bimodules" class="slide section level3">
 <h1>Bimodules</h1>
-<p>Now suppose that <span class="math inline">\(S\)</span> and <span
-class="math inline">\(R\)</span> are rings with unity and that <span
-class="math inline">\(M\)</span> is simultaneously a left <span
-class="math inline">\(S\)</span>-module and a right <span
-class="math inline">\(R\)</span> module, so that <span
-class="math inline">\((sm)r=s(mr)\)</span>. Such an object <span
-class="math inline">\(M\)</span> is called an <span
-class="math inline">\((S,R)\)</span>-bimodule.</p>
-<p>For example, suppose <span class="math inline">\(R=M_{2}(F)\)</span>,
-<span class="math inline">\(S=F\)</span>, and <span
-class="math inline">\(M\)</span> is the space <span
-class="math inline">\(F^{2}\)</span> viewed as row vectors with <span
-class="math inline">\(R\)</span> acting on the right as matrix
-multiplication and <span class="math inline">\(S\)</span> on the left as
-scalar multiplication.</p>
-</div>
-<div id="tensor-product-of-bimodules" class="slide section level3">
+<p>Now suppose that <span class="math inline">\(S\)</span> and <span class="math inline">\(R\)</span> are rings with unity and that <span class="math inline">\(M\)</span> is simultaneously a left <span class="math inline">\(S\)</span>-module and a right <span class="math inline">\(R\)</span> module, so that <span class="math inline">\((sm)r=s(mr)\)</span>. Such an object <span class="math inline">\(M\)</span> is called an <span class="math inline">\((S,R)\)</span>-bimodule.</p>
+<p>For example, suppose <span class="math inline">\(R=M_{2}(F)\)</span>, <span class="math inline">\(S=F\)</span>, and <span class="math inline">\(M\)</span> is the space <span class="math inline">\(F^{2}\)</span> viewed as row vectors with <span class="math inline">\(R\)</span> acting on the right as matrix multiplication and <span class="math inline">\(S\)</span> on the left as scalar multiplication.</p>
+</div><div id="tensor-product-of-bimodules" class="slide section level3">
 <h1>Tensor product of bimodules</h1>
-<p>If <span class="math inline">\(N\)</span> is a left <span
-class="math inline">\(R\)</span> module, we can form the tensor product
-<span class="math inline">\(M\otimes_{R}N\)</span> which is an abelian
-group; but we can furthermore let <span class="math inline">\(S\)</span>
-act by <span class="math inline">\(s(m\otimes n)=(sm\otimes
-n)\)</span>.</p>
-<p>This makes <span class="math inline">\(M\otimes_{R}N\)</span> into a
-left <span class="math inline">\(S\)</span>-module. (If <span
-class="math inline">\(N\)</span> is an <span
-class="math inline">\((R,S)\)</span>-bimodule so that <span
-class="math inline">\(R\)</span> acts on the left and <span
-class="math inline">\(S\)</span> on the right, then <span
-class="math inline">\(M\otimes_{R}N\)</span> is a right <span
-class="math inline">\(S\)</span>-module.)</p>
-<p>If <span class="math inline">\(R\)</span> is commutative, and <span
-class="math inline">\(M\)</span> is a left <span
-class="math inline">\(R\)</span> module, it is also a right <span
-class="math inline">\(R\)</span>-module via <span
-class="math inline">\((mr)=rm\)</span>. So it is automatically an <span
-class="math inline">\((R,R)\)</span>-bimodule. This is how <span
-class="math inline">\(M\otimes_{R}N\)</span> is automatically an <span
-class="math inline">\(R\)</span>-module if <span
-class="math inline">\(R\)</span> is commutative.</p>
+<p>If <span class="math inline">\(N\)</span> is a left <span class="math inline">\(R\)</span> module, we can form the tensor product <span class="math inline">\(M\otimes_{R}N\)</span> which is an abelian group; but we can furthermore let <span class="math inline">\(S\)</span> act by <span class="math inline">\(s(m\otimes n)=(sm\otimes n)\)</span>.</p>
+<p>This makes <span class="math inline">\(M\otimes_{R}N\)</span> into a left <span class="math inline">\(S\)</span>-module. (If <span class="math inline">\(N\)</span> is an <span class="math inline">\((R,S)\)</span>-bimodule so that <span class="math inline">\(R\)</span> acts on the left and <span class="math inline">\(S\)</span> on the right, then <span class="math inline">\(M\otimes_{R}N\)</span> is a right <span class="math inline">\(S\)</span>-module.)</p>
+<p>If <span class="math inline">\(R\)</span> is commutative, and <span class="math inline">\(M\)</span> is a left <span class="math inline">\(R\)</span> module, it is also a right <span class="math inline">\(R\)</span>-module via <span class="math inline">\((mr)=rm\)</span>. So it is automatically an <span class="math inline">\((R,R)\)</span>-bimodule. This is how <span class="math inline">\(M\otimes_{R}N\)</span> is automatically an <span class="math inline">\(R\)</span>-module if <span class="math inline">\(R\)</span> is commutative.</p>
 </div>
-
-<div id="general-properties" class="title-slide slide section level2">
-<h1>General Properties</h1>
-
-</div>
-<div id="tensor-product-of-maps" class="slide section level3">
+<div id="general-properties" class="title-slide slide section level2"><h1>General Properties</h1></div><div id="tensor-product-of-maps" class="slide section level3">
 <h1>Tensor product of maps</h1>
-<p>If <span class="math inline">\(f:M\to M&#39;\)</span> and <span
-class="math inline">\(g:N\to N&#39;\)</span> are maps of right/left
-<span class="math inline">\(R\)</span>-modules, then <span
-class="math inline">\(f\otimes g:M\otimes N\to M&#39;\otimes
-N&#39;\)</span> defined by <span class="math inline">\((f\otimes
-g)(m\otimes n)=f(m)\otimes g(n)\)</span> is a well defined group
-homomorphism.</p>
-<p>If <span class="math inline">\(M\)</span> and <span
-class="math inline">\(M&#39;\)</span> are <span
-class="math inline">\((S,R)\)</span> bimodules and <span
-class="math inline">\(f\)</span> and <span
-class="math inline">\(g\)</span> are <span
-class="math inline">\(S\)</span>-module homomorphismsm then <span
-class="math inline">\(f\otimes g\)</span> is an <span
-class="math inline">\(S\)</span>-module homomorphism. (If <span
-class="math inline">\(R\)</span> is commutative all this is
-automatic).</p>
-<p>Further, provided everything makes sense, <span
-class="math inline">\((f\otimes g)\circ (f&#39;\otimes g&#39;)=(f\circ
-f&#39;)\otimes (g\circ g&#39;).\)</span></p>
-</div>
-<div id="the-kronecker-product" class="slide section level3">
+<p>If <span class="math inline">\(f:M\to M&#39;\)</span> and <span class="math inline">\(g:N\to N&#39;\)</span> are maps of right/left <span class="math inline">\(R\)</span>-modules, then <span class="math inline">\(f\otimes g:M\otimes N\to M&#39;\otimes N&#39;\)</span> defined by <span class="math inline">\((f\otimes g)(m\otimes n)=f(m)\otimes g(n)\)</span> is a well defined group homomorphism.</p>
+<p>If <span class="math inline">\(M\)</span> and <span class="math inline">\(M&#39;\)</span> are <span class="math inline">\((S,R)\)</span> bimodules and <span class="math inline">\(f\)</span> and <span class="math inline">\(g\)</span> are <span class="math inline">\(S\)</span>-module homomorphismsm then <span class="math inline">\(f\otimes g\)</span> is an <span class="math inline">\(S\)</span>-module homomorphism. (If <span class="math inline">\(R\)</span> is commutative all this is automatic).</p>
+<p>Further, provided everything makes sense, <span class="math inline">\((f\otimes g)\circ (f&#39;\otimes g&#39;)=(f\circ f&#39;)\otimes (g\circ g&#39;).\)</span></p>
+</div><div id="the-kronecker-product" class="slide section level3">
 <h1>The Kronecker Product</h1>
-<p>If <span class="math inline">\(L\)</span> and <span
-class="math inline">\(M\)</span> are matrices giving linear maps from
-<span class="math inline">\(\R^{n}\)</span> to <span
-class="math inline">\(\R^{n&#39;}\)</span> and <span
-class="math inline">\(\R^{m}\)</span> to <span
-class="math inline">\(\R^{m&#39;}\)</span>.</p>
-<p>Then the tensor product of these maps is a linear map from <span
-class="math inline">\(\R^{n}\otimes \R^{m}\)</span> to <span
-class="math inline">\(\R^{n&#39;}\otimes \R^{m&#39;}\)</span>.</p>
-<p>The standard bases of <span class="math inline">\(\R^{k}\)</span>
-give us bases <span class="math inline">\(e_{i}\otimes e_{j}\)</span> of
-<span class="math inline">\(\R^{n}\otimes R^{m}\)</span> and <span
-class="math inline">\(\R^{n&#39;}\otimes\R^{m&#39;}\)</span>. Thus the
-tensor product is represented as an <span class="math inline">\(nm\times
-n&#39;m&#39;\)</span> matrix. This is called the Kronecker Product of
-the matrices <span class="math inline">\(L\)</span> and <span
-class="math inline">\(M\)</span>.</p>
-</div>
-<div id="associativity" class="slide section level3">
+<p>If <span class="math inline">\(L\)</span> and <span class="math inline">\(M\)</span> are matrices giving linear maps from <span class="math inline">\(\R^{n}\)</span> to <span class="math inline">\(\R^{n&#39;}\)</span> and <span class="math inline">\(\R^{m}\)</span> to <span class="math inline">\(\R^{m&#39;}\)</span>.</p>
+<p>Then the tensor product of these maps is a linear map from <span class="math inline">\(\R^{n}\otimes \R^{m}\)</span> to <span class="math inline">\(\R^{n&#39;}\otimes \R^{m&#39;}\)</span>.</p>
+<p>The standard bases of <span class="math inline">\(\R^{k}\)</span> give us bases <span class="math inline">\(e_{i}\otimes e_{j}\)</span> of <span class="math inline">\(\R^{n}\otimes R^{m}\)</span> and <span class="math inline">\(\R^{n&#39;}\otimes\R^{m&#39;}\)</span>. Thus the tensor product is represented as an <span class="math inline">\(nm\times n&#39;m&#39;\)</span> matrix. This is called the Kronecker Product of the matrices <span class="math inline">\(L\)</span> and <span class="math inline">\(M\)</span>.</p>
+</div><div id="associativity" class="slide section level3">
 <h1>Associativity</h1>
-<p>The tensor product is associative in the sense that <span
-class="math inline">\((M_1\otimes_{R} M_2)\otimes_{T} M_3\)</span> is
-isomorphic to <span class="math inline">\(M_1\otimes_{R} (M_2\otimes_{T}
-M_3)\)</span> provided that <span class="math inline">\(M_1\)</span> is
-a right <span class="math inline">\(R\)</span> module, <span
-class="math inline">\(M_{2}\)</span> is an <span
-class="math inline">\((R,T)\)</span> bimodule, and <span
-class="math inline">\(M_3\)</span> is a left <span
-class="math inline">\(T\)</span>-module. If <span
-class="math inline">\(R\)</span> and <span
-class="math inline">\(T\)</span> are commutative this is automatic.</p>
-</div>
-<div id="commutativity" class="slide section level3">
+<p>The tensor product is associative in the sense that <span class="math inline">\((M\otimes_{R} N)\otimes_{T} L\)</span> is isomorphic to <span class="math inline">\(M\otimes_{R} (N\otimes_{T} L)\)</span> provided that <span class="math inline">\(M\)</span> is a right <span class="math inline">\(R\)</span> module, <span class="math inline">\(N\)</span> is an <span class="math inline">\((R,T)\)</span> bimodule, and <span class="math inline">\(L\)</span> is a left <span class="math inline">\(T\)</span>-module. If <span class="math inline">\(R\)</span> and <span class="math inline">\(T\)</span> are commutative this is automatic.</p>
+<p>First check that both versions of the tensor product make sense.</p>
+<p>Notice that <span class="math inline">\(N\otimes_{T}L\)</span> is a left <span class="math inline">\(R\)</span>-module and <span class="math inline">\(M\otimes_{R}N\)</span> is a right <span class="math inline">\(T\)</span>-module.</p>
+<p>For fixed <span class="math inline">\(l\in L\)</span>, the map <span class="math inline">\((m,n)\mapsto m\otimes (n\otimes l)\)</span> is <span class="math inline">\(R\)</span>-balanced, so there is a well-defined map</p>
+<p><span class="math display">\[
+M\otimes_{R}N\to M\otimes_{R}(N\otimes_{T}L)
+\]</span></p>
+<p>This gives a well-defined map</p>
+<p><span class="math display">\[
+M\otimes_{R}N\times L \to M\otimes_{R}(N\otimes_{T}L)
+\]</span></p>
+<p>and by the universal property this translates to a map</p>
+<p><span class="math display">\[
+(M\otimes_{R}N)\otimes_{T}L\to M\otimes_{R}(N\otimes_{T}L).
+\]</span></p>
+<p>You can also reverse this construction to create the inverse map.</p>
+<p>If <span class="math inline">\(M\)</span> is an <span class="math inline">\((S,R)\)</span> bimodule then both constructions yield left <span class="math inline">\(S\)</span>-modules. Then <span class="math inline">\(M\otimes_{R}N\)</span> is an <span class="math inline">\((S,T)\)</span> bimodule and <span class="math inline">\((M\otimes_{R}N)\otimes_{T}L\)</span> is a left <span class="math inline">\(S\)</span>-module.</p>
+</div><div id="commutativity" class="slide section level3">
 <h1>Commutativity</h1>
-<p>If <span class="math inline">\(R\)</span> is commutative, the tensor
-product is commutative in the sense that <span
-class="math inline">\(M\otimes N\)</span> is isomorphic to <span
-class="math inline">\(N\otimes M\)</span>.</p>
-</div>
-<div id="distributive-law" class="slide section level3">
+<p>If <span class="math inline">\(R\)</span> is commutative, the tensor product is commutative in the sense that <span class="math inline">\(M\otimes N\)</span> is isomorphic to <span class="math inline">\(N\otimes M\)</span>.</p>
+</div><div id="distributive-law" class="slide section level3">
 <h1>Distributive law</h1>
-<p><span class="math inline">\((M\oplus M&#39;)\otimes N\)</span> is
-isomorphic to <span class="math inline">\((M\otimes N)\oplus
-(M&#39;\otimes N)\)</span> and similarly if <span
-class="math inline">\(N\)</span> is a direct sum. By induction this
-extends to finite direct sums. With care it holds for infinite direct
-sums.</p>
-</div>
-<div id="tensor-product-of-algebras" class="slide section level3">
+<p><span class="math inline">\((M\oplus M&#39;)\otimes N\)</span> is isomorphic to <span class="math inline">\((M\otimes N)\oplus (M&#39;\otimes N)\)</span> and similarly if <span class="math inline">\(N\)</span> is a direct sum. By induction this extends to finite direct sums. With care it holds for infinite direct sums.</p>
+<p>The proof of this uses the fact that there is a well-defined balanced map</p>
+<p><span class="math display">\[
+F: (M\oplus M&#39;)\times N \to (M\otimes N)\oplus (M&#39;\otimes N)
+\]</span></p>
+<p>defined by <span class="math inline">\(F((m,m&#39;),n)=(m\otimes n,m&#39;\otimes n)\)</span></p>
+<p>and so we have a map</p>
+<p><span class="math display">\[
+(M\oplus M&#39;)\otimes N\to (M\otimes N)\oplus (M&#39;\otimes N).
+\]</span></p>
+<p>On the other hand we have balanced maps <span class="math inline">\(M\times N\to (M\oplus M&#39;)\otimes N\)</span> sending <span class="math inline">\(m\otimes n\)</span> to <span class="math inline">\((m,0)\otimes n\)</span> and similarly for <span class="math inline">\(M&#39;\times N\)</span>. These give a map from <span class="math inline">\(M\otimes N\oplus M&#39;\otimes N\to (M\oplus M&#39;)\otimes N\)</span> which is inverse to the map above.</p>
+</div><div id="tensor-product-of-algebras" class="slide section level3">
 <h1>Tensor product of algebras</h1>
-<p>If <span class="math inline">\(A\)</span> and <span
-class="math inline">\(B\)</span> are <span
-class="math inline">\(R\)</span> algebras where <span
-class="math inline">\(R\)</span> is commutative, then <span
-class="math inline">\(A\otimes_{R}B\)</span> is an <span
-class="math inline">\(R\)</span> algebra with multiplication <span
-class="math inline">\((a\otimes b)(a&#39;\otimes
-b&#39;)=(aa&#39;)\otimes (bb&#39;)\)</span>. (remember that an <span
-class="math inline">\(R\)</span> algebra is a ring in which <span
-class="math inline">\(R\)</span> is mapped into the center of the
-ring).</p>
+<p>If <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> are <span class="math inline">\(R\)</span> algebras where <span class="math inline">\(R\)</span> is commutative, then <span class="math inline">\(A\otimes_{R}B\)</span> is an <span class="math inline">\(R\)</span> algebra with multiplication <span class="math inline">\((a\otimes b)(a&#39;\otimes b&#39;)=(aa&#39;)\otimes (bb&#39;)\)</span>. (remember that an <span class="math inline">\(R\)</span> algebra is a ring in which <span class="math inline">\(R\)</span> is mapped into the center of the ring).</p>
 </div>
 </body>
 </html>

@@ -180,6 +180,18 @@ $$
 
 Then $f_{ij}(x)=c_{ij}=0$ for all pairs $i,j$ and therefore all $c_{rs}=0$; in other words, the $v_{r}\otimes w_{s}$ are linearly independent. Thus $V\otimes W$ is an $nm$ dimensional $F$-vector space.
 
+### Endomorphisms
+
+Let $V$ be a vector space and let $V^{\ast}$ be its dual. Then
+there is an isomorphism
+
+$$
+V\otimes V^{\ast}\to \End(V)
+$$
+
+where
+$(v\otimes f)(w)=f(w)v$.
+
 ### The noncommutative case
 
 Now suppose that $R$ is a noncommutative ring. If $M$ and $N$ are left modules, then we have a problem defining a bilinear map $M\times N\to L$ where $L$ is also a left module. Namely, on the one hand, we would need:
@@ -269,8 +281,36 @@ of the matrices $L$ and $M$.
 
 ### Associativity
 
-The tensor product is associative in the sense that $(M_1\otimes_{R} M_2)\otimes_{T} M_3$ is isomorphic to $M_1\otimes_{R} (M_2\otimes_{T} M_3)$ provided that $M_1$ is a right $R$ module,
-$M_{2}$ is an $(R,T)$ bimodule, and $M_3$ is a left $T$-module. If $R$ and $T$ are commutative this is automatic.
+The tensor product is associative in the sense that $(M\otimes_{R} N)\otimes_{T} L$ is isomorphic to $M\otimes_{R} (N\otimes_{T} L)$ provided that $M$ is a right $R$ module,
+$N$ is an $(R,T)$ bimodule, and $L$ is a left $T$-module. If $R$ and $T$ are commutative this is automatic.
+
+First check that both versions of the tensor product make sense.
+
+Notice that $N\otimes_{T}L$ is a left $R$-module and $M\otimes_{R}N$ is a right $T$-module.
+
+For fixed $l\in L$, the map $(m,n)\mapsto m\otimes (n\otimes l)$ is $R$-balanced, so there is a well-defined
+map
+
+$$
+M\otimes_{R}N\to M\otimes_{R}(N\otimes_{T}L)
+$$
+
+This gives a well-defined map
+
+$$
+M\otimes_{R}N\times L \to M\otimes_{R}(N\otimes_{T}L)
+$$
+
+and by the universal property this translates to a map
+
+$$
+(M\otimes_{R}N)\otimes_{T}L\to M\otimes_{R}(N\otimes_{T}L).
+$$
+
+You can also reverse this construction to create the inverse map.
+
+If $M$ is an $(S,R)$ bimodule then both constructions yield left $S$-modules. Then $M\otimes_{R}N$
+is an $(S,T)$ bimodule and $(M\otimes_{R}N)\otimes_{T}L$ is a left $S$-module.
 
 ### Commutativity
 
@@ -279,6 +319,24 @@ If $R$ is commutative, the tensor product is commutative in the sense that $M\ot
 ### Distributive law
 
 $(M\oplus M')\otimes N$ is isomorphic to $(M\otimes N)\oplus (M'\otimes N)$ and similarly if $N$ is a direct sum. By induction this extends to finite direct sums. With care it holds for infinite direct sums.
+
+The proof of this uses the fact that there is a well-defined balanced map
+
+$$
+F: (M\oplus M')\times N \to (M\otimes N)\oplus (M'\otimes N)
+$$
+
+defined by $F((m,m'),n)=(m\otimes n,m'\otimes n)$
+
+and so we have a map
+
+$$
+(M\oplus M')\otimes N\to (M\otimes N)\oplus (M'\otimes N).
+$$
+
+On the other hand we have balanced maps $M\times N\to (M\oplus M')\otimes N$ sending $m\otimes n$ to $(m,0)\otimes n$
+and similarly for $M'\times N$. These give a map from $M\otimes N\oplus M'\otimes N\to (M\oplus M')\otimes N$
+which is inverse to the map above.
 
 ### Tensor product of algebras
 
