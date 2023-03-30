@@ -38,8 +38,13 @@ has_toc: false
   - [notes](pdfs/07-galoisextensions.pdf)
   - [pdf slides](beamer/07-galoisextensions.pdf)
   - [recommended problems](07-galois-problems.md)
-- Week 8: [Applications and Examples of Galois Theory](08-examplesandapplications.md)
+- Week 8: [Applications and Examples of Galois Theory](08-examplesAndapplications.md)
+  - [notes](pdfs/08-examplesAndapplications.pdf)
+  - [pdf slides](beamer/08-examplesAndapplications.pdf)
 - Week 9: [Tensor products (DF 10.4)](09-tensors.md)
-- Week 10: [Base extension; exterior algebras (DF 10.4, 11.5)](11-multilinear.md)
+  - [notes](pdfs/09-tensors.pdf)
+  - [pdf slides](beamer/09-tensors.pdf)
+  - [recommended problems](09-recommended-problems-tensors.md)
+- Week 10: [Multilinear Algebra](10-multilinear.md)
 
 Other topics to be decided later.
