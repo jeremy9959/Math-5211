@@ -112,3 +112,30 @@ $(1,d')\otimes m'$. So $1/d\otimes m = 1/udd'\otimes ud'm=1/udd'\otimes udm' = 1
 5.  Localization is flat.
 
 ### Local Rings
+
+### Local Rings
+
+**Definition:** A commutative ring with unity that has a unique maximal ideal is called a _local ring._
+
+**Proposition:** TFAE:
+
+- $R$ is local with maximal ideal $M$
+- The units of $R$ are exactly the elements of $R$ outside $M$.
+- there is a maximal ideal $M$ of $R$ wuch that $1+m$ is a unity for $m\in M$.
+
+**Proposition:** Let $R$ be a commutative ring with 1 and let $R_P$ be the localization of $R$ at $P$.
+
+- $R_P$ is local with maximal ideal $P^e=PR_P$. The map $R\to R_P$ induces an injection $R/P\to R_P/PR_P$.
+  $R_P/PR_P$ is a field equal to the quotient field of $R/P$.
+
+- If $R$ is an integral domain, so is $R_P$. The map $R\to R_P$ is injective.
+
+- The prime ideals of $R_P$ are in bijective correspondence with the prime ideals of $R$ contained in $P$.
+
+- If $P$ is a maximal ideal then $R/M$ is isomorphic to $R_M/MR_M$.
+
+**Lemma:** Let $M$ be an $R$ module. Then TFAE:
+
+- $M=0$
+- $M_P=0$ for all primes $P$ of $R$
+- $M_m=0$ for all maximal ideals $m$ of $R$.
