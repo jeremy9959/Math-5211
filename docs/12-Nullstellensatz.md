@@ -108,7 +108,7 @@ This is a sum of monomials $x_1^{a_1}\cdots x_n^{a_n}$. The degree of $p$ is the
 Introduce new coordinates $X_i$ (for $i=1,\ldots, n-1$) by:
 
 $$
-\begin{array}
+\begin{array}{rcl}
 x_1 &=& X_1 + x_n^{\alpha}\\
 x_2 &=& X_2 + x_n^{\alpha^2}\\
 \vdots &=& \vdots\\

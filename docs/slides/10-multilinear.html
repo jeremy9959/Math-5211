@@ -8,15 +8,67 @@
   <meta name="generator" content="pandoc" />
   <title>10. Multilinear Algebra</title>
   <style type="text/css">
-    code{white-space: pre-wrap;}
-    span.smallcaps{font-variant: small-caps;}
-    span.underline{text-decoration: underline;}
-    div.column{display: inline-block; vertical-align: top; width: 50%;}
-    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-    ul.task-list{list-style: none;}
+    
   </style>
   <link rel="stylesheet" type="text/css" media="screen, projection, print"
     href="https://www.w3.org/Talks/Tools/Slidy2/styles/slidy.css" />
+  <script type="text/javascript">
+      window.MathJax = {
+        loader: {
+        load: ['[custom]/xypic.js'],
+        paths: {custom: 'https://cdn.jsdelivr.net/gh/sonoisa/XyJax-v3@3.0.1/build/'}
+      },
+        tex: {
+          packages: {'[+]': ['xypic']},
+          tags: "ams",
+          inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+          displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+          processEscapes: true,
+          macros: {
+            Z: "{\\mathbb{Z}}",
+            Zn: ["{\\mathbb{Z}/#1 \\mathbb{Z}}",1],
+            GL: "{\\mathrm{GL}}",
+            lessim: "{\\lesssim}",
+            R: "{\\mathbb{R}}",
+            Q: "{\\mathbb{Q}}",
+            N: "{\\mathbb{N}}",
+            SL: "{\\mathrm{SL}}",
+            PGL: "{\\mathrm{PGL}}",
+            C: "{\\mathbb{C}}",
+            Stab: "{\\mathrm{Stab}}",
+            Aut: "{\\mathrm{Aut}}",
+            End: "{\\mathrm{End}}",
+            isom: "{\\cong}",
+            order: ["{\\lvert#1\\rvert}",1],
+            divides: "{\\vert}",
+            semi: "{\\rtimes}",
+            End: "{\\mathrm{End}}",
+            dim: "{\\mathrm{dim}}",
+            Hom: "{\\mathrm{Hom}}",
+            Pol: "{\\mathrm{Pol}}",
+            D: "{\\mathcal{D}}",
+            span: "{\\mathrm{span}}",
+            norm: ["{\\lVert #1 \\rVert}",1],
+            Tor: "{\\mathrm{Tor}}",
+            Ann: "{\\mathrm{Ann}}",
+          }
+        }
+      };
+  </script>
+  <script type="text/javascript" id="MathJax-script" async
+    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
+  </script>
+  
+  <!-- LaTeX Macros
+  
+  
+  
+  $$\def\GL{\mathrm{GL}}$$
+  $$\def\Zn#1{\mathbb{Z}/#1\mathbb{Z}}$$
+  $$\def\Z{\mathbb{Z}}$$
+  $$\def\gcd#1#2{\mathrm{gcd}(#1,#2)}$$
+  -->
+  <script src="/usr/share/javascript/mathjax/MathJax.js?config=TeX-AMS_CHTML-full" type="text/javascript"></script>
   <script src="https://www.w3.org/Talks/Tools/Slidy2/scripts/slidy.js"
     charset="utf-8" type="text/javascript"></script>
 </head>
@@ -24,10 +76,75 @@
 <div class="slide titlepage">
   <h1 class="title">10. Multilinear Algebra</h1>
 </div>
-<div id="applications-of-the-tensor-product"
-class="title-slide slide section level2">
-<h1>Applications of the tensor product</h1>
-
+<div id="the-tensor-algebra" class="title-slide slide section level2"><h1>The tensor algebra</h1></div><div id="the-tensor-algebra---definition" class="slide section level3">
+<h1>The tensor algebra - definition</h1>
+<p>Suppose that <span class="math inline">\(R\)</span> is a commutative ring with unity. Let <span class="math inline">\(M\)</span> be an <span class="math inline">\(R\)</span> module.</p>
+<p>If <span class="math inline">\(T^{j}(M)=\overbrace{M\otimes_{R}\cdots\otimes_{R}M}^{j}\)</span></p>
+<p>then we can define a (non-commutative) product map</p>
+<p><span class="math display">\[
+T^{j}(M)\times T^{k}(M)\to T^{j+k}(M)
+\]</span></p>
+<p>by defining</p>
+<p><span class="math display">\[
+(a_1\otimes\cdots\otimes a_j)(b_1\otimes\cdots\otimes b_k)=(a_1\otimes\cdots\otimes a_j\otimes b_1\otimes\cdots\otimes b_k)
+\]</span></p>
+<p>This allows us to view the infinite direct sum</p>
+<p><span class="math display">\[
+T(M)=R\oplus M\oplus T^{2}(M)\oplus T^{3}(M)\cdots
+\]</span></p>
+<p>as a (non-commutative) <span class="math inline">\(R\)</span>-algebra. This ring is called the <em>tensor algebra of <span class="math inline">\(M\)</span></em>.</p>
+</div><div id="universal-property" class="slide section level3">
+<h1>Universal property</h1>
+<p>If <span class="math inline">\(A\)</span> is any <span class="math inline">\(R\)</span>-algebra and <span class="math inline">\(M\)</span> is any <span class="math inline">\(R\)</span> module, then given a map <span class="math inline">\(f:M\to A\)</span> there is a unique map <span class="math inline">\(T(M)\to A\)</span> which, when restricted to <span class="math inline">\(M\)</span> gives <span class="math inline">\(f\)</span>.</p>
+</div><div id="graded-rings" class="slide section level3">
+<h1>Graded rings</h1>
+<p>The tensor algebra <span class="math inline">\(T(M)\)</span> is an example of a <em>graded ring</em>. A general graded ring is any ring <span class="math inline">\(S\)</span> that is a direct sum of additive subgroups <span class="math inline">\(S_{i}\)</span> where <span class="math inline">\(S_{i}S_{j}\subset S_{i+j}\)</span>. Each <span class="math inline">\(S_{j}\)</span> is called the subset of homogeneous elements of degree <span class="math inline">\(j\)</span>.</p>
+<p>A graded ideal <span class="math inline">\(I\)</span> is an ideal of <span class="math inline">\(S\)</span> that is the direct sum of its homogeneous components <span class="math inline">\(I\cap S_{j}\)</span>.</p>
+<p>A map <span class="math inline">\(f:S\to T\)</span> between graded rings is a homomorphism of graded rings if <span class="math inline">\(f(S_{j})\subset T_{j}\)</span> for every <span class="math inline">\(j\)</span>.</p>
+<p><strong>Example:</strong> The polynomial ring <span class="math inline">\(F[x_1,\ldots, x_n]\)</span> is graded where the homogeneous components are spanned by the monomials of a given degree. The ideal generated by <span class="math inline">\(x_1,\ldots, x_n\)</span> is graded because any element of this ideal – that is, any polynomiial with zero constant term – can be written as a sum of monomials of a fixed degree in a unique way.</p>
+<p>The ring <span class="math inline">\(R=\Z[x]\)</span> is graded by degree, and the ideal generated by <span class="math inline">\(J=(1+x)\)</span> is not graded because <span class="math inline">\(1\)</span> and <span class="math inline">\(x\)</span> are not in <span class="math inline">\(J\)</span>.</p>
+<p>An ideal generated by homogeneous elements in a graded ring is graded.</p>
+</div><div id="quotients-of-graded-rings" class="slide section level3">
+<h1>Quotients of graded rings</h1>
+<p>If <span class="math inline">\(S\)</span> is a graded ring and <span class="math inline">\(I\)</span> is a graded ideal, then <span class="math inline">\(S/I\)</span> is graded with homogeneous components <span class="math inline">\(S_{j}/I_{j}\)</span>.</p>
+</div>
+<div id="the-symmetric-algebra" class="title-slide slide section level2"><h1>The symmetric algebra</h1></div><div id="the-symmetric-algebra---definition" class="slide section level3">
+<h1>The symmetric algebra - definition</h1>
+<p>A bilinear map <span class="math inline">\(f:M\times M\to L\)</span> is symmetric if <span class="math inline">\(f(m_1,m_2)=f(m_2,m_1)\)</span> for all pairs <span class="math inline">\((m_1,m_2)\)</span>. The symmetric tensor product <span class="math inline">\(S^{2}(M)\)</span> has the universal property that any symmetric bilinar map <span class="math inline">\(f:M\times M\to L\)</span> “factors through” <span class="math inline">\(S^{2}(M)\)</span> in a unique way. <span class="math inline">\(S^{2}(M)\)</span> is constructed from <span class="math inline">\(M\otimes M\)</span> by imposing the relation <span class="math inline">\(m\otimes n-n\otimes m=0\)</span> for all pairs <span class="math inline">\((m,n)\)</span>.</p>
+<p>The symmetric <em>algebra</em> <span class="math inline">\(S(M)\)</span> is obtained from the tensor algebra by modding out by the ideal <span class="math inline">\(C(M)\)</span> generated by all <span class="math inline">\(m\otimes n-n\otimes m\)</span> in <span class="math inline">\(T(M)\)</span>. The map</p>
+<p><span class="math display">\[
+T(M)\to S(M)
+\]</span></p>
+<p>is a map of graded rings since <span class="math inline">\(C(M)\)</span> is a graded ideal, so <span class="math inline">\(S(M)\)</span> is a graded ring. <span class="math inline">\(S^{0}(M)=R\)</span> and <span class="math inline">\(S^{1}(M)=M\)</span>.</p>
+</div><div id="more-on-the-symmetric-algebra" class="slide section level3">
+<h1>More on the symmetric algebra</h1>
+<p>In <span class="math inline">\(S(M)\)</span>, the degree <span class="math inline">\(k\)</span> terms are spanned by tensors <span class="math inline">\(m_1\otimes\cdots\otimes m_k\)</span> modulo the relation which allows you to freely permute the terms.</p>
+<p>Any <span class="math inline">\(k\)</span>-symmetric multilinear map <span class="math inline">\(M\times \cdots\times M\to L\)</span> factors through <span class="math inline">\(S^{k}(M)\)</span> in a unique way.</p>
+<p>If <span class="math inline">\(A\)</span> is any commutative <span class="math inline">\(R\)</span> algebra, and <span class="math inline">\(f:M\to A\)</span> is a module map, then there is a unique <span class="math inline">\(R\)</span>-algebra map <span class="math inline">\(S(M)\to A\)</span> which restricts to <span class="math inline">\(f\)</span> on <span class="math inline">\(M\)</span>.</p>
+<p>If <span class="math inline">\(R\)</span> is a field and <span class="math inline">\(V\)</span> is a vector space of dimension <span class="math inline">\(k\)</span> then <span class="math inline">\(S(V)\)</span> is the (graded) polynomial ring in <span class="math inline">\(k\)</span> variables over <span class="math inline">\(R\)</span>. If <span class="math inline">\(R\)</span> is a commutative ring and <span class="math inline">\(V\)</span> is a free module of rank <span class="math inline">\(k\)</span> then <span class="math inline">\(S(V)\)</span> is the (graded) polynomial ring over <span class="math inline">\(R\)</span> in <span class="math inline">\(k\)</span> variables.</p>
+</div>
+<div id="the-exterior-algebra" class="title-slide slide section level2"><h1>The exterior algebra</h1></div><div id="alternating-maps-and-the-wedge-product" class="slide section level3">
+<h1>Alternating maps and the wedge product</h1>
+<p>A bilinear map <span class="math inline">\(f:M\times M\to L\)</span> is <em>alternating</em> if <span class="math inline">\(f(m,m)=0\)</span> for all <span class="math inline">\(m\in M\)</span>. The exterior product (or wedge product) <span class="math inline">\(M\wedge M\)</span> has the property that there is a map <span class="math inline">\(M\times M\to M\wedge M\)</span> such that if <span class="math inline">\(f:M\times M\to L\)</span> is an alternating map, then there is a unique map <span class="math inline">\(M\wedge M\to L\)</span> making the usual triangle commute.</p>
+<p>The map <span class="math inline">\(M\otimes M\to M\wedge M\)</span> is written <span class="math inline">\((m_1,m_2)\to m_1\wedge m_2\)</span> and <span class="math inline">\(M\wedge M\)</span> is spanned by all <span class="math inline">\(m_1\wedge m_2\)</span>. We have <span class="math inline">\(m_1\wedge m_2=-m_2\wedge m_1\)</span> for elementary tensors where <span class="math inline">\(m_1, m_2\in M\)</span>.</p>
+<p><span class="math inline">\(M\wedge M\)</span> is the quotient of <span class="math inline">\(M\otimes M\)</span> by the elementary tensors <span class="math inline">\(m\otimes m\)</span>.</p>
+</div><div id="the-exterior-algebra-1" class="slide section level3">
+<h1>The exterior algebra</h1>
+<p>The quotient of the tensor algebra by the ideal generated by all tensors of the form <span class="math inline">\(m\otimes m\)</span> is called the <em>exterior algebra</em>, written <span class="math inline">\(\bigwedge M\)</span>. It is graded so that that the degree <span class="math inline">\(k\)</span> terms consist of linear combinations of the “wedge” of <span class="math inline">\(k\)</span> elements of <span class="math inline">\(M\)</span>.</p>
+<p>If <span class="math inline">\(A\)</span> is an <span class="math inline">\(R\)</span>-algebra such that <span class="math inline">\(a^2=0\)</span> for all <span class="math inline">\(a\in A\)</span>, and <span class="math inline">\(f:M\to A\)</span> is a module homomorphism, then there is a unique map <span class="math inline">\(\bigwedge M\to A\)</span> which restricts to <span class="math inline">\(f\)</span>.</p>
+<p>If <span class="math inline">\(V\)</span> is a finite dimensional vector space over a field <span class="math inline">\(F\)</span>, then <span class="math inline">\(\bigwedge V\)</span> is finite dimensional. This holds for any free, finite rank module over a ring <span class="math inline">\(R\)</span>.</p>
+<p>If <span class="math inline">\(R=\Z[x,y]\)</span>, if <span class="math inline">\(M=R\)</span> then <span class="math inline">\(\bigwedge M\)</span> is spanned by <span class="math inline">\(1\wedge 1=0\)</span> so <span class="math inline">\(\bigwedge M=0\)</span>. If <span class="math inline">\(I=(x,y)\)</span>, then there is an alternating map from <span class="math inline">\(I\)</span> to <span class="math inline">\(\Z\)</span> defined by</p>
+<p><span class="math display">\[
+f(ax+by,cx+dy)=ad-bc \pmod{(x,y)}
+\]</span></p>
+<p>so <span class="math inline">\(x\wedge y\)</span> is not zero.</p>
+</div><div id="the-cross-product-in-r3." class="slide section level3">
+<h1>The cross product in <span class="math inline">\(\R^{3}\)</span>.</h1>
+<p>The coefficients of</p>
+<p><span class="math display">\[
+(a e_0 + b e_1 + c e_2)\wedge (x e_0 + ye_1+ze_2)
+\]</span></p>
+<p>in terms of the two-forms <span class="math inline">\(e_i\wedge e_j\)</span> give the cross product in <span class="math inline">\(\R^{3}\)</span>.</p>
 </div>
 </body>
 </html>

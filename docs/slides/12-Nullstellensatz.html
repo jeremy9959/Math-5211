@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+ "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <title>12. Nullstellensatz</title>
+  <style type="text/css">
+    
+  </style>
+  <link rel="stylesheet" type="text/css" media="screen, projection, print"
+    href="https://www.w3.org/Talks/Tools/Slidy2/styles/slidy.css" />
+  <script type="text/javascript">
+      window.MathJax = {
+        loader: {
+        load: ['[custom]/xypic.js'],
+        paths: {custom: 'https://cdn.jsdelivr.net/gh/sonoisa/XyJax-v3@3.0.1/build/'}
+      },
+        tex: {
+          packages: {'[+]': ['xypic']},
+          tags: "ams",
+          inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+          displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+          processEscapes: true,
+          macros: {
+            Z: "{\\mathbb{Z}}",
+            Zn: ["{\\mathbb{Z}/#1 \\mathbb{Z}}",1],
+            GL: "{\\mathrm{GL}}",
+            lessim: "{\\lesssim}",
+            R: "{\\mathbb{R}}",
+            Q: "{\\mathbb{Q}}",
+            N: "{\\mathbb{N}}",
+            SL: "{\\mathrm{SL}}",
+            PGL: "{\\mathrm{PGL}}",
+            C: "{\\mathbb{C}}",
+            Stab: "{\\mathrm{Stab}}",
+            Aut: "{\\mathrm{Aut}}",
+            End: "{\\mathrm{End}}",
+            isom: "{\\cong}",
+            order: ["{\\lvert#1\\rvert}",1],
+            divides: "{\\vert}",
+            semi: "{\\rtimes}",
+            End: "{\\mathrm{End}}",
+            dim: "{\\mathrm{dim}}",
+            Hom: "{\\mathrm{Hom}}",
+            Pol: "{\\mathrm{Pol}}",
+            D: "{\\mathcal{D}}",
+            span: "{\\mathrm{span}}",
+            norm: ["{\\lVert #1 \\rVert}",1],
+            Tor: "{\\mathrm{Tor}}",
+            Ann: "{\\mathrm{Ann}}",
+          }
+        }
+      };
+  </script>
+  <script type="text/javascript" id="MathJax-script" async
+    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
+  </script>
+  
+  <!-- LaTeX Macros
+  
+  
+  
+  $$\def\GL{\mathrm{GL}}$$
+  $$\def\Zn#1{\mathbb{Z}/#1\mathbb{Z}}$$
+  $$\def\Z{\mathbb{Z}}$$
+  $$\def\gcd#1#2{\mathrm{gcd}(#1,#2)}$$
+  -->
+  <script src="/usr/share/javascript/mathjax/MathJax.js?config=TeX-AMS_CHTML-full" type="text/javascript"></script>
+  <script src="https://www.w3.org/Talks/Tools/Slidy2/scripts/slidy.js"
+    charset="utf-8" type="text/javascript"></script>
+</head>
+<body>
+<div class="slide titlepage">
+  <h1 class="title">12. Nullstellensatz</h1>
+</div>
+<div id="hilberts-nullstellensatz" class="title-slide slide section level2"><h1>Hilbert’s Nullstellensatz</h1></div><div id="radicals-and-radical-ideals" class="slide section level3">
+<h1>Radicals and Radical Ideals</h1>
+<p><strong>Definition:</strong> If <span class="math inline">\(I\subset R\)</span> is an ideal, <span class="math inline">\(I\)</span> is called <em>radical</em> if, whenever <span class="math inline">\(f^n\in I\)</span>, we have <span class="math inline">\(f\in I\)</span>.<br />
+Alternatively, <span class="math inline">\(I\)</span> is radical if <span class="math inline">\(R/I\)</span> has no nilpotent elements. If <span class="math inline">\(I\)</span> is any ideal, then <span class="math inline">\(\mathrm{rad}(I)\)</span> is the set of elements <span class="math inline">\(f\)</span> such that <span class="math inline">\(f^{m}\in I\)</span> for some <span class="math inline">\(m\)</span>. Finally, the radical of the zero ideal, which is the set of nilpotent elements in <span class="math inline">\(R\)</span>, is called the <em>nilradical</em> of <span class="math inline">\(R\)</span>.</p>
+<p><strong>Remark:</strong> We’ve seen at various times in the past that the nilpotent elements of a (commutative) ring form an ideal.</p>
+<p><strong>Proposition:</strong> If <span class="math inline">\(I\)</span> is a proper ideal of <span class="math inline">\(R\)</span>, then the radical of <span class="math inline">\(I\)</span> is the intersection of all the prime ideals of <span class="math inline">\(R\)</span> containing <span class="math inline">\(I\)</span>.</p>
+<p><strong>Proof:</strong> It’s enough to prove that the nilradical of <span class="math inline">\(R/I\)</span> is the intersection of all prime ideals of <span class="math inline">\(R/I\)</span>. If <span class="math inline">\(P\supset I\)</span> is a prime ideal, and <span class="math inline">\(f^{n}\in I\)</span> for some <span class="math inline">\(n\)</span>, choose the smallest such <span class="math inline">\(n\)</span>. Then <span class="math inline">\(f^{n}\in P\)</span> so either <span class="math inline">\(f^{n-1}\in P\)</span> or <span class="math inline">\(f\in P\)</span>. By minimality of <span class="math inline">\(n\)</span>, this means that <span class="math inline">\(f\in P\)</span>. So the nilradical is contained in every prime ideal.</p>
+<p>For the converse, suppose that <span class="math inline">\(a\)</span> is not a nilpotent element of <span class="math inline">\(R\)</span> (and is not a unit in <span class="math inline">\(R\)</span>). Then we will construct a prime ideal <span class="math inline">\(P\)</span> that does not contain <span class="math inline">\(a\)</span>. Let <span class="math inline">\(A\)</span> be the set of powers of <span class="math inline">\(a\)</span>: <span class="math inline">\(A=\{a,a^2,a^3,\ldots\}\)</span> and let <span class="math inline">\(S\)</span> be the set of ideals of <span class="math inline">\(R\)</span> not meeting <span class="math inline">\(A\)</span>. This is a nonempty set, since it contains the zero ideal. If <span class="math inline">\(I_1\subset I_2\subset\cdots\)</span> is a chain of ideals in <span class="math inline">\(S\)</span>, then the union of the <span class="math inline">\(I_{k}\)</span> is again an ideal in <span class="math inline">\(S\)</span>, so chains in <span class="math inline">\(S\)</span> have upper bounds. By Zorn’s lemma, <span class="math inline">\(S\)</span> has a maximal element <span class="math inline">\(Q\)</span>. Now suppose that <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span> are elements of <span class="math inline">\(R\)</span> and <span class="math inline">\(xy\in P\)</span>. Since <span class="math inline">\(P\)</span> is maximal in <span class="math inline">\(S\)</span>, we know that some power of <span class="math inline">\(a^r\)</span> is in <span class="math inline">\((x)+P\)</span> and some power of <span class="math inline">\(a^s\)</span> is in <span class="math inline">\((y)+P\)</span>. But then <span class="math inline">\(a^{r+s}\)</span> is in <span class="math inline">\(xy+P=P\)</span> since <span class="math inline">\(xy\in P\)</span>. This is a contradiction, since <span class="math inline">\(P\)</span> is in <span class="math inline">\(S\)</span>. It follows that one of <span class="math inline">\(x\)</span> or <span class="math inline">\(y\)</span> must have been in <span class="math inline">\(P\)</span>, so <span class="math inline">\(P\)</span> is prime.</p>
+<p><strong>Corollary:</strong> Prime (and maximal) ideals of <span class="math inline">\(R\)</span> are radical ideals.</p>
+</div><div id="integral-extensions" class="slide section level3">
+<h1>Integral Extensions</h1>
+<p><strong>Definition:</strong> Let <span class="math inline">\(S\)</span> be a commutative <span class="math inline">\(R\)</span> algebra.</p>
+<ul>
+<li>An element <span class="math inline">\(a\in S\)</span> is integral over <span class="math inline">\(R\)</span> if it is the root of a monic polynomial in <span class="math inline">\(R[x]\)</span>.</li>
+<li>If every element of <span class="math inline">\(s\)</span> is integral over <span class="math inline">\(R\)</span>, then <span class="math inline">\(S\)</span> is called an <em>integral</em> extension of <span class="math inline">\(R\)</span>.</li>
+<li>The subset of <span class="math inline">\(S\)</span> consisting of elements integral over <span class="math inline">\(R\)</span> is called the <em>integral closure</em> of <span class="math inline">\(R\)</span> in <span class="math inline">\(S\)</span>.</li>
+<li><span class="math inline">\(R\)</span> is integrally closed in <span class="math inline">\(S\)</span> if it is equal to its integral closure.</li>
+<li>If <span class="math inline">\(R\)</span> is an integral domain, and <span class="math inline">\(R\)</span> is integrally closed in its field of fractions, then <span class="math inline">\(R\)</span> is integrally closed (full stop) or <em>normal</em>. The integral closure of <span class="math inline">\(R\)</span> in its field of fractions is called its normalization.</li>
+</ul>
+<p><strong>Proposition:</strong> The following are equivalent:</p>
+<ul>
+<li><span class="math inline">\(a\)</span> is integral over <span class="math inline">\(R\)</span>.</li>
+<li><span class="math inline">\(R[a]\)</span> is a finitely generated <span class="math inline">\(R\)</span> module.</li>
+<li>There is a subring <span class="math inline">\(R\subset T\subset S\)</span> containing <span class="math inline">\(a\)</span> wuch that <span class="math inline">\(T\)</span> is a finitely generated <span class="math inline">\(R\)</span>-module</li>
+</ul>
+<p><strong>Proof:</strong> If <span class="math inline">\(a\)</span> satisfies the monic polynomial <span class="math inline">\(x^n+r_{n-1}x^{n-1}+\cdots+r_0\)</span>, then any element of <span class="math inline">\(R[a]\)</span> can be written as a linear combination of <span class="math inline">\(1,a,a^2,\ldots, a^{n-1}\)</span>. So <span class="math inline">\(R[a]\)</span> is finitely generated. The ring <span class="math inline">\(R[a]\subset S\)</span> is a finitely generated <span class="math inline">\(R\)</span> module inside <span class="math inline">\(S\)</span>. Finally, if <span class="math inline">\(a\)</span> belongs to a finitely generated <span class="math inline">\(R\)</span> module <span class="math inline">\(T\)</span>, choose generators for <span class="math inline">\(T\)</span> <span class="math inline">\(t_1,\ldots, t_n\)</span> over <span class="math inline">\(R\)</span> and consider the equations</p>
+<p><span class="math display">\[
+at_{i}=\sum r_{ij}t_{j}
+\]</span></p>
+<p>The element <span class="math inline">\(a\)</span> satisfies the (monic) characteristic polynomial made from the entries <span class="math inline">\(r_{ij}\)</span>, so <span class="math inline">\(a\)</span> is integral over <span class="math inline">\(R\)</span>.</p>
+<p><strong>Corollary:</strong> The sum and product of integral elements are integral; the integral closure of <span class="math inline">\(R\)</span> in <span class="math inline">\(S\)</span> is a subring of <span class="math inline">\(S\)</span>; and if <span class="math inline">\(S\)</span> is integral over <span class="math inline">\(R\)</span> and <span class="math inline">\(T\)</span> is integral over <span class="math inline">\(S\)</span> then <span class="math inline">\(T\)</span> is integral over <span class="math inline">\(R\)</span>.</p>
+<p><strong>Corollary:</strong> Let <span class="math inline">\(\tilde{R}\)</span> be the integral closure of <span class="math inline">\(R\)</span> in <span class="math inline">\(S\)</span>. Then <span class="math inline">\(\tilde{R}\)</span> is integrally closed.</p>
+<p><strong>Proof:</strong> If <span class="math inline">\(x\in S\)</span> is integral over <span class="math inline">\(\tilde{R}\)</span>, then since <span class="math inline">\(\tilde{R}\)</span> is integral over <span class="math inline">\(R\)</span>, we have <span class="math inline">\(x\)</span> is integral over <span class="math inline">\(R\)</span> so belongs to <span class="math inline">\(\tilde{R}\)</span>.</p>
+<p><strong>Proposition:</strong> Suppose that <span class="math inline">\(S\)</span> is an <span class="math inline">\(R\)</span>-algebra that is integral over <span class="math inline">\(R\)</span>. Then <span class="math inline">\(R\)</span> is a field if and only if <span class="math inline">\(S\)</span> is a field.</p>
+<p><strong>Proof:</strong> Suppose first that <span class="math inline">\(R\)</span> is a field. Choose <span class="math inline">\(s\in S\)</span>. Then</p>
+<p><span class="math display">\[
+s^{n}+r_{n-1}s^{n-1}+\cdots+r_{0}=0
+\]</span></p>
+<p>where we can assume <span class="math inline">\(r_{0}\not=0\)</span>. Then</p>
+<p><span class="math display">\[
+s(s^{n-1}+r_{n-1}s^{n-2}+\cdots+r_{1})=-r_{0}.
+\]</span></p>
+<p>Since <span class="math inline">\(-r_0\not=0\)</span>, we can divide the polynomial on the right by <span class="math inline">\(-r_{0}\)</span> to obtain a multiplicative inverse for <span class="math inline">\(s\)</span>.</p>
+<p>Now suppose that <span class="math inline">\(S\)</span> is a field. If <span class="math inline">\(r\in R\)</span>, then <span class="math inline">\(r\in S\)</span>, so <span class="math inline">\(r^{-1}\in S\)</span>. We have</p>
+<p><span class="math display">\[
+r^{-m}+r_{m-1}r^{-m-1}+\cdots+r_{0}=0
+\]</span></p>
+<p>so by clearing demoninators we can write <span class="math inline">\(r^{-1}\)</span> as an element of <span class="math inline">\(R\)</span>.</p>
+</div><div id="noether-normalization" class="slide section level3">
+<h1>Noether Normalization</h1>
+<p><strong>Definition:</strong> Elements <span class="math inline">\(x_1,\ldots, x_n\)</span> in a <span class="math inline">\(k\)</span>-algebra <span class="math inline">\(S\)</span> are called algebraically independent if there are no nonzero polynomial relations among them: there are no polynomials <span class="math inline">\(p\)</span> so that <span class="math inline">\(p(x_1,\ldots, x_n)=0\)</span>. In other words, they generate a copy of <span class="math inline">\(k[x_1,\ldots, x_n]\subset S\)</span>.</p>
+<p><strong>Theorem:</strong> (Noether Normalization) Let <span class="math inline">\(k\)</span> be a field and let <span class="math inline">\(A\)</span> be a finitely generated <span class="math inline">\(k\)</span>-algebra. Then there are algebraically independent elements <span class="math inline">\(y_1,\ldots, y_q\)</span> in <span class="math inline">\(A\)</span> such that <span class="math inline">\(A\)</span> is integral over <span class="math inline">\(k[y_1,\ldots, y_q]\)</span>.</p>
+<p><strong>Proof:</strong> The proof is by induction and is (more or less) algorithmic. Start with generators <span class="math inline">\(x_1,\ldots, x_n\)</span> for <span class="math inline">\(A\)</span>. If they are algebraically independent, you’re done. Otherwise you have a polynomial relation</p>
+<p><span class="math display">\[
+p(x_1,\ldots, x_n)=0.
+\]</span></p>
+<p>This is a sum of monomials <span class="math inline">\(x_1^{a_1}\cdots x_n^{a_n}\)</span>. The degree of <span class="math inline">\(p\)</span> is the largest of the sums of these exponents; call that <span class="math inline">\(d\)</span>. Then let <span class="math inline">\(\alpha\)</span> be any integer bigger than <span class="math inline">\(d\)</span> (<span class="math inline">\(d+1\)</span> works fine).</p>
+<p>Introduce new coordinates <span class="math inline">\(X_i\)</span> (for <span class="math inline">\(i=1,\ldots, n-1\)</span>) by:</p>
+<p><span class="math display">\[
+\begin{array}{rcl}
+x_1 &amp;=&amp; X_1 + x_n^{\alpha}\\
+x_2 &amp;=&amp; X_2 + x_n^{\alpha^2}\\
+\vdots &amp;=&amp; \vdots\\
+x_{n-1} &amp;=&amp; X_{n-1} + x_n^{\alpha^{n-1}}\\
+\end{array}
+\]</span></p>
+<p>If we substitute the new coordinates, we get <span class="math inline">\(p(X_1+x_m^{\alpha},\cdots, X_{n-1}+x_n^{\alpha^{n-1}},x_n)=0\)</span>. But a monomial <span class="math inline">\(x_1^{a_1}\cdots x_n^{a_n}\)</span> will contribute a term</p>
+<p><span class="math display">\[
+x_n^{a_n+a_{n-1}\alpha^{n-1}+a_{n-2}\alpha^{n-2}+\cdots+a_1\alpha}
+\]</span></p>
+<p>and since we choose <span class="math inline">\(\alpha\)</span> bigger than <span class="math inline">\(d\)</span> we have all <span class="math inline">\(a_i&lt;\alpha\)</span>. In other words, all of these exponents of <span class="math inline">\(x_n\)</span> are distinct (they are different in base <span class="math inline">\(\alpha\)</span>).</p>
+<p>It follows that the polynomial <span class="math inline">\(p(X_1+x_m^{\alpha},\cdots, X_{n-1}+x_n^{\alpha^{n-1}},x_n)\)</span> has the form</p>
+<p><span class="math display">\[
+p(X_1+x_m^{\alpha},\cdots, X_{n-1}+x_n^{\alpha^{n-1}},x_n)=cx_m^{N}+\sum H_{i}(X_1,\ldots, X_{n-1})x_m^{i}
+\]</span></p>
+<p>and so <span class="math inline">\(x_m\)</span> is integral over the subring <span class="math inline">\(B=k[X_1,\ldots, X_{m-1}]\)</span>. But then <span class="math inline">\(x_i\)</span> for <span class="math inline">\(i=1,\ldots,n-1\)</span> are integral over <span class="math inline">\(B[x_{m}]\)</span> because they satisfy the equations <span class="math inline">\(x_i-X_{i}-x_{n}^{\alpha^{i}}\)</span>. Therefore <span class="math inline">\(A\)</span> is integral over <span class="math inline">\(B\)</span> (which has fewer generators). Continue by induction.</p>
+<p><strong>Theorem:</strong> (the “weak” nullstellensatz) Let <span class="math inline">\(k\)</span> be an algebraically closed field and let <span class="math inline">\(A=k[x_1,\ldots, x_n]\)</span>. Then the maximal ideals <span class="math inline">\(M\)</span> of <span class="math inline">\(A\)</span> are all of the form <span class="math display">\[M=(x-a_1,\ldots, x-a_n)\]</span> where the <span class="math inline">\(a_i\in k\)</span>.</p>
+<p><strong>Corollary:</strong> The correspondence between ideals and algebraic sets gives a bijection between points and maximal ideals of <span class="math inline">\(\mathbb{A}^{n}_{k}\)</span>.</p>
+<p><strong>Corollary:</strong> Let <span class="math inline">\(f_1,\ldots, f_k\in A\)</span>. Then either the <span class="math inline">\(f_{i}\)</span> have a common zero, or there are polynomials <span class="math inline">\(g_1,\ldots, g_k\)</span> in <span class="math inline">\(A\)</span> such that</p>
+<p><span class="math display">\[
+1=\sum g_{i}f_{i}.
+\]</span></p>
+<p><strong>Proof:</strong> (of the theorem) Clearly an ideal of the form <span class="math inline">\((x_1-a_1,\ldots, x_n-a_n)\)</span> is maximal, so suppose <span class="math inline">\(M\)</span> is a maximal ideal of <span class="math inline">\(A\)</span>. Let <span class="math inline">\(E=A/M\)</span>. Then <span class="math inline">\(E\)</span> is a finitely generated <span class="math inline">\(k\)</span>-algebra, so there are algebraically independent elements <span class="math inline">\(y_1,\ldots, y_k\)</span> such that <span class="math inline">\(E\)</span> is integral over <span class="math inline">\(k[y_1,\ldots, y_k]\)</span>. But <span class="math inline">\(E\)</span> is a field, so <span class="math inline">\(k[y_1,\ldots, y_k]\)</span> is a field. But this can only happen if <span class="math inline">\(k=0\)</span>. Then <span class="math inline">\(E/k\)</span> is a finite integral (i.e. algebraic) extension of <span class="math inline">\(k\)</span>, and <span class="math inline">\(k\)</span> is algebraically closed, so <span class="math inline">\(E=k\)</span>. This means that each of the generators <span class="math inline">\(x_i\)</span> is congruent mod <span class="math inline">\(M\)</span> to an element of <span class="math inline">\(k\)</span>, or in other words <span class="math inline">\(M\)</span> is of the desired form.</p>
+<p>For the corollaries, any proper ideal <span class="math inline">\(I\)</span> of <span class="math inline">\(A\)</span> is contained in a maximal ideal <span class="math inline">\(M\)</span>, so if <span class="math inline">\(X(I)\)</span> contains the point corresponding to <span class="math inline">\(M\)</span>. So the points of <span class="math inline">\(X(I)\)</span> correspond to the maximal ideals containing <span class="math inline">\(I\)</span>.</p>
+<p>Finally, if the <span class="math inline">\(f_i\)</span> have no common zero, then they must not generate a proper ideal, so the ideal they generate contains <span class="math inline">\(1\)</span>.</p>
+<p><strong>Theorem:</strong> (Nullstellensatz, “strong” form) Let <span class="math inline">\(k\)</span> be an algebraically closed field. Then if <span class="math inline">\(J\subset A\)</span> is any ideal, <span class="math inline">\(I(X(J))=\mathrm{rad}(J)\)</span>. Thus (assuming <span class="math inline">\(k\)</span> is algebraically closed) there are mutually inverse bijections between algebraic sets in <span class="math inline">\(\mathbb{A}^{n}_{k}\)</span> and radical ideals in <span class="math inline">\(A\)</span>.</p>
+<p><strong>Proof:</strong> We know that <span class="math inline">\(\mathrm{rad}(J)\subset I(X(J))\)</span> so we need to prove the opposite. We know that <span class="math inline">\(J\)</span> is finitely generated, say by <span class="math inline">\(f_1,\ldots, f_k\)</span>. Let <span class="math inline">\(g\)</span> be any polynomial vanishing on <span class="math inline">\(X(J)\)</span>. Make a new ring <span class="math inline">\(A&#39;\)</span> by introducing a new variable <span class="math inline">\(x_{n+1}\)</span> and a new ideal <span class="math inline">\(J&#39;\in A&#39;\)</span> by adding the relation <span class="math inline">\(gx_{n+1}-1\)</span>. (Notice that this means that <span class="math inline">\(x_{n+1}\)</span> is <span class="math inline">\(1/g\)</span>.) If the elements of <span class="math inline">\(J&#39;\)</span> had a common zero, all of the <span class="math inline">\(f_{i}\)</span> would vanish at that point and since <span class="math inline">\(g\in I(X(J))\)</span> so would <span class="math inline">\(g\)</span>. But that doesn’t happen, so <span class="math inline">\(J&#39;\)</span> can’t be a proper ideal and so we have an equation</p>
+<p><span class="math display">\[
+1=h_1 f_1 +\cdots + h_k f_k + h_{k+1}(x_{n+1}g-1)
+\]</span></p>
+<p>We can divide this equation by a high power of <span class="math inline">\(x_{n+1}\)</span> so that the powers of <span class="math inline">\(h_{n+1}\)</span> in the coefficients <span class="math inline">\(h_{i}\)</span> are all negative. In other words, writing <span class="math inline">\(y=1/x_{n+1}\)</span>, we get an equation</p>
+<p><span class="math display">\[
+y^{N} = b_1 f_1 +\cdots +b_k f_k + b_{k+1}(g-y)
+\]</span></p>
+<p>where the <span class="math inline">\(b_{i}\)</span> are polynomials in <span class="math inline">\(x_1,\ldots, x_n\)</span> and <span class="math inline">\(y\)</span>. This is an equation in <span class="math inline">\(A&#39;\)</span>, where <span class="math inline">\(g=1/x_{n+1}\)</span>, so this means (substituting <span class="math inline">\(g\)</span> for <span class="math inline">\(y\)</span>) that we have an equation showing that <span class="math inline">\(g^{N}\)</span> is in the ideal generated by the <span class="math inline">\(f_{i}\)</span>, so <span class="math inline">\(g\in\mathrm{rad}(J)\)</span>.</p>
+</div>
+</body>
+</html>
