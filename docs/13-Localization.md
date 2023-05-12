@@ -139,3 +139,6 @@ $(1,d')\otimes m'$. So $1/d\otimes m = 1/udd'\otimes ud'm=1/udd'\otimes udm' = 1
 - $M=0$
 - $M_P=0$ for all primes $P$ of $R$
 - $M_m=0$ for all maximal ideals $m$ of $R$.
+
+**Proposition:** Let $R$ be an integral domain.  Then $R$ is integrally closed if and only if $R_P$ is integrally closed for all prime ideals iff $R_M$ is integrally
+closed for all maximal ideals.
