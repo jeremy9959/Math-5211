@@ -113,8 +113,6 @@ $(1,d')\otimes m'$. So $1/d\otimes m = 1/udd'\otimes ud'm=1/udd'\otimes udm' = 1
 
 ### Local Rings
 
-### Local Rings
-
 **Definition:** A commutative ring with unity that has a unique maximal ideal is called a _local ring._
 
 **Proposition:** TFAE:

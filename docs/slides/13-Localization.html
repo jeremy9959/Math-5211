@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+ "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <title>12. Localization</title>
+  <style type="text/css">
+    
+  </style>
+  <link rel="stylesheet" type="text/css" media="screen, projection, print"
+    href="https://www.w3.org/Talks/Tools/Slidy2/styles/slidy.css" />
+  <script type="text/javascript">
+      window.MathJax = {
+        loader: {
+        load: ['[custom]/xypic.js'],
+        paths: {custom: 'https://cdn.jsdelivr.net/gh/sonoisa/XyJax-v3@3.0.1/build/'}
+      },
+        tex: {
+          packages: {'[+]': ['xypic']},
+          tags: "ams",
+          inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+          displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+          processEscapes: true,
+          macros: {
+            Z: "{\\mathbb{Z}}",
+            Zn: ["{\\mathbb{Z}/#1 \\mathbb{Z}}",1],
+            GL: "{\\mathrm{GL}}",
+            lessim: "{\\lesssim}",
+            R: "{\\mathbb{R}}",
+            Q: "{\\mathbb{Q}}",
+            N: "{\\mathbb{N}}",
+            SL: "{\\mathrm{SL}}",
+            PGL: "{\\mathrm{PGL}}",
+            C: "{\\mathbb{C}}",
+            Stab: "{\\mathrm{Stab}}",
+            Aut: "{\\mathrm{Aut}}",
+            End: "{\\mathrm{End}}",
+            isom: "{\\cong}",
+            order: ["{\\lvert#1\\rvert}",1],
+            divides: "{\\vert}",
+            semi: "{\\rtimes}",
+            End: "{\\mathrm{End}}",
+            dim: "{\\mathrm{dim}}",
+            Hom: "{\\mathrm{Hom}}",
+            Pol: "{\\mathrm{Pol}}",
+            D: "{\\mathcal{D}}",
+            span: "{\\mathrm{span}}",
+            norm: ["{\\lVert #1 \\rVert}",1],
+            Tor: "{\\mathrm{Tor}}",
+            Ann: "{\\mathrm{Ann}}",
+          }
+        }
+      };
+  </script>
+  <script type="text/javascript" id="MathJax-script" async
+    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
+  </script>
+  
+  <!-- LaTeX Macros
+  
+  
+  
+  $$\def\GL{\mathrm{GL}}$$
+  $$\def\Zn#1{\mathbb{Z}/#1\mathbb{Z}}$$
+  $$\def\Z{\mathbb{Z}}$$
+  $$\def\gcd#1#2{\mathrm{gcd}(#1,#2)}$$
+  -->
+  <script src="/usr/share/javascript/mathjax/MathJax.js?config=TeX-AMS_CHTML-full" type="text/javascript"></script>
+  <script src="https://www.w3.org/Talks/Tools/Slidy2/scripts/slidy.js"
+    charset="utf-8" type="text/javascript"></script>
+</head>
+<body>
+<div class="slide titlepage">
+  <h1 class="title">12. Localization</h1>
+</div>
+<div id="localization" class="title-slide slide section level2"><h1>Localization</h1></div><div id="ideals-and-localization" class="slide section level3">
+<h1>Ideals and Localization</h1>
+<p>The ideals of a quotient <span class="math inline">\(R/I\)</span> are the ideals of <span class="math inline">\(R\)</span> containing <span class="math inline">\(I\)</span>. We sill see that, if <span class="math inline">\(P\)</span> is a prime ideal, the ideals of <span class="math inline">\(R_{P}\)</span> are the ideals of <span class="math inline">\(R\)</span> contained in <span class="math inline">\(P\)</span>. So localization allows us to focus on a limited set of primes in a ring.</p>
+<p><strong>Proposition:</strong> Let <span class="math inline">\(J\)</span> be an ideal of <span class="math inline">\(D^{-1}R\)</span>. Then</p>
+<ol style="list-style-type: decimal">
+<li><span class="math inline">\(\pi^{-1}J\)</span> is an ideal of <span class="math inline">\(R\)</span>, and <span class="math inline">\((\pi^{-1}J)D^{-1}R=J\)</span>. If two ideals <span class="math inline">\(I\)</span> and <span class="math inline">\(I&#39;\)</span> of <span class="math inline">\(D^{-1}R\)</span> have <span class="math inline">\(I\cap R = I&#39;\cap R\)</span>, then <span class="math inline">\(I=I&#39;\)</span>.</li>
+</ol>
+<p>It’s always the case that the inverse image of an ideal is an ideal; and since <span class="math inline">\(\pi(\pi^{-1}(J)\subset J)\)</span> we know that <span class="math inline">\(\pi^{-1}JD^{-1}R\)</span> is contained in <span class="math inline">\(J\)</span>. So suppose <span class="math inline">\((a,d)\in J\subset D^{-1}R\)</span>. Then <span class="math inline">\((a,1)=d(a,d)\in J\)</span>, so <span class="math inline">\(a\in \pi^{-1}J\subset R\)</span>. But then <span class="math inline">\((a,1)\)</span> is in <span class="math inline">\(\pi^{-1}JD^{-1}J\)</span> so <span class="math inline">\((a,1)(1,d)=(a,d)\)</span> is in the extended ideal.</p>
+<ul>
+<li>If <span class="math inline">\(J\)</span> is an ideal of <span class="math inline">\(R\)</span>, then <span class="math inline">\((\pi(I)D^{-1}R)\cap R\)</span> consists of all elements of <span class="math inline">\(R\)</span> such that <span class="math inline">\(dx\in J\)</span> for some <span class="math inline">\(d\in D\)</span>.</li>
+</ul>
+<p>If <span class="math inline">\(dx\in J\)</span>, then in <span class="math inline">\(D^{-1}R\)</span> we have <span class="math inline">\(x=(1/d)y\)</span> where <span class="math inline">\(y\in J\)</span> so <span class="math inline">\(x\)</span> is in the extended ideal, and then in intersection back to <span class="math inline">\(R\)</span>. Conversely, if <span class="math inline">\(x\)</span> is in the intersection back to <span class="math inline">\(R\)</span> then <span class="math inline">\(x=a/d\)</span> where <span class="math inline">\(a\in J\)</span> and <span class="math inline">\(d\in D\)</span>. This means that there is an <span class="math inline">\(e\in D\)</span> so that <span class="math inline">\(e(xd-a)=0\)</span> or <span class="math inline">\(exd=ea\)</span>. Now <span class="math inline">\(ed\)</span> is in <span class="math inline">\(D\)</span>, and <span class="math inline">\(ea\)</span> is in <span class="math inline">\(J\)</span>, so <span class="math inline">\(x\)</span> has the property that a <span class="math inline">\(D\)</span>-multiple of it lands in <span class="math inline">\(J\)</span>.</p>
+<ul>
+<li>There is a bijective correspondence between the primes of <span class="math inline">\(R\)</span> disjoint from <span class="math inline">\(D\)</span> and the primes of <span class="math inline">\(D^{-1}R\)</span>.</li>
+</ul>
+<p>If <span class="math inline">\(Q\)</span> is prime in <span class="math inline">\(D^{-1}R\)</span>, the <span class="math inline">\(Q\cap R\)</span> is prime. So the map in that direction takes prime ideals to prime ideals. Now suppose <span class="math inline">\(P\)</span> is a prime of <span class="math inline">\(R\)</span> and suppose that <span class="math inline">\((x/d)(y/d&#39;)\)</span> is in <span class="math inline">\(PD^{-1}R\)</span>. Then <span class="math inline">\(xy/dd&#39;=c/d\)</span> where <span class="math inline">\(c\in P\)</span> and <span class="math inline">\(d\in D\)</span>. Then there is a <span class="math inline">\(u\in D\)</span> with <span class="math inline">\(u(dxy-cdd&#39;)=0\)</span>. This means that <span class="math inline">\((ud)(xy)\)</span> is in <span class="math inline">\(P\)</span>. Since <span class="math inline">\(P\)</span> does not meet <span class="math inline">\(D\)</span>, that means <span class="math inline">\(xy\)</span> is in <span class="math inline">\(P\)</span>. That in turn means either <span class="math inline">\(x\)</span> or <span class="math inline">\(y\)</span> is in <span class="math inline">\(P\)</span>, so either <span class="math inline">\(x/d\)</span> or <span class="math inline">\(x&#39;/d&#39;\)</span> is in <span class="math inline">\(PD^{-1}R\)</span>, so that ideal is prime.</p>
+<ul>
+<li>If <span class="math inline">\(R\)</span> is Noetherian, so is <span class="math inline">\(D^{-1}R\)</span>.</li>
+</ul>
+<p>This follows from (1) since an ascending chain of ideals of <span class="math inline">\(D^{-1}R\)</span> contracts to one in <span class="math inline">\(R\)</span>, which then terminates; and the extension of that termination gives a termination of the original chain.</p>
+</div><div id="localization-of-modules" class="slide section level3">
+<h1>Localization of modules</h1>
+<p>Let <span class="math inline">\(M\)</span> be a module over the ring <span class="math inline">\(R\)</span> and let <span class="math inline">\(D\)</span> be a multiplicatively closed subset of <span class="math inline">\(R\)</span>.</p>
+<p><strong>Definition:</strong> <span class="math inline">\(D^{-1}M\)</span> is the module <span class="math inline">\(M\times D/\sim\)</span> where the equivalence relation <span class="math inline">\(\sim\)</span> is given by <span class="math inline">\((m,d)\sim (m&#39;,d&#39;)\)</span> if there is an <span class="math inline">\(x\in D\)</span> so that <span class="math inline">\(x(md&#39;-dm&#39;)=0\)</span>. There is a natural map <span class="math inline">\(M\to D^{-1}M\)</span> sending <span class="math inline">\(m\to (m,1)\)</span>. <span class="math inline">\(D^{-1}M\)</span> is a <span class="math inline">\(D^{-1}R\)</span> module via the action <span class="math inline">\((r,d)(m,d&#39;)=(rm,dd&#39;)\)</span>.</p>
+<p>As in the case of rings above, the kernel of the map <span class="math inline">\(M\to D^{-1}M\)</span> is the subset of <span class="math inline">\(M\)</span> such that <span class="math inline">\(dm=0\)</span> for some <span class="math inline">\(d\in D\)</span>.</p>
+<p>Given a map <span class="math inline">\(f:M\to N\)</span>, there is a map <span class="math inline">\(f:D^{-1}M\to D^{-1}N\)</span> defined by <span class="math inline">\(f(m,d)=(f(m),d)\)</span>.</p>
+<p><strong>Proposition:</strong> <span class="math inline">\(D^{-1}M\)</span> is isomorphic to <span class="math inline">\(D^{-1}R\otimes_{R}M\)</span>.</p>
+<p><strong>Proof:</strong> The map <span class="math inline">\(D^{-1}R\times M \to D^{-1}M\)</span> given by <span class="math inline">\(((r,d),m)\mapsto (rm,d)\)</span> is bilinear and so yields a map from the tensor product to <span class="math inline">\(D^{-1}M\)</span>. The inverse map sends <span class="math inline">\((m,d)\to (1,d)\otimes m\)</span>. (If (m,d)=(m’,d’) then <span class="math inline">\(u(md&#39;-dm&#39;)=0\)</span> for some <span class="math inline">\(u\in D\)</span>. But <span class="math inline">\((m,d)\)</span> maps to <span class="math inline">\((1,d)\otimes m\)</span> and <span class="math inline">\((m&#39;,d&#39;)\)</span> maps to <span class="math inline">\((1,d&#39;)\otimes m&#39;\)</span>. So <span class="math inline">\(1/d\otimes m = 1/udd&#39;\otimes ud&#39;m=1/udd&#39;\otimes udm&#39; = 1/d&#39;\otimes m&#39;\)</span>). These maps are <span class="math inline">\(D^{-1}R\)</span> module homomorphisms.</p>
+<p><strong>Functorial properties of localization:</strong></p>
+<ol style="list-style-type: decimal">
+<li><p>Localization commutes with finite sums and intersections of ideals.</p></li>
+<li><p>Localization commutes with radicals: the radical of <span class="math inline">\(D^{-1}I\)</span> is <span class="math inline">\(D^{-1}(\mathrm{rad} I)\)</span>.</p></li>
+<li><p>Localization commutes with finite sums, intersections, and quotients of modules.</p></li>
+<li><p>Localization commutes with finite direct sums.</p></li>
+<li><p>Localization is flat.</p></li>
+</ol>
+</div><div id="local-rings" class="slide section level3">
+<h1>Local Rings</h1>
+</div><div id="local-rings-1" class="slide section level3">
+<h1>Local Rings</h1>
+<p><strong>Definition:</strong> A commutative ring with unity that has a unique maximal ideal is called a <em>local ring.</em></p>
+<p><strong>Proposition:</strong> TFAE:</p>
+<ul>
+<li><span class="math inline">\(R\)</span> is local with maximal ideal <span class="math inline">\(M\)</span></li>
+<li>The units of <span class="math inline">\(R\)</span> are exactly the elements of <span class="math inline">\(R\)</span> outside <span class="math inline">\(M\)</span>.</li>
+<li>there is a maximal ideal <span class="math inline">\(M\)</span> of <span class="math inline">\(R\)</span> wuch that <span class="math inline">\(1+m\)</span> is a unity for <span class="math inline">\(m\in M\)</span>.</li>
+</ul>
+<p><strong>Proposition:</strong> Let <span class="math inline">\(R\)</span> be a commutative ring with 1 and let <span class="math inline">\(R_P\)</span> be the localization of <span class="math inline">\(R\)</span> at <span class="math inline">\(P\)</span>.</p>
+<ul>
+<li><p><span class="math inline">\(R_P\)</span> is local with maximal ideal <span class="math inline">\(P^e=PR_P\)</span>. The map <span class="math inline">\(R\to R_P\)</span> induces an injection <span class="math inline">\(R/P\to R_P/PR_P\)</span>. <span class="math inline">\(R_P/PR_P\)</span> is a field equal to the quotient field of <span class="math inline">\(R/P\)</span>.</p></li>
+<li><p>If <span class="math inline">\(R\)</span> is an integral domain, so is <span class="math inline">\(R_P\)</span>. The map <span class="math inline">\(R\to R_P\)</span> is injective.</p></li>
+<li><p>The prime ideals of <span class="math inline">\(R_P\)</span> are in bijective correspondence with the prime ideals of <span class="math inline">\(R\)</span> contained in <span class="math inline">\(P\)</span>.</p></li>
+<li><p>If <span class="math inline">\(P\)</span> is a maximal ideal then <span class="math inline">\(R/M\)</span> is isomorphic to <span class="math inline">\(R_M/MR_M\)</span>.</p></li>
+</ul>
+<p><strong>Lemma:</strong> Let <span class="math inline">\(M\)</span> be an <span class="math inline">\(R\)</span> module. Then TFAE:</p>
+</div>
+</body>
+</html>
